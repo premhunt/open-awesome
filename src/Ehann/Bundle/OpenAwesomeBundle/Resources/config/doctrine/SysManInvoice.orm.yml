@@ -1,0 +1,67 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysManInvoice:
+    type: entity
+    table: sys_man_invoice
+    id:
+        invoiceId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: invoice_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        orgId:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: org_id
+        purchaseOrder:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: purchase_order
+        costCenter:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: cost_center
+        dateReceived:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: date_received
+        datePaid:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: date_paid
+        supplier:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+        filename:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+    lifecycleCallbacks: {  }

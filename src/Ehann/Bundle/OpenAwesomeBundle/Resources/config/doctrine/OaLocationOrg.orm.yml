@@ -1,0 +1,49 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaLocationOrg:
+    type: entity
+    table: oa_location_org
+    indexes:
+        id2:
+            columns:
+                - location_id
+        id3:
+            columns:
+                - org_id
+    id:
+        locOrgId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: loc_org_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        locationName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_name
+    manyToOne:
+        location:
+            targetEntity: OaLocation
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                location_id:
+                    referencedColumnName: location_id
+            orphanRemoval: false
+        org:
+            targetEntity: OaOrg
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                org_id:
+                    referencedColumnName: org_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

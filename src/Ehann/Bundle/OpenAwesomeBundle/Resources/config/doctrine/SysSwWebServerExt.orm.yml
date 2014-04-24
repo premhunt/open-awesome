@@ -1,0 +1,76 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwWebServerExt:
+    type: entity
+    table: sys_sw_web_server_ext
+    indexes:
+        webserver_id:
+            columns:
+                - webserver_id
+        system_id:
+            columns:
+                - system_id
+    id:
+        extId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: ext_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        extName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: ext_name
+        extPath:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: ext_path
+        extAccess:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: ext_access
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+        webserver:
+            targetEntity: SysSwWebServer
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                webserver_id:
+                    referencedColumnName: webserver_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

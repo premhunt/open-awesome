@@ -1,0 +1,213 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftware:
+    type: entity
+    table: sys_sw_software
+    indexes:
+        system_id:
+            columns:
+                - system_id
+        timestamp:
+            columns:
+                - timestamp
+        first_timestamp:
+            columns:
+                - first_timestamp
+        software_name:
+            columns:
+                - software_name
+    id:
+        softwareId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: software_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        softwareName:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_name
+        softwareVersion:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_version
+        softwareDescription:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: software_description
+        softwareLocation:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_location
+        softwareUninstall:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: software_uninstall
+        softwareInstallDate:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_install_date
+        softwareInstalledBy:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_installed_by
+        softwareInstalledOn:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: software_installed_on
+        softwarePublisher:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_publisher
+        softwareInstallSource:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_install_source
+        softwareSystemComponent:
+            type: string
+            nullable: false
+            length: 2
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_system_component
+        softwareUrl:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_url
+        softwareEmail:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_email
+        softwareComment:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_comment
+        softwareManComment:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_man_comment
+        softwareCount:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_count
+        softwareCodeBase:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_code_base
+        softwareStatus:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_status
+        softwareKey:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_key
+        softwareKeyRelease:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_key_release
+        softwareKeyEdition:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+            default: ''
+            column: software_key_edition
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

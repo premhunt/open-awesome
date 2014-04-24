@@ -1,0 +1,54 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaConfig:
+    type: entity
+    table: oa_config
+    id:
+        configName:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+            default: ''
+            id: true
+            column: config_name
+            generator:
+                strategy: IDENTITY
+    fields:
+        configValue:
+            type: string
+            nullable: false
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+            column: config_value
+        configEditable:
+            type: string
+            nullable: false
+            length: 1
+            fixed: false
+            comment: ''
+            default: n
+            column: config_editable
+        configEditedDate:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: config_edited_date
+        configEditedBy:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: config_edited_by
+        configDescription:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: config_description
+    lifecycleCallbacks: {  }

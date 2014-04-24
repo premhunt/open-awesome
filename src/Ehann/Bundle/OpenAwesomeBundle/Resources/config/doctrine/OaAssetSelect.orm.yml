@@ -1,0 +1,50 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaAssetSelect:
+    type: entity
+    table: oa_asset_select
+    id:
+        selectId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: select_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        selectName:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: select_name
+        selectType:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: ''
+            column: select_type
+        selectSql:
+            type: string
+            nullable: false
+            length: 250
+            fixed: false
+            comment: ''
+            column: select_sql
+        groupId:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: group_id
+        groupAmount:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: group_amount
+    lifecycleCallbacks: {  }

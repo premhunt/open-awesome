@@ -1,0 +1,59 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaDeviceCol:
+    type: entity
+    table: oa_device_col
+    indexes:
+        dev_id:
+            columns:
+                - dev_id
+    id:
+        colId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: col_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        colTable:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: col_table
+        colColumn:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: col_column
+        colType:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: col_type
+        colOrder:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: col_order
+    manyToOne:
+        dev:
+            targetEntity: OaDevice
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                dev_id:
+                    referencedColumnName: dev_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,4 @@
+ehann_open_awesome:
+    resource: "@EhannOpenAwesomeBundle/Resources/config/routing.yml"
+    prefix:   /
+

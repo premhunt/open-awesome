@@ -1,0 +1,64 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDns:
+    type: entity
+    table: sys_sw_dns
+    indexes:
+        system_id:
+            columns:
+                - system_id
+    id:
+        dnsId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: dns_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dnsName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: dns_name
+        dnsFullName:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: dns_full_name
+        dnsIpAddress:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+            default: ''
+            column: dns_ip_address
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

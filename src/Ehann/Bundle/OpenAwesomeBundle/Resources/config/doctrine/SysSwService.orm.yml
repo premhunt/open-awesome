@@ -1,0 +1,121 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwService:
+    type: entity
+    table: sys_sw_service
+    indexes:
+        system_id:
+            columns:
+                - system_id
+        timestamp:
+            columns:
+                - timestamp
+        first_timestamp:
+            columns:
+                - first_timestamp
+        service_name:
+            columns:
+                - service_name
+        service_display_name:
+            columns:
+                - service_display_name
+    id:
+        serviceId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: service_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        userId:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: user_id
+        serviceDisplayName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: service_display_name
+        serviceName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: service_name
+        servicePathName:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: service_path_name
+        serviceStarted:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            comment: ''
+            default: ''
+            column: service_started
+        serviceStartName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: service_start_name
+        serviceStartMode:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            comment: ''
+            default: ''
+            column: service_start_mode
+        serviceState:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            default: ''
+            column: service_state
+        serviceCount:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+            comment: ''
+            default: ''
+            column: service_count
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

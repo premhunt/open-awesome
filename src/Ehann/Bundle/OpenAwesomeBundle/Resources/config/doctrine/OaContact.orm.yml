@@ -1,0 +1,67 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaContact:
+    type: entity
+    table: oa_contact
+    id:
+        contactId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: contact_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        locationId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: location_id
+        orgId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: org_id
+        name:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+        phoneNumber:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            default: ''
+            column: phone_number
+        mobileNumber:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            default: ''
+            column: mobile_number
+        faxNumber:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            default: ''
+            column: fax_number
+        picture:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+    lifecycleCallbacks: {  }

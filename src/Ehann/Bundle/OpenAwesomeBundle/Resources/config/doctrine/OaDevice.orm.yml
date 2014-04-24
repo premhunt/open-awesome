@@ -1,0 +1,30 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaDevice:
+    type: entity
+    table: oa_device
+    id:
+        devId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: dev_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        devName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: dev_name
+        devGroupId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: dev_group_id
+    lifecycleCallbacks: {  }

@@ -1,0 +1,81 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaGraph:
+    type: entity
+    table: oa_graph
+    indexes:
+        system_id:
+            columns:
+                - system_id
+    id:
+        graphId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: graph_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        type:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: partition
+        foreignId:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: foreign_id
+        foreignDescription:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: foreign_description
+        pathTo:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: path_to
+        used:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        free:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        total:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: CURRENT_TIMESTAMP
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

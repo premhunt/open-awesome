@@ -1,0 +1,72 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftwareKey:
+    type: entity
+    table: sys_sw_software_key
+    indexes:
+        system_id:
+            columns:
+                - system_id
+    id:
+        keyId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: key_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        keyName:
+            type: string
+            nullable: false
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+            column: key_name
+        keyText:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: key_text
+        keyRelease:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: key_release
+        keyEdition:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: key_edition
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

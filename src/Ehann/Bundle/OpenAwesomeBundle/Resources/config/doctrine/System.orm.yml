@@ -1,0 +1,769 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\System:
+    type: entity
+    table: system
+    indexes:
+        id:
+            columns:
+                - timestamp
+        id2:
+            columns:
+                - system_key
+        id3:
+            columns:
+                - man_ip_address
+        hostname:
+            columns:
+                - hostname
+        linked_sys:
+            columns:
+                - linked_sys
+    id:
+        systemId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: system_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        systemKey:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: system_key
+        uuid:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+        hostname:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+        domain:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+        fqdn:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        description:
+            type: string
+            nullable: false
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        type:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        icon:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        osGroup:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: os_group
+        osFamily:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: os_family
+        osName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: os_name
+        osVersion:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: os_version
+        linkedSys:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: linked_sys
+        serial:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+        model:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+        manufacturer:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        uptime:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        formFactor:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: form_factor
+        pcOsBit:
+            type: string
+            nullable: false
+            length: 3
+            fixed: false
+            comment: ''
+            default: ''
+            column: pc_os_bit
+        pcMemory:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: pc_memory
+        pcNumProcessor:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: pc_num_processor
+        pcDateOsInstallation:
+            type: date
+            nullable: false
+            comment: ''
+            default: '0000-00-00'
+            column: pc_date_os_installation
+        printerPortName:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: printer_port_name
+        printerShared:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: printer_shared
+        printerSharedName:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: printer_shared_name
+        printerColor:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+            comment: ''
+            default: ''
+            column: printer_color
+        printerDuplex:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+            comment: ''
+            default: ''
+            column: printer_duplex
+        manOsGroup:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_os_group
+        manOsFamily:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_os_family
+        manOsName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_os_name
+        manDomain:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_domain
+        manStatus:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: production
+            column: man_status
+        manEnvironment:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: production
+            column: man_environment
+        manCriticality:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: normal
+            column: man_criticality
+        manClass:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_class
+        manDescription:
+            type: string
+            nullable: false
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_description
+        manFunction:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_function
+        manType:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_type
+        manIpAddress:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_ip_address
+        manOwner:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_owner
+        manOrgId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: man_org_id
+        manLocationId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: man_location_id
+        manLocationLevel:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_location_level
+        manLocationSuite:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_location_suite
+        manLocationRoom:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_location_room
+        manLocationRack:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_location_rack
+        manLocationRackPosition:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_location_rack_position
+        manLocationRackSize:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: man_location_rack_size
+        manSerial:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_serial
+        manAssetNumber:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_asset_number
+        manModel:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_model
+        manManufacturer:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_manufacturer
+        manFormFactor:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_form_factor
+        manIcon:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_icon
+        manVmServerName:
+            type: string
+            nullable: false
+            length: 150
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_vm_server_name
+        manVmSystemId:
+            type: string
+            nullable: false
+            length: 150
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_vm_system_id
+        manVmGroup:
+            type: string
+            nullable: false
+            length: 150
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_vm_group
+        manClusterName:
+            type: string
+            nullable: false
+            length: 150
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_cluster_name
+        invoiceId:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: invoice_id
+        manPurchaseInvoice:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_purchase_invoice
+        manPurchaseOrderNumber:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_purchase_order_number
+        manPurchaseCostCenter:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_purchase_cost_center
+        manPurchaseVendor:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_purchase_vendor
+        manPurchaseDate:
+            type: date
+            nullable: false
+            comment: ''
+            default: '0000-00-00'
+            column: man_purchase_date
+        manPurchaseAmount:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_purchase_amount
+        manWarrantyDuration:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: man_warranty_duration
+        manWarrantyExpires:
+            type: date
+            nullable: false
+            comment: ''
+            default: '0000-00-00'
+            column: man_warranty_expires
+        manWarrantyType:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_warranty_type
+        manTerminalNumber:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: man_terminal_number
+        manSwitchId:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_switch_id
+        manSwitchPort:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_switch_port
+        manPatchPanel:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_patch_panel
+        manPatchPanelPort:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_patch_panel_port
+        manWallPort:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_wall_port
+        manPicture:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_picture
+        contactName:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: contact_name
+        contactId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: contact_id
+        manServiceNumber:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_service_number
+        manServiceProvider:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_service_provider
+        manServiceType:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_service_type
+        manServicePlan:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_service_plan
+        manServiceNetwork:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_service_network
+        manUnlockPin:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_unlock_pin
+        manSerialImei:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_serial_imei
+        manSerialSim:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_serial_sim
+        nmapType:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: nmap_type
+        lastSeen:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: last_seen
+        lastSeenBy:
+            type: string
+            nullable: false
+            length: 150
+            fixed: false
+            comment: ''
+            default: ''
+            column: last_seen_by
+        lastUser:
+            type: string
+            nullable: false
+            length: 150
+            fixed: false
+            comment: ''
+            default: ''
+            column: last_user
+        accessDetails:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: access_details
+        snmpOid:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: snmp_oid
+        nmisGroup:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: nmis_group
+        nmisName:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: nmis_name
+        nmisRole:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: nmis_role
+        systemKeyType:
+            type: string
+            nullable: false
+            length: 4
+            fixed: false
+            comment: ''
+            default: ''
+            column: system_key_type
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    lifecycleCallbacks: {  }

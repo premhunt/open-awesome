@@ -1,0 +1,122 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwGraphsDisk:
+    type: entity
+    table: sys_hw_graphs_disk
+    indexes:
+        system_id:
+            columns:
+                - system_id
+    id:
+        graphId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: graph_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        diskId:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: disk_id
+        partitionId:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: partition_id
+        directoryId:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: directory_id
+        databaseId:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: database_id
+        graphType:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: partition
+            column: graph_type
+        partitionMountPoint:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_mount_point
+        dirDescription:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: dir_description
+        dirPath:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: dir_path
+        usedPercent:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: used_percent
+        freePercent:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: free_percent
+        used:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        free:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        total:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: CURRENT_TIMESTAMP
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

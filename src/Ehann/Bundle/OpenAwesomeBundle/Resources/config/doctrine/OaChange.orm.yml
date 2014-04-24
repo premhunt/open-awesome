@@ -1,0 +1,114 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaChange:
+    type: entity
+    table: oa_change
+    indexes:
+        oa_change_user_id:
+            columns:
+                - user_id
+    id:
+        changeId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: change_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        changeShortDesc:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: change_short_desc
+        changeReason:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: change_reason
+        changePlannedDate:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: change_planned_date
+        changeImplementedDate:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: change_implemented_date
+        changeExternalId:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: change_external_id
+        changeExternalLink:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: change_external_link
+        changeAuthorisingPerson:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: change_authorising_person
+        changePerformingPerson:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: change_performing_person
+        changeDetailedDesc:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: change_detailed_desc
+        changePotentialIssues:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: change_potential_issues
+        changeBackoutPlan:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: change_backout_plan
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+    manyToOne:
+        user:
+            targetEntity: OaUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

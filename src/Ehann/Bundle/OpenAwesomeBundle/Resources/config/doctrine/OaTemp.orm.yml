@@ -1,0 +1,35 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaTemp:
+    type: entity
+    table: oa_temp
+    id:
+        tempId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: temp_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        tempName:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: temp_name
+        tempValue:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: temp_value
+        tempTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: temp_timestamp
+    lifecycleCallbacks: {  }

@@ -1,0 +1,210 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwWebSite:
+    type: entity
+    table: sys_sw_web_site
+    indexes:
+        webserver_id:
+            columns:
+                - webserver_id
+        system_id:
+            columns:
+                - system_id
+    id:
+        siteId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: site_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        siteInternalId:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            column: site_internal_id
+        siteDescription:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_description
+        siteState:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_state
+        siteLogging:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_logging
+        siteLogFormat:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_log_format
+        siteLogDirectory:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_log_directory
+        siteLogRotation:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_log_rotation
+        siteSecureIp:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_secure_ip
+        siteSecurePort:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_secure_port
+        sitePath:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_path
+        siteSize:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_size
+        siteAppPool:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_app_pool
+        siteDirectoryBrowsing:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_directory_browsing
+        siteAnonUser:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_anon_user
+        siteAnonAuth:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_anon_auth
+        siteBasicAuth:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_basic_auth
+        siteNtlmAuth:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_ntlm_auth
+        siteSslEnabled:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_ssl_enabled
+        siteSsl128Enabled:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_ssl_128_enabled
+        siteDefaultDocuments:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: site_default_documents
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+        webserver:
+            targetEntity: SysSwWebServer
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                webserver_id:
+                    referencedColumnName: webserver_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

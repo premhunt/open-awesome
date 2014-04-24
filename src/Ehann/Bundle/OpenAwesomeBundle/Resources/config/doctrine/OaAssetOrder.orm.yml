@@ -1,0 +1,70 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaAssetOrder:
+    type: entity
+    table: oa_asset_order
+    id:
+        orderId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: order_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        orderDate:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: order_date
+        orderPo:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: order_po
+        orderVn:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: order_vn
+        orderIn:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: order_in
+        orderVendor:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: order_vendor
+        orderAuthOfficer:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: order_auth_officer
+        orderCostCode:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: order_cost_code
+        orderNotes:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: order_notes
+    lifecycleCallbacks: {  }

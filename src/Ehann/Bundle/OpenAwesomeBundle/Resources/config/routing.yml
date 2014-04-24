@@ -1,0 +1,3 @@
+ehann_open_awesome_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: EhannOpenAwesomeBundle:Default:index }

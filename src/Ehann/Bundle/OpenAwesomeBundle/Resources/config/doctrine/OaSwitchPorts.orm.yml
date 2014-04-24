@@ -1,0 +1,62 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaSwitchPorts:
+    type: entity
+    table: oa_switch_ports
+    indexes:
+        system_id:
+            columns:
+                - system_id
+        switch_system_id:
+            columns:
+                - switch_system_id
+    id:
+        switchId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: switch_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        switchPort:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: switch_port
+        timestamp:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        switchSystem:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                switch_system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

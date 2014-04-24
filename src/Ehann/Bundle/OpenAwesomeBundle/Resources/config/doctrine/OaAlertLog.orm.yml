@@ -1,0 +1,113 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaAlertLog:
+    type: entity
+    table: oa_alert_log
+    indexes:
+        system_id:
+            columns:
+                - system_id
+        oa_alert_log_user_id:
+            columns:
+                - user_id
+        oa_alert_change_id:
+            columns:
+                - change_id
+    id:
+        alertId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: alert_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        alertTable:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: alert_table
+        alertForeignRow:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: alert_foreign_row
+        alertDetails:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            column: alert_details
+        alertAckTime:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: alert_ack_time
+        alertNote:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            column: alert_note
+        externalChangeId:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            column: external_change_id
+        externalChangeLink:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            column: external_change_link
+        changeType:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: ''
+            column: change_type
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+        user:
+            targetEntity: OaUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: user_id
+            orphanRemoval: false
+        change:
+            targetEntity: OaChange
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                change_id:
+                    referencedColumnName: change_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

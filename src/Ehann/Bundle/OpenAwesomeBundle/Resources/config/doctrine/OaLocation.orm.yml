@@ -1,0 +1,196 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaLocation:
+    type: entity
+    table: oa_location
+    id:
+        locationId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: location_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        locationName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_name
+        locationType:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_type
+        locationRoom:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_room
+        locationSuite:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_suite
+        locationLevel:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_level
+        locationAddress:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_address
+        locationSuburb:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_suburb
+        locationCity:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_city
+        locationDistrict:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_district
+        locationRegion:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_region
+        locationArea:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_area
+        locationState:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_state
+        locationPostcode:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_postcode
+        locationCountry:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_country
+        locationTags:
+            type: string
+            nullable: false
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_tags
+        locationPhone:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_phone
+        locationPicture:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_picture
+        locationLatitude:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 6
+            comment: ''
+            column: location_latitude
+        locationLongitude:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 6
+            comment: ''
+            column: location_longitude
+        locationGeo:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_geo
+        locationComments:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_comments
+        locationIcon:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: location_icon
+        locationGroupId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: location_group_id
+    lifecycleCallbacks: {  }

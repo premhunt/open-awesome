@@ -1,0 +1,85 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaReportColumn:
+    type: entity
+    table: oa_report_column
+    indexes:
+        report_id:
+            columns:
+                - report_id
+    id:
+        columnId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: column_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        columnOrder:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            column: column_order
+        columnName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: column_name
+        columnVariable:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: column_variable
+        columnType:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: ''
+            column: column_type
+        columnLink:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: column_link
+        columnSecondary:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: column_secondary
+        columnTernary:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: column_ternary
+        columnAlign:
+            type: string
+            nullable: false
+            length: 6
+            fixed: false
+            comment: ''
+            column: column_align
+    manyToOne:
+        report:
+            targetEntity: OaReport
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                report_id:
+                    referencedColumnName: report_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

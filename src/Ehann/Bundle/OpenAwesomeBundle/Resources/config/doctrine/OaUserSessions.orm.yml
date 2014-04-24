@@ -1,0 +1,46 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaUserSessions:
+    type: entity
+    table: oa_user_sessions
+    id:
+        sessionId:
+            type: string
+            nullable: false
+            length: 40
+            fixed: false
+            comment: ''
+            default: '0'
+            id: true
+            column: session_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        ipAddress:
+            type: string
+            nullable: false
+            length: 16
+            fixed: false
+            comment: ''
+            default: '0'
+            column: ip_address
+        userAgent:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: user_agent
+        lastActivity:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: last_activity
+        userData:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: user_data
+    lifecycleCallbacks: {  }

@@ -1,0 +1,69 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysManAdditionalFieldsData:
+    type: entity
+    table: sys_man_additional_fields_data
+    indexes:
+        system_id:
+            columns:
+                - system_id
+        sys_man_additional_fields_data_field_id:
+            columns:
+                - field_id
+    id:
+        fieldDetailsId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: field_details_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        fieldDatetime:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '2000-01-01 00:00:00'
+            column: field_datetime
+        fieldVarchar:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: field_varchar
+        fieldInt:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: field_int
+        fieldMemo:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: field_memo
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+        field:
+            targetEntity: SysManAdditionalFields
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                field_id:
+                    referencedColumnName: field_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

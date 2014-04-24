@@ -1,0 +1,165 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwPartition:
+    type: entity
+    table: sys_hw_partition
+    indexes:
+        system_id:
+            columns:
+                - system_id
+    id:
+        partitionId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: partition_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        hardDriveIndex:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: hard_drive_index
+        partitionMountType:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_mount_type
+        partitionMountPoint:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_mount_point
+        partitionName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_name
+        partitionSize:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '1'
+            column: partition_size
+        partitionFreeSpace:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '1'
+            column: partition_free_space
+        partitionUsedSpace:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '1'
+            column: partition_used_space
+        partitionFormat:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_format
+        partitionCaption:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_caption
+        partitionDeviceId:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_device_id
+        partitionDiskIndex:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_disk_index
+        partitionBootable:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_bootable
+        partitionType:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_type
+        partitionQuotasSupported:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_quotas_supported
+        partitionQuotasEnabled:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_quotas_enabled
+        partitionSerial:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: partition_serial
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

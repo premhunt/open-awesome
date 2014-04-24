@@ -1,0 +1,76 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwWebSiteVirtual:
+    type: entity
+    table: sys_sw_web_site_virtual
+    indexes:
+        site_id:
+            columns:
+                - site_id
+        system_id:
+            columns:
+                - system_id
+    id:
+        virtualId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: virtual_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        virtualName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: virtual_name
+        virtualPath:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: virtual_path
+        virtualAppPool:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: virtual_app_pool
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+        site:
+            targetEntity: SysSwWebSite
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                site_id:
+                    referencedColumnName: site_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

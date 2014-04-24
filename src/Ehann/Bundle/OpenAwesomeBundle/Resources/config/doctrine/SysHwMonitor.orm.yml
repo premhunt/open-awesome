@@ -1,0 +1,138 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMonitor:
+    type: entity
+    table: sys_hw_monitor
+    indexes:
+        system_id:
+            columns:
+                - system_id
+    id:
+        monitorId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: monitor_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        manufacturer:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+        deviceId:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: device_id
+        manufactureDate:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            default: ''
+            column: manufacture_date
+        model:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+        serial:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        size:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+            comment: ''
+            default: ''
+        aspectRatio:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+            comment: ''
+            default: ''
+            column: aspect_ratio
+        manSerial:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_serial
+        edidVersion:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: edid_version
+        manDescription:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_description
+        manValue:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_value
+        manPurchaseOrderNumber:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: man_purchase_order_number
+        manDatePurchased:
+            type: date
+            nullable: false
+            comment: ''
+            default: '0000-00-00'
+            column: man_date_purchased
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

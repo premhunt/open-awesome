@@ -1,0 +1,76 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\OaGroup:
+    type: entity
+    table: oa_group
+    id:
+        groupId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: group_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        groupName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: group_name
+        groupPaddedName:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: group_padded_name
+        groupDynamicSelect:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: group_dynamic_select
+        groupParent:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '1'
+            column: group_parent
+        groupDescription:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: group_description
+        groupCategory:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: general
+            column: group_category
+        groupDisplaySql:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: group_display_sql
+        groupIcon:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: group_icon
+    lifecycleCallbacks: {  }

@@ -1,0 +1,72 @@
+Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwScsiController:
+    type: entity
+    table: sys_hw_scsi_controller
+    indexes:
+        system_id:
+            columns:
+                - system_id
+    id:
+        scsiControllerId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: scsi_controller_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        scsiControllerName:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: scsi_controller_name
+        scsiControllerManufacturer:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            default: ''
+            column: scsi_controller_manufacturer
+        scsiControllerDeviceId:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            default: ''
+            column: scsi_controller_device_id
+        scsiControllerType:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            default: other
+            column: scsi_controller_type
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+        firstTimestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: first_timestamp
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: system_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
