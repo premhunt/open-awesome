@@ -1,0 +1,14 @@
+{
+  "name": "open-awesome",
+  "description": "AAn IT asset management system.",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ethanhann/open-awesome",
+  "license": "AGPL",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-mocks": "~1.2.15"
+  }
+}
