@@ -9,6 +9,12 @@
     "angular": "1.2.x",
     "angular-route": "1.2.x",
     "angular-loader": "1.2.x",
-    "angular-mocks": "~1.2.15"
+    "angular-mocks": "~1.2.15",
+    "angular-ui-bootstrap-bower": "~0.10.0",
+    "bootstrap": "~3.1.1",
+    "jquery": "~2.1.0",
+    "angular-resource": "~1.2.16",
+    "dynatable": "~0.3.1",
+    "fontawesome": "~4.0.3"
   }
 }

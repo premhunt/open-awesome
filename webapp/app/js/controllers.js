@@ -2,10 +2,10 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
-  .controller('MyCtrl1', [function() {
-
-  }])
-  .controller('MyCtrl2', [function() {
-
-  }]);
+angular.module('openAwesome.controllers', []).controller('MainCtrl', function ($scope, $resource) {
+    $scope.submitSearch = function () {
+        $scope.system = $resource('data/mvp.json');
+        $scope.system.get();
+    };
+    $scope.submitSearch();
+});

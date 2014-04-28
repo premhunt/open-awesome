@@ -1,0 +1,69 @@
+{
+    "records": [
+        {
+            "timestamp": "2014-04-24 22:16:45",
+            "hostname": "mvp",
+            "type": "computer",
+            "os_group": "Windows",
+            "os_family": "Windows 7",
+            "os_name": "Microsoft Windows 7 Enterprise",
+            "ip_address": "192.168.0.1"
+        },
+        {
+            "timestamp": "2014-04-24 22:16:45",
+            "hostname": "cyyoung",
+            "type": "computer",
+            "os_group": "Windows",
+            "os_family": "Windows 7",
+            "os_name": "Microsoft Windows 7 Enterprise",
+            "ip_address": "192.168.0.2"
+        },
+        {
+            "timestamp": "2014-04-24 22:16:45",
+            "hostname": "alpha",
+            "type": "computer",
+            "os_group": "Windows",
+            "os_family": "Windows 7",
+            "os_name": "Microsoft Windows 7 Enterprise",
+            "ip_address": "192.168.0.3"
+        },
+        {
+            "timestamp": "2014-04-24 22:16:45",
+            "hostname": "beta",
+            "type": "computer",
+            "os_group": "Windows",
+            "os_family": "Windows 7",
+            "os_name": "Microsoft Windows 7 Enterprise",
+            "ip_address": "192.168.0.4"
+        },
+        {
+            "timestamp": "2014-04-24 22:16:45",
+            "hostname": "gamma",
+            "type": "computer",
+            "os_group": "Windows",
+            "os_family": "Windows 7",
+            "os_name": "Microsoft Windows 7 Enterprise",
+            "ip_address": "192.168.0.5"
+        },
+        {
+            "timestamp": "2014-04-24 22:16:45",
+            "hostname": "cyyoung",
+            "type": "computer",
+            "os_group": "Windows",
+            "os_family": "Windows 7",
+            "os_name": "Microsoft Windows 7 Enterprise",
+            "ip_address": "192.168.0.6"
+        },
+        {
+            "timestamp": "2014-04-24 22:16:45",
+            "hostname": "cyyoung",
+            "type": "computer",
+            "os_group": "Windows",
+            "os_family": "Windows 7",
+            "os_name": "Microsoft Windows 7 Enterprise",
+            "ip_address": "192.168.0.7"
+        }
+    ],
+    "queryRecordCount": 7,
+    "totalRecordCount": 7
+}
