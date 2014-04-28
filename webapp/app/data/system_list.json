@@ -7,6 +7,7 @@
             "os_group": "Windows",
             "os_family": "Windows 7",
             "os_name": "Microsoft Windows 7 Enterprise",
+            "icon": "windows_7",
             "ip_address": "192.168.0.1"
         },
         {
@@ -14,8 +15,9 @@
             "hostname": "cyyoung",
             "type": "computer",
             "os_group": "Windows",
-            "os_family": "Windows 7",
-            "os_name": "Microsoft Windows 7 Enterprise",
+            "os_family": "Windows 8",
+            "os_name": "Microsoft Windows 8 Enterprise",
+            "icon": "windows_8",
             "ip_address": "192.168.0.2"
         },
         {
@@ -25,6 +27,7 @@
             "os_group": "Windows",
             "os_family": "Windows 7",
             "os_name": "Microsoft Windows 7 Enterprise",
+            "icon": "windows_7",
             "ip_address": "192.168.0.3"
         },
         {
@@ -43,6 +46,7 @@
             "os_group": "Windows",
             "os_family": "Windows 7",
             "os_name": "Microsoft Windows 7 Enterprise",
+            "icon": "windows_7",
             "ip_address": "192.168.0.5"
         },
         {
@@ -52,6 +56,7 @@
             "os_group": "Windows",
             "os_family": "Windows 7",
             "os_name": "Microsoft Windows 7 Enterprise",
+            "icon": "windows_7",
             "ip_address": "192.168.0.6"
         },
         {
@@ -61,6 +66,7 @@
             "os_group": "Windows",
             "os_family": "Windows 7",
             "os_name": "Microsoft Windows 7 Enterprise",
+            "icon": "windows_7",
             "ip_address": "192.168.0.7"
         }
     ],

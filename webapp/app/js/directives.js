@@ -5,7 +5,16 @@
 angular.module('openAwesome.directives', []).directive('dynatable', function () {
     return {
         link: function (scope, element) {
+            function osNameWriter(column, record) {
+                return column.id === 'os_name' && angular.isDefined(record.icon) ?
+                    '<td><img src="img/tango-images/16_' + record.icon + '.png"></td>' :
+                    '<td>' + record[column.id] + '</td>';
+            }
+
             element.dynatable({
+                writers: {
+                    _cellWriter: osNameWriter
+                },
                 features: {
                     sort: false,
                     pushState: false,
