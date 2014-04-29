@@ -17,29 +17,30 @@
         </div>
         <div class="col-sm-8">
             <!--<div>{{ system|json }}</div>-->
-           <ul>
-               <li ng-repeat="(key, value) in system.sys">
-                   <strong>{{ humanize(key) }}:</strong>
-                   <span ng-if="isString(value)">{{ value }}</span>
-                   <span ng-if="isArray(value)">{{ value.join }}</span>
-               </li>
-           </ul>
+            <h3>System</h3>
+            <table class="table table-bordered table-condensed">
+               <tr ng-repeat="(key, value) in system.sys">
+                   <th width="180px">{{ humanize(key) }}</th>
+                   <td ng-if="isString(value)">{{ value }}</td>
+                   <td ng-if="isArray(value)">{{ value.join }}</td>
+               </tr>
+           </table>
 
             <!--more-->
             <button ng-click="showMore = !showMore" class="btn btn-mini btn-default">More</button>
             <div ng-if="showMore" ng-repeat="(section,collection) in system">
                 <h3>{{ humanize(section) }}</h3>
-                <ul>
+                <ul class="list-unstyled">
                     <li ng-if="section != 'software' && section != 'software_keys' && section != 'sys'" ng-repeat="(subCollectionName, subCollection) in collection">
                         <strong ng-if="isString(subCollectionName)">{{ humanize(subCollectionName) }}:</strong>
                         <span ng-if="isString(subCollection)">{{ subCollection }}</span>
-                        <ul ng-if="isObject(subCollection)">
-                            <li ng-repeat="(key, value) in subCollection">
-                                <strong>{{ humanize(key) }}:</strong>
-                                <span ng-if="isString(value)">{{ value }}</span>
-                                <span ng-if="isArray(value)">{{ value.join }}</span>
-                            </li>
-                        </ul>
+                        <table ng-if="isObject(subCollection)" class="table table-bordered table-condensed">
+                            <tr ng-repeat="(key, value) in subCollection">
+                                <th width="180px">{{ humanize(key) }}</th>
+                                <td ng-if="isString(value)">{{ value }}</td>
+                                <td ng-if="isArray(value)">{{ value.join }}</td>
+                            </tr>
+                        </table>
                     </li>
                 </ul>
             </div>
