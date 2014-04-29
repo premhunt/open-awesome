@@ -17,7 +17,17 @@
         </div>
         <div class="col-sm-8">
             <!--<div>{{ system|json }}</div>-->
-            <div ng-repeat="(section,collection) in system">
+           <ul>
+               <li ng-repeat="(key, value) in system.sys">
+                   <strong>{{ humanize(key) }}:</strong>
+                   <span ng-if="isString(value)">{{ value }}</span>
+                   <span ng-if="isArray(value)">{{ value.join }}</span>
+               </li>
+           </ul>
+
+            <!--more-->
+            <button ng-click="showMore = !showMore" class="btn btn-mini btn-default">More</button>
+            <div ng-if="showMore" ng-repeat="(section,collection) in system">
                 <h3>{{ humanize(section) }}</h3>
                 <ul>
                     <li ng-if="section != 'software' && section != 'software_keys' && section != 'sys'" ng-repeat="(subCollectionName, subCollection) in collection">
