@@ -1,0 +1,11 @@
+<h3>DNS</h3>
+<div ng-repeat="dns in system.dns">
+    <h4>DNS Entry {{ $index + 1 }}</h4>
+    <table class="table table-bordered table-condensed">
+        <tr ng-repeat="(field, value) in dns">
+            <th width="180px">{{ humanize(field) }}</th>
+            <td ng-if="isString(value)">{{ value }}</td>
+            <td ng-if="isArray(value)">{{ value.join }}</td>
+        </tr>
+    </table>
+</div>
