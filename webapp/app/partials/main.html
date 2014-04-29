@@ -16,65 +16,24 @@
             </table>
         </div>
         <div class="col-sm-8">
-            <!--<div>{{ system|json }}</div>-->
-            <h3>System</h3>
-            <table class="table table-bordered table-condensed">
-                <tr ng-repeat="(key, value) in system.sys">
-                    <th width="180px">{{ humanize(key) }}</th>
-                    <td ng-if="isString(value)">{{ value }}</td>
-                    <td ng-if="isArray(value)">{{ value.join }}</td>
-                </tr>
-            </table>
-
+            <div ng-include="'partials/system/sys.html'"></div>
+            <div ng-include="'partials/system/motherboard.html'"></div>
+            <div ng-include="'partials/system/optical_drives.html'"></div>
+            <div ng-include="'partials/system/memory.html'"></div>
+            <div ng-include="'partials/system/processor.html'"></div>
+            <div ng-include="'partials/system/scsi_controllers.html'"></div>
+            <div ng-include="'partials/system/bios.html'"></div>
+            <div ng-include="'partials/system/windows.html'"></div>
             <div ng-include="'partials/system/addresses.html'"></div>
             <div ng-include="'partials/system/dns.html'"></div>
             <div ng-include="'partials/system/printers.html'"></div>
             <div ng-include="'partials/system/logs.html'"></div>
-            <!--more-->
-            <!--<button ng-click="showMore = !showMore" class="btn btn-mini btn-default">More</button>-->
-            <!--<div ng-if="showMore" ng-repeat="(section,collection) in system">-->
-            <!--<h3>{{ humanize(section) }}</h3>-->
-            <!--<ul class="list-unstyled">-->
-            <!--<li ng-if="section != 'software' && section != 'software_keys' && section != 'sys'" ng-repeat="(subCollectionName, subCollection) in collection">-->
-            <!--<strong ng-if="isString(subCollectionName)">{{ humanize(subCollectionName) }}:</strong>-->
-            <!--<span ng-if="isString(subCollection)">{{ subCollection }}</span>-->
-            <!--<table ng-if="isObject(subCollection)" class="table table-bordered table-condensed">-->
-            <!--<tr ng-repeat="(key, value) in subCollection">-->
-            <!--<th width="180px">{{ humanize(key) }}</th>-->
-            <!--<td ng-if="isString(value)">{{ value }}</td>-->
-            <!--<td ng-if="isArray(value)">{{ value.join }}</td>-->
-            <!--</tr>-->
-            <!--</table>-->
-            <!--</li>-->
-            <!--</ul>-->
-            <!--</div>-->
+            <div ng-include="'partials/system/pagefiles.html'"></div>
+            <div ng-include="'partials/system/users.html'"></div>
+            <div ng-include="'partials/system/routes.html'"></div>
+            <div ng-include="'partials/system/database.html'"></div>
+            <div ng-include="'partials/system/services.html'"></div>
+            <div ng-include="'partials/system/audit_wmi_fail.html'"></div>
         </div>
     </div>
 </div>
-
-<!--<script type="text/ng-template" id="system-modal.html">-->
-<!--<div class="modal-header">-->
-<!--<h3>System: NAME</h3>-->
-<!--</div>-->
-<!--<div class="modal-body">-->
-<!--<div>System Info</div>-->
-<!--<div ng-repeat="(section,collection) in system">-->
-<!--<h3>{{ humanize(section) }}</h3>-->
-<!--<ul>-->
-<!--<li ng-if="section != 'software' && section != 'software_keys'" ng-repeat="(subCollectionName, subCollection) in collection">-->
-<!--<strong ng-if="isString(subCollectionName)">{{ humanize(subCollectionName) }}:</strong>-->
-<!--<span ng-if="isString(subCollection)">{{ subCollection }}</span>-->
-<!--<ul ng-if="isObject(subCollection)">-->
-<!--<li ng-repeat="(key, value) in subCollection">-->
-<!--<strong>{{ humanize(key) }}:</strong>-->
-<!--<span ng-if="isString(value)">{{ value }}</span>-->
-<!--<span ng-if="isArray(value)">{{ value.join }}</span>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
-<!--</script>-->
-
-<button class="btn btn-default" ng-click="open()">Open me!</button>

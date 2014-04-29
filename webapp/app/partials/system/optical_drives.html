@@ -1,6 +1,6 @@
-<h3><span>Addresses</span><button ng-click="showMoreAddresses = !showMoreAddresses" class="btn btn-mini btn-default">More</button></h3>
-<div ng-if="showMoreAddresses" ng-repeat="item in system.addresses">
-    <h4>Address {{ $index + 1 }}</h4>
+<h3>Optical Drives</h3>
+<div ng-repeat="item in system.optical_drives">
+    <h4>{{ item.optical_drive_caption }}<small> {{ item.optical_drive_mount_point }}</small></h4>
     <table class="table table-bordered table-condensed">
         <tr ng-repeat="(field, value) in item">
             <th width="180px">{{ humanize(field) }}</th>
