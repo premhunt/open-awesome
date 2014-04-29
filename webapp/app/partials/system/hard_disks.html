@@ -1,0 +1,11 @@
+<h3>Hard Disks</h3>
+<div ng-repeat="item in system.hard_disks">
+    <h4>{{ item.hard_drive_caption }}</h4>
+    <table class="table table-bordered table-condensed">
+        <tr ng-repeat="(field, value) in item">
+            <th width="180px">{{ humanize(field) }}</th>
+            <td ng-if="isString(value)">{{ value }}</td>
+            <td ng-if="isArray(value)">{{ value.join }}</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,11 @@
+<h3>Software Keys</h3>
+<div ng-repeat="item in system.software_keys">
+    <h4>{{ item.key_name }}<small> {{ item.key_text }}</small></h4>
+    <table class="table table-bordered table-condensed">
+        <tr ng-repeat="(field, value) in item">
+            <th width="180px">{{ humanize(field) }}</th>
+            <td ng-if="isString(value)">{{ value }}</td>
+            <td ng-if="isArray(value)">{{ value.join }}</td>
+        </tr>
+    </table>
+</div>
