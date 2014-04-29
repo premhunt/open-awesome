@@ -6,9 +6,13 @@ angular.module('openAwesome.directives', []).directive('dynatable', function () 
     return {
         link: function (scope, element) {
             function osNameWriter(column, record) {
-                return column.id === 'os_name' && angular.isDefined(record.icon) ?
-                    '<td><img src="img/tango-images/16_' + record.icon + '.png"></td>' :
-                    '<td>' + record[column.id] + '</td>';
+                if (column.id === 'hostname') {
+                    return '<td><a ng-href="">' + record[column.id] + '</a></td>';
+                }
+                else if (column.id === 'os_name' && angular.isDefined(record.icon)) {
+                    return '<td><img src="img/tango-images/16_' + record.icon + '.png"></td>';
+                }
+                return '<td>' + record[column.id] + '</td>';
             }
 
             element.dynatable({

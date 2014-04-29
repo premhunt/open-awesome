@@ -8,7 +8,8 @@ angular.module('openAwesome', [
         'openAwesome.filters',
         'openAwesome.services',
         'openAwesome.directives',
-        'openAwesome.controllers'
+        'openAwesome.controllers',
+        'ui.bootstrap'
     ]).
     config(function ($locationProvider, $routeProvider) {
         $locationProvider.html5Mode(true);

@@ -15,7 +15,51 @@
                 </thead>
             </table>
         </div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
+        <div class="col-sm-8">
+            <!--<div>{{ system|json }}</div>-->
+            <div ng-repeat="(section,collection) in system">
+                <h3>{{ humanize(section) }}</h3>
+                <ul>
+                    <li ng-if="section != 'software' && section != 'software_keys' && section != 'sys'" ng-repeat="(subCollectionName, subCollection) in collection">
+                        <strong ng-if="isString(subCollectionName)">{{ humanize(subCollectionName) }}:</strong>
+                        <span ng-if="isString(subCollection)">{{ subCollection }}</span>
+                        <ul ng-if="isObject(subCollection)">
+                            <li ng-repeat="(key, value) in subCollection">
+                                <strong>{{ humanize(key) }}:</strong>
+                                <span ng-if="isString(value)">{{ value }}</span>
+                                <span ng-if="isArray(value)">{{ value.join }}</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
+
+<!--<script type="text/ng-template" id="system-modal.html">-->
+    <!--<div class="modal-header">-->
+        <!--<h3>System: NAME</h3>-->
+    <!--</div>-->
+    <!--<div class="modal-body">-->
+        <!--<div>System Info</div>-->
+        <!--<div ng-repeat="(section,collection) in system">-->
+            <!--<h3>{{ humanize(section) }}</h3>-->
+            <!--<ul>-->
+                <!--<li ng-if="section != 'software' && section != 'software_keys'" ng-repeat="(subCollectionName, subCollection) in collection">-->
+                    <!--<strong ng-if="isString(subCollectionName)">{{ humanize(subCollectionName) }}:</strong>-->
+                    <!--<span ng-if="isString(subCollection)">{{ subCollection }}</span>-->
+                    <!--<ul ng-if="isObject(subCollection)">-->
+                        <!--<li ng-repeat="(key, value) in subCollection">-->
+                            <!--<strong>{{ humanize(key) }}:</strong>-->
+                            <!--<span ng-if="isString(value)">{{ value }}</span>-->
+                            <!--<span ng-if="isArray(value)">{{ value.join }}</span>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</script>-->
+
+<button class="btn btn-default" ng-click="open()">Open me!</button>
