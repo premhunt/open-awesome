@@ -19,7 +19,7 @@
     </h4>
     <table class="table table-bordered table-condensed" ng-if="item.isMoreInfoVisible">
         <tr ng-repeat="(field, value) in item">
-            <th width="180px" ng-if="field != isMoreInfoVisible">{{ humanize(field) }}</th>
+            <th width="180px" ng-if="field != 'isMoreInfoVisible'">{{ humanize(field) }}</th>
             <td ng-if="isString(value)">{{ value }}</td>
             <td ng-if="isArray(value)">{{ value.join }}</td>
         </tr>
@@ -28,7 +28,8 @@
 
 <!--Multi-component item header templates-->
 <script type="text/ng-template" id="/system-addresses-item-header.html">
-    Address {{ $index + 1 }}
+    <span ng-if="item.ip_address_version == '4'"> {{item.ip_address_v4}}</span>
+    <span ng-if="item.ip_address_version == '6'"> {{item.ip_address_v6}}</span>
 </script>
 
 <script type="text/ng-template" id="/system-dns-item-header.html">
@@ -46,9 +47,8 @@
 </script>
 
 <script type="text/ng-template" id="/system-memory-item-header.html">
-    {{ item.bank }}
-    <small> {{ item.capacity }}MB</small>
-
+    {{ item.capacity }}MB
+    <small>{{ item.bank }}</small>
 </script>
 
 <script type="text/ng-template" id="/system-monitors-item-header.html">
@@ -68,7 +68,7 @@
 </script>
 
 <script type="text/ng-template" id="/system-pagefiles-item-header.html">
-    Pagefile {{ $index + 1 }}
+    {{ item.file_name }}
 </script>
 
 <script type="text/ng-template" id="/system-partitions-item-header.html">
@@ -82,15 +82,22 @@
 </script>
 
 <script type="text/ng-template" id="/system-routes-item-header.html">
-    Route {{ $index + 1 }}
+    Route {{ $index + 1 }}<small> {{ item.destination }} - {{ item.protocol }}</small>
 </script>
 
 <script type="text/ng-template" id="/system-scsi_controllers-item-header.html">
-    SCSI Controller {{ $index + 1 }}
+    {{ item.name }}
 </script>
 
 <script type="text/ng-template" id="/system-services-item-header.html">
-    {{ item.service_display_name }}
+    <span ng-class="{'text-success': item.service_state == 'Running' && item.service_start_mode == 'Auto',
+                     'text-warning': item.service_state == 'Running' && item.service_start_mode == 'Manual',
+                     'text-danger': item.service_state == 'Stopped' && item.service_start_mode == 'Auto',
+                     'text-info': item.service_state == 'Stopped' && item.service_start_mode == 'Manual',
+                     'text-muted': item.service_state == 'Disabled' && item.service_start_mode == 'Manual'}">
+        <i class="fa fa-circle"></i>
+    </span>
+    <span>{{ item.service_display_name }}</span>
     <small> {{ item.service_state }}</small>
 
 </script>
