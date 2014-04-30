@@ -63,6 +63,7 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
             scope.systemComponent.system.$promise.then(function () {
                 scope.component = scope.systemComponent.system[scope.systemComponent.name];
                 scope.isMultipleComponents = angular.isArray(scope.component);
+                scope.isStringArray = scope.isMultipleComponents && scope.component.length > 0 && angular.isString(scope.component[0]);
                 scope.itemHeaderTemplateUrl = '/system-' + scope.systemComponent.name + '-item-header.html';
             });
         }

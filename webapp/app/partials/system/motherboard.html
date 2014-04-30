@@ -1,8 +1,0 @@
-<h3>Motherboard</h3>
-<table class="table table-bordered table-condensed">
-    <tr ng-repeat="(key, value) in system.motherboard">
-        <th width="180px">{{ humanize(key) }}</th>
-        <td ng-if="isString(value)">{{ value }}</td>
-        <td ng-if="isArray(value)">{{ value.join }}</td>
-    </tr>
-</table>

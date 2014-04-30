@@ -1,8 +1,0 @@
-<h3>Database</h3>
-<table class="table table-bordered table-condensed">
-    <tr ng-repeat="(field, value) in system.database">
-        <th width="180px">{{ humanize(field) }}</th>
-        <td ng-if="isString(value)">{{ value }}</td>
-        <td ng-if="isArray(value)">{{ value.join }}</td>
-    </tr>
-</table>
