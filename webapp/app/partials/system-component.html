@@ -1,8 +1,5 @@
 <h3 ng-if="displayName">
-    <span>{{ displayName }} {{showMore}}</span>
-    <button ng-click="toggleMoreInfo()" class="btn btn-mini btn-default" ng-if="isMultipleComponents && !isStringArray">
-        {{ moreInfoText }}
-    </button>
+    <span>{{ displayName }}</span>
 </h3>
 <table ng-if="!isMultipleComponents" class="table table-bordered table-condensed">
     <tr ng-repeat="(key, value) in component">
@@ -15,10 +12,14 @@
     <li ng-repeat="item in component track by $index">{{ item }}</li>
 </ul>
 <div ng-if="isMultipleComponents && !isStringArray" ng-repeat="item in component">
-    <div ng-include="itemHeaderTemplateUrl"></div>
-    <table class="table table-bordered table-condensed" ng-if="isMoreInfoVisible">
+    <h4 ng-click="toggleMoreInfo(item)">
+        <span ng-if="item.isMoreInfoVisible" class="btn-link"><i class="fa fa-minus fa-fw"></i></span>
+        <span ng-if="!item.isMoreInfoVisible" class="btn-link"><i class="fa fa-plus fa-fw"></i></span>
+        <span ng-include="itemHeaderTemplateUrl"></span>
+    </h4>
+    <table class="table table-bordered table-condensed" ng-if="item.isMoreInfoVisible">
         <tr ng-repeat="(field, value) in item">
-            <th width="180px">{{ humanize(field) }}</th>
+            <th width="180px" ng-if="field != isMoreInfoVisible">{{ humanize(field) }}</th>
             <td ng-if="isString(value)">{{ value }}</td>
             <td ng-if="isArray(value)">{{ value.join }}</td>
         </tr>
@@ -27,95 +28,94 @@
 
 <!--Multi-component item header templates-->
 <script type="text/ng-template" id="/system-addresses-item-header.html">
-    <h4>Address {{ $index + 1 }}</h4>
+    Address {{ $index + 1 }}
 </script>
 
 <script type="text/ng-template" id="/system-dns-item-header.html">
-    <h4>DNS Entry {{ $index + 1 }}</h4>
+    DNS Entry {{ $index + 1 }}
 </script>
 
 <script type="text/ng-template" id="/system-hard_disks-item-header.html">
-    <h4>{{ item.hard_drive_caption }}</h4>
+    {{ item.hard_drive_caption }}
 </script>
 
 <script type="text/ng-template" id="/system-logs-item-header.html">
-    <h4>{{ item.log_name }}
-        <small> {{ item.log_file_size }}KB</small>
-    </h4>
+    {{ item.log_name }}
+    <small> {{ item.log_file_size }}KB</small>
+
 </script>
 
 <script type="text/ng-template" id="/system-memory-item-header.html">
-    <h4>{{ item.bank }}
-        <small> {{ item.capacity }}MB</small>
-    </h4>
+    {{ item.bank }}
+    <small> {{ item.capacity }}MB</small>
+
 </script>
 
 <script type="text/ng-template" id="/system-monitors-item-header.html">
-    <h4>{{ item.model }}</h4>
+    {{ item.model }}
 </script>
 
 <script type="text/ng-template" id="/system-network_cards-item-header.html">
-    <h4>{{ item.net_connection_id }}
-        <small>{{ item.net_mac_address }}</small>
-    </h4>
+    {{ item.net_connection_id }}
+    <small>{{ item.net_mac_address }}</small>
+
 </script>
 
 <script type="text/ng-template" id="/system-optical_drives-item-header.html">
-    <h4>{{ item.optical_drive_caption }}
-        <small> {{ item.optical_drive_mount_point }}</small>
-    </h4>
+    {{ item.optical_drive_caption }}
+    <small> {{ item.optical_drive_mount_point }}</small>
+
 </script>
 
 <script type="text/ng-template" id="/system-pagefiles-item-header.html">
-    <h4>Pagefile {{ $index + 1 }}</h4>
+    Pagefile {{ $index + 1 }}
 </script>
 
 <script type="text/ng-template" id="/system-partitions-item-header.html">
-    <h4>{{ item.partition_device_id }}</h4>
+    {{ item.partition_device_id }}
 </script>
 
 <script type="text/ng-template" id="/system-printers-item-header.html">
-    <h4>{{ item.printer_name }}
-        <small> {{ item.hostname }}</small>
-    </h4>
+    {{ item.printer_name }}
+    <small> {{ item.hostname }}</small>
+
 </script>
 
 <script type="text/ng-template" id="/system-routes-item-header.html">
-    <h4>Route {{ $index + 1 }}</h4>
+    Route {{ $index + 1 }}
 </script>
 
 <script type="text/ng-template" id="/system-scsi_controllers-item-header.html">
-    <h4>SCSI Controller {{ $index + 1 }}</h4>
+    SCSI Controller {{ $index + 1 }}
 </script>
 
 <script type="text/ng-template" id="/system-services-item-header.html">
-    <h4>{{ item.service_display_name }}
-        <small> {{ item.service_state }}</small>
-    </h4>
+    {{ item.service_display_name }}
+    <small> {{ item.service_state }}</small>
+
 </script>
 
 <script type="text/ng-template" id="/system-shares-item-header.html">
-    <h4>{{ item.share_name }}
-        <small>{{ item.share_path }}</small>
-    </h4>
+    {{ item.share_name }}
+    <small>{{ item.share_path }}</small>
+
 </script>
 
 <script type="text/ng-template" id="/system-software_keys-item-header.html">
-    <h4>{{ item.key_name }}
-        <small> {{ item.key_text }}</small>
-    </h4>
+    {{ item.key_name }}
+    <small> {{ item.key_text }}</small>
+
 </script>
 
 <script type="text/ng-template" id="/system-sound_cards-item-header.html">
-    <h4>{{ item.sound_name }}</h4>
+    {{ item.sound_name }}
 </script>
 
 <script type="text/ng-template" id="/system-users-item-header.html">
-    <h4>{{ item.user_name }}
-        <small> {{ item.user_type }}</small>
-    </h4>
+    {{ item.user_name }}
+    <small> {{ item.user_type }}</small>
 </script>
 
 <script type="text/ng-template" id="/system-video_cards-item-header.html">
-    <h4>{{ item.video_description }}</h4>
+    {{ item.video_description }}
 </script>
