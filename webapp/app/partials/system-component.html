@@ -1,0 +1,99 @@
+<h3 ng-if="displayName">{{ displayName }}</h3>
+<table ng-if="component && !isMultipleComponents" class="table table-bordered table-condensed">
+    <tr ng-repeat="(key, value) in component">
+        <th width="180px">{{ humanize(key) }}</th>
+        <td ng-if="isString(value)">{{ value }}</td>
+        <td ng-if="isArray(value)">{{ value.join }}</td>
+    </tr>
+</table>
+<div ng-if="component && isMultipleComponents" ng-repeat="item in component">
+    <div ng-include="itemHeaderTemplateUrl"></div>
+    <table class="table table-bordered table-condensed">
+        <tr ng-repeat="(field, value) in item">
+            <th width="180px">{{ humanize(field) }}</th>
+            <td ng-if="isString(value)">{{ value }}</td>
+            <td ng-if="isArray(value)">{{ value.join }}</td>
+        </tr>
+    </table>
+</div>
+
+<!--Multi-component item header templates-->
+<script type="text/ng-template" id="/system-addresses-item-header.html">
+    <h4>Address {{ $index + 1 }}</h4>
+</script>
+
+<script type="text/ng-template" id="/system-dns-item-header.html">
+    <h4>DNS Entry {{ $index + 1 }}</h4>
+</script>
+
+<script type="text/ng-template" id="/system-hard_disks-item-header.html">
+    <h4>{{ item.hard_drive_caption }}</h4>
+</script>
+
+<script type="text/ng-template" id="/system-logs-item-header.html">
+    <h4>{{ item.log_name }}
+        <small> {{ item.log_file_size }}KB</small>
+    </h4>
+</script>
+
+<script type="text/ng-template" id="/system-memory-item-header.html">
+    <h4>{{ item.bank }}
+        <small> {{ item.capacity }}MB</small>
+    </h4>
+</script>
+
+<script type="text/ng-template" id="/system-monitors-item-header.html">
+    <h4>{{ item.model }}</h4>
+</script>
+
+<script type="text/ng-template" id="/system-network_cards-item-header.html">
+    <h4>{{ item.net_connection_id }}<small>{{ item.net_mac_address }}</small></h4>
+</script>
+
+<script type="text/ng-template" id="/system-optical_drives-item-header.html">
+    <h4>{{ item.optical_drive_caption }}<small> {{ item.optical_drive_mount_point }}</small></h4>
+</script>
+
+<script type="text/ng-template" id="/system-pagefiles-item-header.html">
+    <h4>Pagefile {{ $index + 1 }}</h4>
+</script>
+
+<script type="text/ng-template" id="/system-partitions-item-header.html">
+    <h4>{{ item.partition_device_id }}</h4>
+</script>
+
+<script type="text/ng-template" id="/system-printers-item-header.html">
+    <h4>{{ item.printer_name }}<small> {{ item.hostname }}</small></h4>
+</script>
+
+<script type="text/ng-template" id="/system-routes-item-header.html">
+    <h4>Route {{ $index + 1 }}</h4>
+</script>
+
+<script type="text/ng-template" id="/system-scsi_controllers-item-header.html">
+    <h4>SCSI Controller {{ $index + 1 }}</h4>
+</script>
+
+<script type="text/ng-template" id="/system-services-item-header.html">
+    <h4>{{ item.service_display_name }}<small> {{ item.service_state }}</small></h4>
+</script>
+
+<script type="text/ng-template" id="/system-shares-item-header.html">
+    <h4>{{ item.share_name }}<small>{{ item.share_path }}</small></h4>
+</script>
+
+<script type="text/ng-template" id="/system-software_keys-item-header.html">
+    <h4>{{ item.key_name }}<small> {{ item.key_text }}</small></h4>
+</script>
+
+<script type="text/ng-template" id="/system-sound_cards-item-header.html">
+    <h4>{{ item.sound_name }}</h4>
+</script>
+
+<script type="text/ng-template" id="/system-users-item-header.html">
+    <h4>{{ item.user_name }}<small> {{ item.user_type }}</small></h4>
+</script>
+
+<script type="text/ng-template" id="/system-video_cards-item-header.html">
+    <h4>{{ item.video_description }}</h4>
+</script>

@@ -1,8 +1,8 @@
 'use strict';
 
 /* Directives */
-
-angular.module('openAwesome.directives', []).directive('dynatable', function () {
+angular.module('openAwesome.directives', []);
+angular.module('openAwesome.directives').directive('dynatable', function () {
     return {
         link: function (scope, element) {
             function osNameWriter(column, record) {
@@ -38,6 +38,32 @@ angular.module('openAwesome.directives', []).directive('dynatable', function () 
                 inputs: {
                     processingText: '<i class="fa fa-spinner fa-spin fa-5x"></i>'
                 }
+            });
+        }
+    };
+});
+
+angular.module('openAwesome.directives').directive('systemComponent', function () {
+    return {
+        templateUrl: 'partials/system-component.html',
+        scope: {
+            systemComponent: '='
+        },
+        link: function (scope, element) {
+            scope.isArray = angular.isArray;
+            scope.isString = angular.isString;
+            scope.humanize = function (text) {
+                return angular.isString(text) ? text.replace(/(_)/g, ' ') : text;
+            };
+
+            scope.displayName = angular.isDefined(scope.systemComponent.displayName) ?
+                scope.systemComponent.displayName :
+                scope.humanize(scope.systemComponent.name);
+
+            scope.systemComponent.system.$promise.then(function () {
+                scope.component = scope.systemComponent.system[scope.systemComponent.name];
+                scope.isMultipleComponents = angular.isArray(scope.component);
+                scope.itemHeaderTemplateUrl = '/system-' + scope.systemComponent.name + '-item-header.html';
             });
         }
     };

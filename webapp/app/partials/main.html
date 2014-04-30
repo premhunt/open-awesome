@@ -15,24 +15,33 @@
                 </thead>
             </table>
         </div>
-        <div class="col-sm-8">
-            <div ng-include="'partials/system/sys.html'"></div>
-            <div ng-include="'partials/system/motherboard.html'"></div>
-            <div ng-include="'partials/system/optical_drives.html'"></div>
-            <div ng-include="'partials/system/memory.html'"></div>
-            <div ng-include="'partials/system/processor.html'"></div>
-            <div ng-include="'partials/system/scsi_controllers.html'"></div>
-            <div ng-include="'partials/system/bios.html'"></div>
-            <div ng-include="'partials/system/windows.html'"></div>
-            <div ng-include="'partials/system/addresses.html'"></div>
-            <div ng-include="'partials/system/dns.html'"></div>
-            <div ng-include="'partials/system/printers.html'"></div>
-            <div ng-include="'partials/system/logs.html'"></div>
-            <div ng-include="'partials/system/pagefiles.html'"></div>
-            <div ng-include="'partials/system/users.html'"></div>
-            <div ng-include="'partials/system/routes.html'"></div>
-            <div ng-include="'partials/system/database.html'"></div>
-            <div ng-include="'partials/system/services.html'"></div>
+        <div class="col-sm-8" ng-if="system">
+            <div system-component="{system: system, name: 'sys', displayName: 'System'}"></div>
+            <div system-component="{system: system, name: 'memory'}"></div>
+            <div system-component="{system: system, name: 'motherboard'}"></div>
+            <div system-component="{system: system, name: 'optical_drives'}"></div>
+            <div system-component="{system: system, name: 'processor'}"></div>
+            <div system-component="{system: system, name: 'scsi_controllers', displayName: 'SCSI Controllers'}"></div>
+            <div system-component="{system: system, name: 'bios', displayName: 'BIOS'}"></div>
+            <div system-component="{system: system, name: 'windows'}"></div>
+            <div system-component="{system: system, name: 'addresses', displayName: 'Addresses'}"></div>
+            <div system-component="{system: system, name: 'dns', displayName: 'DNS'}"></div>
+            <div system-component="{system: system, name: 'printers'}"></div>
+            <div system-component="{system: system, name: 'logs'}"></div>
+            <div system-component="{system: system, name: 'pagefiles'}"></div>
+            <div system-component="{system: system, name: 'users'}"></div>
+            <div system-component="{system: system, name: 'routes'}"></div>
+            <div system-component="{system: system, name: 'hard_disks'}"></div>
+            <div system-component="{system: system, name: 'shares'}"></div>
+            <div system-component="{system: system, name: 'services'}"></div>
+            <div system-component="{system: system, name: 'database'}"></div>
+            <div system-component="{system: system, name: 'monitors'}"></div>
+            <div system-component="{system: system, name: 'network_cards'}"></div>
+            <div system-component="{system: system, name: 'partitions'}"></div>
+            <div system-component="{system: system, name: 'software_keys'}"></div>
+            <div system-component="{system: system, name: 'sound_cards'}"></div>
+            <div system-component="{system: system, name: 'video_cards'}"></div>
+
             <div ng-include="'partials/system/audit_wmi_fail.html'"></div>
         </div>
     </div>
