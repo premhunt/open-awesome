@@ -1,28 +1,28 @@
 <h3 ng-if="displayName">
     <span>{{ displayName }} {{showMore}}</span>
-    <button ng-click="toggleMoreInfo()" class="btn btn-mini btn-default">{{ moreInfoText }}</button>
+    <button ng-click="toggleMoreInfo()" class="btn btn-mini btn-default" ng-if="isMultipleComponents && !isStringArray">
+        {{ moreInfoText }}
+    </button>
 </h3>
-<div ng-if="isMoreInfoVisible">
-    <table ng-if="!isMultipleComponents" class="table table-bordered table-condensed">
-        <tr ng-repeat="(key, value) in component">
-            <th width="180px">{{ humanize(key) }}</th>
+<table ng-if="!isMultipleComponents" class="table table-bordered table-condensed">
+    <tr ng-repeat="(key, value) in component">
+        <th width="180px">{{ humanize(key) }}</th>
+        <td ng-if="isString(value)">{{ value }}</td>
+        <td ng-if="isArray(value)">{{ value.join }}</td>
+    </tr>
+</table>
+<ul ng-if="isMultipleComponents && isStringArray">
+    <li ng-repeat="item in component track by $index">{{ item }}</li>
+</ul>
+<div ng-if="isMultipleComponents && !isStringArray" ng-repeat="item in component">
+    <div ng-include="itemHeaderTemplateUrl"></div>
+    <table class="table table-bordered table-condensed" ng-if="isMoreInfoVisible">
+        <tr ng-repeat="(field, value) in item">
+            <th width="180px">{{ humanize(field) }}</th>
             <td ng-if="isString(value)">{{ value }}</td>
             <td ng-if="isArray(value)">{{ value.join }}</td>
         </tr>
     </table>
-    <ul ng-if="isMultipleComponents && isStringArray">
-        <li ng-repeat="item in component track by $index">{{ item }}</li>
-    </ul>
-    <div ng-if="isMultipleComponents && !isStringArray" ng-repeat="item in component">
-        <div ng-include="itemHeaderTemplateUrl"></div>
-        <table class="table table-bordered table-condensed">
-            <tr ng-repeat="(field, value) in item">
-                <th width="180px">{{ humanize(field) }}</th>
-                <td ng-if="isString(value)">{{ value }}</td>
-                <td ng-if="isArray(value)">{{ value.join }}</td>
-            </tr>
-        </table>
-    </div>
 </div>
 
 <!--Multi-component item header templates-->
