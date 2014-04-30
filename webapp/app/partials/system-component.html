@@ -1,5 +1,8 @@
-<h3 ng-if="displayName">{{ displayName }}</h3>
-<div ng-if="component">
+<h3 ng-if="displayName">
+    <span>{{ displayName }} {{showMore}}</span>
+    <button ng-click="toggleMoreInfo()" class="btn btn-mini btn-default">{{ moreInfoText }}</button>
+</h3>
+<div ng-if="isMoreInfoVisible">
     <table ng-if="!isMultipleComponents" class="table table-bordered table-condensed">
         <tr ng-repeat="(key, value) in component">
             <th width="180px">{{ humanize(key) }}</th>

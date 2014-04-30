@@ -49,19 +49,29 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
         scope: {
             systemComponent: '='
         },
-        link: function (scope, element) {
+        link: function (scope) {
             scope.isArray = angular.isArray;
             scope.isString = angular.isString;
             scope.humanize = function (text) {
                 return angular.isString(text) ? text.replace(/(_)/g, ' ') : text;
             };
 
+            scope.isMoreInfoVisible = false;
+            setMoreInfoText();
+            function setMoreInfoText() {
+                scope.moreInfoText = scope.isMoreInfoVisible ? 'Less' : 'More';
+            }
+            scope.toggleMoreInfo = function () {
+                scope.isMoreInfoVisible = !scope.isMoreInfoVisible;
+                setMoreInfoText();
+            };
+
             scope.displayName = angular.isDefined(scope.systemComponent.displayName) ?
                 scope.systemComponent.displayName :
                 scope.humanize(scope.systemComponent.name);
 
-            scope.systemComponent.system.$promise.then(function () {
-                scope.component = scope.systemComponent.system[scope.systemComponent.name];
+            scope.systemComponent.promise.then(function (system) {
+                scope.component = system[scope.systemComponent.name];
                 scope.isMultipleComponents = angular.isArray(scope.component);
                 scope.isStringArray = scope.isMultipleComponents && scope.component.length > 0 && angular.isString(scope.component[0]);
                 scope.itemHeaderTemplateUrl = '/system-' + scope.systemComponent.name + '-item-header.html';
