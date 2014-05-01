@@ -68,3 +68,19 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        website:
+            client: default
+            index_name: "open-awesome"
+#            types:
+#                system:
+#                    mappings:
+#                        uuid: { boost: 5 }
+#                    persistence:
+#                        driver: orm
+#                        model: Ehann\Bundle\OpenAwesomeBundle\Entity
+#                        identifier: uuid

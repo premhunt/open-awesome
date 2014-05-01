@@ -1,3 +1,11 @@
 ehann_open_awesome_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: EhannOpenAwesomeBundle:Default:index }
+
+ehann_open_awesome_system_index:
+    pattern:  /system
+    defaults: { _controller: EhannOpenAwesomeBundle:System:index }
+
+ehann_open_awesome_system_get:
+    pattern:  /system/{id}
+    defaults: { _controller: EhannOpenAwesomeBundle:System:get }
