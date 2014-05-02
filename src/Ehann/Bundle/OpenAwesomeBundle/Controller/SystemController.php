@@ -2,10 +2,10 @@
 
 namespace Ehann\Bundle\OpenAwesomeBundle\Controller;
 
+use Ehann\Bundle\WebServiceBundle\Response\WebServiceResponse;
 use Elasticsearch\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class SystemController extends Controller
@@ -24,11 +24,7 @@ class SystemController extends Controller
         );
         $searchParams['body']['query']['queryString']['query'] = $request->query->has('q');
         $queryResponse = $client->search($searchParams);
-        $jsonContent = $this->container->get('jms_serializer')->serialize($queryResponse, 'json');
-        $response = new Response($jsonContent);
-        $response->headers->set('Content-Type', 'application/json');
-//        $response->setMaxAge(600);
-        return $response;
+        return new WebServiceResponse($queryResponse);
     }
 
     public function getAction($id, $component)
@@ -40,11 +36,7 @@ class SystemController extends Controller
             'id' => $id,
             '_source' => $component,
         );
-        $retDoc = $client->get($getParams);
-        $jsonContent = $this->container->get('jms_serializer')->serialize($retDoc, 'json');
-        $response = new Response($jsonContent);
-        $response->headers->set('Content-Type', 'application/json');
-//        $response->setMaxAge(600);
-        return $response;
+        $document = $client->get($getParams);
+        return new WebServiceResponse($document);
     }
 }
