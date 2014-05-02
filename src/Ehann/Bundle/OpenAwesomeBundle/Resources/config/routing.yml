@@ -8,4 +8,4 @@ ehann_open_awesome_audit_index:
 
 ehann_open_awesome_audit_get:
     pattern:  /audit/{component}/{id}
-    defaults: { _controller: EhannOpenAwesomeBundle:Audit:get, component: sys }
+    defaults: { _controller: EhannOpenAwesomeBundle:Audit:get }
