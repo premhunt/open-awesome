@@ -43,7 +43,7 @@ strcomputer = "."
 submit_online = "y"
 
 ' create an XML text file of the result in the current directory
-create_file = "n"
+create_file = "y"
 
 ' the address of the OAv2 server "submit" page
 url = "http://localhost/open-audit/index.php/system"

@@ -2,7 +2,7 @@
 
 namespace Ehann\Bundle\OpenAwesomeBundle\Controller;
 
-use Elastica_Request;
+use Elasticsearch\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,21 +15,16 @@ class SystemController extends Controller
         if (!$request->query->has('q')) {
             throw new BadRequestHttpException('"q" parameter is required');
         }
-        $sourceFilter = $request->query->has('component') ? $request->query->get('component') : '*';
-        $query = array(
-            '_source' => array(
-                'include' => array($sourceFilter),
-                'exclude' => array('software'),
-            ),
-            'query' => array(
-                'query_string' => array(
-                    'query' => $request->query->get('q')
-                )
-            )
+        $component = $request->query->has('component') ? $request->query->get('component') : '*';
+        $client = new Client();
+        $searchParams = array(
+            'index' => 'open-awesome',
+            'type' => 'system',
+            '_source' => $component,
         );
-
-        $responseArray = $this->container->get('fos_elastica.index.website')->request('system/_search', Elastica_Request::GET, $query)->getData();
-        $jsonContent = $this->container->get('jms_serializer')->serialize($responseArray, 'json');
+        $searchParams['body']['query']['queryString']['query'] = $request->query->has('q');
+        $queryResponse = $client->search($searchParams);
+        $jsonContent = $this->container->get('jms_serializer')->serialize($queryResponse, 'json');
         $response = new Response($jsonContent);
         $response->headers->set('Content-Type', 'application/json');
 //        $response->setMaxAge(600);
@@ -38,11 +33,15 @@ class SystemController extends Controller
 
     public function getAction($id, $component)
     {
-        $content = $this->container->get('fos_elastica.index.website')->request('system/'.$id, Elastica_Request::GET)->getData();
-        $componentData = $content['_source'][$component];
-        unset($content['_source']);
-        $content['_source'][$component] = $componentData;
-        $jsonContent = $this->container->get('jms_serializer')->serialize($content, 'json');
+        $client = new Client();
+        $getParams = array(
+            'index' => 'open-awesome',
+            'type' => 'system',
+            'id' => $id,
+            '_source' => $component,
+        );
+        $retDoc = $client->get($getParams);
+        $jsonContent = $this->container->get('jms_serializer')->serialize($retDoc, 'json');
         $response = new Response($jsonContent);
         $response->headers->set('Content-Type', 'application/json');
 //        $response->setMaxAge(600);

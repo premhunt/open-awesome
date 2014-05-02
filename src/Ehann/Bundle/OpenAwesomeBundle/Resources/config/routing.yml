@@ -7,5 +7,5 @@ ehann_open_awesome_system_index:
     defaults: { _controller: EhannOpenAwesomeBundle:System:index }
 
 ehann_open_awesome_system_get:
-    pattern:  /system/{id}
-    defaults: { _controller: EhannOpenAwesomeBundle:System:get }
+    pattern:  /system/{id}/{component}
+    defaults: { _controller: EhannOpenAwesomeBundle:System:get, component: * }
