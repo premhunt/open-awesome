@@ -54,4 +54,21 @@ class AuditController extends Controller
         $document = $this->getElasticsearch()->get($this->esParams);
         return new WebServiceResponse($document);
     }
+
+    /**
+     * @param Request $request
+     * @return WebServiceResponse
+     * @throws \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
+     */
+    public function postAction(Request $request)
+    {
+        $content = json_decode($request->getContent(), true);
+        $requiredParams = array('body', 'type', 'id');
+        if (count($content) !== count($requiredParams) ||
+            empty(array_intersect($requiredParams, array_keys($content)))) {
+            throw new BadRequestHttpException('Missing one ore more required parameters');
+        }
+        $this->esParams = array_merge($this->esParams, $content);
+        return new WebServiceResponse($this->getElasticsearch()->index($this->esParams));
+    }
 }

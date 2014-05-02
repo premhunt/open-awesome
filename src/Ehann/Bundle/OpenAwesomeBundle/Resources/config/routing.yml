@@ -1,10 +1,12 @@
-ehann_open_awesome_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: EhannOpenAwesomeBundle:Default:index }
-
 ehann_open_awesome_audit_index:
     pattern:  /audit
     defaults: { _controller: EhannOpenAwesomeBundle:Audit:index }
+    methods: [GET]
+
+ehann_open_awesome_audit_post:
+    pattern:  /audit
+    defaults: { _controller: EhannOpenAwesomeBundle:Audit:post }
+    methods: [POST]
 
 ehann_open_awesome_audit_get:
     pattern:  /audit/{component}/{id}
