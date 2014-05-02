@@ -2,10 +2,10 @@ ehann_open_awesome_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: EhannOpenAwesomeBundle:Default:index }
 
-ehann_open_awesome_system_index:
-    pattern:  /system
-    defaults: { _controller: EhannOpenAwesomeBundle:System:index }
+ehann_open_awesome_audit_index:
+    pattern:  /audit
+    defaults: { _controller: EhannOpenAwesomeBundle:Audit:index }
 
-ehann_open_awesome_system_get:
-    pattern:  /system/{id}/{component}
-    defaults: { _controller: EhannOpenAwesomeBundle:System:get, component: * }
+ehann_open_awesome_audit_get:
+    pattern:  /audit/{component}/{id}
+    defaults: { _controller: EhannOpenAwesomeBundle:Audit:get, component: sys }
