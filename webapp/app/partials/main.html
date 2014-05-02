@@ -1,47 +1,55 @@
 <div class="container-fluid">
     <h1 class="page-header"><a ng-href="/">Open-Awesome</a></h1>
 
+    <form ng-submit="search()">
+        <input class="form-control" type="text" placeholder="Search" ng-model="searchQuery"/>
+    </form>
+    <div class="row">
+        <div ng-repeat="hit in searchResults.hits.hits"
+             system-component="{component: hit._source, name: hit._type}" class="col-sm-4"></div>
+    </div>
+
     <div class="row">
         <div class="col-sm-4">
-            <h2>Systems</h2>
-            <table class="table table-bordered table-condensed" dynatable>
-                <thead>
-                <tr>
-                    <th>Hostname</th>
-                    <th>Type</th>
-                    <th>IP Address</th>
-                    <th>OS Name</th>
-                </tr>
-                </thead>
-            </table>
+            <!--<h2>Systems</h2>-->
+            <!--<table class="table table-bordered table-condensed" dynatable>-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>Hostname</th>-->
+                    <!--<th>Type</th>-->
+                    <!--<th>IP Address</th>-->
+                    <!--<th>OS Name</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+            <!--</table>-->
         </div>
-        <div class="col-sm-8" ng-if="system">
-            <div system-component="{promise: system.$promise, name: 'sys', displayName: 'System'}"></div>
-            <div system-component="{promise: system.$promise, name: 'memory'}"></div>
-            <div system-component="{promise: system.$promise, name: 'motherboard'}"></div>
-            <div system-component="{promise: system.$promise, name: 'optical_drives'}"></div>
-            <div system-component="{promise: system.$promise, name: 'processor'}"></div>
-            <div system-component="{promise: system.$promise, name: 'scsi_controllers', displayName: 'SCSI Controllers'}"></div>
-            <div system-component="{promise: system.$promise, name: 'bios', displayName: 'BIOS'}"></div>
-            <div system-component="{promise: system.$promise, name: 'windows'}"></div>
-            <div system-component="{promise: system.$promise, name: 'addresses', displayName: 'Addresses'}"></div>
-            <div system-component="{promise: system.$promise, name: 'dns', displayName: 'DNS'}"></div>
-            <div system-component="{promise: system.$promise, name: 'printers'}"></div>
-            <div system-component="{promise: system.$promise, name: 'logs'}"></div>
-            <div system-component="{promise: system.$promise, name: 'pagefiles'}"></div>
-            <div system-component="{promise: system.$promise, name: 'users'}"></div>
-            <div system-component="{promise: system.$promise, name: 'routes'}"></div>
-            <div system-component="{promise: system.$promise, name: 'hard_disks'}"></div>
-            <div system-component="{promise: system.$promise, name: 'shares'}"></div>
-            <div system-component="{promise: system.$promise, name: 'services'}"></div>
-            <div system-component="{promise: system.$promise, name: 'database'}"></div>
-            <div system-component="{promise: system.$promise, name: 'monitors'}"></div>
-            <div system-component="{promise: system.$promise, name: 'network_cards'}"></div>
-            <div system-component="{promise: system.$promise, name: 'partitions'}"></div>
-            <div system-component="{promise: system.$promise, name: 'software_keys'}"></div>
-            <div system-component="{promise: system.$promise, name: 'sound_cards'}"></div>
-            <div system-component="{promise: system.$promise, name: 'video_cards'}"></div>
-            <div system-component="{promise: system.$promise, name: 'audit_wmi_fail', displayName: 'Audit WMI Fail'}"></div>
-        </div>
+        <!--<div class="col-sm-8" ng-if="system">-->
+            <!--<div system-component="{promise: system.$promise, name: 'sys', displayName: 'System'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'memory'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'motherboard'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'optical_drives'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'processor'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'scsi_controllers', displayName: 'SCSI Controllers'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'bios', displayName: 'BIOS'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'windows'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'addresses', displayName: 'Addresses'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'dns', displayName: 'DNS'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'printers'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'logs'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'pagefiles'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'users'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'routes'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'hard_disks'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'shares'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'services'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'database'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'monitors'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'network_cards'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'partitions'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'software_keys'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'sound_cards'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'video_cards'}"></div>-->
+            <!--<div system-component="{promise: system.$promise, name: 'audit_wmi_fail', displayName: 'Audit WMI Fail'}"></div>-->
+        <!--</div>-->
     </div>
 </div>

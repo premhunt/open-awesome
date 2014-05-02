@@ -4,21 +4,24 @@
 angular.module('openAwesome.directives', []);
 angular.module('openAwesome.directives').directive('dynatable', function () {
     return {
+        scope: {
+            dynatable: '='
+        },
         link: function (scope, element) {
-            function osNameWriter(column, record) {
-                if (column.id === 'hostname') {
-                    return '<td><a ng-href="">' + record[column.id] + '</a></td>';
-                }
-                else if (column.id === 'os_name' && angular.isDefined(record.icon)) {
-                    return '<td><img src="img/tango-images/16_' + record.icon + '.png"></td>';
-                }
-                return '<td>' + record[column.id] + '</td>';
-            }
+//            function osNameWriter(column, record) {
+//                if (column.id === 'hostname') {
+//                    return '<td><a ng-href="">' + record[column.id] + '</a></td>';
+//                }
+//                else if (column.id === 'os_name' && angular.isDefined(record.icon)) {
+//                    return '<td><img src="img/tango-images/16_' + record.icon + '.png"></td>';
+//                }
+//                return '<td>' + record[column.id] + '</td>';
+//            }
 
             element.dynatable({
-                writers: {
-                    _cellWriter: osNameWriter
-                },
+//                writers: {
+//                    _cellWriter: osNameWriter
+//                },
                 features: {
                     sort: false,
                     pushState: false,
@@ -30,9 +33,9 @@ angular.module('openAwesome.directives').directive('dynatable', function () {
                     defaultColumnIdStyle: 'underscore'
                 },
                 dataset: {
-                    ajax: true,
-                    ajaxUrl: 'data/system_list.json',
-                    ajaxOnLoad: true,
+//                    ajax: true,
+//                    ajaxUrl: 'data/system_list.json',
+//                    ajaxOnLoad: true,
                     records: []
                 },
                 inputs: {
@@ -64,8 +67,20 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
                 scope.systemComponent.displayName :
                 scope.humanize(scope.systemComponent.name);
 
-            scope.systemComponent.promise.then(function (system) {
-                scope.component = system[scope.systemComponent.name];
+            if (angular.isDefined(scope.systemComponent.promise)) {
+                scope.systemComponent.promise.then(function (system) {
+                    scope.component = system[scope.systemComponent.name];
+                    scope.isMultipleComponents = angular.isArray(scope.component);
+                    scope.isStringArray = scope.isMultipleComponents && scope.component.length > 0 && angular.isString(scope.component[0]);
+                    scope.itemHeaderTemplateUrl = '/system-' + scope.systemComponent.name + '-item-header.html';
+                    if (scope.isMultipleComponents && !scope.isStringArray) {
+                        for (var i in scope.component) {
+                            scope.component[i].isMoreInfoVisible = false;
+                        }
+                    }
+                });
+            } else if (angular.isDefined(scope.systemComponent.component)) {
+                scope.component = scope.systemComponent.component;
                 scope.isMultipleComponents = angular.isArray(scope.component);
                 scope.isStringArray = scope.isMultipleComponents && scope.component.length > 0 && angular.isString(scope.component[0]);
                 scope.itemHeaderTemplateUrl = '/system-' + scope.systemComponent.name + '-item-header.html';
@@ -74,7 +89,7 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
                         scope.component[i].isMoreInfoVisible = false;
                     }
                 }
-            });
+            }
         }
     };
 });
