@@ -1,7 +1,7 @@
 parameters:
-#    ehann_open_awesome.example.class: Ehann\Bundle\OpenAwesomeBundle\Example
+    ehann_open_awesome.elasticsearch_client.class: Elasticsearch\Client
 
 services:
-#    ehann_open_awesome.example:
-#        class: %ehann_open_awesome.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    ehann_open_awesome.elasticsearch_client:
+        class: %ehann_open_awesome.elasticsearch_client.class%
+
