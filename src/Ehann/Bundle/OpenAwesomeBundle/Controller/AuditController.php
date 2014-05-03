@@ -72,13 +72,14 @@ class AuditController extends Controller
         foreach ($content as $type => $component) {
             if ($type === 'software') {
                 $params['type'] = 'software_package';
-                foreach ($component as $package) {
-                    $package['uuid'] = $uuid;
-                    $params['body'][] = array('index' => array());
-                    $params['body'][] = array('software_package' => $package);
+                foreach ($component as $packages) {
+                    foreach ($packages as $package) {
+                        $package['uuid'] = $uuid;
+                        $params['body'][] = array('index' => array());
+                        $params['body'][] = $package;
+                    }
                 }
-            }
-            else {
+            } else {
                 $params['body'][] = array('index' => array('_id' => $uuid));
                 $params['body'][] = array($type => $component);
             }
