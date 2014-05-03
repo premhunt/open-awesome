@@ -67,19 +67,7 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
                 scope.systemComponent.displayName :
                 scope.humanize(scope.systemComponent.name);
 
-            if (angular.isDefined(scope.systemComponent.promise)) {
-                scope.systemComponent.promise.then(function (system) {
-                    scope.component = system[scope.systemComponent.name];
-                    scope.isMultipleComponents = angular.isArray(scope.component);
-                    scope.isStringArray = scope.isMultipleComponents && scope.component.length > 0 && angular.isString(scope.component[0]);
-                    scope.itemHeaderTemplateUrl = '/system-' + scope.systemComponent.name + '-item-header.html';
-                    if (scope.isMultipleComponents && !scope.isStringArray) {
-                        for (var i in scope.component) {
-                            scope.component[i].isMoreInfoVisible = false;
-                        }
-                    }
-                });
-            } else if (angular.isDefined(scope.systemComponent.component)) {
+            if (angular.isDefined(scope.systemComponent.component)) {
                 scope.component = scope.systemComponent.component;
                 scope.isMultipleComponents = angular.isArray(scope.component);
                 scope.isStringArray = scope.isMultipleComponents && scope.component.length > 0 && angular.isString(scope.component[0]);
