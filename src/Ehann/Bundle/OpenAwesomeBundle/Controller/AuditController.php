@@ -62,13 +62,27 @@ class AuditController extends Controller
      */
     public function postAction(Request $request)
     {
-        $content = json_decode($request->getContent(), true);
-        $requiredParams = array('body', 'type', 'id');
-        if (count($content) !== count($requiredParams) ||
-            empty(array_intersect($requiredParams, array_keys($content)))) {
-            throw new BadRequestHttpException('Missing one ore more required parameters');
+        $simpleXmlContent = simplexml_load_string($request->getContent());
+        $content = json_decode(json_encode($simpleXmlContent), true);
+        if (!array_key_exists('sys', $content) || !array_key_exists('uuid', $content['sys'])) {
+            throw new BadRequestHttpException('sys:uuid is required');
         }
-        $this->esParams = array_merge($this->esParams, $content);
-        return new WebServiceResponse($this->getElasticsearch()->index($this->esParams));
+        $uuid = $content['sys']['uuid'];
+        $params = $this->esParams;
+        foreach ($content as $type => $component) {
+            if ($type === 'software') {
+                $params['type'] = 'software_package';
+                foreach ($component as $package) {
+                    $package['uuid'] = $uuid;
+                    $params['body'][] = array('index' => array());
+                    $params['body'][] = array('software_package' => $package);
+                }
+            }
+            else {
+                $params['body'][] = array('index' => array('_id' => $uuid));
+                $params['body'][] = array($type => $component);
+            }
+        }
+        return new WebServiceResponse($this->getElasticsearch()->bulk($params));
     }
 }
