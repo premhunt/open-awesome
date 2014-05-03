@@ -93,3 +93,29 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
         }
     };
 });
+
+angular.module('openAwesome.directives').directive('updateInProgress', function () {
+    return {
+        restrict: 'AE',
+        replace: true,
+        transclude: true,
+        template: '<div><div class="loading-indicator text-center"><div><i class="fa fa-spinner fa-spin fa-4x"></i></div>Loading...</div>' +
+            '<div ng-transclude class="loaded-content"></div></div>',
+        scope: {
+            updateInProgress: '='
+        },
+        link: function (scope, element) {
+            var loadingIndicator = element.find('.loading-indicator');
+            var loadedContent = element.find('.loaded-content');
+            loadingIndicator.css('padding-top', '80px')
+                .css('padding-bottom', '80px');
+            var toggleIndicator = function (isResolved) {
+                isResolved ? loadingIndicator.hide() : loadingIndicator.show();
+                isResolved ? loadedContent.show() : loadedContent.hide();
+            };
+            typeof scope.updateInProgress === 'boolean' ?
+                scope.$watch('updateInProgress', toggleIndicator) :
+                scope.$watch('updateInProgress.$resolved', toggleIndicator);
+        }
+    };
+});
