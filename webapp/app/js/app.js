@@ -14,6 +14,6 @@ angular.module('openAwesome', [
     config(function ($locationProvider, $routeProvider) {
         $locationProvider.html5Mode(true);
         $locationProvider.hashPrefix('!');
-        $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'MainCtrl'});
+        $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'MainCtrl', reloadOnSearch: false});
         $routeProvider.otherwise({redirectTo: '/'});
     });
