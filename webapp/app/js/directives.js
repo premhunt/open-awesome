@@ -96,8 +96,7 @@ angular.module('openAwesome.directives').directive('updateInProgress', function 
         restrict: 'AE',
         replace: true,
         transclude: true,
-        template: '<div ng-show="updateInProgress"><div class="loading-indicator text-center"><div><i class="fa fa-spinner fa-spin fa-4x"></i></div>Loading...</div>' +
-            '<div ng-transclude class="loaded-content"></div></div>',
+        templateUrl: 'partials/directives/update-in-progress.html',
         scope: {
             updateInProgress: '='
         },

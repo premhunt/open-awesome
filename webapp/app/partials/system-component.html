@@ -1,8 +1,10 @@
 <h3 ng-if="displayName">
-    <span>{{ displayName|humanize }}</span>
-    <span ng-if="component.icon">
-        <i class="fa fa-fw" ng-class="iconClass(component.icon)"></i>
-    </span>
+    <a ng-click="search()" class="btn-link">
+        <span>{{ displayName|humanize }}</span>
+        <span ng-if="component.icon">
+            <i class="fa fa-fw" ng-class="iconClass(component.icon)"></i>
+        </span>
+    </a>
 </h3>
 <table class="table table-condensed table-borderless">
     <tr ng-repeat="(key, value) in component" ng-if="value.length > 0">
@@ -68,7 +70,8 @@
 </script>
 
 <script type="text/ng-template" id="/system-routes-item-header.html">
-    Route {{ $index + 1 }}<small> {{ item.destination }} - {{ item.protocol }}</small>
+    Route {{ $index + 1 }}
+    <small> {{ item.destination }} - {{ item.protocol }}</small>
 </script>
 
 <script type="text/ng-template" id="/system-scsi_controllers-item-header.html">
