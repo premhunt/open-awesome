@@ -86,55 +86,55 @@ class AuditController extends Controller
         $this->persistComponent($manager, $xmlContent->bios, 'SysHwBios', 'bios_', $system);
         // SCSI Controllers
         foreach ($xmlContent->scsi_controllers->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysHwScsiController', 'scsi_controller_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysHwScsiController', 'scsi_controller_', $system, $componentXml->device_id);
         }
         // Processor
         $this->persistComponent($manager, $xmlContent->processor, 'SysHwProcessor', 'processor_', $system);
         // Memory
         foreach ($xmlContent->memory->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysHwMemory', '', $system);
+            $this->persistComponent($manager, $componentXml, 'SysHwMemory', '', $system, $componentXml->bank);
         }
         // Motherboard
         $this->persistComponent($manager, $xmlContent->motherboard, 'SysHwMotherboard', '', $system);
         // Optical Drives
         foreach ($xmlContent->optical_drives->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysHwOpticalDrive', 'optical_drive_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysHwOpticalDrive', 'optical_drive_', $system, $componentXml->device_id);
         }
         // Video Cards
         foreach ($xmlContent->video_cards->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysHwVideo', 'video_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysHwVideo', 'video_', $system, $componentXml->device_id);
         }
         // Monitors
         foreach ($xmlContent->sound_cards->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysHwMonitor', '', $system);
+            $this->persistComponent($manager, $componentXml, 'SysHwMonitor', '', $system, $componentXml->device_id);
         }
         // Sound Cards
         foreach ($xmlContent->sound_cards->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysHwSound', 'sound_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysHwSound', 'sound_', $system, $componentXml->device_id);
         }
         // Hard Drives
         foreach ($xmlContent->hard_disks->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysHwHardDrive', 'hard_drive_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysHwHardDrive', 'hard_drive_', $componentXml->device_id);
         }
         // Partitions
         foreach ($xmlContent->partitions->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysHwPartition', 'partition_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysHwPartition', 'partition_', $system, $componentXml->device_id);
         }
         // Shares
         foreach ($xmlContent->shares->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysSwShare', 'share_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysSwShare', 'share_', $system, $componentXml->name.$componentXml->path);
         }
         // Network Cards
         foreach ($xmlContent->network_cards->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysHwNetworkCard', 'net_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysHwNetworkCard', 'net_', $system, $componentXml->mac_address);
         }
         // Addresses
         foreach ($xmlContent->addresses->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysHwNetworkCardIp', '', $system);
+            $this->persistComponent($manager, $componentXml, 'SysHwNetworkCardIp', '', $system, $componentXml->net_mac_address.$componentXml->address_version);
         }
         // DNS
         foreach ($xmlContent->dns->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysSwDns', 'dns_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysSwDns', 'dns_', $system, $componentXml->full_name);
         }
         // Printers
         foreach ($xmlContent->printers->children() as $componentXml) {
@@ -142,33 +142,33 @@ class AuditController extends Controller
         }
         // Logs
         foreach ($xmlContent->logs->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysSwLog', 'log_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysSwLog', 'log_', $system, $componentXml->file_name);
         }
         // Pagefiles
         foreach ($xmlContent->pagefiles->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysSwPagefile', '', $system);
+            $this->persistComponent($manager, $componentXml, 'SysSwPagefile', '', $system, $componentXml.file_name);
         }
         // Users
         foreach ($xmlContent->users->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysSwUser', 'user_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysSwUser', 'user_', $system, $componentXml->sid);
         }
         // Software
         foreach ($xmlContent->software->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysSwSoftware', 'software_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysSwSoftware', 'software_', $system, $componentXml->name);
         }
         // Services
         foreach ($xmlContent->services->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysSwService', 'service_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysSwService', 'service_', $system, $componentXml->name.$componentXml->path_name);
         }
         // Database
         $this->persistComponent($manager, $xmlContent->database, 'SysSwDatabase', 'db_', $system);
         // Software Keys
         foreach ($xmlContent->software_keys->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysSwSoftwareKey', 'key_', $system);
+            $this->persistComponent($manager, $componentXml, 'SysSwSoftwareKey', 'key_', $system, $componentXml->name.$componentXml->text);
         }
         // Routes
         foreach ($xmlContent->routes->children() as $componentXml) {
-            $this->persistComponent($manager, $componentXml, 'SysSwRoute', '', $system);
+            $this->persistComponent($manager, $componentXml, 'SysSwRoute', '', $system, $system, $componentXml->destination.$componentXml->protocol);
         }
 
         $manager->flush();
