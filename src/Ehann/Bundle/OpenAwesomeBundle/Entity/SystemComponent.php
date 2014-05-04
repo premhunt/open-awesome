@@ -8,6 +8,13 @@ use JMS\Serializer\Annotation\Type;
 class SystemComponent
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="hash", type="string", length=255, nullable=false)
+     */
+    protected $componentKey;
+
+    /**
      * @var \DateTime
      *
      * @Type("DateTime<'Y-m-d G:i:s'>")
@@ -22,6 +29,22 @@ class SystemComponent
      * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
      */
     protected $firstTimestamp;
+
+    /**
+     * @param string $componentKey
+     */
+    public function setComponentKey($componentKey)
+    {
+        $this->componentKey = md5($componentKey);
+    }
+
+    /**
+     * @return string
+     */
+    public function getComponentKey()
+    {
+        return $this->componentKey;
+    }
 
     /**
      * @param \DateTime $firstTimestamp
