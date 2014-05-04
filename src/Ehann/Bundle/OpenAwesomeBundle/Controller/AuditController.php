@@ -3,7 +3,6 @@
 namespace Ehann\Bundle\OpenAwesomeBundle\Controller;
 
 use Ehann\Bundle\WebServiceBundle\Response\WebServiceResponse;
-use JMS\Serializer\Annotation\XmlElement;
 use Proxies\__CG__\Ehann\Bundle\OpenAwesomeBundle\Entity\System;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -138,9 +137,9 @@ class AuditController extends Controller
             $this->persistComponent($manager, $componentXml, 'SysSwDns', 'dns_', $system);
         }
         // Printers
-//        foreach ($xmlContent->printers->children() as $componentXml) {
-//            $this->persistComponent($manager, $componentXml, 'System', 'printer_');
-//        }
+        foreach ($xmlContent->printers->children() as $componentXml) {
+            $this->persistComponent($manager, $componentXml, 'System', 'printer_');
+        }
         // Logs
         foreach ($xmlContent->logs->children() as $componentXml) {
             $this->persistComponent($manager, $componentXml, 'SysSwLog', 'log_', $system);
@@ -188,11 +187,18 @@ class AuditController extends Controller
         $component = $this->get('jms_serializer')->deserialize($componentXml->asXml(), $class, 'xml');
         if ($system) {
             $component->setSystem($system);
+            $component->setTimestamp($system->getTimestamp());
+        } else if ($componentClass === 'System'){
+            $component->generateSystemKey();
+            $component->setFqdn($component->getHostname() . "." . $component->getDomain());
+            $now = new \DateTime();
+            $component->setTimestamp($now);
+            $component->setLastSeen($now);
+            $component->setLastSeenBy('audit');
         }
-        $component->setTimestamp($system->getTimestamp());
 
-        $existingComponent = $manager->getRepository('EhannOpenAwesomeBundle:' . $componentClass)->findOneBy(array('system' => $system->getId()));
-        if ($existingComponent) {
+        $repoClass = 'EhannOpenAwesomeBundle:' . $componentClass;
+        if ($system && $existingComponent = $manager->getRepository($repoClass)->findOneBy(array('system' => $system->getId()))) {
             $component->setId($existingComponent->getId());
             $component = $manager->merge($component);
         } else {

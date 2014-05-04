@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\Type;
  * @ORM\Table(name="system", indexes={@ORM\Index(name="id", columns={"timestamp"}), @ORM\Index(name="id2", columns={"system_key"}), @ORM\Index(name="id3", columns={"man_ip_address"}), @ORM\Index(name="hostname", columns={"hostname"}), @ORM\Index(name="linked_sys", columns={"linked_sys"})})
  * @ORM\Entity
  */
-class System
+class System extends SystemComponent
 {
     /**
      * @var integer
@@ -39,133 +39,133 @@ class System
     /**
      * @var string
      *
-     * @ORM\Column(name="hostname", type="string", length=100, nullable=false)
+     * @ORM\Column(name="hostname", type="string", length=100, nullable=true)
      */
     private $hostname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="domain", type="string", length=100, nullable=false)
+     * @ORM\Column(name="domain", type="string", length=100, nullable=true)
      */
     private $domain;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fqdn", type="text", nullable=false)
+     * @ORM\Column(name="fqdn", type="text", nullable=true)
      */
     private $fqdn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=250, nullable=false)
+     * @ORM\Column(name="description", type="string", length=250, nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=50, nullable=false)
+     * @ORM\Column(name="type", type="string", length=50, nullable=true)
      */
     private $type;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="icon", type="string", length=50, nullable=false)
+     * @ORM\Column(name="icon", type="string", length=50, nullable=true)
      */
     private $icon;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="os_group", type="string", length=50, nullable=false)
+     * @ORM\Column(name="os_group", type="string", length=50, nullable=true)
      */
     private $osGroup;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="os_family", type="string", length=50, nullable=false)
+     * @ORM\Column(name="os_family", type="string", length=50, nullable=true)
      */
     private $osFamily;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="os_name", type="string", length=100, nullable=false)
+     * @ORM\Column(name="os_name", type="string", length=100, nullable=true)
      */
     private $osName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="os_version", type="string", length=50, nullable=false)
+     * @ORM\Column(name="os_version", type="string", length=50, nullable=true)
      */
     private $osVersion;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="linked_sys", type="integer", nullable=false)
+     * @ORM\Column(name="linked_sys", type="integer", nullable=true)
      */
     private $linkedSys;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="serial", type="string", length=200, nullable=false)
+     * @ORM\Column(name="serial", type="string", length=200, nullable=true)
      */
     private $serial;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="model", type="string", length=200, nullable=false)
+     * @ORM\Column(name="model", type="string", length=200, nullable=true)
      */
     private $model;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="manufacturer", type="string", length=50, nullable=false)
+     * @ORM\Column(name="manufacturer", type="string", length=50, nullable=true)
      */
     private $manufacturer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="uptime", type="string", length=50, nullable=false)
+     * @ORM\Column(name="uptime", type="string", length=50, nullable=true)
      */
     private $uptime;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="form_factor", type="string", length=50, nullable=false)
+     * @ORM\Column(name="form_factor", type="string", length=50, nullable=true)
      */
     private $formFactor;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pc_os_bit", type="string", length=3, nullable=false)
+     * @ORM\Column(name="pc_os_bit", type="string", length=3, nullable=true)
      */
     private $pcOsBit;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="pc_memory", type="integer", nullable=false)
+     * @ORM\Column(name="pc_memory", type="integer", nullable=true)
      */
     private $pcMemory;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="pc_num_processor", type="integer", nullable=false)
+     * @ORM\Column(name="pc_num_processor", type="integer", nullable=true)
      */
     private $pcNumProcessor;
 
@@ -173,7 +173,7 @@ class System
      * @var \DateTime
      *
      * @Type("DateTime<'Y-m-d'>")
-     * @ORM\Column(name="pc_date_os_installation", type="date", nullable=false)
+     * @ORM\Column(name="pc_date_os_installation", type="date", nullable=true)
      */
     private $pcDateOsInstallation;
 
@@ -687,23 +687,6 @@ class System
      * @ORM\Column(name="system_key_type", type="string", length=4, nullable=false)
      */
     private $systemKeyType;
-
-    /**
-     * @var \DateTime
-     *
-     * @Type("DateTime<'Y-m-d G:i:s'>")
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @Type("DateTime<'Y-m-d G:i:s'>")
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
-
 
     /**
      * Get systemId
