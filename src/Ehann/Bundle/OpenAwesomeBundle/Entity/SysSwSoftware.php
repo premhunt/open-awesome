@@ -71,9 +71,9 @@ class SysSwSoftware extends SystemComponent
     private $installedBy;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="software_installed_on", type="datetime", nullable=true)
+     * @ORM\Column(name="software_installed_on", type="string", nullable=true)
      */
     private $installedOn;
 
