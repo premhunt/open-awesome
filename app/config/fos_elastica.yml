@@ -148,3 +148,120 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftware
                         provider: ~
+                scsi_controller:
+                    mappings:
+                        id:
+                        name:
+                        manufacturer:
+                        deviceId:
+                        type:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwScsiController
+                        provider: ~
+                processor:
+                    mappings:
+                        id:
+                        cores:
+                        description:
+                        speed:
+                        manufacturer:
+                        powerManagementSupported:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwProcessor
+                        provider: ~
+                motherboard:
+                    mappings:
+                        id:
+                        manufacturer:
+                        model:
+                        serial:
+                        memorySlots:
+                        processorSlots:
+                        processorType:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMotherboard
+                        provider: ~
+                optical_drive:
+                    mappings:
+                        id:
+                        caption:
+                        model:
+                        deviceId:
+                        mountPoint:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwOpticalDrive
+                        provider: ~
+                video_card:
+                    mappings:
+                        id:
+                        description:
+                        manufacturer:
+                        currentHorizontalRes:
+                        currentVerticalRes:
+                        memory:
+                        caption:
+                        currentNumberColours:
+                        currentRefreshRate:
+                        deviceId:
+                        driverDate:
+                        driverVersion:
+                        maxRefreshRate:
+                        minRefreshRate:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwVideo
+                        provider: ~
+                monitor:
+                    mappings:
+                        id:
+                        manufacturer:
+                        deviceId:
+                        manufactureDate:
+                        model:
+                        serial:
+                        size:
+                        aspectRatio:
+                        manSerial:
+                        edidVersion:
+                        manDescription:
+                        manValue:
+                        manPurchaseOrderNumber:
+                        manDatePurchased:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMonitor
+                        provider: ~
+                sound_card:
+                    mappings:
+                        id:
+                        manufacturer:
+                        deviceId:
+                        name:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwSound
+                        provider: ~
+                hard_drive:
+                    mappings:
+                        id:
+                        caption:
+                        index:
+                        interfaceType:
+                        manufacturer:
+                        model:
+                        serial:
+                        partitions:
+                        scsiBus:
+                        scsiLogicalUnit:
+                        scsiPort:
+                        size:
+                        deviceId:
+                        status:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwHardDrive
+                        provider: ~
