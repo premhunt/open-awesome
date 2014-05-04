@@ -53,6 +53,15 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
             systemComponent: '='
         },
         link: function (scope) {
+            scope.iconClass = function (input) {
+                if (input === 'printer') {
+                    return 'fa-print';
+                } else if (input.match(/windows/gi)) {
+                    return 'fa-windows';
+                }
+                return 'fa-'+input;
+            };
+
             scope.isArray = angular.isArray;
             scope.isString = angular.isString;
             scope.humanize = function (text) {
