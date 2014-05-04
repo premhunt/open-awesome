@@ -80,7 +80,7 @@ class SysSwService extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="service_count", type="string", length=5, nullable=false)
+     * @ORM\Column(name="service_count", type="string", length=5, nullable=true)
      */
     private $count;
 

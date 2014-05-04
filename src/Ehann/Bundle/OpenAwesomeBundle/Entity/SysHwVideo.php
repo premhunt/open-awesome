@@ -24,91 +24,91 @@ class SysHwVideo extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="video_description", type="string", length=100, nullable=false)
+     * @ORM\Column(name="video_description", type="string", length=100, nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_manufacturer", type="string", length=100, nullable=false)
+     * @ORM\Column(name="video_manufacturer", type="string", length=100, nullable=true)
      */
     private $manufacturer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_current_horizontal_res", type="string", length=20, nullable=false)
+     * @ORM\Column(name="video_current_horizontal_res", type="string", length=20, nullable=true)
      */
     private $currentHorizontalRes;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_current_vertical_res", type="string", length=20, nullable=false)
+     * @ORM\Column(name="video_current_vertical_res", type="string", length=20, nullable=true)
      */
     private $currentVerticalRes;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_memory", type="string", length=100, nullable=false)
+     * @ORM\Column(name="video_memory", type="string", length=100, nullable=true)
      */
     private $memory;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_caption", type="string", length=100, nullable=false)
+     * @ORM\Column(name="video_caption", type="string", length=100, nullable=true)
      */
     private $caption;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_current_number_colours", type="string", length=20, nullable=false)
+     * @ORM\Column(name="video_current_number_colours", type="string", length=20, nullable=true)
      */
     private $currentNumberColours;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_current_refresh_rate", type="string", length=20, nullable=false)
+     * @ORM\Column(name="video_current_refresh_rate", type="string", length=20, nullable=true)
      */
     private $currentRefreshRate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_device_id", type="string", length=100, nullable=false)
+     * @ORM\Column(name="video_device_id", type="string", length=100, nullable=true)
      */
     private $deviceId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_driver_date", type="string", length=20, nullable=false)
+     * @ORM\Column(name="video_driver_date", type="string", length=20, nullable=true)
      */
     private $driverDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_driver_version", type="string", length=20, nullable=false)
+     * @ORM\Column(name="video_driver_version", type="string", length=20, nullable=true)
      */
     private $driverVersion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_max_refresh_rate", type="string", length=20, nullable=false)
+     * @ORM\Column(name="video_max_refresh_rate", type="string", length=20, nullable=true)
      */
     private $maxRefreshRate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video_min_refresh_rate", type="string", length=20, nullable=false)
+     * @ORM\Column(name="video_min_refresh_rate", type="string", length=20, nullable=true)
      */
     private $minRefreshRate;
 

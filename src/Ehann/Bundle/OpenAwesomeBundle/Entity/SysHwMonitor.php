@@ -24,91 +24,91 @@ class SysHwMonitor extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="manufacturer", type="string", length=100, nullable=false)
+     * @ORM\Column(name="manufacturer", type="string", length=100, nullable=true)
      */
     private $manufacturer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="device_id", type="string", length=100, nullable=false)
+     * @ORM\Column(name="device_id", type="string", length=100, nullable=true)
      */
     private $deviceId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="manufacture_date", type="string", length=20, nullable=false)
+     * @ORM\Column(name="manufacture_date", type="string", length=20, nullable=true)
      */
     private $manufactureDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="model", type="string", length=100, nullable=false)
+     * @ORM\Column(name="model", type="string", length=100, nullable=true)
      */
     private $model;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="serial", type="string", length=50, nullable=false)
+     * @ORM\Column(name="serial", type="string", length=50, nullable=true)
      */
     private $serial;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="size", type="string", length=5, nullable=false)
+     * @ORM\Column(name="size", type="string", length=5, nullable=true)
      */
     private $size;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="aspect_ratio", type="string", length=5, nullable=false)
+     * @ORM\Column(name="aspect_ratio", type="string", length=5, nullable=true)
      */
     private $aspectRatio;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_serial", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_serial", type="string", length=50, nullable=true)
      */
     private $manSerial;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="edid_version", type="string", length=50, nullable=false)
+     * @ORM\Column(name="edid_version", type="string", length=50, nullable=true)
      */
     private $edidVersion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_description", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_description", type="string", length=100, nullable=true)
      */
     private $manDescription;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_value", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_value", type="string", length=50, nullable=true)
      */
     private $manValue;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_purchase_order_number", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_purchase_order_number", type="string", length=50, nullable=true)
      */
     private $manPurchaseOrderNumber;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="man_date_purchased", type="date", nullable=false)
+     * @ORM\Column(name="man_date_purchased", type="date", nullable=true)
      */
     private $manDatePurchased;
 

@@ -31,98 +31,98 @@ class SysHwNetworkCard extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="net_manufacturer", type="string", length=100, nullable=false)
+     * @ORM\Column(name="net_manufacturer", type="string", length=100, nullable=true)
      */
     private $manufacturer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_model", type="string", length=100, nullable=false)
+     * @ORM\Column(name="net_model", type="string", length=100, nullable=true)
      */
     private $model;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_description", type="string", length=255, nullable=false)
+     * @ORM\Column(name="net_description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_ip_enabled", type="string", length=10, nullable=false)
+     * @ORM\Column(name="net_ip_enabled", type="string", length=10, nullable=true)
      */
     private $ipEnabled;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_index", type="string", length=10, nullable=false)
+     * @ORM\Column(name="net_index", type="string", length=10, nullable=true)
      */
     private $index;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_dhcp_enabled", type="string", length=100, nullable=false)
+     * @ORM\Column(name="net_dhcp_enabled", type="string", length=100, nullable=true)
      */
     private $dhcpEnabled;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_dhcp_server", type="string", length=30, nullable=false)
+     * @ORM\Column(name="net_dhcp_server", type="string", length=30, nullable=true)
      */
     private $dhcpServer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_dhcp_lease_obtained", type="string", length=14, nullable=false)
+     * @ORM\Column(name="net_dhcp_lease_obtained", type="string", length=14, nullable=true)
      */
     private $dhcpLeaseObtained;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_dhcp_lease_expires", type="string", length=14, nullable=false)
+     * @ORM\Column(name="net_dhcp_lease_expires", type="string", length=14, nullable=true)
      */
     private $dhcpLeaseExpires;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_dns_host_name", type="string", length=100, nullable=false)
+     * @ORM\Column(name="net_dns_host_name", type="string", length=100, nullable=true)
      */
     private $dnsHostName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_dns_server", type="string", length=100, nullable=false)
+     * @ORM\Column(name="net_dns_server", type="string", length=100, nullable=true)
      */
     private $dnsServer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_dns_domain", type="string", length=100, nullable=false)
+     * @ORM\Column(name="net_dns_domain", type="string", length=100, nullable=true)
      */
     private $dnsDomain;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_dns_domain_suffix", type="string", length=100, nullable=false)
+     * @ORM\Column(name="net_dns_domain_suffix", type="string", length=100, nullable=true)
      */
     private $dnsDomainSuffix;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_dns_domain_reg_enabled", type="string", length=10, nullable=false)
+     * @ORM\Column(name="net_dns_domain_reg_enabled", type="string", length=10, nullable=true)
      */
     private $dnsDomainRegEnabled;
 
@@ -136,35 +136,35 @@ class SysHwNetworkCard extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="net_wins_secondary", type="string", length=30, nullable=false)
+     * @ORM\Column(name="net_wins_secondary", type="string", length=30, nullable=true)
      */
     private $winsSecondary;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_wins_lmhosts_enabled", type="string", length=10, nullable=false)
+     * @ORM\Column(name="net_wins_lmhosts_enabled", type="string", length=10, nullable=true)
      */
     private $winsLmhostsEnabled;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_adapter_type", type="string", length=100, nullable=false)
+     * @ORM\Column(name="net_adapter_type", type="string", length=100, nullable=true)
      */
     private $adapterType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_connection_id", type="string", length=255, nullable=false)
+     * @ORM\Column(name="net_connection_id", type="string", length=255, nullable=true)
      */
     private $connectionId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="net_connection_status", type="string", length=30, nullable=false)
+     * @ORM\Column(name="net_connection_status", type="string", length=30, nullable=true)
      */
     private $connectionStatus;
 

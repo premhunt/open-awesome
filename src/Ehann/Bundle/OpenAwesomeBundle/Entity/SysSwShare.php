@@ -52,7 +52,7 @@ class SysSwShare extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="share_users", type="string", length=200, nullable=false)
+     * @ORM\Column(name="share_users", type="string", length=200, nullable=true)
      */
     private $users;
 

@@ -24,21 +24,21 @@ class SysSwDns extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="dns_name", type="string", length=100, nullable=false)
+     * @ORM\Column(name="dns_name", type="string", length=100, nullable=true)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dns_full_name", type="string", length=200, nullable=false)
+     * @ORM\Column(name="dns_full_name", type="string", length=200, nullable=true)
      */
     private $fullName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dns_ip_address", type="string", length=30, nullable=false)
+     * @ORM\Column(name="dns_ip_address", type="string", length=30, nullable=true)
      */
     private $ipAddress;
 

@@ -24,28 +24,28 @@ class SysSwPagefile extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="pagefile_name", type="string", length=100, nullable=false)
+     * @ORM\Column(name="pagefile_name", type="string", length=100, nullable=true)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pagefile_initial_size", type="string", length=10, nullable=false)
+     * @ORM\Column(name="pagefile_initial_size", type="string", length=10, nullable=true)
      */
     private $initialSize;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pagefile_max_size", type="string", length=10, nullable=false)
+     * @ORM\Column(name="pagefile_max_size", type="string", length=10, nullable=true)
      */
     private $maxSize;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pagefile_size", type="string", length=10, nullable=false)
+     * @ORM\Column(name="pagefile_size", type="string", length=10, nullable=true)
      */
     private $size;
 

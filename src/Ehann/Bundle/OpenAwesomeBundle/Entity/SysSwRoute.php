@@ -64,20 +64,6 @@ class SysSwRoute extends SystemComponent
     private $type;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
-
-    /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      *
      * @ORM\ManyToOne(targetEntity="Ehann\Bundle\OpenAwesomeBundle\Entity\System")
@@ -213,22 +199,6 @@ class SysSwRoute extends SystemComponent
     public function getSystem()
     {
         return $this->system;
-    }
-
-    /**
-     * @param \DateTime $timestamp
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
     }
 
     /**

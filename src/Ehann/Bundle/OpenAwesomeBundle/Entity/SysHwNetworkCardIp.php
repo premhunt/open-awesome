@@ -24,35 +24,35 @@ class SysHwNetworkCardIp extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="net_mac_address", type="string", length=17, nullable=false)
+     * @ORM\Column(name="net_mac_address", type="string", length=17, nullable=true)
      */
     private $netMacAddress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ip_address_v4", type="string", length=30, nullable=false)
+     * @ORM\Column(name="ip_address_v4", type="string", length=30, nullable=true)
      */
     private $addressV4;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ip_address_v6", type="string", length=30, nullable=false)
+     * @ORM\Column(name="ip_address_v6", type="string", length=30, nullable=true)
      */
     private $addressV6;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ip_subnet", type="string", length=30, nullable=false)
+     * @ORM\Column(name="ip_subnet", type="string", length=30, nullable=true)
      */
     private $subnet;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ip_address_version", type="string", length=10, nullable=false)
+     * @ORM\Column(name="ip_address_version", type="string", length=10, nullable=true)
      */
     private $addressVersion;
 

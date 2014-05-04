@@ -73,21 +73,21 @@ class SysHwHardDrive extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="hard_drive_scsi_bus", type="string", length=10, nullable=false)
+     * @ORM\Column(name="hard_drive_scsi_bus", type="string", length=10, nullable=true)
      */
     private $scsiBus;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="hard_drive_scsi_logical_unit", type="string", length=100, nullable=false)
+     * @ORM\Column(name="hard_drive_scsi_logical_unit", type="string", length=100, nullable=true)
      */
     private $scsiLogicalUnit;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="hard_drive_scsi_port", type="string", length=10, nullable=false)
+     * @ORM\Column(name="hard_drive_scsi_port", type="string", length=10, nullable=true)
      */
     private $scsiPort;
 

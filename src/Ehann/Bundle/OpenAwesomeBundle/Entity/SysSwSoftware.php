@@ -31,140 +31,140 @@ class SysSwSoftware extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="software_version", type="string", length=255, nullable=false)
+     * @ORM\Column(name="software_version", type="string", length=255, nullable=true)
      */
     private $version;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_description", type="text", nullable=false)
+     * @ORM\Column(name="software_description", type="text", nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_location", type="string", length=255, nullable=false)
+     * @ORM\Column(name="software_location", type="string", length=255, nullable=true)
      */
     private $location;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_uninstall", type="text", nullable=false)
+     * @ORM\Column(name="software_uninstall", type="text", nullable=true)
      */
     private $uninstall;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_install_date", type="string", length=100, nullable=false)
+     * @ORM\Column(name="software_install_date", type="string", length=100, nullable=true)
      */
     private $installDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_installed_by", type="string", length=100, nullable=false)
+     * @ORM\Column(name="software_installed_by", type="string", length=100, nullable=true)
      */
     private $installedBy;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="software_installed_on", type="datetime", nullable=false)
+     * @ORM\Column(name="software_installed_on", type="datetime", nullable=true)
      */
     private $installedOn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_publisher", type="string", length=255, nullable=false)
+     * @ORM\Column(name="software_publisher", type="string", length=255, nullable=true)
      */
     private $publisher;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_install_source", type="string", length=200, nullable=false)
+     * @ORM\Column(name="software_install_source", type="string", length=200, nullable=true)
      */
     private $installSource;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_system_component", type="string", length=2, nullable=false)
+     * @ORM\Column(name="software_system_component", type="string", length=2, nullable=true)
      */
     private $systemComponent;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_url", type="string", length=255, nullable=false)
+     * @ORM\Column(name="software_url", type="string", length=255, nullable=true)
      */
     private $url;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_email", type="string", length=255, nullable=false)
+     * @ORM\Column(name="software_email", type="string", length=255, nullable=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_comment", type="string", length=200, nullable=false)
+     * @ORM\Column(name="software_comment", type="string", length=200, nullable=true)
      */
     private $comment;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_man_comment", type="string", length=200, nullable=false)
+     * @ORM\Column(name="software_man_comment", type="string", length=200, nullable=true)
      */
     private $manComment;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_count", type="string", length=5, nullable=false)
+     * @ORM\Column(name="software_count", type="string", length=5, nullable=true)
      */
     private $count;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_code_base", type="string", length=255, nullable=false)
+     * @ORM\Column(name="software_code_base", type="string", length=255, nullable=true)
      */
     private $codeBase;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_status", type="string", length=45, nullable=false)
+     * @ORM\Column(name="software_status", type="string", length=45, nullable=true)
      */
     private $status;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_key", type="string", length=45, nullable=false)
+     * @ORM\Column(name="software_key", type="string", length=45, nullable=true)
      */
     private $key;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_key_release", type="string", length=45, nullable=false)
+     * @ORM\Column(name="software_key_release", type="string", length=45, nullable=true)
      */
     private $keyRelease;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="software_key_edition", type="string", length=45, nullable=false)
+     * @ORM\Column(name="software_key_edition", type="string", length=45, nullable=true)
      */
     private $keyEdition;
 

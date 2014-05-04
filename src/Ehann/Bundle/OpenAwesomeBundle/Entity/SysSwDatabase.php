@@ -24,28 +24,28 @@ class SysSwDatabase extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="db_type", type="string", length=50, nullable=false)
+     * @ORM\Column(name="db_type", type="string", length=50, nullable=true)
      */
     private $type;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="db_version", type="string", length=50, nullable=false)
+     * @ORM\Column(name="db_version", type="string", length=50, nullable=true)
      */
     private $version;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="db_version_string", type="string", length=50, nullable=false)
+     * @ORM\Column(name="db_version_string", type="string", length=50, nullable=true)
      */
     private $versionString;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="db_edition", type="string", length=50, nullable=false)
+     * @ORM\Column(name="db_edition", type="string", length=50, nullable=true)
      */
     private $edition;
 
