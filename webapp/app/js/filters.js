@@ -2,9 +2,8 @@
 
 /* Filters */
 
-angular.module('openAwesome.filters', []).
-  filter('interpolate', ['version', function(version) {
-    return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
+angular.module('openAwesome.filters', []).filter('humanize', function () {
+    return function (input) {
+        return input.charAt(0).toUpperCase() + input.substr(1).replace(/[A-Z]/g, ' $&');
     };
-  }]);
+});

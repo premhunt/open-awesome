@@ -1,30 +1,30 @@
 <h3 ng-if="displayName">
-    <span>{{ displayName }}</span>
+    <span>{{ displayName|humanize }}</span>
 </h3>
-<table ng-if="!isMultipleComponents" class="table table-condensed">
+<table ng-if="!isMultipleComponents" class="table table-condensed table-borderless">
     <tr ng-repeat="(key, value) in component" ng-if="value.length > 0">
-        <th width="180px"> {{ humanize(key) }}</th>
+        <th width="180px"> {{ key|humanize }}</th>
         <td ng-if="isString(value)">{{ value }}</td>
         <td ng-if="isArray(value)">{{ value.join }}</td>
     </tr>
 </table>
-<ul ng-if="isMultipleComponents && isStringArray">
-    <li ng-repeat="item in component track by $index">{{ item }}</li>
-</ul>
-<div ng-if="isMultipleComponents && !isStringArray" ng-repeat="item in component">
-    <h4 ng-click="toggleMoreInfo(item)">
-        <span ng-if="item.isMoreInfoVisible" class="btn-link"><i class="fa fa-minus fa-fw"></i></span>
-        <span ng-if="!item.isMoreInfoVisible" class="btn-link"><i class="fa fa-plus fa-fw"></i></span>
-        <span ng-include="itemHeaderTemplateUrl"></span>
-    </h4>
-    <table class="table table-bordered table-condensed" ng-if="item.isMoreInfoVisible">
-        <tr ng-repeat="(field, value) in item">
-            <th width="180px" ng-if="field != 'isMoreInfoVisible'">{{ humanize(field) }}</th>
-            <td ng-if="isString(value)">{{ value }}</td>
-            <td ng-if="isArray(value)">{{ value.join }}</td>
-        </tr>
-    </table>
-</div>
+<!--<ul ng-if="isMultipleComponents && isStringArray">-->
+    <!--<li ng-repeat="item in component track by $index">{{ item }}</li>-->
+<!--</ul>-->
+<!--<div ng-if="isMultipleComponents && !isStringArray" ng-repeat="item in component">-->
+    <!--<h4 ng-click="toggleMoreInfo(item)">-->
+        <!--<span ng-if="item.isMoreInfoVisible" class="btn-link"><i class="fa fa-minus fa-fw"></i></span>-->
+        <!--<span ng-if="!item.isMoreInfoVisible" class="btn-link"><i class="fa fa-plus fa-fw"></i></span>-->
+        <!--<span ng-include="itemHeaderTemplateUrl"></span>-->
+    <!--</h4>-->
+    <!--<table class="table table-bordered table-condensed" ng-if="item.isMoreInfoVisible">-->
+        <!--<tr ng-repeat="(field, value) in item">-->
+            <!--<th width="180px" ng-if="field != 'isMoreInfoVisible'">{{ humanize(field) }}</th>-->
+            <!--<td ng-if="isString(value)">{{ value }}</td>-->
+            <!--<td ng-if="isArray(value)">{{ value.join }}</td>-->
+        <!--</tr>-->
+    <!--</table>-->
+<!--</div>-->
 
 <!--Multi-component item header templates-->
 <script type="text/ng-template" id="/system-addresses-item-header.html">

@@ -1,6 +1,36 @@
 /* app css stylesheet */
 
-.table[dynatable] thead th{
+body {
+    background-color: #2c3e50;
+    color: #FFFFFF;
+    margin-top: 50px;
+}
+
+.table[dynatable] thead th {
     background-color: #DDDDDD;
     color: #000;
+}
+
+.table-borderless > thead > tr > th,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > tbody > tr > td,
+.table-borderless > tfoot > tr > td {
+    border: 0;
+}
+
+.search-result-odd,
+.search-result-even {
+    background-color: #34495e;
+    color: #FFFFFF;
+}
+
+.search-result-even {
+    border-top: solid 1px #2c3e50;
+    border-left: solid 1px #2c3e50;
+}
+.search-result-odd {
+    border-top: solid 1px #2c3e50;
+
 }
