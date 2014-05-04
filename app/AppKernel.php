@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Ehann\Bundle\OpenAwesomeBundle\EhannOpenAwesomeBundle(),
             new Ehann\Bundle\WebServiceBundle\EhannWebServiceBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new FOS\ElasticaBundle\FOSElasticaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

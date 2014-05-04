@@ -1,0 +1,107 @@
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        website:
+            client: default
+            index_name: "open-awesome"
+            types:
+                system:
+                    mappings:
+                        uuid: { boost: 5 }
+                        hostname: { boost: 3 }
+                        domain:
+                        fqdn:
+                        description:
+                        type:
+                        icon:
+                        osGroup:
+                        osFamily:
+                        osName:
+                        osVersion:
+                        linkedSys:
+                        serial:
+                        model:
+                        manufacturer:
+                        uptime:
+                        formFactor:
+                        pcOsBit:
+                        pcMemory:
+                        pcNumProcessor:
+                        pcDateOsInstallation:
+                        printerPortName:
+                        printerShared:
+                        printerSharedName:
+                        printerColor:
+                        printerDuplex:
+                        manOsGroup:
+                        manOsFamily:
+                        manOsName:
+                        manDomain:
+                        manStatus:
+                        manEnvironment:
+                        manCriticality:
+                        manClass:
+                        manDescription:
+                        manFunction:
+                        manType:
+                        manIpAddress:
+                        manOwner:
+                        manOrgId:
+                        manLocationId:
+                        manLocationSuite:
+                        manLocationRoom:
+                        manLocationRack:
+                        manLocationRackPosition:
+                        manLocationRackSize:
+                        manSerial:
+                        manAssetNumber:
+                        manModel:
+                        manManufacturer:
+                        manFormFactor:
+                        manIcon:
+                        manVmServerName:
+                        manVmSystemId:
+                        manVmGroup:
+                        manClusterName:
+                        invoiceId:
+                        manPurchaseInvoice:
+                        manPurchaseOrderNumber:
+                        manPurchaseCostCenter:
+                        manPurchaseVendor:
+                        manPurchaseDate:
+                        manPurchaseAmount:
+                        manWarrantyDuration:
+                        manWarrantyExpires:
+                        manWarrantyType:
+                        manTerminalNumber:
+                        manSwitchId:
+                        manSwitchPort:
+                        manPatchPanel:
+                        manPatchPanelPort:
+                        manWallPort:
+                        manPicture:
+                        contactName:
+                        contactId:
+                        manServiceNumber:
+                        manServiceProvider:
+                        manServiceType:
+                        manServicePlan:
+                        manServiceNetwork:
+                        manUnlockPin:
+                        manSerialImei:
+                        manSerialSim:
+                        nmapType:
+                        lastSeen:
+                        lastSeenBy:
+                        lastUser:
+                        accessDetails:
+                        snmpOid:
+                        nmisGroup:
+                        nmisName:
+                        nmisRole:
+                        systemKeyType:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\System
+                        provider: ~
