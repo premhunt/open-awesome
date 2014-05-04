@@ -10,7 +10,7 @@ class SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="hash", type="string", length=255, nullable=false)
+     * @ORM\Column(name="component_key", type="string", length=255, nullable=false)
      */
     protected $componentKey;
 
