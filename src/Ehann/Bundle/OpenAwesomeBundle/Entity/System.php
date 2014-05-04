@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation\Type;
 /**
  * System
  *
- * @ORM\Table(name="system", indexes={@ORM\Index(name="id", columns={"timestamp"}), @ORM\Index(name="id2", columns={"system_key"}), @ORM\Index(name="id3", columns={"man_ip_address"}), @ORM\Index(name="hostname", columns={"hostname"}), @ORM\Index(name="linked_sys", columns={"linked_sys"})})
+ * @ORM\Table(name="system")
  * @ORM\Entity
  */
 class System extends SystemComponent
@@ -21,13 +21,6 @@ class System extends SystemComponent
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="system_key", type="string", length=200, nullable=false)
-     */
-    private $key;
 
     /**
      * @var string
@@ -708,29 +701,6 @@ class System extends SystemComponent
         $this->id = $systemId;
 
         return $this;
-    }
-
-    /**
-     * Set systemKey
-     *
-     * @param string $systemKey
-     * @return System
-     */
-    public function setKey($systemKey)
-    {
-        $this->key = $systemKey;
-
-        return $this;
-    }
-
-    /**
-     * Get systemKey
-     *
-     * @return string
-     */
-    public function getKey()
-    {
-        return $this->key;
     }
 
     /**
@@ -2870,134 +2840,5 @@ class System extends SystemComponent
     public function getNmisRole()
     {
         return $this->nmisRole;
-    }
-
-    /**
-     * Set systemKeyType
-     *
-     * @param string $systemKeyType
-     * @return System
-     */
-    public function setSystemKeyType($systemKeyType)
-    {
-        $this->systemKeyType = $systemKeyType;
-
-        return $this;
-    }
-
-    /**
-     * Get systemKeyType
-     *
-     * @return string
-     */
-    public function getSystemKeyType()
-    {
-        return $this->systemKeyType;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return System
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return System
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Source: /open-audit/code_igniter/application/controllers/system.php
-     *
-     * @return $this
-     */
-    public function generateSystemKey()
-    {
-        if (!isset($this->key) or $this->key === '') {
-            # we will try to build a key.
-            $this->key = '';
-
-            # this is a computer from an audit script
-            if (isset($this->uuid) && $this->uuid != '' &&
-                isset($this->hostname) && $this->hostname != '' &&
-                $this->key == ''
-            ) {
-                $this->key = $this->uuid . "-" . $this->hostname;
-                $this->systemKeyType = 'uuho';
-            }
-
-            # this is anything that has a FQDN
-            if (isset($this->fqdn) && $this->fqdn != '' && $this->key == '') {
-                $this->key = $this->fqdn;
-                $this->systemKeyType = 'fqdn';
-            }
-
-            # this is anything that has a hostname and domain (which makes a FQDN)
-            if ((isset($this->hostname) && $this->hostname != '') &&
-                (isset($this->domain) && $this->domain != '') &&
-                !isset($this->key)) {
-                $this->key = $this->hostname . "." . $this->domain;
-                $this->systemKeyType = 'hodo';
-            }
-
-            # anything with an IP Address
-            if (isset($this->man_ip_address) && $this->man_ip_address != '' && $this->key == '') {
-                $this->key = $this->man_ip_address;
-                $this->systemKeyType = 'ipad';
-            }
-
-            # lastly, we might have only a serial number
-            # if this is all we have, we also require a type.
-            # first check to make sure we have a type or man_type
-            if ((!isset($this->type) || $this->type == '') && isset($this->man_type) && $this->man_type != '') {
-                $this->type = $this->man_type;
-            }
-
-            # next check if we also have a serial and set the system_key if so
-            if (isset($this->serial) &&
-                $this->serial != '' &&
-                isset($this->type) &&
-                $this->type != '' &&
-                $this->key == '') {
-                $this->key = $this->type . "_" . $this->serial;
-                $this->systemKeyType = 'tyse';
-            }
-        }
-        return $this;
     }
 }
