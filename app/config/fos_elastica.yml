@@ -119,3 +119,32 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwBios
                         provider: ~
+                software:
+                    mappings:
+                        id:
+                        name:
+                        version:
+                        description:
+                        location:
+                        version:
+                        uninstall:
+                        installDate:
+                        installedBy:
+                        installedOn:
+                        publisher:
+                        installSource:
+                        systemComponent:
+                        url:
+                        email:
+                        comment:
+                        manComment:
+                        count:
+                        codeBase:
+                        status:
+                        key:
+                        keyRelease:
+                        keyEdition:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftware
+                        provider: ~
