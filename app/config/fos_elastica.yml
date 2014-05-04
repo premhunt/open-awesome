@@ -8,6 +8,7 @@ fos_elastica:
             types:
                 system:
                     mappings:
+                        id:
                         uuid: { boost: 5 }
                         hostname: { boost: 3 }
                         domain:
@@ -104,4 +105,17 @@ fos_elastica:
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\System
+                        provider: ~
+                bios:
+                    mappings:
+                        id:
+                        description:
+                        manufacturer:
+                        serial:
+                        smversion:
+                        version:
+                        assetTag:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwBios
                         provider: ~
