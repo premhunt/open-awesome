@@ -3,6 +3,7 @@
 namespace Ehann\Bundle\OpenAwesomeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * SysHwScsiController
@@ -19,39 +20,40 @@ class SysHwScsiController
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $scsiControllerId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="scsi_controller_name", type="string", length=200, nullable=false)
      */
-    private $scsiControllerName;
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="scsi_controller_manufacturer", type="string", length=100, nullable=false)
      */
-    private $scsiControllerManufacturer;
+    private $manufacturer;
 
     /**
      * @var string
      *
      * @ORM\Column(name="scsi_controller_device_id", type="string", length=200, nullable=false)
      */
-    private $scsiControllerDeviceId;
+    private $deviceId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="scsi_controller_type", type="string", nullable=false)
      */
-    private $scsiControllerType;
+    private $type;
 
     /**
      * @var \DateTime
      *
+     * @Type("DateTime<'Y-m-d G:i:s'>")
      * @ORM\Column(name="timestamp", type="datetime", nullable=false)
      */
     private $timestamp;
@@ -59,6 +61,7 @@ class SysHwScsiController
     /**
      * @var \DateTime
      *
+     * @Type("DateTime<'Y-m-d G:i:s'>")
      * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
      */
     private $firstTimestamp;
@@ -76,24 +79,35 @@ class SysHwScsiController
 
 
     /**
-     * Get scsiControllerId
+     * Get id
      *
      * @return integer 
      */
-    public function getScsiControllerId()
+    public function getId()
     {
-        return $this->scsiControllerId;
+        return $this->id;
     }
 
+    /**
+     * @param $id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
     /**
      * Set scsiControllerName
      *
      * @param string $scsiControllerName
      * @return SysHwScsiController
      */
-    public function setScsiControllerName($scsiControllerName)
+    public function setName($scsiControllerName)
     {
-        $this->scsiControllerName = $scsiControllerName;
+        $this->name = $scsiControllerName;
 
         return $this;
     }
@@ -103,9 +117,9 @@ class SysHwScsiController
      *
      * @return string 
      */
-    public function getScsiControllerName()
+    public function getName()
     {
-        return $this->scsiControllerName;
+        return $this->name;
     }
 
     /**
@@ -114,9 +128,9 @@ class SysHwScsiController
      * @param string $scsiControllerManufacturer
      * @return SysHwScsiController
      */
-    public function setScsiControllerManufacturer($scsiControllerManufacturer)
+    public function setManufacturer($scsiControllerManufacturer)
     {
-        $this->scsiControllerManufacturer = $scsiControllerManufacturer;
+        $this->manufacturer = $scsiControllerManufacturer;
 
         return $this;
     }
@@ -126,9 +140,9 @@ class SysHwScsiController
      *
      * @return string 
      */
-    public function getScsiControllerManufacturer()
+    public function getManufacturer()
     {
-        return $this->scsiControllerManufacturer;
+        return $this->manufacturer;
     }
 
     /**
@@ -137,9 +151,9 @@ class SysHwScsiController
      * @param string $scsiControllerDeviceId
      * @return SysHwScsiController
      */
-    public function setScsiControllerDeviceId($scsiControllerDeviceId)
+    public function setDeviceId($scsiControllerDeviceId)
     {
-        $this->scsiControllerDeviceId = $scsiControllerDeviceId;
+        $this->deviceId = $scsiControllerDeviceId;
 
         return $this;
     }
@@ -149,9 +163,9 @@ class SysHwScsiController
      *
      * @return string 
      */
-    public function getScsiControllerDeviceId()
+    public function getDeviceId()
     {
-        return $this->scsiControllerDeviceId;
+        return $this->deviceId;
     }
 
     /**
@@ -160,9 +174,9 @@ class SysHwScsiController
      * @param string $scsiControllerType
      * @return SysHwScsiController
      */
-    public function setScsiControllerType($scsiControllerType)
+    public function setType($scsiControllerType)
     {
-        $this->scsiControllerType = $scsiControllerType;
+        $this->type = $scsiControllerType;
 
         return $this;
     }
@@ -172,9 +186,9 @@ class SysHwScsiController
      *
      * @return string 
      */
-    public function getScsiControllerType()
+    public function getType()
     {
-        return $this->scsiControllerType;
+        return $this->type;
     }
 
     /**

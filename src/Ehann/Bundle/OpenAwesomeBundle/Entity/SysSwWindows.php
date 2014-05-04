@@ -20,7 +20,7 @@ class SysSwWindows
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $windowsId;
+    private $id;
 
     /**
      * @var string
@@ -34,126 +34,126 @@ class SysSwWindows
      *
      * @ORM\Column(name="windows_user_name", type="string", length=100, nullable=false)
      */
-    private $windowsUserName;
+    private $userName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_client_site_name", type="string", length=100, nullable=false)
      */
-    private $windowsClientSiteName;
+    private $clientSiteName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_domain_short", type="string", length=100, nullable=false)
      */
-    private $windowsDomainShort;
+    private $domainShort;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_domain_controller_address", type="string", length=100, nullable=false)
      */
-    private $windowsDomainControllerAddress;
+    private $domainControllerAddress;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_domain_controller_name", type="string", length=100, nullable=false)
      */
-    private $windowsDomainControllerName;
+    private $domainControllerName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_domain_role", type="string", length=40, nullable=false)
      */
-    private $windowsDomainRole;
+    private $domainRole;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_part_of_domain", type="string", length=10, nullable=false)
      */
-    private $windowsPartOfDomain;
+    private $partOfDomain;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_id_number", type="string", length=100, nullable=false)
      */
-    private $windowsIdNumber;
+    private $idNumber;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_time_caption", type="string", length=100, nullable=false)
      */
-    private $windowsTimeCaption;
+    private $timeCaption;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_time_daylight", type="string", length=100, nullable=false)
      */
-    private $windowsTimeDaylight;
+    private $timeDaylight;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_boot_device", type="string", length=100, nullable=false)
      */
-    private $windowsBootDevice;
+    private $bootDevice;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_country_code", type="string", length=50, nullable=false)
      */
-    private $windowsCountryCode;
+    private $countryCode;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_organisation", type="string", length=80, nullable=false)
      */
-    private $windowsOrganisation;
+    private $organisation;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_language", type="string", length=50, nullable=false)
      */
-    private $windowsLanguage;
+    private $language;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_registered_user", type="string", length=50, nullable=false)
      */
-    private $windowsRegisteredUser;
+    private $registeredUser;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_service_pack", type="string", length=20, nullable=false)
      */
-    private $windowsServicePack;
+    private $servicePack;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_version", type="string", length=20, nullable=false)
      */
-    private $windowsVersion;
+    private $version;
 
     /**
      * @var string
      *
      * @ORM\Column(name="windows_install_directory", type="string", length=20, nullable=false)
      */
-    private $windowsInstallDirectory;
+    private $installDirectory;
 
     /**
      * @var string
@@ -195,9 +195,9 @@ class SysSwWindows
      *
      * @return integer 
      */
-    public function getWindowsId()
+    public function getId()
     {
-        return $this->windowsId;
+        return $this->id;
     }
 
     /**
@@ -205,9 +205,9 @@ class SysSwWindows
      *
      * @return $this
      */
-    public function setWindowsId($id)
+    public function setId($id)
     {
-        $this->windowsId = $id;
+        $this->id = $id;
 
         return $this;
     }
@@ -241,9 +241,9 @@ class SysSwWindows
      * @param string $windowsUserName
      * @return SysSwWindows
      */
-    public function setWindowsUserName($windowsUserName)
+    public function setUserName($windowsUserName)
     {
-        $this->windowsUserName = $windowsUserName;
+        $this->userName = $windowsUserName;
 
         return $this;
     }
@@ -253,9 +253,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsUserName()
+    public function getUserName()
     {
-        return $this->windowsUserName;
+        return $this->userName;
     }
 
     /**
@@ -264,9 +264,9 @@ class SysSwWindows
      * @param string $windowsClientSiteName
      * @return SysSwWindows
      */
-    public function setWindowsClientSiteName($windowsClientSiteName)
+    public function setClientSiteName($windowsClientSiteName)
     {
-        $this->windowsClientSiteName = $windowsClientSiteName;
+        $this->clientSiteName = $windowsClientSiteName;
 
         return $this;
     }
@@ -276,9 +276,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsClientSiteName()
+    public function getClientSiteName()
     {
-        return $this->windowsClientSiteName;
+        return $this->clientSiteName;
     }
 
     /**
@@ -287,9 +287,9 @@ class SysSwWindows
      * @param string $windowsDomainShort
      * @return SysSwWindows
      */
-    public function setWindowsDomainShort($windowsDomainShort)
+    public function setDomainShort($windowsDomainShort)
     {
-        $this->windowsDomainShort = $windowsDomainShort;
+        $this->domainShort = $windowsDomainShort;
 
         return $this;
     }
@@ -299,9 +299,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsDomainShort()
+    public function getDomainShort()
     {
-        return $this->windowsDomainShort;
+        return $this->domainShort;
     }
 
     /**
@@ -310,9 +310,9 @@ class SysSwWindows
      * @param string $windowsDomainControllerAddress
      * @return SysSwWindows
      */
-    public function setWindowsDomainControllerAddress($windowsDomainControllerAddress)
+    public function setDomainControllerAddress($windowsDomainControllerAddress)
     {
-        $this->windowsDomainControllerAddress = $windowsDomainControllerAddress;
+        $this->domainControllerAddress = $windowsDomainControllerAddress;
 
         return $this;
     }
@@ -322,9 +322,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsDomainControllerAddress()
+    public function getDomainControllerAddress()
     {
-        return $this->windowsDomainControllerAddress;
+        return $this->domainControllerAddress;
     }
 
     /**
@@ -333,9 +333,9 @@ class SysSwWindows
      * @param string $windowsDomainControllerName
      * @return SysSwWindows
      */
-    public function setWindowsDomainControllerName($windowsDomainControllerName)
+    public function setDomainControllerName($windowsDomainControllerName)
     {
-        $this->windowsDomainControllerName = $windowsDomainControllerName;
+        $this->domainControllerName = $windowsDomainControllerName;
 
         return $this;
     }
@@ -345,9 +345,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsDomainControllerName()
+    public function getDomainControllerName()
     {
-        return $this->windowsDomainControllerName;
+        return $this->domainControllerName;
     }
 
     /**
@@ -356,9 +356,9 @@ class SysSwWindows
      * @param string $windowsDomainRole
      * @return SysSwWindows
      */
-    public function setWindowsDomainRole($windowsDomainRole)
+    public function setDomainRole($windowsDomainRole)
     {
-        $this->windowsDomainRole = $windowsDomainRole;
+        $this->domainRole = $windowsDomainRole;
 
         return $this;
     }
@@ -368,9 +368,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsDomainRole()
+    public function getDomainRole()
     {
-        return $this->windowsDomainRole;
+        return $this->domainRole;
     }
 
     /**
@@ -379,9 +379,9 @@ class SysSwWindows
      * @param string $windowsPartOfDomain
      * @return SysSwWindows
      */
-    public function setWindowsPartOfDomain($windowsPartOfDomain)
+    public function setPartOfDomain($windowsPartOfDomain)
     {
-        $this->windowsPartOfDomain = $windowsPartOfDomain;
+        $this->partOfDomain = $windowsPartOfDomain;
 
         return $this;
     }
@@ -391,9 +391,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsPartOfDomain()
+    public function getPartOfDomain()
     {
-        return $this->windowsPartOfDomain;
+        return $this->partOfDomain;
     }
 
     /**
@@ -402,9 +402,9 @@ class SysSwWindows
      * @param string $windowsIdNumber
      * @return SysSwWindows
      */
-    public function setWindowsIdNumber($windowsIdNumber)
+    public function setIdNumber($windowsIdNumber)
     {
-        $this->windowsIdNumber = $windowsIdNumber;
+        $this->idNumber = $windowsIdNumber;
 
         return $this;
     }
@@ -414,9 +414,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsIdNumber()
+    public function getIdNumber()
     {
-        return $this->windowsIdNumber;
+        return $this->idNumber;
     }
 
     /**
@@ -425,9 +425,9 @@ class SysSwWindows
      * @param string $windowsTimeCaption
      * @return SysSwWindows
      */
-    public function setWindowsTimeCaption($windowsTimeCaption)
+    public function setTimeCaption($windowsTimeCaption)
     {
-        $this->windowsTimeCaption = $windowsTimeCaption;
+        $this->timeCaption = $windowsTimeCaption;
 
         return $this;
     }
@@ -437,9 +437,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsTimeCaption()
+    public function getTimeCaption()
     {
-        return $this->windowsTimeCaption;
+        return $this->timeCaption;
     }
 
     /**
@@ -448,9 +448,9 @@ class SysSwWindows
      * @param string $windowsTimeDaylight
      * @return SysSwWindows
      */
-    public function setWindowsTimeDaylight($windowsTimeDaylight)
+    public function setTimeDaylight($windowsTimeDaylight)
     {
-        $this->windowsTimeDaylight = $windowsTimeDaylight;
+        $this->timeDaylight = $windowsTimeDaylight;
 
         return $this;
     }
@@ -460,9 +460,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsTimeDaylight()
+    public function getTimeDaylight()
     {
-        return $this->windowsTimeDaylight;
+        return $this->timeDaylight;
     }
 
     /**
@@ -471,9 +471,9 @@ class SysSwWindows
      * @param string $windowsBootDevice
      * @return SysSwWindows
      */
-    public function setWindowsBootDevice($windowsBootDevice)
+    public function setBootDevice($windowsBootDevice)
     {
-        $this->windowsBootDevice = $windowsBootDevice;
+        $this->bootDevice = $windowsBootDevice;
 
         return $this;
     }
@@ -483,9 +483,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsBootDevice()
+    public function getBootDevice()
     {
-        return $this->windowsBootDevice;
+        return $this->bootDevice;
     }
 
     /**
@@ -494,9 +494,9 @@ class SysSwWindows
      * @param string $windowsCountryCode
      * @return SysSwWindows
      */
-    public function setWindowsCountryCode($windowsCountryCode)
+    public function setCountryCode($windowsCountryCode)
     {
-        $this->windowsCountryCode = $windowsCountryCode;
+        $this->countryCode = $windowsCountryCode;
 
         return $this;
     }
@@ -506,9 +506,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsCountryCode()
+    public function getCountryCode()
     {
-        return $this->windowsCountryCode;
+        return $this->countryCode;
     }
 
     /**
@@ -517,9 +517,9 @@ class SysSwWindows
      * @param string $windowsOrganisation
      * @return SysSwWindows
      */
-    public function setWindowsOrganisation($windowsOrganisation)
+    public function setOrganisation($windowsOrganisation)
     {
-        $this->windowsOrganisation = $windowsOrganisation;
+        $this->organisation = $windowsOrganisation;
 
         return $this;
     }
@@ -529,9 +529,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsOrganisation()
+    public function getOrganisation()
     {
-        return $this->windowsOrganisation;
+        return $this->organisation;
     }
 
     /**
@@ -540,9 +540,9 @@ class SysSwWindows
      * @param string $windowsLanguage
      * @return SysSwWindows
      */
-    public function setWindowsLanguage($windowsLanguage)
+    public function setLanguage($windowsLanguage)
     {
-        $this->windowsLanguage = $windowsLanguage;
+        $this->language = $windowsLanguage;
 
         return $this;
     }
@@ -552,9 +552,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsLanguage()
+    public function getLanguage()
     {
-        return $this->windowsLanguage;
+        return $this->language;
     }
 
     /**
@@ -563,9 +563,9 @@ class SysSwWindows
      * @param string $windowsRegisteredUser
      * @return SysSwWindows
      */
-    public function setWindowsRegisteredUser($windowsRegisteredUser)
+    public function setRegisteredUser($windowsRegisteredUser)
     {
-        $this->windowsRegisteredUser = $windowsRegisteredUser;
+        $this->registeredUser = $windowsRegisteredUser;
 
         return $this;
     }
@@ -575,9 +575,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsRegisteredUser()
+    public function getRegisteredUser()
     {
-        return $this->windowsRegisteredUser;
+        return $this->registeredUser;
     }
 
     /**
@@ -586,9 +586,9 @@ class SysSwWindows
      * @param string $windowsServicePack
      * @return SysSwWindows
      */
-    public function setWindowsServicePack($windowsServicePack)
+    public function setServicePack($windowsServicePack)
     {
-        $this->windowsServicePack = $windowsServicePack;
+        $this->servicePack = $windowsServicePack;
 
         return $this;
     }
@@ -598,9 +598,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsServicePack()
+    public function getServicePack()
     {
-        return $this->windowsServicePack;
+        return $this->servicePack;
     }
 
     /**
@@ -609,9 +609,9 @@ class SysSwWindows
      * @param string $windowsVersion
      * @return SysSwWindows
      */
-    public function setWindowsVersion($windowsVersion)
+    public function setVersion($windowsVersion)
     {
-        $this->windowsVersion = $windowsVersion;
+        $this->version = $windowsVersion;
 
         return $this;
     }
@@ -621,9 +621,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsVersion()
+    public function getVersion()
     {
-        return $this->windowsVersion;
+        return $this->version;
     }
 
     /**
@@ -632,9 +632,9 @@ class SysSwWindows
      * @param string $windowsInstallDirectory
      * @return SysSwWindows
      */
-    public function setWindowsInstallDirectory($windowsInstallDirectory)
+    public function setInstallDirectory($windowsInstallDirectory)
     {
-        $this->windowsInstallDirectory = $windowsInstallDirectory;
+        $this->installDirectory = $windowsInstallDirectory;
 
         return $this;
     }
@@ -644,9 +644,9 @@ class SysSwWindows
      *
      * @return string 
      */
-    public function getWindowsInstallDirectory()
+    public function getInstallDirectory()
     {
-        return $this->windowsInstallDirectory;
+        return $this->installDirectory;
     }
 
     /**
