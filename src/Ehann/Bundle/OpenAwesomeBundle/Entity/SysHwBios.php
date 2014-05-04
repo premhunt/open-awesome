@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\Type;
  * @ORM\Table(name="sys_hw_bios", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwBios
+class SysHwBios extends SystemComponent
 {
     /**
      * @var integer
@@ -65,22 +65,6 @@ class SysHwBios
     private $assetTag;
 
     /**
-     * @var \DateTime
-     *
-     * @Type("DateTime<'Y-m-d G:i:s'>")
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @Type("DateTime<'Y-m-d G:i:s'>")
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
-
-    /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      *
      * @ORM\ManyToOne(targetEntity="Ehann\Bundle\OpenAwesomeBundle\Entity\System")
@@ -90,162 +74,16 @@ class SysHwBios
      */
     private $system;
 
-
-
     /**
-     * Get id
-     *
-     * @return integer 
+     * @param string $assetTag
      */
-    public function getId()
+    public function setAssetTag($assetTag)
     {
-        return $this->id;
+        $this->assetTag = $assetTag;
     }
 
     /**
-     * @param $id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Set biosDescription
-     *
-     * @param string $biosDescription
-     * @return SysHwBios
-     */
-    public function setDescription($biosDescription)
-    {
-        $this->description = $biosDescription;
-
-        return $this;
-    }
-
-    /**
-     * Get biosDescription
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set biosManufacturer
-     *
-     * @param string $biosManufacturer
-     * @return SysHwBios
-     */
-    public function setManufacturer($biosManufacturer)
-    {
-        $this->manufacturer = $biosManufacturer;
-
-        return $this;
-    }
-
-    /**
-     * Get biosManufacturer
-     *
-     * @return string 
-     */
-    public function getManufacturer()
-    {
-        return $this->manufacturer;
-    }
-
-    /**
-     * Set biosSerial
-     *
-     * @param string $biosSerial
-     * @return SysHwBios
-     */
-    public function setSerial($biosSerial)
-    {
-        $this->serial = $biosSerial;
-
-        return $this;
-    }
-
-    /**
-     * Get biosSerial
-     *
-     * @return string 
-     */
-    public function getSerial()
-    {
-        return $this->serial;
-    }
-
-    /**
-     * Set biosSmversion
-     *
-     * @param string $biosSmversion
-     * @return SysHwBios
-     */
-    public function setSmversion($biosSmversion)
-    {
-        $this->smversion = $biosSmversion;
-
-        return $this;
-    }
-
-    /**
-     * Get biosSmversion
-     *
-     * @return string 
-     */
-    public function getSmversion()
-    {
-        return $this->smversion;
-    }
-
-    /**
-     * Set biosVersion
-     *
-     * @param string $biosVersion
-     * @return SysHwBios
-     */
-    public function setVersion($biosVersion)
-    {
-        $this->version = $biosVersion;
-
-        return $this;
-    }
-
-    /**
-     * Get biosVersion
-     *
-     * @return string 
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * Set biosAssetTag
-     *
-     * @param string $biosAssetTag
-     * @return SysHwBios
-     */
-    public function setAssetTag($biosAssetTag)
-    {
-        $this->assetTag = $biosAssetTag;
-
-        return $this;
-    }
-
-    /**
-     * Get biosAssetTag
-     *
-     * @return string 
+     * @return string
      */
     public function getAssetTag()
     {
@@ -253,71 +91,115 @@ class SysHwBios
     }
 
     /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwBios
+     * @param string $description
      */
-    public function setTimestamp($timestamp)
+    public function setDescription($description)
     {
-        $this->timestamp = $timestamp;
-
-        return $this;
+        $this->description = $description;
     }
 
     /**
-     * Get timestamp
-     *
-     * @return \DateTime 
+     * @return string
      */
-    public function getTimestamp()
+    public function getDescription()
     {
-        return $this->timestamp;
+        return $this->description;
     }
 
     /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwBios
+     * @param int $id
      */
-    public function setFirstTimestamp($firstTimestamp)
+    public function setId($id)
     {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
+     * @return int
      */
-    public function getFirstTimestamp()
+    public function getId()
     {
-        return $this->firstTimestamp;
+        return $this->id;
     }
 
     /**
-     * Set system
-     *
+     * @param string $manufacturer
+     */
+    public function setManufacturer($manufacturer)
+    {
+        $this->manufacturer = $manufacturer;
+    }
+
+    /**
+     * @return string
+     */
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
+
+    /**
+     * @param string $serial
+     */
+    public function setSerial($serial)
+    {
+        $this->serial = $serial;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSerial()
+    {
+        return $this->serial;
+    }
+
+    /**
+     * @param string $smversion
+     */
+    public function setSmversion($smversion)
+    {
+        $this->smversion = $smversion;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSmversion()
+    {
+        return $this->smversion;
+    }
+
+    /**
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysHwBios
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
+    /**
+     * @param string $version
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
 }

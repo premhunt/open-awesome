@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_network_card", indexes={@ORM\Index(name="net_mac_address", columns={"net_mac_address"}), @ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwNetworkCard
+class SysHwNetworkCard extends SystemComponent
 {
     /**
      * @var integer
@@ -19,175 +19,161 @@ class SysHwNetworkCard
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $netId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_mac_address", type="string", length=17, nullable=false)
      */
-    private $netMacAddress;
+    private $macAddress;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_manufacturer", type="string", length=100, nullable=false)
      */
-    private $netManufacturer;
+    private $manufacturer;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_model", type="string", length=100, nullable=false)
      */
-    private $netModel;
+    private $model;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_description", type="string", length=255, nullable=false)
      */
-    private $netDescription;
+    private $description;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_ip_enabled", type="string", length=10, nullable=false)
      */
-    private $netIpEnabled;
+    private $ipEnabled;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_index", type="string", length=10, nullable=false)
      */
-    private $netIndex;
+    private $index;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_dhcp_enabled", type="string", length=100, nullable=false)
      */
-    private $netDhcpEnabled;
+    private $dhcpEnabled;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_dhcp_server", type="string", length=30, nullable=false)
      */
-    private $netDhcpServer;
+    private $dhcpServer;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_dhcp_lease_obtained", type="string", length=14, nullable=false)
      */
-    private $netDhcpLeaseObtained;
+    private $dhcpLeaseObtained;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_dhcp_lease_expires", type="string", length=14, nullable=false)
      */
-    private $netDhcpLeaseExpires;
+    private $dhcpLeaseExpires;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_dns_host_name", type="string", length=100, nullable=false)
      */
-    private $netDnsHostName;
+    private $dnsHostName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_dns_server", type="string", length=100, nullable=false)
      */
-    private $netDnsServer;
+    private $dnsServer;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_dns_domain", type="string", length=100, nullable=false)
      */
-    private $netDnsDomain;
+    private $dnsDomain;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_dns_domain_suffix", type="string", length=100, nullable=false)
      */
-    private $netDnsDomainSuffix;
+    private $dnsDomainSuffix;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_dns_domain_reg_enabled", type="string", length=10, nullable=false)
      */
-    private $netDnsDomainRegEnabled;
+    private $dnsDomainRegEnabled;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_wins_primary", type="string", length=30, nullable=false)
      */
-    private $netWinsPrimary;
+    private $winsPrimary;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_wins_secondary", type="string", length=30, nullable=false)
      */
-    private $netWinsSecondary;
+    private $winsSecondary;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_wins_lmhosts_enabled", type="string", length=10, nullable=false)
      */
-    private $netWinsLmhostsEnabled;
+    private $winsLmhostsEnabled;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_adapter_type", type="string", length=100, nullable=false)
      */
-    private $netAdapterType;
+    private $adapterType;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_connection_id", type="string", length=255, nullable=false)
      */
-    private $netConnectionId;
+    private $connectionId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_connection_status", type="string", length=30, nullable=false)
      */
-    private $netConnectionStatus;
+    private $connectionStatus;
 
     /**
      * @var string
      *
      * @ORM\Column(name="net_speed", type="string", length=10, nullable=false)
      */
-    private $netSpeed;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $speed;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -199,590 +185,388 @@ class SysHwNetworkCard
      */
     private $system;
 
-
-
     /**
-     * Get netId
-     *
-     * @return integer 
+     * @param string $adapterType
      */
-    public function getNetId()
+    public function setAdapterType($adapterType)
     {
-        return $this->netId;
+        $this->adapterType = $adapterType;
     }
 
     /**
-     * Set netMacAddress
-     *
-     * @param string $netMacAddress
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetMacAddress($netMacAddress)
+    public function getAdapterType()
     {
-        $this->netMacAddress = $netMacAddress;
-
-        return $this;
+        return $this->adapterType;
     }
 
     /**
-     * Get netMacAddress
-     *
-     * @return string 
+     * @param string $connectionId
      */
-    public function getNetMacAddress()
+    public function setConnectionId($connectionId)
     {
-        return $this->netMacAddress;
+        $this->connectionId = $connectionId;
     }
 
     /**
-     * Set netManufacturer
-     *
-     * @param string $netManufacturer
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetManufacturer($netManufacturer)
+    public function getConnectionId()
     {
-        $this->netManufacturer = $netManufacturer;
-
-        return $this;
+        return $this->connectionId;
     }
 
     /**
-     * Get netManufacturer
-     *
-     * @return string 
+     * @param string $connectionStatus
      */
-    public function getNetManufacturer()
+    public function setConnectionStatus($connectionStatus)
     {
-        return $this->netManufacturer;
+        $this->connectionStatus = $connectionStatus;
     }
 
     /**
-     * Set netModel
-     *
-     * @param string $netModel
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetModel($netModel)
+    public function getConnectionStatus()
     {
-        $this->netModel = $netModel;
-
-        return $this;
+        return $this->connectionStatus;
     }
 
     /**
-     * Get netModel
-     *
-     * @return string 
+     * @param string $description
      */
-    public function getNetModel()
+    public function setDescription($description)
     {
-        return $this->netModel;
+        $this->description = $description;
     }
 
     /**
-     * Set netDescription
-     *
-     * @param string $netDescription
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetDescription($netDescription)
+    public function getDescription()
     {
-        $this->netDescription = $netDescription;
-
-        return $this;
+        return $this->description;
     }
 
     /**
-     * Get netDescription
-     *
-     * @return string 
+     * @param string $dhcpEnabled
      */
-    public function getNetDescription()
+    public function setDhcpEnabled($dhcpEnabled)
     {
-        return $this->netDescription;
+        $this->dhcpEnabled = $dhcpEnabled;
     }
 
     /**
-     * Set netIpEnabled
-     *
-     * @param string $netIpEnabled
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetIpEnabled($netIpEnabled)
+    public function getDhcpEnabled()
     {
-        $this->netIpEnabled = $netIpEnabled;
-
-        return $this;
+        return $this->dhcpEnabled;
     }
 
     /**
-     * Get netIpEnabled
-     *
-     * @return string 
+     * @param string $dhcpLeaseExpires
      */
-    public function getNetIpEnabled()
+    public function setDhcpLeaseExpires($dhcpLeaseExpires)
     {
-        return $this->netIpEnabled;
+        $this->dhcpLeaseExpires = $dhcpLeaseExpires;
     }
 
     /**
-     * Set netIndex
-     *
-     * @param string $netIndex
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetIndex($netIndex)
+    public function getDhcpLeaseExpires()
     {
-        $this->netIndex = $netIndex;
-
-        return $this;
+        return $this->dhcpLeaseExpires;
     }
 
     /**
-     * Get netIndex
-     *
-     * @return string 
+     * @param string $dhcpLeaseObtained
      */
-    public function getNetIndex()
+    public function setDhcpLeaseObtained($dhcpLeaseObtained)
     {
-        return $this->netIndex;
+        $this->dhcpLeaseObtained = $dhcpLeaseObtained;
     }
 
     /**
-     * Set netDhcpEnabled
-     *
-     * @param string $netDhcpEnabled
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetDhcpEnabled($netDhcpEnabled)
+    public function getDhcpLeaseObtained()
     {
-        $this->netDhcpEnabled = $netDhcpEnabled;
-
-        return $this;
+        return $this->dhcpLeaseObtained;
     }
 
     /**
-     * Get netDhcpEnabled
-     *
-     * @return string 
+     * @param string $dhcpServer
      */
-    public function getNetDhcpEnabled()
+    public function setDhcpServer($dhcpServer)
     {
-        return $this->netDhcpEnabled;
+        $this->dhcpServer = $dhcpServer;
     }
 
     /**
-     * Set netDhcpServer
-     *
-     * @param string $netDhcpServer
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetDhcpServer($netDhcpServer)
+    public function getDhcpServer()
     {
-        $this->netDhcpServer = $netDhcpServer;
-
-        return $this;
+        return $this->dhcpServer;
     }
 
     /**
-     * Get netDhcpServer
-     *
-     * @return string 
+     * @param string $dnsDomain
      */
-    public function getNetDhcpServer()
+    public function setDnsDomain($dnsDomain)
     {
-        return $this->netDhcpServer;
+        $this->dnsDomain = $dnsDomain;
     }
 
     /**
-     * Set netDhcpLeaseObtained
-     *
-     * @param string $netDhcpLeaseObtained
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetDhcpLeaseObtained($netDhcpLeaseObtained)
+    public function getDnsDomain()
     {
-        $this->netDhcpLeaseObtained = $netDhcpLeaseObtained;
-
-        return $this;
+        return $this->dnsDomain;
     }
 
     /**
-     * Get netDhcpLeaseObtained
-     *
-     * @return string 
+     * @param string $dnsDomainRegEnabled
      */
-    public function getNetDhcpLeaseObtained()
+    public function setDnsDomainRegEnabled($dnsDomainRegEnabled)
     {
-        return $this->netDhcpLeaseObtained;
+        $this->dnsDomainRegEnabled = $dnsDomainRegEnabled;
     }
 
     /**
-     * Set netDhcpLeaseExpires
-     *
-     * @param string $netDhcpLeaseExpires
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetDhcpLeaseExpires($netDhcpLeaseExpires)
+    public function getDnsDomainRegEnabled()
     {
-        $this->netDhcpLeaseExpires = $netDhcpLeaseExpires;
-
-        return $this;
+        return $this->dnsDomainRegEnabled;
     }
 
     /**
-     * Get netDhcpLeaseExpires
-     *
-     * @return string 
+     * @param string $dnsDomainSuffix
      */
-    public function getNetDhcpLeaseExpires()
+    public function setDnsDomainSuffix($dnsDomainSuffix)
     {
-        return $this->netDhcpLeaseExpires;
+        $this->dnsDomainSuffix = $dnsDomainSuffix;
     }
 
     /**
-     * Set netDnsHostName
-     *
-     * @param string $netDnsHostName
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetDnsHostName($netDnsHostName)
+    public function getDnsDomainSuffix()
     {
-        $this->netDnsHostName = $netDnsHostName;
-
-        return $this;
+        return $this->dnsDomainSuffix;
     }
 
     /**
-     * Get netDnsHostName
-     *
-     * @return string 
+     * @param string $dnsHostName
      */
-    public function getNetDnsHostName()
+    public function setDnsHostName($dnsHostName)
     {
-        return $this->netDnsHostName;
+        $this->dnsHostName = $dnsHostName;
     }
 
     /**
-     * Set netDnsServer
-     *
-     * @param string $netDnsServer
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetDnsServer($netDnsServer)
+    public function getDnsHostName()
     {
-        $this->netDnsServer = $netDnsServer;
-
-        return $this;
+        return $this->dnsHostName;
     }
 
     /**
-     * Get netDnsServer
-     *
-     * @return string 
+     * @param string $dnsServer
      */
-    public function getNetDnsServer()
+    public function setDnsServer($dnsServer)
     {
-        return $this->netDnsServer;
+        $this->dnsServer = $dnsServer;
     }
 
     /**
-     * Set netDnsDomain
-     *
-     * @param string $netDnsDomain
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetDnsDomain($netDnsDomain)
+    public function getDnsServer()
     {
-        $this->netDnsDomain = $netDnsDomain;
-
-        return $this;
+        return $this->dnsServer;
     }
 
     /**
-     * Get netDnsDomain
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getNetDnsDomain()
+    public function setId($id)
     {
-        return $this->netDnsDomain;
+        $this->id = $id;
     }
 
     /**
-     * Set netDnsDomainSuffix
-     *
-     * @param string $netDnsDomainSuffix
-     * @return SysHwNetworkCard
+     * @return int
      */
-    public function setNetDnsDomainSuffix($netDnsDomainSuffix)
+    public function getId()
     {
-        $this->netDnsDomainSuffix = $netDnsDomainSuffix;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get netDnsDomainSuffix
-     *
-     * @return string 
+     * @param string $index
      */
-    public function getNetDnsDomainSuffix()
+    public function setIndex($index)
     {
-        return $this->netDnsDomainSuffix;
+        $this->index = $index;
     }
 
     /**
-     * Set netDnsDomainRegEnabled
-     *
-     * @param string $netDnsDomainRegEnabled
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetDnsDomainRegEnabled($netDnsDomainRegEnabled)
+    public function getIndex()
     {
-        $this->netDnsDomainRegEnabled = $netDnsDomainRegEnabled;
-
-        return $this;
+        return $this->index;
     }
 
     /**
-     * Get netDnsDomainRegEnabled
-     *
-     * @return string 
+     * @param string $ipEnabled
      */
-    public function getNetDnsDomainRegEnabled()
+    public function setIpEnabled($ipEnabled)
     {
-        return $this->netDnsDomainRegEnabled;
+        $this->ipEnabled = $ipEnabled;
     }
 
     /**
-     * Set netWinsPrimary
-     *
-     * @param string $netWinsPrimary
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetWinsPrimary($netWinsPrimary)
+    public function getIpEnabled()
     {
-        $this->netWinsPrimary = $netWinsPrimary;
-
-        return $this;
+        return $this->ipEnabled;
     }
 
     /**
-     * Get netWinsPrimary
-     *
-     * @return string 
+     * @param string $macAddress
      */
-    public function getNetWinsPrimary()
+    public function setMacAddress($macAddress)
     {
-        return $this->netWinsPrimary;
+        $this->macAddress = $macAddress;
     }
 
     /**
-     * Set netWinsSecondary
-     *
-     * @param string $netWinsSecondary
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetWinsSecondary($netWinsSecondary)
+    public function getMacAddress()
     {
-        $this->netWinsSecondary = $netWinsSecondary;
-
-        return $this;
+        return $this->macAddress;
     }
 
     /**
-     * Get netWinsSecondary
-     *
-     * @return string 
+     * @param string $manufacturer
      */
-    public function getNetWinsSecondary()
+    public function setManufacturer($manufacturer)
     {
-        return $this->netWinsSecondary;
+        $this->manufacturer = $manufacturer;
     }
 
     /**
-     * Set netWinsLmhostsEnabled
-     *
-     * @param string $netWinsLmhostsEnabled
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetWinsLmhostsEnabled($netWinsLmhostsEnabled)
+    public function getManufacturer()
     {
-        $this->netWinsLmhostsEnabled = $netWinsLmhostsEnabled;
-
-        return $this;
+        return $this->manufacturer;
     }
 
     /**
-     * Get netWinsLmhostsEnabled
-     *
-     * @return string 
+     * @param string $model
      */
-    public function getNetWinsLmhostsEnabled()
+    public function setModel($model)
     {
-        return $this->netWinsLmhostsEnabled;
+        $this->model = $model;
     }
 
     /**
-     * Set netAdapterType
-     *
-     * @param string $netAdapterType
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetAdapterType($netAdapterType)
+    public function getModel()
     {
-        $this->netAdapterType = $netAdapterType;
-
-        return $this;
+        return $this->model;
     }
 
     /**
-     * Get netAdapterType
-     *
-     * @return string 
+     * @param string $speed
      */
-    public function getNetAdapterType()
+    public function setSpeed($speed)
     {
-        return $this->netAdapterType;
+        $this->speed = $speed;
     }
 
     /**
-     * Set netConnectionId
-     *
-     * @param string $netConnectionId
-     * @return SysHwNetworkCard
+     * @return string
      */
-    public function setNetConnectionId($netConnectionId)
+    public function getSpeed()
     {
-        $this->netConnectionId = $netConnectionId;
-
-        return $this;
+        return $this->speed;
     }
 
     /**
-     * Get netConnectionId
-     *
-     * @return string 
-     */
-    public function getNetConnectionId()
-    {
-        return $this->netConnectionId;
-    }
-
-    /**
-     * Set netConnectionStatus
-     *
-     * @param string $netConnectionStatus
-     * @return SysHwNetworkCard
-     */
-    public function setNetConnectionStatus($netConnectionStatus)
-    {
-        $this->netConnectionStatus = $netConnectionStatus;
-
-        return $this;
-    }
-
-    /**
-     * Get netConnectionStatus
-     *
-     * @return string 
-     */
-    public function getNetConnectionStatus()
-    {
-        return $this->netConnectionStatus;
-    }
-
-    /**
-     * Set netSpeed
-     *
-     * @param string $netSpeed
-     * @return SysHwNetworkCard
-     */
-    public function setNetSpeed($netSpeed)
-    {
-        $this->netSpeed = $netSpeed;
-
-        return $this;
-    }
-
-    /**
-     * Get netSpeed
-     *
-     * @return string 
-     */
-    public function getNetSpeed()
-    {
-        return $this->netSpeed;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwNetworkCard
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwNetworkCard
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysHwNetworkCard
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
+    /**
+     * @param string $winsLmhostsEnabled
+     */
+    public function setWinsLmhostsEnabled($winsLmhostsEnabled)
+    {
+        $this->winsLmhostsEnabled = $winsLmhostsEnabled;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWinsLmhostsEnabled()
+    {
+        return $this->winsLmhostsEnabled;
+    }
+
+    /**
+     * @param string $winsPrimary
+     */
+    public function setWinsPrimary($winsPrimary)
+    {
+        $this->winsPrimary = $winsPrimary;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWinsPrimary()
+    {
+        return $this->winsPrimary;
+    }
+
+    /**
+     * @param string $winsSecondary
+     */
+    public function setWinsSecondary($winsSecondary)
+    {
+        $this->winsSecondary = $winsSecondary;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWinsSecondary()
+    {
+        return $this->winsSecondary;
+    }
+
 }

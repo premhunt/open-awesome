@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_sw_software", indexes={@ORM\Index(name="system_id", columns={"system_id"}), @ORM\Index(name="timestamp", columns={"timestamp"}), @ORM\Index(name="first_timestamp", columns={"first_timestamp"}), @ORM\Index(name="software_name", columns={"software_name"})})
  * @ORM\Entity
  */
-class SysSwSoftware
+class SysSwSoftware extends SystemComponent
 {
     /**
      * @var integer
@@ -19,168 +19,154 @@ class SysSwSoftware
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $softwareId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_name", type="string", length=255, nullable=false)
      */
-    private $softwareName;
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_version", type="string", length=255, nullable=false)
      */
-    private $softwareVersion;
+    private $version;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_description", type="text", nullable=false)
      */
-    private $softwareDescription;
+    private $description;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_location", type="string", length=255, nullable=false)
      */
-    private $softwareLocation;
+    private $location;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_uninstall", type="text", nullable=false)
      */
-    private $softwareUninstall;
+    private $uninstall;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_install_date", type="string", length=100, nullable=false)
      */
-    private $softwareInstallDate;
+    private $installDate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_installed_by", type="string", length=100, nullable=false)
      */
-    private $softwareInstalledBy;
+    private $installedBy;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="software_installed_on", type="datetime", nullable=false)
      */
-    private $softwareInstalledOn;
+    private $installedOn;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_publisher", type="string", length=255, nullable=false)
      */
-    private $softwarePublisher;
+    private $publisher;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_install_source", type="string", length=200, nullable=false)
      */
-    private $softwareInstallSource;
+    private $installSource;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_system_component", type="string", length=2, nullable=false)
      */
-    private $softwareSystemComponent;
+    private $systemComponent;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_url", type="string", length=255, nullable=false)
      */
-    private $softwareUrl;
+    private $url;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_email", type="string", length=255, nullable=false)
      */
-    private $softwareEmail;
+    private $email;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_comment", type="string", length=200, nullable=false)
      */
-    private $softwareComment;
+    private $comment;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_man_comment", type="string", length=200, nullable=false)
      */
-    private $softwareManComment;
+    private $manComment;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_count", type="string", length=5, nullable=false)
      */
-    private $softwareCount;
+    private $count;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_code_base", type="string", length=255, nullable=false)
      */
-    private $softwareCodeBase;
+    private $codeBase;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_status", type="string", length=45, nullable=false)
      */
-    private $softwareStatus;
+    private $status;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_key", type="string", length=45, nullable=false)
      */
-    private $softwareKey;
+    private $key;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_key_release", type="string", length=45, nullable=false)
      */
-    private $softwareKeyRelease;
+    private $keyRelease;
 
     /**
      * @var string
      *
      * @ORM\Column(name="software_key_edition", type="string", length=45, nullable=false)
      */
-    private $softwareKeyEdition;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $keyEdition;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -192,567 +178,371 @@ class SysSwSoftware
      */
     private $system;
 
-
-
     /**
-     * Get softwareId
-     *
-     * @return integer 
+     * @param string $codeBase
      */
-    public function getSoftwareId()
+    public function setCodeBase($codeBase)
     {
-        return $this->softwareId;
+        $this->codeBase = $codeBase;
     }
 
     /**
-     * Set softwareName
-     *
-     * @param string $softwareName
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareName($softwareName)
+    public function getCodeBase()
     {
-        $this->softwareName = $softwareName;
-
-        return $this;
+        return $this->codeBase;
     }
 
     /**
-     * Get softwareName
-     *
-     * @return string 
+     * @param string $comment
      */
-    public function getSoftwareName()
+    public function setComment($comment)
     {
-        return $this->softwareName;
+        $this->comment = $comment;
     }
 
     /**
-     * Set softwareVersion
-     *
-     * @param string $softwareVersion
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareVersion($softwareVersion)
+    public function getComment()
     {
-        $this->softwareVersion = $softwareVersion;
-
-        return $this;
+        return $this->comment;
     }
 
     /**
-     * Get softwareVersion
-     *
-     * @return string 
+     * @param string $count
      */
-    public function getSoftwareVersion()
+    public function setCount($count)
     {
-        return $this->softwareVersion;
+        $this->count = $count;
     }
 
     /**
-     * Set softwareDescription
-     *
-     * @param string $softwareDescription
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareDescription($softwareDescription)
+    public function getCount()
     {
-        $this->softwareDescription = $softwareDescription;
-
-        return $this;
+        return $this->count;
     }
 
     /**
-     * Get softwareDescription
-     *
-     * @return string 
+     * @param string $description
      */
-    public function getSoftwareDescription()
+    public function setDescription($description)
     {
-        return $this->softwareDescription;
+        $this->description = $description;
     }
 
     /**
-     * Set softwareLocation
-     *
-     * @param string $softwareLocation
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareLocation($softwareLocation)
+    public function getDescription()
     {
-        $this->softwareLocation = $softwareLocation;
-
-        return $this;
+        return $this->description;
     }
 
     /**
-     * Get softwareLocation
-     *
-     * @return string 
+     * @param string $email
      */
-    public function getSoftwareLocation()
+    public function setEmail($email)
     {
-        return $this->softwareLocation;
+        $this->email = $email;
     }
 
     /**
-     * Set softwareUninstall
-     *
-     * @param string $softwareUninstall
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareUninstall($softwareUninstall)
+    public function getEmail()
     {
-        $this->softwareUninstall = $softwareUninstall;
-
-        return $this;
+        return $this->email;
     }
 
     /**
-     * Get softwareUninstall
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getSoftwareUninstall()
+    public function setId($id)
     {
-        return $this->softwareUninstall;
+        $this->id = $id;
     }
 
     /**
-     * Set softwareInstallDate
-     *
-     * @param string $softwareInstallDate
-     * @return SysSwSoftware
+     * @return int
      */
-    public function setSoftwareInstallDate($softwareInstallDate)
+    public function getId()
     {
-        $this->softwareInstallDate = $softwareInstallDate;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get softwareInstallDate
-     *
-     * @return string 
+     * @param string $installDate
      */
-    public function getSoftwareInstallDate()
+    public function setInstallDate($installDate)
     {
-        return $this->softwareInstallDate;
+        $this->installDate = $installDate;
     }
 
     /**
-     * Set softwareInstalledBy
-     *
-     * @param string $softwareInstalledBy
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareInstalledBy($softwareInstalledBy)
+    public function getInstallDate()
     {
-        $this->softwareInstalledBy = $softwareInstalledBy;
-
-        return $this;
+        return $this->installDate;
     }
 
     /**
-     * Get softwareInstalledBy
-     *
-     * @return string 
+     * @param string $installSource
      */
-    public function getSoftwareInstalledBy()
+    public function setInstallSource($installSource)
     {
-        return $this->softwareInstalledBy;
+        $this->installSource = $installSource;
     }
 
     /**
-     * Set softwareInstalledOn
-     *
-     * @param \DateTime $softwareInstalledOn
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareInstalledOn($softwareInstalledOn)
+    public function getInstallSource()
     {
-        $this->softwareInstalledOn = $softwareInstalledOn;
-
-        return $this;
+        return $this->installSource;
     }
 
     /**
-     * Get softwareInstalledOn
-     *
-     * @return \DateTime 
+     * @param string $installedBy
      */
-    public function getSoftwareInstalledOn()
+    public function setInstalledBy($installedBy)
     {
-        return $this->softwareInstalledOn;
+        $this->installedBy = $installedBy;
     }
 
     /**
-     * Set softwarePublisher
-     *
-     * @param string $softwarePublisher
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwarePublisher($softwarePublisher)
+    public function getInstalledBy()
     {
-        $this->softwarePublisher = $softwarePublisher;
-
-        return $this;
+        return $this->installedBy;
     }
 
     /**
-     * Get softwarePublisher
-     *
-     * @return string 
+     * @param \DateTime $installedOn
      */
-    public function getSoftwarePublisher()
+    public function setInstalledOn($installedOn)
     {
-        return $this->softwarePublisher;
+        $this->installedOn = $installedOn;
     }
 
     /**
-     * Set softwareInstallSource
-     *
-     * @param string $softwareInstallSource
-     * @return SysSwSoftware
+     * @return \DateTime
      */
-    public function setSoftwareInstallSource($softwareInstallSource)
+    public function getInstalledOn()
     {
-        $this->softwareInstallSource = $softwareInstallSource;
-
-        return $this;
+        return $this->installedOn;
     }
 
     /**
-     * Get softwareInstallSource
-     *
-     * @return string 
+     * @param string $key
      */
-    public function getSoftwareInstallSource()
+    public function setKey($key)
     {
-        return $this->softwareInstallSource;
+        $this->key = $key;
     }
 
     /**
-     * Set softwareSystemComponent
-     *
-     * @param string $softwareSystemComponent
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareSystemComponent($softwareSystemComponent)
+    public function getKey()
     {
-        $this->softwareSystemComponent = $softwareSystemComponent;
-
-        return $this;
+        return $this->key;
     }
 
     /**
-     * Get softwareSystemComponent
-     *
-     * @return string 
+     * @param string $keyEdition
      */
-    public function getSoftwareSystemComponent()
+    public function setKeyEdition($keyEdition)
     {
-        return $this->softwareSystemComponent;
+        $this->keyEdition = $keyEdition;
     }
 
     /**
-     * Set softwareUrl
-     *
-     * @param string $softwareUrl
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareUrl($softwareUrl)
+    public function getKeyEdition()
     {
-        $this->softwareUrl = $softwareUrl;
-
-        return $this;
+        return $this->keyEdition;
     }
 
     /**
-     * Get softwareUrl
-     *
-     * @return string 
+     * @param string $keyRelease
      */
-    public function getSoftwareUrl()
+    public function setKeyRelease($keyRelease)
     {
-        return $this->softwareUrl;
+        $this->keyRelease = $keyRelease;
     }
 
     /**
-     * Set softwareEmail
-     *
-     * @param string $softwareEmail
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareEmail($softwareEmail)
+    public function getKeyRelease()
     {
-        $this->softwareEmail = $softwareEmail;
-
-        return $this;
+        return $this->keyRelease;
     }
 
     /**
-     * Get softwareEmail
-     *
-     * @return string 
+     * @param string $location
      */
-    public function getSoftwareEmail()
+    public function setLocation($location)
     {
-        return $this->softwareEmail;
+        $this->location = $location;
     }
 
     /**
-     * Set softwareComment
-     *
-     * @param string $softwareComment
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareComment($softwareComment)
+    public function getLocation()
     {
-        $this->softwareComment = $softwareComment;
-
-        return $this;
+        return $this->location;
     }
 
     /**
-     * Get softwareComment
-     *
-     * @return string 
+     * @param string $manComment
      */
-    public function getSoftwareComment()
+    public function setManComment($manComment)
     {
-        return $this->softwareComment;
+        $this->manComment = $manComment;
     }
 
     /**
-     * Set softwareManComment
-     *
-     * @param string $softwareManComment
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareManComment($softwareManComment)
+    public function getManComment()
     {
-        $this->softwareManComment = $softwareManComment;
-
-        return $this;
+        return $this->manComment;
     }
 
     /**
-     * Get softwareManComment
-     *
-     * @return string 
+     * @param string $name
      */
-    public function getSoftwareManComment()
+    public function setName($name)
     {
-        return $this->softwareManComment;
+        $this->name = $name;
     }
 
     /**
-     * Set softwareCount
-     *
-     * @param string $softwareCount
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareCount($softwareCount)
+    public function getName()
     {
-        $this->softwareCount = $softwareCount;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * Get softwareCount
-     *
-     * @return string 
+     * @param string $publisher
      */
-    public function getSoftwareCount()
+    public function setPublisher($publisher)
     {
-        return $this->softwareCount;
+        $this->publisher = $publisher;
     }
 
     /**
-     * Set softwareCodeBase
-     *
-     * @param string $softwareCodeBase
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareCodeBase($softwareCodeBase)
+    public function getPublisher()
     {
-        $this->softwareCodeBase = $softwareCodeBase;
-
-        return $this;
+        return $this->publisher;
     }
 
     /**
-     * Get softwareCodeBase
-     *
-     * @return string 
+     * @param string $status
      */
-    public function getSoftwareCodeBase()
+    public function setStatus($status)
     {
-        return $this->softwareCodeBase;
+        $this->status = $status;
     }
 
     /**
-     * Set softwareStatus
-     *
-     * @param string $softwareStatus
-     * @return SysSwSoftware
+     * @return string
      */
-    public function setSoftwareStatus($softwareStatus)
+    public function getStatus()
     {
-        $this->softwareStatus = $softwareStatus;
-
-        return $this;
+        return $this->status;
     }
 
     /**
-     * Get softwareStatus
-     *
-     * @return string 
-     */
-    public function getSoftwareStatus()
-    {
-        return $this->softwareStatus;
-    }
-
-    /**
-     * Set softwareKey
-     *
-     * @param string $softwareKey
-     * @return SysSwSoftware
-     */
-    public function setSoftwareKey($softwareKey)
-    {
-        $this->softwareKey = $softwareKey;
-
-        return $this;
-    }
-
-    /**
-     * Get softwareKey
-     *
-     * @return string 
-     */
-    public function getSoftwareKey()
-    {
-        return $this->softwareKey;
-    }
-
-    /**
-     * Set softwareKeyRelease
-     *
-     * @param string $softwareKeyRelease
-     * @return SysSwSoftware
-     */
-    public function setSoftwareKeyRelease($softwareKeyRelease)
-    {
-        $this->softwareKeyRelease = $softwareKeyRelease;
-
-        return $this;
-    }
-
-    /**
-     * Get softwareKeyRelease
-     *
-     * @return string 
-     */
-    public function getSoftwareKeyRelease()
-    {
-        return $this->softwareKeyRelease;
-    }
-
-    /**
-     * Set softwareKeyEdition
-     *
-     * @param string $softwareKeyEdition
-     * @return SysSwSoftware
-     */
-    public function setSoftwareKeyEdition($softwareKeyEdition)
-    {
-        $this->softwareKeyEdition = $softwareKeyEdition;
-
-        return $this;
-    }
-
-    /**
-     * Get softwareKeyEdition
-     *
-     * @return string 
-     */
-    public function getSoftwareKeyEdition()
-    {
-        return $this->softwareKeyEdition;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwSoftware
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysSwSoftware
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwSoftware
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
+    }
+
+    /**
+     * @param string $systemComponent
+     */
+    public function setSystemComponent($systemComponent)
+    {
+        $this->systemComponent = $systemComponent;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSystemComponent()
+    {
+        return $this->systemComponent;
+    }
+
+    /**
+     * @param string $uninstall
+     */
+    public function setUninstall($uninstall)
+    {
+        $this->uninstall = $uninstall;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUninstall()
+    {
+        return $this->uninstall;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $version
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->version;
     }
 }

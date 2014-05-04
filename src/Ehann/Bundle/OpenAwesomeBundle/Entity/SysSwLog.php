@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_sw_log", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysSwLog
+class SysSwLog extends SystemComponent
 {
     /**
      * @var integer
@@ -19,56 +19,42 @@ class SysSwLog
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $logId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="log_name", type="string", length=50, nullable=false)
      */
-    private $logName;
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="log_file_name", type="string", length=250, nullable=false)
      */
-    private $logFileName;
+    private $fileName;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="log_file_size", type="integer", nullable=false)
      */
-    private $logFileSize;
+    private $fileSize;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="log_max_file_size", type="integer", nullable=false)
      */
-    private $logMaxFileSize;
+    private $maxFileSize;
 
     /**
      * @var string
      *
      * @ORM\Column(name="log_overwrite", type="string", length=30, nullable=false)
      */
-    private $logOverwrite;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $overwrite;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -80,199 +66,116 @@ class SysSwLog
      */
     private $system;
 
-
-
     /**
-     * Get logId
-     *
-     * @return integer 
+     * @param string $fileName
      */
-    public function getLogId()
+    public function setFileName($fileName)
     {
-        return $this->logId;
+        $this->fileName = $fileName;
     }
 
     /**
-     * Set logName
-     *
-     * @param string $logName
-     * @return SysSwLog
+     * @return string
      */
-    public function setLogName($logName)
+    public function getFileName()
     {
-        $this->logName = $logName;
-
-        return $this;
+        return $this->fileName;
     }
 
     /**
-     * Get logName
-     *
-     * @return string 
+     * @param int $fileSize
      */
-    public function getLogName()
+    public function setFileSize($fileSize)
     {
-        return $this->logName;
+        $this->fileSize = $fileSize;
     }
 
     /**
-     * Set logFileName
-     *
-     * @param string $logFileName
-     * @return SysSwLog
+     * @return int
      */
-    public function setLogFileName($logFileName)
+    public function getFileSize()
     {
-        $this->logFileName = $logFileName;
-
-        return $this;
+        return $this->fileSize;
     }
 
     /**
-     * Get logFileName
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getLogFileName()
+    public function setId($id)
     {
-        return $this->logFileName;
+        $this->id = $id;
     }
 
     /**
-     * Set logFileSize
-     *
-     * @param integer $logFileSize
-     * @return SysSwLog
+     * @return int
      */
-    public function setLogFileSize($logFileSize)
+    public function getId()
     {
-        $this->logFileSize = $logFileSize;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get logFileSize
-     *
-     * @return integer 
+     * @param int $maxFileSize
      */
-    public function getLogFileSize()
+    public function setMaxFileSize($maxFileSize)
     {
-        return $this->logFileSize;
+        $this->maxFileSize = $maxFileSize;
     }
 
     /**
-     * Set logMaxFileSize
-     *
-     * @param integer $logMaxFileSize
-     * @return SysSwLog
+     * @return int
      */
-    public function setLogMaxFileSize($logMaxFileSize)
+    public function getMaxFileSize()
     {
-        $this->logMaxFileSize = $logMaxFileSize;
-
-        return $this;
+        return $this->maxFileSize;
     }
 
     /**
-     * Get logMaxFileSize
-     *
-     * @return integer 
+     * @param string $name
      */
-    public function getLogMaxFileSize()
+    public function setName($name)
     {
-        return $this->logMaxFileSize;
+        $this->name = $name;
     }
 
     /**
-     * Set logOverwrite
-     *
-     * @param string $logOverwrite
-     * @return SysSwLog
+     * @return string
      */
-    public function setLogOverwrite($logOverwrite)
+    public function getName()
     {
-        $this->logOverwrite = $logOverwrite;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * Get logOverwrite
-     *
-     * @return string 
+     * @param string $overwrite
      */
-    public function getLogOverwrite()
+    public function setOverwrite($overwrite)
     {
-        return $this->logOverwrite;
+        $this->overwrite = $overwrite;
     }
 
     /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwLog
+     * @return string
      */
-    public function setTimestamp($timestamp)
+    public function getOverwrite()
     {
-        $this->timestamp = $timestamp;
-
-        return $this;
+        return $this->overwrite;
     }
 
     /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysSwLog
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwLog
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
 }

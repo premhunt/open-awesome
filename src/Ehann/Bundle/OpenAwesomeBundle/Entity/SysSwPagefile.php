@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_sw_pagefile", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysSwPagefile
+class SysSwPagefile extends SystemComponent
 {
     /**
      * @var integer
@@ -19,49 +19,35 @@ class SysSwPagefile
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $pagefileId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="pagefile_name", type="string", length=100, nullable=false)
      */
-    private $pagefileName;
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="pagefile_initial_size", type="string", length=10, nullable=false)
      */
-    private $pagefileInitialSize;
+    private $initialSize;
 
     /**
      * @var string
      *
      * @ORM\Column(name="pagefile_max_size", type="string", length=10, nullable=false)
      */
-    private $pagefileMaxSize;
+    private $maxSize;
 
     /**
      * @var string
      *
      * @ORM\Column(name="pagefile_size", type="string", length=10, nullable=false)
      */
-    private $pagefileSize;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $size;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -73,173 +59,96 @@ class SysSwPagefile
      */
     private $system;
 
-
-
     /**
-     * Get pagefileId
-     *
-     * @return integer 
+     * @param int $id
      */
-    public function getPagefileId()
+    public function setId($id)
     {
-        return $this->pagefileId;
+        $this->id = $id;
     }
 
     /**
-     * Set pagefileName
-     *
-     * @param string $pagefileName
-     * @return SysSwPagefile
+     * @return int
      */
-    public function setPagefileName($pagefileName)
+    public function getId()
     {
-        $this->pagefileName = $pagefileName;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get pagefileName
-     *
-     * @return string 
+     * @param string $initialSize
      */
-    public function getPagefileName()
+    public function setInitialSize($initialSize)
     {
-        return $this->pagefileName;
+        $this->initialSize = $initialSize;
     }
 
     /**
-     * Set pagefileInitialSize
-     *
-     * @param string $pagefileInitialSize
-     * @return SysSwPagefile
+     * @return string
      */
-    public function setPagefileInitialSize($pagefileInitialSize)
+    public function getInitialSize()
     {
-        $this->pagefileInitialSize = $pagefileInitialSize;
-
-        return $this;
+        return $this->initialSize;
     }
 
     /**
-     * Get pagefileInitialSize
-     *
-     * @return string 
+     * @param string $maxSize
      */
-    public function getPagefileInitialSize()
+    public function setMaxSize($maxSize)
     {
-        return $this->pagefileInitialSize;
+        $this->maxSize = $maxSize;
     }
 
     /**
-     * Set pagefileMaxSize
-     *
-     * @param string $pagefileMaxSize
-     * @return SysSwPagefile
+     * @return string
      */
-    public function setPagefileMaxSize($pagefileMaxSize)
+    public function getMaxSize()
     {
-        $this->pagefileMaxSize = $pagefileMaxSize;
-
-        return $this;
+        return $this->maxSize;
     }
 
     /**
-     * Get pagefileMaxSize
-     *
-     * @return string 
+     * @param string $name
      */
-    public function getPagefileMaxSize()
+    public function setName($name)
     {
-        return $this->pagefileMaxSize;
+        $this->name = $name;
     }
 
     /**
-     * Set pagefileSize
-     *
-     * @param string $pagefileSize
-     * @return SysSwPagefile
+     * @return string
      */
-    public function setPagefileSize($pagefileSize)
+    public function getName()
     {
-        $this->pagefileSize = $pagefileSize;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * Get pagefileSize
-     *
-     * @return string 
+     * @param string $size
      */
-    public function getPagefileSize()
+    public function setSize($size)
     {
-        return $this->pagefileSize;
+        $this->size = $size;
     }
 
     /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwPagefile
+     * @return string
      */
-    public function setTimestamp($timestamp)
+    public function getSize()
     {
-        $this->timestamp = $timestamp;
-
-        return $this;
+        return $this->size;
     }
 
     /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysSwPagefile
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwPagefile
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {

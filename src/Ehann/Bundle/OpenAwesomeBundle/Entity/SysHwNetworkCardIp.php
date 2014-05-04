@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_network_card_ip", indexes={@ORM\Index(name="id", columns={"net_mac_address"}), @ORM\Index(name="sys_hw_network_card_ip_system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwNetworkCardIp
+class SysHwNetworkCardIp extends SystemComponent
 {
     /**
      * @var integer
@@ -19,7 +19,7 @@ class SysHwNetworkCardIp
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $ipId;
+    private $id;
 
     /**
      * @var string
@@ -33,42 +33,28 @@ class SysHwNetworkCardIp
      *
      * @ORM\Column(name="ip_address_v4", type="string", length=30, nullable=false)
      */
-    private $ipAddressV4;
+    private $addressV4;
 
     /**
      * @var string
      *
      * @ORM\Column(name="ip_address_v6", type="string", length=30, nullable=false)
      */
-    private $ipAddressV6;
+    private $addressV6;
 
     /**
      * @var string
      *
      * @ORM\Column(name="ip_subnet", type="string", length=30, nullable=false)
      */
-    private $ipSubnet;
+    private $subnet;
 
     /**
      * @var string
      *
      * @ORM\Column(name="ip_address_version", type="string", length=10, nullable=false)
      */
-    private $ipAddressVersion;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $addressVersion;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -80,35 +66,80 @@ class SysHwNetworkCardIp
      */
     private $system;
 
-
-
     /**
-     * Get ipId
-     *
-     * @return integer 
+     * @param string $addressV4
      */
-    public function getIpId()
+    public function setAddressV4($addressV4)
     {
-        return $this->ipId;
+        $this->addressV4 = $addressV4;
     }
 
     /**
-     * Set netMacAddress
-     *
+     * @return string
+     */
+    public function getAddressV4()
+    {
+        return $this->addressV4;
+    }
+
+    /**
+     * @param string $addressV6
+     */
+    public function setAddressV6($addressV6)
+    {
+        $this->addressV6 = $addressV6;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddressV6()
+    {
+        return $this->addressV6;
+    }
+
+    /**
+     * @param string $addressVersion
+     */
+    public function setAddressVersion($addressVersion)
+    {
+        $this->addressVersion = $addressVersion;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddressVersion()
+    {
+        return $this->addressVersion;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param string $netMacAddress
-     * @return SysHwNetworkCardIp
      */
     public function setNetMacAddress($netMacAddress)
     {
         $this->netMacAddress = $netMacAddress;
-
-        return $this;
     }
 
     /**
-     * Get netMacAddress
-     *
-     * @return string 
+     * @return string
      */
     public function getNetMacAddress()
     {
@@ -116,163 +147,36 @@ class SysHwNetworkCardIp
     }
 
     /**
-     * Set ipAddressV4
-     *
-     * @param string $ipAddressV4
-     * @return SysHwNetworkCardIp
+     * @param string $subnet
      */
-    public function setIpAddressV4($ipAddressV4)
+    public function setSubnet($subnet)
     {
-        $this->ipAddressV4 = $ipAddressV4;
-
-        return $this;
+        $this->subnet = $subnet;
     }
 
     /**
-     * Get ipAddressV4
-     *
-     * @return string 
+     * @return string
      */
-    public function getIpAddressV4()
+    public function getSubnet()
     {
-        return $this->ipAddressV4;
+        return $this->subnet;
     }
 
     /**
-     * Set ipAddressV6
-     *
-     * @param string $ipAddressV6
-     * @return SysHwNetworkCardIp
-     */
-    public function setIpAddressV6($ipAddressV6)
-    {
-        $this->ipAddressV6 = $ipAddressV6;
-
-        return $this;
-    }
-
-    /**
-     * Get ipAddressV6
-     *
-     * @return string 
-     */
-    public function getIpAddressV6()
-    {
-        return $this->ipAddressV6;
-    }
-
-    /**
-     * Set ipSubnet
-     *
-     * @param string $ipSubnet
-     * @return SysHwNetworkCardIp
-     */
-    public function setIpSubnet($ipSubnet)
-    {
-        $this->ipSubnet = $ipSubnet;
-
-        return $this;
-    }
-
-    /**
-     * Get ipSubnet
-     *
-     * @return string 
-     */
-    public function getIpSubnet()
-    {
-        return $this->ipSubnet;
-    }
-
-    /**
-     * Set ipAddressVersion
-     *
-     * @param string $ipAddressVersion
-     * @return SysHwNetworkCardIp
-     */
-    public function setIpAddressVersion($ipAddressVersion)
-    {
-        $this->ipAddressVersion = $ipAddressVersion;
-
-        return $this;
-    }
-
-    /**
-     * Get ipAddressVersion
-     *
-     * @return string 
-     */
-    public function getIpAddressVersion()
-    {
-        return $this->ipAddressVersion;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwNetworkCardIp
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwNetworkCardIp
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysHwNetworkCardIp
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
+
 }

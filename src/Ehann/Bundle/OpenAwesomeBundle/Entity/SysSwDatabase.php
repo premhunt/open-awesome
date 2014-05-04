@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_sw_database", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysSwDatabase
+class SysSwDatabase extends SystemComponent
 {
     /**
      * @var integer
@@ -19,56 +19,42 @@ class SysSwDatabase
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $dbId;
+    private $Id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="db_type", type="string", length=50, nullable=false)
      */
-    private $dbType;
+    private $type;
 
     /**
      * @var string
      *
      * @ORM\Column(name="db_version", type="string", length=50, nullable=false)
      */
-    private $dbVersion;
+    private $version;
 
     /**
      * @var string
      *
      * @ORM\Column(name="db_version_string", type="string", length=50, nullable=false)
      */
-    private $dbVersionString;
+    private $versionString;
 
     /**
      * @var string
      *
      * @ORM\Column(name="db_edition", type="string", length=50, nullable=false)
      */
-    private $dbEdition;
+    private $edition;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="db_port", type="integer", nullable=true)
      */
-    private $dbPort;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $port;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -80,199 +66,115 @@ class SysSwDatabase
      */
     private $system;
 
-
-
     /**
-     * Get dbId
-     *
-     * @return integer 
+     * @param int $Id
      */
-    public function getDbId()
+    public function setId($Id)
     {
-        return $this->dbId;
+        $this->Id = $Id;
     }
 
     /**
-     * Set dbType
-     *
-     * @param string $dbType
-     * @return SysSwDatabase
+     * @return int
      */
-    public function setDbType($dbType)
+    public function getId()
     {
-        $this->dbType = $dbType;
-
-        return $this;
+        return $this->Id;
     }
 
     /**
-     * Get dbType
-     *
-     * @return string 
+     * @param string $edition
      */
-    public function getDbType()
+    public function setEdition($edition)
     {
-        return $this->dbType;
+        $this->edition = $edition;
     }
 
     /**
-     * Set dbVersion
-     *
-     * @param string $dbVersion
-     * @return SysSwDatabase
+     * @return string
      */
-    public function setDbVersion($dbVersion)
+    public function getEdition()
     {
-        $this->dbVersion = $dbVersion;
-
-        return $this;
+        return $this->edition;
     }
 
     /**
-     * Get dbVersion
-     *
-     * @return string 
+     * @param int $port
      */
-    public function getDbVersion()
+    public function setPort($port)
     {
-        return $this->dbVersion;
+        $this->port = $port;
     }
 
     /**
-     * Set dbVersionString
-     *
-     * @param string $dbVersionString
-     * @return SysSwDatabase
+     * @return int
      */
-    public function setDbVersionString($dbVersionString)
+    public function getPort()
     {
-        $this->dbVersionString = $dbVersionString;
-
-        return $this;
+        return $this->port;
     }
 
     /**
-     * Get dbVersionString
-     *
-     * @return string 
-     */
-    public function getDbVersionString()
-    {
-        return $this->dbVersionString;
-    }
-
-    /**
-     * Set dbEdition
-     *
-     * @param string $dbEdition
-     * @return SysSwDatabase
-     */
-    public function setDbEdition($dbEdition)
-    {
-        $this->dbEdition = $dbEdition;
-
-        return $this;
-    }
-
-    /**
-     * Get dbEdition
-     *
-     * @return string 
-     */
-    public function getDbEdition()
-    {
-        return $this->dbEdition;
-    }
-
-    /**
-     * Set dbPort
-     *
-     * @param integer $dbPort
-     * @return SysSwDatabase
-     */
-    public function setDbPort($dbPort)
-    {
-        $this->dbPort = $dbPort;
-
-        return $this;
-    }
-
-    /**
-     * Get dbPort
-     *
-     * @return integer 
-     */
-    public function getDbPort()
-    {
-        return $this->dbPort;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwDatabase
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysSwDatabase
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwDatabase
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $version
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * @param string $versionString
+     */
+    public function setVersionString($versionString)
+    {
+        $this->versionString = $versionString;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersionString()
+    {
+        return $this->versionString;
     }
 }

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_sw_share", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysSwShare
+class SysSwShare extends SystemComponent
 {
     /**
      * @var integer
@@ -19,56 +19,42 @@ class SysSwShare
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $shareId;
+    private $Id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="share_caption", type="string", length=250, nullable=false)
      */
-    private $shareCaption;
+    private $caption;
 
     /**
      * @var string
      *
      * @ORM\Column(name="share_name", type="string", length=250, nullable=false)
      */
-    private $shareName;
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="share_path", type="string", length=250, nullable=false)
      */
-    private $sharePath;
+    private $path;
 
     /**
      * @var string
      *
      * @ORM\Column(name="share_size", type="string", length=10, nullable=false)
      */
-    private $shareSize;
+    private $size;
 
     /**
      * @var string
      *
      * @ORM\Column(name="share_users", type="string", length=200, nullable=false)
      */
-    private $shareUsers;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $users;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -80,199 +66,116 @@ class SysSwShare
      */
     private $system;
 
-
-
     /**
-     * Get shareId
-     *
-     * @return integer 
+     * @param int $Id
      */
-    public function getShareId()
+    public function setId($Id)
     {
-        return $this->shareId;
+        $this->Id = $Id;
     }
 
     /**
-     * Set shareCaption
-     *
-     * @param string $shareCaption
-     * @return SysSwShare
+     * @return int
      */
-    public function setShareCaption($shareCaption)
+    public function getId()
     {
-        $this->shareCaption = $shareCaption;
-
-        return $this;
+        return $this->Id;
     }
 
     /**
-     * Get shareCaption
-     *
-     * @return string 
+     * @param string $caption
      */
-    public function getShareCaption()
+    public function setCaption($caption)
     {
-        return $this->shareCaption;
+        $this->caption = $caption;
     }
 
     /**
-     * Set shareName
-     *
-     * @param string $shareName
-     * @return SysSwShare
+     * @return string
      */
-    public function setShareName($shareName)
+    public function getCaption()
     {
-        $this->shareName = $shareName;
-
-        return $this;
+        return $this->caption;
     }
 
     /**
-     * Get shareName
-     *
-     * @return string 
+     * @param string $name
      */
-    public function getShareName()
+    public function setName($name)
     {
-        return $this->shareName;
+        $this->name = $name;
     }
 
     /**
-     * Set sharePath
-     *
-     * @param string $sharePath
-     * @return SysSwShare
+     * @return string
      */
-    public function setSharePath($sharePath)
+    public function getName()
     {
-        $this->sharePath = $sharePath;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * Get sharePath
-     *
-     * @return string 
+     * @param string $path
      */
-    public function getSharePath()
+    public function setPath($path)
     {
-        return $this->sharePath;
+        $this->path = $path;
     }
 
     /**
-     * Set shareSize
-     *
-     * @param string $shareSize
-     * @return SysSwShare
+     * @return string
      */
-    public function setShareSize($shareSize)
+    public function getPath()
     {
-        $this->shareSize = $shareSize;
-
-        return $this;
+        return $this->path;
     }
 
     /**
-     * Get shareSize
-     *
-     * @return string 
+     * @param string $size
      */
-    public function getShareSize()
+    public function setSize($size)
     {
-        return $this->shareSize;
+        $this->size = $size;
     }
 
     /**
-     * Set shareUsers
-     *
-     * @param string $shareUsers
-     * @return SysSwShare
+     * @return string
      */
-    public function setShareUsers($shareUsers)
+    public function getSize()
     {
-        $this->shareUsers = $shareUsers;
-
-        return $this;
+        return $this->size;
     }
 
     /**
-     * Get shareUsers
-     *
-     * @return string 
-     */
-    public function getShareUsers()
-    {
-        return $this->shareUsers;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwShare
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysSwShare
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwShare
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
+    /**
+     * @param string $users
+     */
+    public function setUsers($users)
+    {
+        $this->users = $users;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
 }

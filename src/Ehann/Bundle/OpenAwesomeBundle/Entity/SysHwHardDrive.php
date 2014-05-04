@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_hard_drive", indexes={@ORM\Index(name="hard_drive_index", columns={"hard_drive_index"}), @ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwHardDrive
+class SysHwHardDrive extends SystemComponent
 {
     /**
      * @var integer
@@ -19,112 +19,98 @@ class SysHwHardDrive
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $hardDriveId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_caption", type="string", length=100, nullable=false)
      */
-    private $hardDriveCaption;
+    private $caption;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_index", type="string", length=100, nullable=false)
      */
-    private $hardDriveIndex;
+    private $index;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_interface_type", type="string", length=10, nullable=false)
      */
-    private $hardDriveInterfaceType;
+    private $interfaceType;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_manufacturer", type="string", length=100, nullable=false)
      */
-    private $hardDriveManufacturer;
+    private $manufacturer;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_model", type="string", length=100, nullable=false)
      */
-    private $hardDriveModel;
+    private $model;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_serial", type="string", length=100, nullable=false)
      */
-    private $hardDriveSerial;
+    private $serial;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="hard_drive_partitions", type="integer", nullable=false)
      */
-    private $hardDrivePartitions;
+    private $partitions;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_scsi_bus", type="string", length=10, nullable=false)
      */
-    private $hardDriveScsiBus;
+    private $scsiBus;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_scsi_logical_unit", type="string", length=100, nullable=false)
      */
-    private $hardDriveScsiLogicalUnit;
+    private $scsiLogicalUnit;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_scsi_port", type="string", length=10, nullable=false)
      */
-    private $hardDriveScsiPort;
+    private $scsiPort;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="hard_drive_size", type="integer", nullable=false)
      */
-    private $hardDriveSize;
+    private $size;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_device_id", type="string", length=200, nullable=false)
      */
-    private $hardDriveDeviceId;
+    private $deviceId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hard_drive_status", type="string", length=100, nullable=false)
      */
-    private $hardDriveStatus;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $status;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -136,383 +122,244 @@ class SysHwHardDrive
      */
     private $system;
 
-
-
     /**
-     * Get hardDriveId
-     *
-     * @return integer 
+     * @param string $caption
      */
-    public function getHardDriveId()
+    public function setCaption($caption)
     {
-        return $this->hardDriveId;
+        $this->caption = $caption;
     }
 
     /**
-     * Set hardDriveCaption
-     *
-     * @param string $hardDriveCaption
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setHardDriveCaption($hardDriveCaption)
+    public function getCaption()
     {
-        $this->hardDriveCaption = $hardDriveCaption;
-
-        return $this;
+        return $this->caption;
     }
 
     /**
-     * Get hardDriveCaption
-     *
-     * @return string 
+     * @param string $deviceId
      */
-    public function getHardDriveCaption()
+    public function setDeviceId($deviceId)
     {
-        return $this->hardDriveCaption;
+        $this->deviceId = $deviceId;
     }
 
     /**
-     * Set hardDriveIndex
-     *
-     * @param string $hardDriveIndex
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setHardDriveIndex($hardDriveIndex)
+    public function getDeviceId()
     {
-        $this->hardDriveIndex = $hardDriveIndex;
-
-        return $this;
+        return $this->deviceId;
     }
 
     /**
-     * Get hardDriveIndex
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getHardDriveIndex()
+    public function setId($id)
     {
-        return $this->hardDriveIndex;
+        $this->id = $id;
     }
 
     /**
-     * Set hardDriveInterfaceType
-     *
-     * @param string $hardDriveInterfaceType
-     * @return SysHwHardDrive
+     * @return int
      */
-    public function setHardDriveInterfaceType($hardDriveInterfaceType)
+    public function getId()
     {
-        $this->hardDriveInterfaceType = $hardDriveInterfaceType;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get hardDriveInterfaceType
-     *
-     * @return string 
+     * @param string $index
      */
-    public function getHardDriveInterfaceType()
+    public function setIndex($index)
     {
-        return $this->hardDriveInterfaceType;
+        $this->index = $index;
     }
 
     /**
-     * Set hardDriveManufacturer
-     *
-     * @param string $hardDriveManufacturer
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setHardDriveManufacturer($hardDriveManufacturer)
+    public function getIndex()
     {
-        $this->hardDriveManufacturer = $hardDriveManufacturer;
-
-        return $this;
+        return $this->index;
     }
 
     /**
-     * Get hardDriveManufacturer
-     *
-     * @return string 
+     * @param string $interfaceType
      */
-    public function getHardDriveManufacturer()
+    public function setInterfaceType($interfaceType)
     {
-        return $this->hardDriveManufacturer;
+        $this->interfaceType = $interfaceType;
     }
 
     /**
-     * Set hardDriveModel
-     *
-     * @param string $hardDriveModel
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setHardDriveModel($hardDriveModel)
+    public function getInterfaceType()
     {
-        $this->hardDriveModel = $hardDriveModel;
-
-        return $this;
+        return $this->interfaceType;
     }
 
     /**
-     * Get hardDriveModel
-     *
-     * @return string 
+     * @param string $manufacturer
      */
-    public function getHardDriveModel()
+    public function setManufacturer($manufacturer)
     {
-        return $this->hardDriveModel;
+        $this->manufacturer = $manufacturer;
     }
 
     /**
-     * Set hardDriveSerial
-     *
-     * @param string $hardDriveSerial
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setHardDriveSerial($hardDriveSerial)
+    public function getManufacturer()
     {
-        $this->hardDriveSerial = $hardDriveSerial;
-
-        return $this;
+        return $this->manufacturer;
     }
 
     /**
-     * Get hardDriveSerial
-     *
-     * @return string 
+     * @param string $model
      */
-    public function getHardDriveSerial()
+    public function setModel($model)
     {
-        return $this->hardDriveSerial;
+        $this->model = $model;
     }
 
     /**
-     * Set hardDrivePartitions
-     *
-     * @param integer $hardDrivePartitions
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setHardDrivePartitions($hardDrivePartitions)
+    public function getModel()
     {
-        $this->hardDrivePartitions = $hardDrivePartitions;
-
-        return $this;
+        return $this->model;
     }
 
     /**
-     * Get hardDrivePartitions
-     *
-     * @return integer 
+     * @param int $partitions
      */
-    public function getHardDrivePartitions()
+    public function setPartitions($partitions)
     {
-        return $this->hardDrivePartitions;
+        $this->partitions = $partitions;
     }
 
     /**
-     * Set hardDriveScsiBus
-     *
-     * @param string $hardDriveScsiBus
-     * @return SysHwHardDrive
+     * @return int
      */
-    public function setHardDriveScsiBus($hardDriveScsiBus)
+    public function getPartitions()
     {
-        $this->hardDriveScsiBus = $hardDriveScsiBus;
-
-        return $this;
+        return $this->partitions;
     }
 
     /**
-     * Get hardDriveScsiBus
-     *
-     * @return string 
+     * @param string $scsiBus
      */
-    public function getHardDriveScsiBus()
+    public function setScsiBus($scsiBus)
     {
-        return $this->hardDriveScsiBus;
+        $this->scsiBus = $scsiBus;
     }
 
     /**
-     * Set hardDriveScsiLogicalUnit
-     *
-     * @param string $hardDriveScsiLogicalUnit
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setHardDriveScsiLogicalUnit($hardDriveScsiLogicalUnit)
+    public function getScsiBus()
     {
-        $this->hardDriveScsiLogicalUnit = $hardDriveScsiLogicalUnit;
-
-        return $this;
+        return $this->scsiBus;
     }
 
     /**
-     * Get hardDriveScsiLogicalUnit
-     *
-     * @return string 
+     * @param string $scsiLogicalUnit
      */
-    public function getHardDriveScsiLogicalUnit()
+    public function setScsiLogicalUnit($scsiLogicalUnit)
     {
-        return $this->hardDriveScsiLogicalUnit;
+        $this->scsiLogicalUnit = $scsiLogicalUnit;
     }
 
     /**
-     * Set hardDriveScsiPort
-     *
-     * @param string $hardDriveScsiPort
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setHardDriveScsiPort($hardDriveScsiPort)
+    public function getScsiLogicalUnit()
     {
-        $this->hardDriveScsiPort = $hardDriveScsiPort;
-
-        return $this;
+        return $this->scsiLogicalUnit;
     }
 
     /**
-     * Get hardDriveScsiPort
-     *
-     * @return string 
+     * @param string $scsiPort
      */
-    public function getHardDriveScsiPort()
+    public function setScsiPort($scsiPort)
     {
-        return $this->hardDriveScsiPort;
+        $this->scsiPort = $scsiPort;
     }
 
     /**
-     * Set hardDriveSize
-     *
-     * @param integer $hardDriveSize
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setHardDriveSize($hardDriveSize)
+    public function getScsiPort()
     {
-        $this->hardDriveSize = $hardDriveSize;
-
-        return $this;
+        return $this->scsiPort;
     }
 
     /**
-     * Get hardDriveSize
-     *
-     * @return integer 
+     * @param string $serial
      */
-    public function getHardDriveSize()
+    public function setSerial($serial)
     {
-        return $this->hardDriveSize;
+        $this->serial = $serial;
     }
 
     /**
-     * Set hardDriveDeviceId
-     *
-     * @param string $hardDriveDeviceId
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setHardDriveDeviceId($hardDriveDeviceId)
+    public function getSerial()
     {
-        $this->hardDriveDeviceId = $hardDriveDeviceId;
-
-        return $this;
+        return $this->serial;
     }
 
     /**
-     * Get hardDriveDeviceId
-     *
-     * @return string 
+     * @param int $size
      */
-    public function getHardDriveDeviceId()
+    public function setSize($size)
     {
-        return $this->hardDriveDeviceId;
+        $this->size = $size;
     }
 
     /**
-     * Set hardDriveStatus
-     *
-     * @param string $hardDriveStatus
-     * @return SysHwHardDrive
+     * @return int
      */
-    public function setHardDriveStatus($hardDriveStatus)
+    public function getSize()
     {
-        $this->hardDriveStatus = $hardDriveStatus;
-
-        return $this;
+        return $this->size;
     }
 
     /**
-     * Get hardDriveStatus
-     *
-     * @return string 
+     * @param string $status
      */
-    public function getHardDriveStatus()
+    public function setStatus($status)
     {
-        return $this->hardDriveStatus;
+        $this->status = $status;
     }
 
     /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwHardDrive
+     * @return string
      */
-    public function setTimestamp($timestamp)
+    public function getStatus()
     {
-        $this->timestamp = $timestamp;
-
-        return $this;
+        return $this->status;
     }
 
     /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwHardDrive
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysHwHardDrive
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
 }

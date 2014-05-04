@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_processor", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwProcessor
+class SysHwProcessor extends SystemComponent
 {
     /**
      * @var integer
@@ -19,56 +19,42 @@ class SysHwProcessor
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $processorId;
+    private $id;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="processor_cores", type="integer", nullable=false)
      */
-    private $processorCores;
+    private $cores;
 
     /**
      * @var string
      *
      * @ORM\Column(name="processor_description", type="string", length=100, nullable=false)
      */
-    private $processorDescription;
+    private $description;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="processor_speed", type="integer", nullable=false)
      */
-    private $processorSpeed;
+    private $speed;
 
     /**
      * @var string
      *
      * @ORM\Column(name="processor_manufacturer", type="string", length=100, nullable=false)
      */
-    private $processorManufacturer;
+    private $manufacturer;
 
     /**
      * @var string
      *
      * @ORM\Column(name="processor_power_management_supported", type="string", length=20, nullable=false)
      */
-    private $processorPowerManagementSupported;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $powerManagementSupported;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -80,199 +66,116 @@ class SysHwProcessor
      */
     private $system;
 
-
-
     /**
-     * Get processorId
-     *
-     * @return integer 
+     * @param int $cores
      */
-    public function getProcessorId()
+    public function setCores($cores)
     {
-        return $this->processorId;
+        $this->cores = $cores;
     }
 
     /**
-     * Set processorCores
-     *
-     * @param integer $processorCores
-     * @return SysHwProcessor
+     * @return int
      */
-    public function setProcessorCores($processorCores)
+    public function getCores()
     {
-        $this->processorCores = $processorCores;
-
-        return $this;
+        return $this->cores;
     }
 
     /**
-     * Get processorCores
-     *
-     * @return integer 
+     * @param string $description
      */
-    public function getProcessorCores()
+    public function setDescription($description)
     {
-        return $this->processorCores;
+        $this->description = $description;
     }
 
     /**
-     * Set processorDescription
-     *
-     * @param string $processorDescription
-     * @return SysHwProcessor
+     * @return string
      */
-    public function setProcessorDescription($processorDescription)
+    public function getDescription()
     {
-        $this->processorDescription = $processorDescription;
-
-        return $this;
+        return $this->description;
     }
 
     /**
-     * Get processorDescription
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getProcessorDescription()
+    public function setId($id)
     {
-        return $this->processorDescription;
+        $this->id = $id;
     }
 
     /**
-     * Set processorSpeed
-     *
-     * @param integer $processorSpeed
-     * @return SysHwProcessor
+     * @return int
      */
-    public function setProcessorSpeed($processorSpeed)
+    public function getId()
     {
-        $this->processorSpeed = $processorSpeed;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get processorSpeed
-     *
-     * @return integer 
+     * @param string $manufacturer
      */
-    public function getProcessorSpeed()
+    public function setManufacturer($manufacturer)
     {
-        return $this->processorSpeed;
+        $this->manufacturer = $manufacturer;
     }
 
     /**
-     * Set processorManufacturer
-     *
-     * @param string $processorManufacturer
-     * @return SysHwProcessor
+     * @return string
      */
-    public function setProcessorManufacturer($processorManufacturer)
+    public function getManufacturer()
     {
-        $this->processorManufacturer = $processorManufacturer;
-
-        return $this;
+        return $this->manufacturer;
     }
 
     /**
-     * Get processorManufacturer
-     *
-     * @return string 
+     * @param string $powerManagementSupported
      */
-    public function getProcessorManufacturer()
+    public function setPowerManagementSupported($powerManagementSupported)
     {
-        return $this->processorManufacturer;
+        $this->powerManagementSupported = $powerManagementSupported;
     }
 
     /**
-     * Set processorPowerManagementSupported
-     *
-     * @param string $processorPowerManagementSupported
-     * @return SysHwProcessor
+     * @return string
      */
-    public function setProcessorPowerManagementSupported($processorPowerManagementSupported)
+    public function getPowerManagementSupported()
     {
-        $this->processorPowerManagementSupported = $processorPowerManagementSupported;
-
-        return $this;
+        return $this->powerManagementSupported;
     }
 
     /**
-     * Get processorPowerManagementSupported
-     *
-     * @return string 
+     * @param int $speed
      */
-    public function getProcessorPowerManagementSupported()
+    public function setSpeed($speed)
     {
-        return $this->processorPowerManagementSupported;
+        $this->speed = $speed;
     }
 
     /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwProcessor
+     * @return int
      */
-    public function setTimestamp($timestamp)
+    public function getSpeed()
     {
-        $this->timestamp = $timestamp;
-
-        return $this;
+        return $this->speed;
     }
 
     /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwProcessor
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysHwProcessor
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
 }

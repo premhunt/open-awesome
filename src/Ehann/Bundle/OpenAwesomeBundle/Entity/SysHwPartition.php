@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_partition", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwPartition
+class SysHwPartition extends SystemComponent
 {
     /**
      * @var integer
@@ -19,7 +19,7 @@ class SysHwPartition
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $partitionId;
+    private $id;
 
     /**
      * @var string
@@ -33,119 +33,105 @@ class SysHwPartition
      *
      * @ORM\Column(name="partition_mount_type", type="string", length=100, nullable=false)
      */
-    private $partitionMountType;
+    private $mountType;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_mount_point", type="string", length=100, nullable=false)
      */
-    private $partitionMountPoint;
+    private $mountPoint;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_name", type="string", length=100, nullable=false)
      */
-    private $partitionName;
+    private $name;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="partition_size", type="integer", nullable=false)
      */
-    private $partitionSize;
+    private $size;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="partition_free_space", type="integer", nullable=false)
      */
-    private $partitionFreeSpace;
+    private $freeSpace;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="partition_used_space", type="integer", nullable=false)
      */
-    private $partitionUsedSpace;
+    private $usedSpace;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_format", type="string", length=20, nullable=false)
      */
-    private $partitionFormat;
+    private $format;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_caption", type="string", length=100, nullable=false)
      */
-    private $partitionCaption;
+    private $caption;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_device_id", type="string", length=100, nullable=false)
      */
-    private $partitionDeviceId;
+    private $deviceId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_disk_index", type="string", length=50, nullable=false)
      */
-    private $partitionDiskIndex;
+    private $diskIndex;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_bootable", type="string", length=10, nullable=false)
      */
-    private $partitionBootable;
+    private $bootable;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_type", type="string", length=50, nullable=false)
      */
-    private $partitionType;
+    private $type;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_quotas_supported", type="string", length=10, nullable=false)
      */
-    private $partitionQuotasSupported;
+    private $quotasSupported;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_quotas_enabled", type="string", length=10, nullable=false)
      */
-    private $partitionQuotasEnabled;
+    private $quotasEnabled;
 
     /**
      * @var string
      *
      * @ORM\Column(name="partition_serial", type="string", length=100, nullable=false)
      */
-    private $partitionSerial;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $serial;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -157,35 +143,112 @@ class SysHwPartition
      */
     private $system;
 
-
-
     /**
-     * Get partitionId
-     *
-     * @return integer 
+     * @param string $bootable
      */
-    public function getPartitionId()
+    public function setBootable($bootable)
     {
-        return $this->partitionId;
+        $this->bootable = $bootable;
     }
 
     /**
-     * Set hardDriveIndex
-     *
+     * @return string
+     */
+    public function getBootable()
+    {
+        return $this->bootable;
+    }
+
+    /**
+     * @param string $caption
+     */
+    public function setCaption($caption)
+    {
+        $this->caption = $caption;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCaption()
+    {
+        return $this->caption;
+    }
+
+    /**
+     * @param string $deviceId
+     */
+    public function setDeviceId($deviceId)
+    {
+        $this->deviceId = $deviceId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeviceId()
+    {
+        return $this->deviceId;
+    }
+
+    /**
+     * @param string $diskIndex
+     */
+    public function setDiskIndex($diskIndex)
+    {
+        $this->diskIndex = $diskIndex;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDiskIndex()
+    {
+        return $this->diskIndex;
+    }
+
+    /**
+     * @param string $format
+     */
+    public function setFormat($format)
+    {
+        $this->format = $format;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFormat()
+    {
+        return $this->format;
+    }
+
+    /**
+     * @param int $freeSpace
+     */
+    public function setFreeSpace($freeSpace)
+    {
+        $this->freeSpace = $freeSpace;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFreeSpace()
+    {
+        return $this->freeSpace;
+    }
+
+    /**
      * @param string $hardDriveIndex
-     * @return SysHwPartition
      */
     public function setHardDriveIndex($hardDriveIndex)
     {
         $this->hardDriveIndex = $hardDriveIndex;
-
-        return $this;
     }
 
     /**
-     * Get hardDriveIndex
-     *
-     * @return string 
+     * @return string
      */
     public function getHardDriveIndex()
     {
@@ -193,416 +256,179 @@ class SysHwPartition
     }
 
     /**
-     * Set partitionMountType
-     *
-     * @param string $partitionMountType
-     * @return SysHwPartition
+     * @param int $id
      */
-    public function setPartitionMountType($partitionMountType)
+    public function setId($id)
     {
-        $this->partitionMountType = $partitionMountType;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get partitionMountType
-     *
-     * @return string 
+     * @return int
      */
-    public function getPartitionMountType()
+    public function getId()
     {
-        return $this->partitionMountType;
+        return $this->id;
     }
 
     /**
-     * Set partitionMountPoint
-     *
-     * @param string $partitionMountPoint
-     * @return SysHwPartition
+     * @param string $mountPoint
      */
-    public function setPartitionMountPoint($partitionMountPoint)
+    public function setMountPoint($mountPoint)
     {
-        $this->partitionMountPoint = $partitionMountPoint;
-
-        return $this;
+        $this->mountPoint = $mountPoint;
     }
 
     /**
-     * Get partitionMountPoint
-     *
-     * @return string 
+     * @return string
      */
-    public function getPartitionMountPoint()
+    public function getMountPoint()
     {
-        return $this->partitionMountPoint;
+        return $this->mountPoint;
     }
 
     /**
-     * Set partitionName
-     *
-     * @param string $partitionName
-     * @return SysHwPartition
+     * @param string $mountType
      */
-    public function setPartitionName($partitionName)
+    public function setMountType($mountType)
     {
-        $this->partitionName = $partitionName;
-
-        return $this;
+        $this->mountType = $mountType;
     }
 
     /**
-     * Get partitionName
-     *
-     * @return string 
+     * @return string
      */
-    public function getPartitionName()
+    public function getMountType()
     {
-        return $this->partitionName;
+        return $this->mountType;
     }
 
     /**
-     * Set partitionSize
-     *
-     * @param integer $partitionSize
-     * @return SysHwPartition
+     * @param string $name
      */
-    public function setPartitionSize($partitionSize)
+    public function setName($name)
     {
-        $this->partitionSize = $partitionSize;
-
-        return $this;
+        $this->name = $name;
     }
 
     /**
-     * Get partitionSize
-     *
-     * @return integer 
+     * @return string
      */
-    public function getPartitionSize()
+    public function getName()
     {
-        return $this->partitionSize;
+        return $this->name;
     }
 
     /**
-     * Set partitionFreeSpace
-     *
-     * @param integer $partitionFreeSpace
-     * @return SysHwPartition
+     * @param string $quotasEnabled
      */
-    public function setPartitionFreeSpace($partitionFreeSpace)
+    public function setQuotasEnabled($quotasEnabled)
     {
-        $this->partitionFreeSpace = $partitionFreeSpace;
-
-        return $this;
+        $this->quotasEnabled = $quotasEnabled;
     }
 
     /**
-     * Get partitionFreeSpace
-     *
-     * @return integer 
+     * @return string
      */
-    public function getPartitionFreeSpace()
+    public function getQuotasEnabled()
     {
-        return $this->partitionFreeSpace;
+        return $this->quotasEnabled;
     }
 
     /**
-     * Set partitionUsedSpace
-     *
-     * @param integer $partitionUsedSpace
-     * @return SysHwPartition
+     * @param string $quotasSupported
      */
-    public function setPartitionUsedSpace($partitionUsedSpace)
+    public function setQuotasSupported($quotasSupported)
     {
-        $this->partitionUsedSpace = $partitionUsedSpace;
-
-        return $this;
+        $this->quotasSupported = $quotasSupported;
     }
 
     /**
-     * Get partitionUsedSpace
-     *
-     * @return integer 
+     * @return string
      */
-    public function getPartitionUsedSpace()
+    public function getQuotasSupported()
     {
-        return $this->partitionUsedSpace;
+        return $this->quotasSupported;
     }
 
     /**
-     * Set partitionFormat
-     *
-     * @param string $partitionFormat
-     * @return SysHwPartition
+     * @param string $serial
      */
-    public function setPartitionFormat($partitionFormat)
+    public function setSerial($serial)
     {
-        $this->partitionFormat = $partitionFormat;
-
-        return $this;
+        $this->serial = $serial;
     }
 
     /**
-     * Get partitionFormat
-     *
-     * @return string 
+     * @return string
      */
-    public function getPartitionFormat()
+    public function getSerial()
     {
-        return $this->partitionFormat;
+        return $this->serial;
     }
 
     /**
-     * Set partitionCaption
-     *
-     * @param string $partitionCaption
-     * @return SysHwPartition
+     * @param int $size
      */
-    public function setPartitionCaption($partitionCaption)
+    public function setSize($size)
     {
-        $this->partitionCaption = $partitionCaption;
-
-        return $this;
+        $this->size = $size;
     }
 
     /**
-     * Get partitionCaption
-     *
-     * @return string 
+     * @return int
      */
-    public function getPartitionCaption()
+    public function getSize()
     {
-        return $this->partitionCaption;
+        return $this->size;
     }
 
     /**
-     * Set partitionDeviceId
-     *
-     * @param string $partitionDeviceId
-     * @return SysHwPartition
-     */
-    public function setPartitionDeviceId($partitionDeviceId)
-    {
-        $this->partitionDeviceId = $partitionDeviceId;
-
-        return $this;
-    }
-
-    /**
-     * Get partitionDeviceId
-     *
-     * @return string 
-     */
-    public function getPartitionDeviceId()
-    {
-        return $this->partitionDeviceId;
-    }
-
-    /**
-     * Set partitionDiskIndex
-     *
-     * @param string $partitionDiskIndex
-     * @return SysHwPartition
-     */
-    public function setPartitionDiskIndex($partitionDiskIndex)
-    {
-        $this->partitionDiskIndex = $partitionDiskIndex;
-
-        return $this;
-    }
-
-    /**
-     * Get partitionDiskIndex
-     *
-     * @return string 
-     */
-    public function getPartitionDiskIndex()
-    {
-        return $this->partitionDiskIndex;
-    }
-
-    /**
-     * Set partitionBootable
-     *
-     * @param string $partitionBootable
-     * @return SysHwPartition
-     */
-    public function setPartitionBootable($partitionBootable)
-    {
-        $this->partitionBootable = $partitionBootable;
-
-        return $this;
-    }
-
-    /**
-     * Get partitionBootable
-     *
-     * @return string 
-     */
-    public function getPartitionBootable()
-    {
-        return $this->partitionBootable;
-    }
-
-    /**
-     * Set partitionType
-     *
-     * @param string $partitionType
-     * @return SysHwPartition
-     */
-    public function setPartitionType($partitionType)
-    {
-        $this->partitionType = $partitionType;
-
-        return $this;
-    }
-
-    /**
-     * Get partitionType
-     *
-     * @return string 
-     */
-    public function getPartitionType()
-    {
-        return $this->partitionType;
-    }
-
-    /**
-     * Set partitionQuotasSupported
-     *
-     * @param string $partitionQuotasSupported
-     * @return SysHwPartition
-     */
-    public function setPartitionQuotasSupported($partitionQuotasSupported)
-    {
-        $this->partitionQuotasSupported = $partitionQuotasSupported;
-
-        return $this;
-    }
-
-    /**
-     * Get partitionQuotasSupported
-     *
-     * @return string 
-     */
-    public function getPartitionQuotasSupported()
-    {
-        return $this->partitionQuotasSupported;
-    }
-
-    /**
-     * Set partitionQuotasEnabled
-     *
-     * @param string $partitionQuotasEnabled
-     * @return SysHwPartition
-     */
-    public function setPartitionQuotasEnabled($partitionQuotasEnabled)
-    {
-        $this->partitionQuotasEnabled = $partitionQuotasEnabled;
-
-        return $this;
-    }
-
-    /**
-     * Get partitionQuotasEnabled
-     *
-     * @return string 
-     */
-    public function getPartitionQuotasEnabled()
-    {
-        return $this->partitionQuotasEnabled;
-    }
-
-    /**
-     * Set partitionSerial
-     *
-     * @param string $partitionSerial
-     * @return SysHwPartition
-     */
-    public function setPartitionSerial($partitionSerial)
-    {
-        $this->partitionSerial = $partitionSerial;
-
-        return $this;
-    }
-
-    /**
-     * Get partitionSerial
-     *
-     * @return string 
-     */
-    public function getPartitionSerial()
-    {
-        return $this->partitionSerial;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwPartition
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwPartition
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysHwPartition
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param int $usedSpace
+     */
+    public function setUsedSpace($usedSpace)
+    {
+        $this->usedSpace = $usedSpace;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUsedSpace()
+    {
+        return $this->usedSpace;
+    }
+
 }

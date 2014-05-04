@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\Type;
  * @ORM\Table(name="sys_sw_windows", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysSwWindows
+class SysSwWindows extends SystemComponent
 {
     /**
      * @var integer
@@ -163,22 +163,6 @@ class SysSwWindows
     private $activeDirectoryOu;
 
     /**
-     * @var \DateTime
-     *
-     * @Type("DateTime<'Y-m-d G:i:s'>")
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @Type("DateTime<'Y-m-d G:i:s'>")
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
-
-    /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      *
      * @ORM\ManyToOne(targetEntity="Ehann\Bundle\OpenAwesomeBundle\Entity\System")
@@ -188,116 +172,16 @@ class SysSwWindows
      */
     private $system;
 
-
-
     /**
-     * Get id
-     *
-     * @return integer 
+     * @param string $domainShort
      */
-    public function getId()
+    public function setDomainShort($domainShort)
     {
-        return $this->id;
+        $this->domainShort = $domainShort;
     }
 
     /**
-     * @param $id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Set buildNumber
-     *
-     * @param string $buildNumber
-     * @return SysSwWindows
-     */
-    public function setBuildNumber($buildNumber)
-    {
-        $this->buildNumber = $buildNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get buildNumber
-     *
-     * @return string 
-     */
-    public function getBuildNumber()
-    {
-        return $this->buildNumber;
-    }
-
-    /**
-     * Set windowsUserName
-     *
-     * @param string $windowsUserName
-     * @return SysSwWindows
-     */
-    public function setUserName($windowsUserName)
-    {
-        $this->userName = $windowsUserName;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsUserName
-     *
-     * @return string 
-     */
-    public function getUserName()
-    {
-        return $this->userName;
-    }
-
-    /**
-     * Set windowsClientSiteName
-     *
-     * @param string $windowsClientSiteName
-     * @return SysSwWindows
-     */
-    public function setClientSiteName($windowsClientSiteName)
-    {
-        $this->clientSiteName = $windowsClientSiteName;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsClientSiteName
-     *
-     * @return string 
-     */
-    public function getClientSiteName()
-    {
-        return $this->clientSiteName;
-    }
-
-    /**
-     * Set windowsDomainShort
-     *
-     * @param string $windowsDomainShort
-     * @return SysSwWindows
-     */
-    public function setDomainShort($windowsDomainShort)
-    {
-        $this->domainShort = $windowsDomainShort;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsDomainShort
-     *
-     * @return string 
+     * @return string
      */
     public function getDomainShort()
     {
@@ -305,367 +189,15 @@ class SysSwWindows
     }
 
     /**
-     * Set windowsDomainControllerAddress
-     *
-     * @param string $windowsDomainControllerAddress
-     * @return SysSwWindows
-     */
-    public function setDomainControllerAddress($windowsDomainControllerAddress)
-    {
-        $this->domainControllerAddress = $windowsDomainControllerAddress;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsDomainControllerAddress
-     *
-     * @return string 
-     */
-    public function getDomainControllerAddress()
-    {
-        return $this->domainControllerAddress;
-    }
-
-    /**
-     * Set windowsDomainControllerName
-     *
-     * @param string $windowsDomainControllerName
-     * @return SysSwWindows
-     */
-    public function setDomainControllerName($windowsDomainControllerName)
-    {
-        $this->domainControllerName = $windowsDomainControllerName;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsDomainControllerName
-     *
-     * @return string 
-     */
-    public function getDomainControllerName()
-    {
-        return $this->domainControllerName;
-    }
-
-    /**
-     * Set windowsDomainRole
-     *
-     * @param string $windowsDomainRole
-     * @return SysSwWindows
-     */
-    public function setDomainRole($windowsDomainRole)
-    {
-        $this->domainRole = $windowsDomainRole;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsDomainRole
-     *
-     * @return string 
-     */
-    public function getDomainRole()
-    {
-        return $this->domainRole;
-    }
-
-    /**
-     * Set windowsPartOfDomain
-     *
-     * @param string $windowsPartOfDomain
-     * @return SysSwWindows
-     */
-    public function setPartOfDomain($windowsPartOfDomain)
-    {
-        $this->partOfDomain = $windowsPartOfDomain;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsPartOfDomain
-     *
-     * @return string 
-     */
-    public function getPartOfDomain()
-    {
-        return $this->partOfDomain;
-    }
-
-    /**
-     * Set windowsIdNumber
-     *
-     * @param string $windowsIdNumber
-     * @return SysSwWindows
-     */
-    public function setIdNumber($windowsIdNumber)
-    {
-        $this->idNumber = $windowsIdNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsIdNumber
-     *
-     * @return string 
-     */
-    public function getIdNumber()
-    {
-        return $this->idNumber;
-    }
-
-    /**
-     * Set windowsTimeCaption
-     *
-     * @param string $windowsTimeCaption
-     * @return SysSwWindows
-     */
-    public function setTimeCaption($windowsTimeCaption)
-    {
-        $this->timeCaption = $windowsTimeCaption;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsTimeCaption
-     *
-     * @return string 
-     */
-    public function getTimeCaption()
-    {
-        return $this->timeCaption;
-    }
-
-    /**
-     * Set windowsTimeDaylight
-     *
-     * @param string $windowsTimeDaylight
-     * @return SysSwWindows
-     */
-    public function setTimeDaylight($windowsTimeDaylight)
-    {
-        $this->timeDaylight = $windowsTimeDaylight;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsTimeDaylight
-     *
-     * @return string 
-     */
-    public function getTimeDaylight()
-    {
-        return $this->timeDaylight;
-    }
-
-    /**
-     * Set windowsBootDevice
-     *
-     * @param string $windowsBootDevice
-     * @return SysSwWindows
-     */
-    public function setBootDevice($windowsBootDevice)
-    {
-        $this->bootDevice = $windowsBootDevice;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsBootDevice
-     *
-     * @return string 
-     */
-    public function getBootDevice()
-    {
-        return $this->bootDevice;
-    }
-
-    /**
-     * Set windowsCountryCode
-     *
-     * @param string $windowsCountryCode
-     * @return SysSwWindows
-     */
-    public function setCountryCode($windowsCountryCode)
-    {
-        $this->countryCode = $windowsCountryCode;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsCountryCode
-     *
-     * @return string 
-     */
-    public function getCountryCode()
-    {
-        return $this->countryCode;
-    }
-
-    /**
-     * Set windowsOrganisation
-     *
-     * @param string $windowsOrganisation
-     * @return SysSwWindows
-     */
-    public function setOrganisation($windowsOrganisation)
-    {
-        $this->organisation = $windowsOrganisation;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsOrganisation
-     *
-     * @return string 
-     */
-    public function getOrganisation()
-    {
-        return $this->organisation;
-    }
-
-    /**
-     * Set windowsLanguage
-     *
-     * @param string $windowsLanguage
-     * @return SysSwWindows
-     */
-    public function setLanguage($windowsLanguage)
-    {
-        $this->language = $windowsLanguage;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsLanguage
-     *
-     * @return string 
-     */
-    public function getLanguage()
-    {
-        return $this->language;
-    }
-
-    /**
-     * Set windowsRegisteredUser
-     *
-     * @param string $windowsRegisteredUser
-     * @return SysSwWindows
-     */
-    public function setRegisteredUser($windowsRegisteredUser)
-    {
-        $this->registeredUser = $windowsRegisteredUser;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsRegisteredUser
-     *
-     * @return string 
-     */
-    public function getRegisteredUser()
-    {
-        return $this->registeredUser;
-    }
-
-    /**
-     * Set windowsServicePack
-     *
-     * @param string $windowsServicePack
-     * @return SysSwWindows
-     */
-    public function setServicePack($windowsServicePack)
-    {
-        $this->servicePack = $windowsServicePack;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsServicePack
-     *
-     * @return string 
-     */
-    public function getServicePack()
-    {
-        return $this->servicePack;
-    }
-
-    /**
-     * Set windowsVersion
-     *
-     * @param string $windowsVersion
-     * @return SysSwWindows
-     */
-    public function setVersion($windowsVersion)
-    {
-        $this->version = $windowsVersion;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsVersion
-     *
-     * @return string 
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * Set windowsInstallDirectory
-     *
-     * @param string $windowsInstallDirectory
-     * @return SysSwWindows
-     */
-    public function setInstallDirectory($windowsInstallDirectory)
-    {
-        $this->installDirectory = $windowsInstallDirectory;
-
-        return $this;
-    }
-
-    /**
-     * Get windowsInstallDirectory
-     *
-     * @return string 
-     */
-    public function getInstallDirectory()
-    {
-        return $this->installDirectory;
-    }
-
-    /**
-     * Set activeDirectoryOu
-     *
      * @param string $activeDirectoryOu
-     * @return SysSwWindows
      */
     public function setActiveDirectoryOu($activeDirectoryOu)
     {
         $this->activeDirectoryOu = $activeDirectoryOu;
-
-        return $this;
     }
 
     /**
-     * Get activeDirectoryOu
-     *
-     * @return string 
+     * @return string
      */
     public function getActiveDirectoryOu()
     {
@@ -673,71 +205,323 @@ class SysSwWindows
     }
 
     /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwWindows
+     * @param string $bootDevice
      */
-    public function setTimestamp($timestamp)
+    public function setBootDevice($bootDevice)
     {
-        $this->timestamp = $timestamp;
-
-        return $this;
+        $this->bootDevice = $bootDevice;
     }
 
     /**
-     * Get timestamp
-     *
-     * @return \DateTime 
+     * @return string
      */
-    public function getTimestamp()
+    public function getBootDevice()
     {
-        return $this->timestamp;
+        return $this->bootDevice;
     }
 
     /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysSwWindows
+     * @param string $buildNumber
      */
-    public function setFirstTimestamp($firstTimestamp)
+    public function setBuildNumber($buildNumber)
     {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
+        $this->buildNumber = $buildNumber;
     }
 
     /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
+     * @return string
      */
-    public function getFirstTimestamp()
+    public function getBuildNumber()
     {
-        return $this->firstTimestamp;
+        return $this->buildNumber;
     }
 
     /**
-     * Set system
-     *
+     * @param string $clientSiteName
+     */
+    public function setClientSiteName($clientSiteName)
+    {
+        $this->clientSiteName = $clientSiteName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClientSiteName()
+    {
+        return $this->clientSiteName;
+    }
+
+    /**
+     * @param string $countryCode
+     */
+    public function setCountryCode($countryCode)
+    {
+        $this->countryCode = $countryCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryCode()
+    {
+        return $this->countryCode;
+    }
+
+    /**
+     * @param string $domainControllerAddress
+     */
+    public function setDomainControllerAddress($domainControllerAddress)
+    {
+        $this->domainControllerAddress = $domainControllerAddress;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDomainControllerAddress()
+    {
+        return $this->domainControllerAddress;
+    }
+
+    /**
+     * @param string $domainControllerName
+     */
+    public function setDomainControllerName($domainControllerName)
+    {
+        $this->domainControllerName = $domainControllerName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDomainControllerName()
+    {
+        return $this->domainControllerName;
+    }
+
+    /**
+     * @param string $domainRole
+     */
+    public function setDomainRole($domainRole)
+    {
+        $this->domainRole = $domainRole;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDomainRole()
+    {
+        return $this->domainRole;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $idNumber
+     */
+    public function setIdNumber($idNumber)
+    {
+        $this->idNumber = $idNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdNumber()
+    {
+        return $this->idNumber;
+    }
+
+    /**
+     * @param string $installDirectory
+     */
+    public function setInstallDirectory($installDirectory)
+    {
+        $this->installDirectory = $installDirectory;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInstallDirectory()
+    {
+        return $this->installDirectory;
+    }
+
+    /**
+     * @param string $language
+     */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /**
+     * @param string $organisation
+     */
+    public function setOrganisation($organisation)
+    {
+        $this->organisation = $organisation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrganisation()
+    {
+        return $this->organisation;
+    }
+
+    /**
+     * @param string $partOfDomain
+     */
+    public function setPartOfDomain($partOfDomain)
+    {
+        $this->partOfDomain = $partOfDomain;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPartOfDomain()
+    {
+        return $this->partOfDomain;
+    }
+
+    /**
+     * @param string $registeredUser
+     */
+    public function setRegisteredUser($registeredUser)
+    {
+        $this->registeredUser = $registeredUser;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegisteredUser()
+    {
+        return $this->registeredUser;
+    }
+
+    /**
+     * @param string $servicePack
+     */
+    public function setServicePack($servicePack)
+    {
+        $this->servicePack = $servicePack;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServicePack()
+    {
+        return $this->servicePack;
+    }
+
+    /**
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwWindows
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
+    /**
+     * @param string $timeCaption
+     */
+    public function setTimeCaption($timeCaption)
+    {
+        $this->timeCaption = $timeCaption;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTimeCaption()
+    {
+        return $this->timeCaption;
+    }
+
+    /**
+     * @param string $timeDaylight
+     */
+    public function setTimeDaylight($timeDaylight)
+    {
+        $this->timeDaylight = $timeDaylight;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTimeDaylight()
+    {
+        return $this->timeDaylight;
+    }
+
+    /**
+     * @param string $userName
+     */
+    public function setUserName($userName)
+    {
+        $this->userName = $userName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserName()
+    {
+        return $this->userName;
+    }
+
+    /**
+     * @param string $version
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
 }

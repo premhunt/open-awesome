@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_optical_drive", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwOpticalDrive
+class SysHwOpticalDrive extends SystemComponent
 {
     /**
      * @var integer
@@ -19,49 +19,35 @@ class SysHwOpticalDrive
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $opticalDriveId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="optical_drive_caption", type="string", length=100, nullable=false)
      */
-    private $opticalDriveCaption;
+    private $caption;
 
     /**
      * @var string
      *
      * @ORM\Column(name="optical_drive_model", type="string", length=100, nullable=false)
      */
-    private $opticalDriveModel;
+    private $model;
 
     /**
      * @var string
      *
      * @ORM\Column(name="optical_drive_device_id", type="string", length=100, nullable=false)
      */
-    private $opticalDriveDeviceId;
+    private $deviceId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="optical_drive_mount_point", type="string", length=10, nullable=false)
      */
-    private $opticalDriveMountPoint;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $mountPoint;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -74,153 +60,118 @@ class SysHwOpticalDrive
     private $system;
 
 
-
     /**
-     * Get opticalDriveId
+     * Get id
      *
      * @return integer 
      */
-    public function getOpticalDriveId()
+    public function getId()
     {
-        return $this->opticalDriveId;
+        return $this->id;
     }
 
     /**
-     * Set opticalDriveCaption
+     * @param $id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Set caption
      *
      * @param string $opticalDriveCaption
      * @return SysHwOpticalDrive
      */
-    public function setOpticalDriveCaption($opticalDriveCaption)
+    public function setCaption($opticalDriveCaption)
     {
-        $this->opticalDriveCaption = $opticalDriveCaption;
+        $this->caption = $opticalDriveCaption;
 
         return $this;
     }
 
     /**
-     * Get opticalDriveCaption
+     * Get caption
      *
      * @return string 
      */
-    public function getOpticalDriveCaption()
+    public function getCaption()
     {
-        return $this->opticalDriveCaption;
+        return $this->caption;
     }
 
     /**
-     * Set opticalDriveModel
+     * Set model
      *
      * @param string $opticalDriveModel
      * @return SysHwOpticalDrive
      */
-    public function setOpticalDriveModel($opticalDriveModel)
+    public function setModel($opticalDriveModel)
     {
-        $this->opticalDriveModel = $opticalDriveModel;
+        $this->model = $opticalDriveModel;
 
         return $this;
     }
 
     /**
-     * Get opticalDriveModel
+     * Get model
      *
      * @return string 
      */
-    public function getOpticalDriveModel()
+    public function getModel()
     {
-        return $this->opticalDriveModel;
+        return $this->model;
     }
 
     /**
-     * Set opticalDriveDeviceId
+     * Set deviceId
      *
      * @param string $opticalDriveDeviceId
      * @return SysHwOpticalDrive
      */
-    public function setOpticalDriveDeviceId($opticalDriveDeviceId)
+    public function setDeviceId($opticalDriveDeviceId)
     {
-        $this->opticalDriveDeviceId = $opticalDriveDeviceId;
+        $this->deviceId = $opticalDriveDeviceId;
 
         return $this;
     }
 
     /**
-     * Get opticalDriveDeviceId
+     * Get deviceId
      *
      * @return string 
      */
-    public function getOpticalDriveDeviceId()
+    public function getDeviceId()
     {
-        return $this->opticalDriveDeviceId;
+        return $this->deviceId;
     }
 
     /**
-     * Set opticalDriveMountPoint
+     * Set mountPoint
      *
      * @param string $opticalDriveMountPoint
      * @return SysHwOpticalDrive
      */
-    public function setOpticalDriveMountPoint($opticalDriveMountPoint)
+    public function setMountPoint($opticalDriveMountPoint)
     {
-        $this->opticalDriveMountPoint = $opticalDriveMountPoint;
+        $this->mountPoint = $opticalDriveMountPoint;
 
         return $this;
     }
 
     /**
-     * Get opticalDriveMountPoint
+     * Get mountPoint
      *
      * @return string 
      */
-    public function getOpticalDriveMountPoint()
+    public function getMountPoint()
     {
-        return $this->opticalDriveMountPoint;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwOpticalDrive
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwOpticalDrive
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
+        return $this->mountPoint;
     }
 
     /**

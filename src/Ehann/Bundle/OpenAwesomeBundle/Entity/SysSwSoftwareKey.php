@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_sw_software_key", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysSwSoftwareKey
+class SysSwSoftwareKey extends SystemComponent
 {
     /**
      * @var integer
@@ -19,49 +19,35 @@ class SysSwSoftwareKey
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $keyId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="key_name", type="string", length=250, nullable=false)
      */
-    private $keyName;
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="key_text", type="string", length=100, nullable=false)
      */
-    private $keyText;
+    private $text;
 
     /**
      * @var string
      *
      * @ORM\Column(name="key_release", type="string", length=100, nullable=false)
      */
-    private $keyRelease;
+    private $release;
 
     /**
      * @var string
      *
      * @ORM\Column(name="key_edition", type="string", length=100, nullable=false)
      */
-    private $keyEdition;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $edition;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -73,176 +59,99 @@ class SysSwSoftwareKey
      */
     private $system;
 
-
-
     /**
-     * Get keyId
-     *
-     * @return integer 
+     * @param string $edition
      */
-    public function getKeyId()
+    public function setEdition($edition)
     {
-        return $this->keyId;
+        $this->edition = $edition;
     }
 
     /**
-     * Set keyName
-     *
-     * @param string $keyName
-     * @return SysSwSoftwareKey
+     * @return string
      */
-    public function setKeyName($keyName)
+    public function getEdition()
     {
-        $this->keyName = $keyName;
-
-        return $this;
+        return $this->edition;
     }
 
     /**
-     * Get keyName
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getKeyName()
+    public function setId($id)
     {
-        return $this->keyName;
+        $this->id = $id;
     }
 
     /**
-     * Set keyText
-     *
-     * @param string $keyText
-     * @return SysSwSoftwareKey
+     * @return int
      */
-    public function setKeyText($keyText)
+    public function getId()
     {
-        $this->keyText = $keyText;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get keyText
-     *
-     * @return string 
+     * @param string $name
      */
-    public function getKeyText()
+    public function setName($name)
     {
-        return $this->keyText;
+        $this->name = $name;
     }
 
     /**
-     * Set keyRelease
-     *
-     * @param string $keyRelease
-     * @return SysSwSoftwareKey
+     * @return string
      */
-    public function setKeyRelease($keyRelease)
+    public function getName()
     {
-        $this->keyRelease = $keyRelease;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * Get keyRelease
-     *
-     * @return string 
+     * @param string $release
      */
-    public function getKeyRelease()
+    public function setRelease($release)
     {
-        return $this->keyRelease;
+        $this->release = $release;
     }
 
     /**
-     * Set keyEdition
-     *
-     * @param string $keyEdition
-     * @return SysSwSoftwareKey
+     * @return string
      */
-    public function setKeyEdition($keyEdition)
+    public function getRelease()
     {
-        $this->keyEdition = $keyEdition;
-
-        return $this;
+        return $this->release;
     }
 
     /**
-     * Get keyEdition
-     *
-     * @return string 
-     */
-    public function getKeyEdition()
-    {
-        return $this->keyEdition;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwSoftwareKey
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysSwSoftwareKey
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwSoftwareKey
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
+    }
+
+    /**
+     * @param string $text
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->text;
     }
 }

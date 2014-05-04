@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_sound", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwSound
+class SysHwSound extends SystemComponent
 {
     /**
      * @var integer
@@ -19,42 +19,28 @@ class SysHwSound
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $soundId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="sound_manufacturer", type="string", length=100, nullable=false)
      */
-    private $soundManufacturer;
+    private $manufacturer;
 
     /**
      * @var string
      *
      * @ORM\Column(name="sound_device_id", type="string", length=100, nullable=false)
      */
-    private $soundDeviceId;
+    private $deviceId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="sound_name", type="string", length=100, nullable=false)
      */
-    private $soundName;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $name;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -66,153 +52,84 @@ class SysHwSound
      */
     private $system;
 
-
-
     /**
-     * Get soundId
-     *
-     * @return integer 
+     * @param string $deviceId
      */
-    public function getSoundId()
+    public function setDeviceId($deviceId)
     {
-        return $this->soundId;
+        $this->deviceId = $deviceId;
     }
 
     /**
-     * Set soundManufacturer
-     *
-     * @param string $soundManufacturer
-     * @return SysHwSound
+     * @return string
      */
-    public function setSoundManufacturer($soundManufacturer)
+    public function getDeviceId()
     {
-        $this->soundManufacturer = $soundManufacturer;
-
-        return $this;
+        return $this->deviceId;
     }
 
     /**
-     * Get soundManufacturer
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getSoundManufacturer()
+    public function setId($id)
     {
-        return $this->soundManufacturer;
+        $this->id = $id;
     }
 
     /**
-     * Set soundDeviceId
-     *
-     * @param string $soundDeviceId
-     * @return SysHwSound
+     * @return int
      */
-    public function setSoundDeviceId($soundDeviceId)
+    public function getId()
     {
-        $this->soundDeviceId = $soundDeviceId;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get soundDeviceId
-     *
-     * @return string 
+     * @param string $manufacturer
      */
-    public function getSoundDeviceId()
+    public function setManufacturer($manufacturer)
     {
-        return $this->soundDeviceId;
+        $this->manufacturer = $manufacturer;
     }
 
     /**
-     * Set soundName
-     *
-     * @param string $soundName
-     * @return SysHwSound
+     * @return string
      */
-    public function setSoundName($soundName)
+    public function getManufacturer()
     {
-        $this->soundName = $soundName;
-
-        return $this;
+        return $this->manufacturer;
     }
 
     /**
-     * Get soundName
-     *
-     * @return string 
+     * @param string $name
      */
-    public function getSoundName()
+    public function setName($name)
     {
-        return $this->soundName;
+        $this->name = $name;
     }
 
     /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwSound
+     * @return string
      */
-    public function setTimestamp($timestamp)
+    public function getName()
     {
-        $this->timestamp = $timestamp;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwSound
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysHwSound
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
 }

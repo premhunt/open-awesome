@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_warranty", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwWarranty
+class SysHwWarranty extends SystemComponent
 {
     /**
      * @var integer
@@ -19,49 +19,35 @@ class SysHwWarranty
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $warrantyId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="warranty_provider", type="string", length=200, nullable=false)
      */
-    private $warrantyProvider;
+    private $provider;
 
     /**
      * @var string
      *
      * @ORM\Column(name="warranty_type", type="string", length=100, nullable=false)
      */
-    private $warrantyType;
+    private $type;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="warranty_start", type="datetime", nullable=false)
      */
-    private $warrantyStart;
+    private $start;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="warranty_end", type="datetime", nullable=false)
      */
-    private $warrantyEnd;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $end;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -73,176 +59,99 @@ class SysHwWarranty
      */
     private $system;
 
-
-
     /**
-     * Get warrantyId
-     *
-     * @return integer 
+     * @param \DateTime $end
      */
-    public function getWarrantyId()
+    public function setEnd($end)
     {
-        return $this->warrantyId;
+        $this->end = $end;
     }
 
     /**
-     * Set warrantyProvider
-     *
-     * @param string $warrantyProvider
-     * @return SysHwWarranty
+     * @return \DateTime
      */
-    public function setWarrantyProvider($warrantyProvider)
+    public function getEnd()
     {
-        $this->warrantyProvider = $warrantyProvider;
-
-        return $this;
+        return $this->end;
     }
 
     /**
-     * Get warrantyProvider
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getWarrantyProvider()
+    public function setId($id)
     {
-        return $this->warrantyProvider;
+        $this->id = $id;
     }
 
     /**
-     * Set warrantyType
-     *
-     * @param string $warrantyType
-     * @return SysHwWarranty
+     * @return int
      */
-    public function setWarrantyType($warrantyType)
+    public function getId()
     {
-        $this->warrantyType = $warrantyType;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get warrantyType
-     *
-     * @return string 
+     * @param string $provider
      */
-    public function getWarrantyType()
+    public function setProvider($provider)
     {
-        return $this->warrantyType;
+        $this->provider = $provider;
     }
 
     /**
-     * Set warrantyStart
-     *
-     * @param \DateTime $warrantyStart
-     * @return SysHwWarranty
+     * @return string
      */
-    public function setWarrantyStart($warrantyStart)
+    public function getProvider()
     {
-        $this->warrantyStart = $warrantyStart;
-
-        return $this;
+        return $this->provider;
     }
 
     /**
-     * Get warrantyStart
-     *
-     * @return \DateTime 
+     * @param \DateTime $start
      */
-    public function getWarrantyStart()
+    public function setStart($start)
     {
-        return $this->warrantyStart;
+        $this->start = $start;
     }
 
     /**
-     * Set warrantyEnd
-     *
-     * @param \DateTime $warrantyEnd
-     * @return SysHwWarranty
+     * @return \DateTime
      */
-    public function setWarrantyEnd($warrantyEnd)
+    public function getStart()
     {
-        $this->warrantyEnd = $warrantyEnd;
-
-        return $this;
+        return $this->start;
     }
 
     /**
-     * Get warrantyEnd
-     *
-     * @return \DateTime 
-     */
-    public function getWarrantyEnd()
-    {
-        return $this->warrantyEnd;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwWarranty
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwWarranty
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysHwWarranty
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

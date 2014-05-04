@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_memory", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwMemory
+class SysHwMemory extends SystemComponent
 {
     /**
      * @var integer
@@ -19,77 +19,63 @@ class SysHwMemory
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $memoryId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="memory_bank", type="string", length=100, nullable=false)
      */
-    private $memoryBank;
+    private $bank;
 
     /**
      * @var string
      *
      * @ORM\Column(name="memory_type", type="string", length=100, nullable=false)
      */
-    private $memoryType;
+    private $type;
 
     /**
      * @var string
      *
      * @ORM\Column(name="memory_form_factor", type="string", length=100, nullable=false)
      */
-    private $memoryFormFactor;
+    private $formFactor;
 
     /**
      * @var string
      *
      * @ORM\Column(name="memory_detail", type="string", length=100, nullable=false)
      */
-    private $memoryDetail;
+    private $detail;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="memory_capacity", type="integer", nullable=false)
      */
-    private $memoryCapacity;
+    private $capacity;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="memory_speed", type="integer", nullable=false)
      */
-    private $memorySpeed;
+    private $speed;
 
     /**
      * @var string
      *
      * @ORM\Column(name="memory_tag", type="string", length=100, nullable=false)
      */
-    private $memoryTag;
+    private $tag;
 
     /**
      * @var string
      *
      * @ORM\Column(name="memory_serial", type="string", length=100, nullable=false)
      */
-    private $memorySerial;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $serial;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -101,268 +87,164 @@ class SysHwMemory
      */
     private $system;
 
-
-
     /**
-     * Get memoryId
-     *
-     * @return integer 
+     * @param string $bank
      */
-    public function getMemoryId()
+    public function setBank($bank)
     {
-        return $this->memoryId;
+        $this->bank = $bank;
     }
 
     /**
-     * Set memoryBank
-     *
-     * @param string $memoryBank
-     * @return SysHwMemory
+     * @return string
      */
-    public function setMemoryBank($memoryBank)
+    public function getBank()
     {
-        $this->memoryBank = $memoryBank;
-
-        return $this;
+        return $this->bank;
     }
 
     /**
-     * Get memoryBank
-     *
-     * @return string 
+     * @param int $capacity
      */
-    public function getMemoryBank()
+    public function setCapacity($capacity)
     {
-        return $this->memoryBank;
+        $this->capacity = $capacity;
     }
 
     /**
-     * Set memoryType
-     *
-     * @param string $memoryType
-     * @return SysHwMemory
+     * @return int
      */
-    public function setMemoryType($memoryType)
+    public function getCapacity()
     {
-        $this->memoryType = $memoryType;
-
-        return $this;
+        return $this->capacity;
     }
 
     /**
-     * Get memoryType
-     *
-     * @return string 
+     * @param string $detail
      */
-    public function getMemoryType()
+    public function setDetail($detail)
     {
-        return $this->memoryType;
+        $this->detail = $detail;
     }
 
     /**
-     * Set memoryFormFactor
-     *
-     * @param string $memoryFormFactor
-     * @return SysHwMemory
+     * @return string
      */
-    public function setMemoryFormFactor($memoryFormFactor)
+    public function getDetail()
     {
-        $this->memoryFormFactor = $memoryFormFactor;
-
-        return $this;
+        return $this->detail;
     }
 
     /**
-     * Get memoryFormFactor
-     *
-     * @return string 
+     * @param string $formFactor
      */
-    public function getMemoryFormFactor()
+    public function setFormFactor($formFactor)
     {
-        return $this->memoryFormFactor;
+        $this->formFactor = $formFactor;
     }
 
     /**
-     * Set memoryDetail
-     *
-     * @param string $memoryDetail
-     * @return SysHwMemory
+     * @return string
      */
-    public function setMemoryDetail($memoryDetail)
+    public function getFormFactor()
     {
-        $this->memoryDetail = $memoryDetail;
-
-        return $this;
+        return $this->formFactor;
     }
 
     /**
-     * Get memoryDetail
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getMemoryDetail()
+    public function setId($id)
     {
-        return $this->memoryDetail;
+        $this->id = $id;
     }
 
     /**
-     * Set memoryCapacity
-     *
-     * @param integer $memoryCapacity
-     * @return SysHwMemory
+     * @return int
      */
-    public function setMemoryCapacity($memoryCapacity)
+    public function getId()
     {
-        $this->memoryCapacity = $memoryCapacity;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get memoryCapacity
-     *
-     * @return integer 
+     * @param string $serial
      */
-    public function getMemoryCapacity()
+    public function setSerial($serial)
     {
-        return $this->memoryCapacity;
+        $this->serial = $serial;
     }
 
     /**
-     * Set memorySpeed
-     *
-     * @param integer $memorySpeed
-     * @return SysHwMemory
+     * @return string
      */
-    public function setMemorySpeed($memorySpeed)
+    public function getSerial()
     {
-        $this->memorySpeed = $memorySpeed;
-
-        return $this;
+        return $this->serial;
     }
 
     /**
-     * Get memorySpeed
-     *
-     * @return integer 
+     * @param int $speed
      */
-    public function getMemorySpeed()
+    public function setSpeed($speed)
     {
-        return $this->memorySpeed;
+        $this->speed = $speed;
     }
 
     /**
-     * Set memoryTag
-     *
-     * @param string $memoryTag
-     * @return SysHwMemory
+     * @return int
      */
-    public function setMemoryTag($memoryTag)
+    public function getSpeed()
     {
-        $this->memoryTag = $memoryTag;
-
-        return $this;
+        return $this->speed;
     }
 
     /**
-     * Get memoryTag
-     *
-     * @return string 
-     */
-    public function getMemoryTag()
-    {
-        return $this->memoryTag;
-    }
-
-    /**
-     * Set memorySerial
-     *
-     * @param string $memorySerial
-     * @return SysHwMemory
-     */
-    public function setMemorySerial($memorySerial)
-    {
-        $this->memorySerial = $memorySerial;
-
-        return $this;
-    }
-
-    /**
-     * Get memorySerial
-     *
-     * @return string 
-     */
-    public function getMemorySerial()
-    {
-        return $this->memorySerial;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwMemory
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwMemory
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysHwMemory
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
+    /**
+     * @param string $tag
+     */
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
 }

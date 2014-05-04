@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_sw_dns", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysSwDns
+class SysSwDns extends SystemComponent
 {
     /**
      * @var integer
@@ -19,42 +19,28 @@ class SysSwDns
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $dnsId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="dns_name", type="string", length=100, nullable=false)
      */
-    private $dnsName;
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="dns_full_name", type="string", length=200, nullable=false)
      */
-    private $dnsFullName;
+    private $fullName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="dns_ip_address", type="string", length=30, nullable=false)
      */
-    private $dnsIpAddress;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $ipAddress;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -66,153 +52,85 @@ class SysSwDns
      */
     private $system;
 
-
-
     /**
-     * Get dnsId
-     *
-     * @return integer 
+     * @param string $fullName
      */
-    public function getDnsId()
+    public function setFullName($fullName)
     {
-        return $this->dnsId;
+        $this->fullName = $fullName;
     }
 
     /**
-     * Set dnsName
-     *
-     * @param string $dnsName
-     * @return SysSwDns
+     * @return string
      */
-    public function setDnsName($dnsName)
+    public function getFullName()
     {
-        $this->dnsName = $dnsName;
-
-        return $this;
+        return $this->fullName;
     }
 
     /**
-     * Get dnsName
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getDnsName()
+    public function setId($id)
     {
-        return $this->dnsName;
+        $this->id = $id;
     }
 
     /**
-     * Set dnsFullName
-     *
-     * @param string $dnsFullName
-     * @return SysSwDns
+     * @return int
      */
-    public function setDnsFullName($dnsFullName)
+    public function getId()
     {
-        $this->dnsFullName = $dnsFullName;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get dnsFullName
-     *
-     * @return string 
+     * @param string $ipAddress
      */
-    public function getDnsFullName()
+    public function setIpAddress($ipAddress)
     {
-        return $this->dnsFullName;
+        $this->ipAddress = $ipAddress;
     }
 
     /**
-     * Set dnsIpAddress
-     *
-     * @param string $dnsIpAddress
-     * @return SysSwDns
+     * @return string
      */
-    public function setDnsIpAddress($dnsIpAddress)
+    public function getIpAddress()
     {
-        $this->dnsIpAddress = $dnsIpAddress;
-
-        return $this;
+        return $this->ipAddress;
     }
 
     /**
-     * Get dnsIpAddress
-     *
-     * @return string 
+     * @param string $name
      */
-    public function getDnsIpAddress()
+    public function setName($name)
     {
-        return $this->dnsIpAddress;
+        $this->name = $name;
     }
 
     /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwDns
+     * @return string
      */
-    public function setTimestamp($timestamp)
+    public function getName()
     {
-        $this->timestamp = $timestamp;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysSwDns
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwDns
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
+
 }

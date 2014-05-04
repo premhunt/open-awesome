@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_video", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwVideo
+class SysHwVideo extends SystemComponent
 {
     /**
      * @var integer
@@ -19,112 +19,98 @@ class SysHwVideo
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $videoId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_description", type="string", length=100, nullable=false)
      */
-    private $videoDescription;
+    private $description;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_manufacturer", type="string", length=100, nullable=false)
      */
-    private $videoManufacturer;
+    private $manufacturer;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_current_horizontal_res", type="string", length=20, nullable=false)
      */
-    private $videoCurrentHorizontalRes;
+    private $currentHorizontalRes;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_current_vertical_res", type="string", length=20, nullable=false)
      */
-    private $videoCurrentVerticalRes;
+    private $currentVerticalRes;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_memory", type="string", length=100, nullable=false)
      */
-    private $videoMemory;
+    private $memory;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_caption", type="string", length=100, nullable=false)
      */
-    private $videoCaption;
+    private $caption;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_current_number_colours", type="string", length=20, nullable=false)
      */
-    private $videoCurrentNumberColours;
+    private $currentNumberColours;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_current_refresh_rate", type="string", length=20, nullable=false)
      */
-    private $videoCurrentRefreshRate;
+    private $currentRefreshRate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_device_id", type="string", length=100, nullable=false)
      */
-    private $videoDeviceId;
+    private $deviceId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_driver_date", type="string", length=20, nullable=false)
      */
-    private $videoDriverDate;
+    private $driverDate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_driver_version", type="string", length=20, nullable=false)
      */
-    private $videoDriverVersion;
+    private $driverVersion;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_max_refresh_rate", type="string", length=20, nullable=false)
      */
-    private $videoMaxRefreshRate;
+    private $maxRefreshRate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="video_min_refresh_rate", type="string", length=20, nullable=false)
      */
-    private $videoMinRefreshRate;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $minRefreshRate;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -136,380 +122,240 @@ class SysHwVideo
      */
     private $system;
 
-
-
     /**
-     * Get videoId
-     *
-     * @return integer 
+     * @param string $caption
      */
-    public function getVideoId()
+    public function setCaption($caption)
     {
-        return $this->videoId;
+        $this->caption = $caption;
     }
 
     /**
-     * Set videoDescription
-     *
-     * @param string $videoDescription
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoDescription($videoDescription)
+    public function getCaption()
     {
-        $this->videoDescription = $videoDescription;
-
-        return $this;
+        return $this->caption;
     }
 
     /**
-     * Get videoDescription
-     *
-     * @return string 
+     * @param string $currentHorizontalRes
      */
-    public function getVideoDescription()
+    public function setCurrentHorizontalRes($currentHorizontalRes)
     {
-        return $this->videoDescription;
+        $this->currentHorizontalRes = $currentHorizontalRes;
     }
 
     /**
-     * Set videoManufacturer
-     *
-     * @param string $videoManufacturer
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoManufacturer($videoManufacturer)
+    public function getCurrentHorizontalRes()
     {
-        $this->videoManufacturer = $videoManufacturer;
-
-        return $this;
+        return $this->currentHorizontalRes;
     }
 
     /**
-     * Get videoManufacturer
-     *
-     * @return string 
+     * @param string $currentNumberColours
      */
-    public function getVideoManufacturer()
+    public function setCurrentNumberColours($currentNumberColours)
     {
-        return $this->videoManufacturer;
+        $this->currentNumberColours = $currentNumberColours;
     }
 
     /**
-     * Set videoCurrentHorizontalRes
-     *
-     * @param string $videoCurrentHorizontalRes
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoCurrentHorizontalRes($videoCurrentHorizontalRes)
+    public function getCurrentNumberColours()
     {
-        $this->videoCurrentHorizontalRes = $videoCurrentHorizontalRes;
-
-        return $this;
+        return $this->currentNumberColours;
     }
 
     /**
-     * Get videoCurrentHorizontalRes
-     *
-     * @return string 
+     * @param string $currentRefreshRate
      */
-    public function getVideoCurrentHorizontalRes()
+    public function setCurrentRefreshRate($currentRefreshRate)
     {
-        return $this->videoCurrentHorizontalRes;
+        $this->currentRefreshRate = $currentRefreshRate;
     }
 
     /**
-     * Set videoCurrentVerticalRes
-     *
-     * @param string $videoCurrentVerticalRes
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoCurrentVerticalRes($videoCurrentVerticalRes)
+    public function getCurrentRefreshRate()
     {
-        $this->videoCurrentVerticalRes = $videoCurrentVerticalRes;
-
-        return $this;
+        return $this->currentRefreshRate;
     }
 
     /**
-     * Get videoCurrentVerticalRes
-     *
-     * @return string 
+     * @param string $currentVerticalRes
      */
-    public function getVideoCurrentVerticalRes()
+    public function setCurrentVerticalRes($currentVerticalRes)
     {
-        return $this->videoCurrentVerticalRes;
+        $this->currentVerticalRes = $currentVerticalRes;
     }
 
     /**
-     * Set videoMemory
-     *
-     * @param string $videoMemory
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoMemory($videoMemory)
+    public function getCurrentVerticalRes()
     {
-        $this->videoMemory = $videoMemory;
-
-        return $this;
+        return $this->currentVerticalRes;
     }
 
     /**
-     * Get videoMemory
-     *
-     * @return string 
+     * @param string $description
      */
-    public function getVideoMemory()
+    public function setDescription($description)
     {
-        return $this->videoMemory;
+        $this->description = $description;
     }
 
     /**
-     * Set videoCaption
-     *
-     * @param string $videoCaption
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoCaption($videoCaption)
+    public function getDescription()
     {
-        $this->videoCaption = $videoCaption;
-
-        return $this;
+        return $this->description;
     }
 
     /**
-     * Get videoCaption
-     *
-     * @return string 
+     * @param string $deviceId
      */
-    public function getVideoCaption()
+    public function setDeviceId($deviceId)
     {
-        return $this->videoCaption;
+        $this->deviceId = $deviceId;
     }
 
     /**
-     * Set videoCurrentNumberColours
-     *
-     * @param string $videoCurrentNumberColours
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoCurrentNumberColours($videoCurrentNumberColours)
+    public function getDeviceId()
     {
-        $this->videoCurrentNumberColours = $videoCurrentNumberColours;
-
-        return $this;
+        return $this->deviceId;
     }
 
     /**
-     * Get videoCurrentNumberColours
-     *
-     * @return string 
+     * @param string $driverDate
      */
-    public function getVideoCurrentNumberColours()
+    public function setDriverDate($driverDate)
     {
-        return $this->videoCurrentNumberColours;
+        $this->driverDate = $driverDate;
     }
 
     /**
-     * Set videoCurrentRefreshRate
-     *
-     * @param string $videoCurrentRefreshRate
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoCurrentRefreshRate($videoCurrentRefreshRate)
+    public function getDriverDate()
     {
-        $this->videoCurrentRefreshRate = $videoCurrentRefreshRate;
-
-        return $this;
+        return $this->driverDate;
     }
 
     /**
-     * Get videoCurrentRefreshRate
-     *
-     * @return string 
+     * @param string $driverVersion
      */
-    public function getVideoCurrentRefreshRate()
+    public function setDriverVersion($driverVersion)
     {
-        return $this->videoCurrentRefreshRate;
+        $this->driverVersion = $driverVersion;
     }
 
     /**
-     * Set videoDeviceId
-     *
-     * @param string $videoDeviceId
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoDeviceId($videoDeviceId)
+    public function getDriverVersion()
     {
-        $this->videoDeviceId = $videoDeviceId;
-
-        return $this;
+        return $this->driverVersion;
     }
 
     /**
-     * Get videoDeviceId
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getVideoDeviceId()
+    public function setId($id)
     {
-        return $this->videoDeviceId;
+        $this->id = $id;
     }
 
     /**
-     * Set videoDriverDate
-     *
-     * @param string $videoDriverDate
-     * @return SysHwVideo
+     * @return int
      */
-    public function setVideoDriverDate($videoDriverDate)
+    public function getId()
     {
-        $this->videoDriverDate = $videoDriverDate;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get videoDriverDate
-     *
-     * @return string 
+     * @param string $maxRefreshRate
      */
-    public function getVideoDriverDate()
+    public function setMaxRefreshRate($maxRefreshRate)
     {
-        return $this->videoDriverDate;
+        $this->maxRefreshRate = $maxRefreshRate;
     }
 
     /**
-     * Set videoDriverVersion
-     *
-     * @param string $videoDriverVersion
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoDriverVersion($videoDriverVersion)
+    public function getMaxRefreshRate()
     {
-        $this->videoDriverVersion = $videoDriverVersion;
-
-        return $this;
+        return $this->maxRefreshRate;
     }
 
     /**
-     * Get videoDriverVersion
-     *
-     * @return string 
+     * @param string $memory
      */
-    public function getVideoDriverVersion()
+    public function setMemory($memory)
     {
-        return $this->videoDriverVersion;
+        $this->memory = $memory;
     }
 
     /**
-     * Set videoMaxRefreshRate
-     *
-     * @param string $videoMaxRefreshRate
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoMaxRefreshRate($videoMaxRefreshRate)
+    public function getMemory()
     {
-        $this->videoMaxRefreshRate = $videoMaxRefreshRate;
-
-        return $this;
+        return $this->memory;
     }
 
     /**
-     * Get videoMaxRefreshRate
-     *
-     * @return string 
+     * @param string $minRefreshRate
      */
-    public function getVideoMaxRefreshRate()
+    public function setMinRefreshRate($minRefreshRate)
     {
-        return $this->videoMaxRefreshRate;
+        $this->minRefreshRate = $minRefreshRate;
     }
 
     /**
-     * Set videoMinRefreshRate
-     *
-     * @param string $videoMinRefreshRate
-     * @return SysHwVideo
+     * @return string
      */
-    public function setVideoMinRefreshRate($videoMinRefreshRate)
+    public function getMinRefreshRate()
     {
-        $this->videoMinRefreshRate = $videoMinRefreshRate;
-
-        return $this;
+        return $this->minRefreshRate;
     }
 
     /**
-     * Get videoMinRefreshRate
-     *
-     * @return string 
+     * @param string $manufacturer
      */
-    public function getVideoMinRefreshRate()
+    public function setManufacturer($manufacturer)
     {
-        return $this->videoMinRefreshRate;
+        $this->manufacturer = $manufacturer;
     }
 
     /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwVideo
+     * @return string
      */
-    public function setTimestamp($timestamp)
+    public function getManufacturer()
     {
-        $this->timestamp = $timestamp;
-
-        return $this;
+        return $this->manufacturer;
     }
 
     /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwVideo
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysHwVideo
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {

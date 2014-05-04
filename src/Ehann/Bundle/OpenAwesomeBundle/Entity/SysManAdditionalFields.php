@@ -19,56 +19,56 @@ class SysManAdditionalFields
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $fieldId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="field_name", type="string", length=100, nullable=false)
      */
-    private $fieldName;
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="field_type", type="string", nullable=false)
      */
-    private $fieldType;
+    private $type;
 
     /**
      * @var string
      *
      * @ORM\Column(name="field_values", type="string", length=100, nullable=false)
      */
-    private $fieldValues;
+    private $values;
 
     /**
      * @var string
      *
      * @ORM\Column(name="field_sys_type", type="string", length=100, nullable=false)
      */
-    private $fieldSysType;
+    private $sysType;
 
     /**
      * @var string
      *
      * @ORM\Column(name="field_derived_type", type="string", length=100, nullable=false)
      */
-    private $fieldDerivedType;
+    private $derivedType;
 
     /**
      * @var string
      *
      * @ORM\Column(name="field_derived_sql", type="string", length=100, nullable=false)
      */
-    private $fieldDerivedSql;
+    private $derivedSql;
 
     /**
      * @var string
      *
      * @ORM\Column(name="field_placement", type="string", length=100, nullable=false)
      */
-    private $fieldPlacement;
+    private $placement;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\OaGroup
@@ -80,199 +80,147 @@ class SysManAdditionalFields
      */
     private $group;
 
-
-
     /**
-     * Get fieldId
-     *
-     * @return integer 
+     * @param string $derivedSql
      */
-    public function getFieldId()
+    public function setDerivedSql($derivedSql)
     {
-        return $this->fieldId;
+        $this->derivedSql = $derivedSql;
     }
 
     /**
-     * Set fieldName
-     *
-     * @param string $fieldName
-     * @return SysManAdditionalFields
+     * @return string
      */
-    public function setFieldName($fieldName)
+    public function getDerivedSql()
     {
-        $this->fieldName = $fieldName;
-
-        return $this;
+        return $this->derivedSql;
     }
 
     /**
-     * Get fieldName
-     *
-     * @return string 
+     * @param string $derivedType
      */
-    public function getFieldName()
+    public function setDerivedType($derivedType)
     {
-        return $this->fieldName;
+        $this->derivedType = $derivedType;
     }
 
     /**
-     * Set fieldType
-     *
-     * @param string $fieldType
-     * @return SysManAdditionalFields
+     * @return string
      */
-    public function setFieldType($fieldType)
+    public function getDerivedType()
     {
-        $this->fieldType = $fieldType;
-
-        return $this;
+        return $this->derivedType;
     }
 
     /**
-     * Get fieldType
-     *
-     * @return string 
-     */
-    public function getFieldType()
-    {
-        return $this->fieldType;
-    }
-
-    /**
-     * Set fieldValues
-     *
-     * @param string $fieldValues
-     * @return SysManAdditionalFields
-     */
-    public function setFieldValues($fieldValues)
-    {
-        $this->fieldValues = $fieldValues;
-
-        return $this;
-    }
-
-    /**
-     * Get fieldValues
-     *
-     * @return string 
-     */
-    public function getFieldValues()
-    {
-        return $this->fieldValues;
-    }
-
-    /**
-     * Set fieldSysType
-     *
-     * @param string $fieldSysType
-     * @return SysManAdditionalFields
-     */
-    public function setFieldSysType($fieldSysType)
-    {
-        $this->fieldSysType = $fieldSysType;
-
-        return $this;
-    }
-
-    /**
-     * Get fieldSysType
-     *
-     * @return string 
-     */
-    public function getFieldSysType()
-    {
-        return $this->fieldSysType;
-    }
-
-    /**
-     * Set fieldDerivedType
-     *
-     * @param string $fieldDerivedType
-     * @return SysManAdditionalFields
-     */
-    public function setFieldDerivedType($fieldDerivedType)
-    {
-        $this->fieldDerivedType = $fieldDerivedType;
-
-        return $this;
-    }
-
-    /**
-     * Get fieldDerivedType
-     *
-     * @return string 
-     */
-    public function getFieldDerivedType()
-    {
-        return $this->fieldDerivedType;
-    }
-
-    /**
-     * Set fieldDerivedSql
-     *
-     * @param string $fieldDerivedSql
-     * @return SysManAdditionalFields
-     */
-    public function setFieldDerivedSql($fieldDerivedSql)
-    {
-        $this->fieldDerivedSql = $fieldDerivedSql;
-
-        return $this;
-    }
-
-    /**
-     * Get fieldDerivedSql
-     *
-     * @return string 
-     */
-    public function getFieldDerivedSql()
-    {
-        return $this->fieldDerivedSql;
-    }
-
-    /**
-     * Set fieldPlacement
-     *
-     * @param string $fieldPlacement
-     * @return SysManAdditionalFields
-     */
-    public function setFieldPlacement($fieldPlacement)
-    {
-        $this->fieldPlacement = $fieldPlacement;
-
-        return $this;
-    }
-
-    /**
-     * Get fieldPlacement
-     *
-     * @return string 
-     */
-    public function getFieldPlacement()
-    {
-        return $this->fieldPlacement;
-    }
-
-    /**
-     * Set group
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\OaGroup $group
-     * @return SysManAdditionalFields
      */
-    public function setGroup(\Ehann\Bundle\OpenAwesomeBundle\Entity\OaGroup $group = null)
+    public function setGroup($group)
     {
         $this->group = $group;
-
-        return $this;
     }
 
     /**
-     * Get group
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\OaGroup 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\OaGroup
      */
     public function getGroup()
     {
         return $this->group;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $placement
+     */
+    public function setPlacement($placement)
+    {
+        $this->placement = $placement;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlacement()
+    {
+        return $this->placement;
+    }
+
+    /**
+     * @param string $sysType
+     */
+    public function setSysType($sysType)
+    {
+        $this->sysType = $sysType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSysType()
+    {
+        return $this->sysType;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $values
+     */
+    public function setValues($values)
+    {
+        $this->values = $values;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValues()
+    {
+        return $this->values;
     }
 }

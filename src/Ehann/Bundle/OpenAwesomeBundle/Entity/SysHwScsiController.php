@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\Type;
  * @ORM\Table(name="sys_hw_scsi_controller", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwScsiController
+class SysHwScsiController extends SystemComponent
 {
     /**
      * @var integer
@@ -49,22 +49,6 @@ class SysHwScsiController
      * @ORM\Column(name="scsi_controller_type", type="string", nullable=false)
      */
     private $type;
-
-    /**
-     * @var \DateTime
-     *
-     * @Type("DateTime<'Y-m-d G:i:s'>")
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @Type("DateTime<'Y-m-d G:i:s'>")
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -189,52 +173,6 @@ class SysHwScsiController
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwScsiController
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwScsiController
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
     }
 
     /**

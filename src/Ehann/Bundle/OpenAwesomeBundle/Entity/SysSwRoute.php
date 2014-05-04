@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_sw_route", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysSwRoute
+class SysSwRoute extends SystemComponent
 {
     /**
      * @var integer
@@ -19,7 +19,7 @@ class SysSwRoute
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $routeId;
+    private $id;
 
     /**
      * @var string
@@ -87,35 +87,16 @@ class SysSwRoute
      */
     private $system;
 
-
-
     /**
-     * Get routeId
-     *
-     * @return integer 
-     */
-    public function getRouteId()
-    {
-        return $this->routeId;
-    }
-
-    /**
-     * Set destination
-     *
      * @param string $destination
-     * @return SysSwRoute
      */
     public function setDestination($destination)
     {
         $this->destination = $destination;
-
-        return $this;
     }
 
     /**
-     * Get destination
-     *
-     * @return string 
+     * @return string
      */
     public function getDestination()
     {
@@ -123,160 +104,15 @@ class SysSwRoute
     }
 
     /**
-     * Set mask
-     *
-     * @param string $mask
-     * @return SysSwRoute
-     */
-    public function setMask($mask)
-    {
-        $this->mask = $mask;
-
-        return $this;
-    }
-
-    /**
-     * Get mask
-     *
-     * @return string 
-     */
-    public function getMask()
-    {
-        return $this->mask;
-    }
-
-    /**
-     * Set metric
-     *
-     * @param string $metric
-     * @return SysSwRoute
-     */
-    public function setMetric($metric)
-    {
-        $this->metric = $metric;
-
-        return $this;
-    }
-
-    /**
-     * Get metric
-     *
-     * @return string 
-     */
-    public function getMetric()
-    {
-        return $this->metric;
-    }
-
-    /**
-     * Set nextHop
-     *
-     * @param string $nextHop
-     * @return SysSwRoute
-     */
-    public function setNextHop($nextHop)
-    {
-        $this->nextHop = $nextHop;
-
-        return $this;
-    }
-
-    /**
-     * Get nextHop
-     *
-     * @return string 
-     */
-    public function getNextHop()
-    {
-        return $this->nextHop;
-    }
-
-    /**
-     * Set protocol
-     *
-     * @param string $protocol
-     * @return SysSwRoute
-     */
-    public function setProtocol($protocol)
-    {
-        $this->protocol = $protocol;
-
-        return $this;
-    }
-
-    /**
-     * Get protocol
-     *
-     * @return string 
-     */
-    public function getProtocol()
-    {
-        return $this->protocol;
-    }
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return SysSwRoute
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwRoute
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
      * @param \DateTime $firstTimestamp
-     * @return SysSwRoute
      */
     public function setFirstTimestamp($firstTimestamp)
     {
         $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
     }
 
     /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFirstTimestamp()
     {
@@ -284,25 +120,130 @@ class SysSwRoute
     }
 
     /**
-     * Set system
-     *
-     * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwRoute
+     * @param int $id
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setId($id)
     {
-        $this->system = $system;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $mask
+     */
+    public function setMask($mask)
+    {
+        $this->mask = $mask;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMask()
+    {
+        return $this->mask;
+    }
+
+    /**
+     * @param string $metric
+     */
+    public function setMetric($metric)
+    {
+        $this->metric = $metric;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMetric()
+    {
+        return $this->metric;
+    }
+
+    /**
+     * @param string $nextHop
+     */
+    public function setNextHop($nextHop)
+    {
+        $this->nextHop = $nextHop;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNextHop()
+    {
+        return $this->nextHop;
+    }
+
+    /**
+     * @param string $protocol
+     */
+    public function setProtocol($protocol)
+    {
+        $this->protocol = $protocol;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProtocol()
+    {
+        return $this->protocol;
+    }
+
+    /**
+     * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
+     */
+    public function setSystem($system)
+    {
+        $this->system = $system;
+    }
+
+    /**
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
+    }
+
+    /**
+     * @param \DateTime $timestamp
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

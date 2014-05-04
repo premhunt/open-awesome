@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_sw_service", indexes={@ORM\Index(name="system_id", columns={"system_id"}), @ORM\Index(name="timestamp", columns={"timestamp"}), @ORM\Index(name="first_timestamp", columns={"first_timestamp"}), @ORM\Index(name="service_name", columns={"service_name"}), @ORM\Index(name="service_display_name", columns={"service_display_name"})})
  * @ORM\Entity
  */
-class SysSwService
+class SysSwService extends SystemComponent
 {
     /**
      * @var integer
@@ -19,7 +19,7 @@ class SysSwService
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $serviceId;
+    private $id;
 
     /**
      * @var integer
@@ -33,70 +33,56 @@ class SysSwService
      *
      * @ORM\Column(name="service_display_name", type="string", length=100, nullable=false)
      */
-    private $serviceDisplayName;
+    private $displayName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="service_name", type="string", length=100, nullable=false)
      */
-    private $serviceName;
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="service_path_name", type="text", nullable=false)
      */
-    private $servicePathName;
+    private $pathName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="service_started", type="string", length=10, nullable=false)
      */
-    private $serviceStarted;
+    private $started;
 
     /**
      * @var string
      *
      * @ORM\Column(name="service_start_name", type="string", length=100, nullable=false)
      */
-    private $serviceStartName;
+    private $startName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="service_start_mode", type="string", length=10, nullable=false)
      */
-    private $serviceStartMode;
+    private $startMode;
 
     /**
      * @var string
      *
      * @ORM\Column(name="service_state", type="string", length=20, nullable=false)
      */
-    private $serviceState;
+    private $state;
 
     /**
      * @var string
      *
      * @ORM\Column(name="service_count", type="string", length=5, nullable=false)
      */
-    private $serviceCount;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $count;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -108,291 +94,179 @@ class SysSwService
      */
     private $system;
 
-
-
     /**
-     * Get serviceId
-     *
-     * @return integer 
+     * @param string $count
      */
-    public function getServiceId()
+    public function setCount($count)
     {
-        return $this->serviceId;
+        $this->count = $count;
     }
 
     /**
-     * Set userId
-     *
-     * @param integer $userId
-     * @return SysSwService
+     * @return string
      */
-    public function setUserId($userId)
+    public function getCount()
     {
-        $this->userId = $userId;
-
-        return $this;
+        return $this->count;
     }
 
     /**
-     * Get userId
-     *
-     * @return integer 
+     * @param string $displayName
      */
-    public function getUserId()
+    public function setDisplayName($displayName)
     {
-        return $this->userId;
+        $this->displayName = $displayName;
     }
 
     /**
-     * Set serviceDisplayName
-     *
-     * @param string $serviceDisplayName
-     * @return SysSwService
+     * @return string
      */
-    public function setServiceDisplayName($serviceDisplayName)
+    public function getDisplayName()
     {
-        $this->serviceDisplayName = $serviceDisplayName;
-
-        return $this;
+        return $this->displayName;
     }
 
     /**
-     * Get serviceDisplayName
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getServiceDisplayName()
+    public function setId($id)
     {
-        return $this->serviceDisplayName;
+        $this->id = $id;
     }
 
     /**
-     * Set serviceName
-     *
-     * @param string $serviceName
-     * @return SysSwService
+     * @return int
      */
-    public function setServiceName($serviceName)
+    public function getId()
     {
-        $this->serviceName = $serviceName;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get serviceName
-     *
-     * @return string 
+     * @param string $name
      */
-    public function getServiceName()
+    public function setName($name)
     {
-        return $this->serviceName;
+        $this->name = $name;
     }
 
     /**
-     * Set servicePathName
-     *
-     * @param string $servicePathName
-     * @return SysSwService
+     * @return string
      */
-    public function setServicePathName($servicePathName)
+    public function getName()
     {
-        $this->servicePathName = $servicePathName;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * Get servicePathName
-     *
-     * @return string 
+     * @param string $pathName
      */
-    public function getServicePathName()
+    public function setPathName($pathName)
     {
-        return $this->servicePathName;
+        $this->pathName = $pathName;
     }
 
     /**
-     * Set serviceStarted
-     *
-     * @param string $serviceStarted
-     * @return SysSwService
+     * @return string
      */
-    public function setServiceStarted($serviceStarted)
+    public function getPathName()
     {
-        $this->serviceStarted = $serviceStarted;
-
-        return $this;
+        return $this->pathName;
     }
 
     /**
-     * Get serviceStarted
-     *
-     * @return string 
+     * @param string $startMode
      */
-    public function getServiceStarted()
+    public function setStartMode($startMode)
     {
-        return $this->serviceStarted;
+        $this->startMode = $startMode;
     }
 
     /**
-     * Set serviceStartName
-     *
-     * @param string $serviceStartName
-     * @return SysSwService
+     * @return string
      */
-    public function setServiceStartName($serviceStartName)
+    public function getStartMode()
     {
-        $this->serviceStartName = $serviceStartName;
-
-        return $this;
+        return $this->startMode;
     }
 
     /**
-     * Get serviceStartName
-     *
-     * @return string 
+     * @param string $startName
      */
-    public function getServiceStartName()
+    public function setStartName($startName)
     {
-        return $this->serviceStartName;
+        $this->startName = $startName;
     }
 
     /**
-     * Set serviceStartMode
-     *
-     * @param string $serviceStartMode
-     * @return SysSwService
+     * @return string
      */
-    public function setServiceStartMode($serviceStartMode)
+    public function getStartName()
     {
-        $this->serviceStartMode = $serviceStartMode;
-
-        return $this;
+        return $this->startName;
     }
 
     /**
-     * Get serviceStartMode
-     *
-     * @return string 
+     * @param string $started
      */
-    public function getServiceStartMode()
+    public function setStarted($started)
     {
-        return $this->serviceStartMode;
+        $this->started = $started;
     }
 
     /**
-     * Set serviceState
-     *
-     * @param string $serviceState
-     * @return SysSwService
+     * @return string
      */
-    public function setServiceState($serviceState)
+    public function getStarted()
     {
-        $this->serviceState = $serviceState;
-
-        return $this;
+        return $this->started;
     }
 
     /**
-     * Get serviceState
-     *
-     * @return string 
+     * @param string $state
      */
-    public function getServiceState()
+    public function setState($state)
     {
-        return $this->serviceState;
+        $this->state = $state;
     }
 
     /**
-     * Set serviceCount
-     *
-     * @param string $serviceCount
-     * @return SysSwService
+     * @return string
      */
-    public function setServiceCount($serviceCount)
+    public function getState()
     {
-        $this->serviceCount = $serviceCount;
-
-        return $this;
+        return $this->state;
     }
 
     /**
-     * Get serviceCount
-     *
-     * @return string 
-     */
-    public function getServiceCount()
-    {
-        return $this->serviceCount;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwService
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysSwService
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwService
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
+    }
+
+    /**
+     * @param int $userId
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->userId;
     }
 }

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_sw_user", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysSwUser
+class SysSwUser extends SystemComponent
 {
     /**
      * @var integer
@@ -19,98 +19,84 @@ class SysSwUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $userId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_name", type="string", length=100, nullable=false)
      */
-    private $userName;
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_caption", type="string", length=255, nullable=false)
      */
-    private $userCaption;
+    private $caption;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_sid", type="string", length=100, nullable=false)
      */
-    private $userSid;
+    private $sid;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_domain", type="string", length=100, nullable=false)
      */
-    private $userDomain;
+    private $domain;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_disabled", type="string", length=20, nullable=false)
      */
-    private $userDisabled;
+    private $disabled;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_full_name", type="string", length=100, nullable=false)
      */
-    private $userFullName;
+    private $fullName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_password_changeable", type="string", length=20, nullable=false)
      */
-    private $userPasswordChangeable;
+    private $passwordChangeable;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_password_expires", type="string", length=20, nullable=false)
      */
-    private $userPasswordExpires;
+    private $passwordExpires;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_password_required", type="string", length=20, nullable=false)
      */
-    private $userPasswordRequired;
+    private $passwordRequired;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_status", type="string", length=100, nullable=false)
      */
-    private $userStatus;
+    private $status;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_type", type="string", nullable=false)
      */
-    private $userType;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
+    private $type;
 
     /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
@@ -122,337 +108,212 @@ class SysSwUser
      */
     private $system;
 
-
-
     /**
-     * Get userId
-     *
-     * @return integer 
+     * @param string $caption
      */
-    public function getUserId()
+    public function setCaption($caption)
     {
-        return $this->userId;
+        $this->caption = $caption;
     }
 
     /**
-     * Set userName
-     *
-     * @param string $userName
-     * @return SysSwUser
+     * @return string
      */
-    public function setUserName($userName)
+    public function getCaption()
     {
-        $this->userName = $userName;
-
-        return $this;
+        return $this->caption;
     }
 
     /**
-     * Get userName
-     *
-     * @return string 
+     * @param string $disabled
      */
-    public function getUserName()
+    public function setDisabled($disabled)
     {
-        return $this->userName;
+        $this->disabled = $disabled;
     }
 
     /**
-     * Set userCaption
-     *
-     * @param string $userCaption
-     * @return SysSwUser
+     * @return string
      */
-    public function setUserCaption($userCaption)
+    public function getDisabled()
     {
-        $this->userCaption = $userCaption;
-
-        return $this;
+        return $this->disabled;
     }
 
     /**
-     * Get userCaption
-     *
-     * @return string 
+     * @param string $domain
      */
-    public function getUserCaption()
+    public function setDomain($domain)
     {
-        return $this->userCaption;
+        $this->domain = $domain;
     }
 
     /**
-     * Set userSid
-     *
-     * @param string $userSid
-     * @return SysSwUser
+     * @return string
      */
-    public function setUserSid($userSid)
+    public function getDomain()
     {
-        $this->userSid = $userSid;
-
-        return $this;
+        return $this->domain;
     }
 
     /**
-     * Get userSid
-     *
-     * @return string 
+     * @param string $fullName
      */
-    public function getUserSid()
+    public function setFullName($fullName)
     {
-        return $this->userSid;
+        $this->fullName = $fullName;
     }
 
     /**
-     * Set userDomain
-     *
-     * @param string $userDomain
-     * @return SysSwUser
+     * @return string
      */
-    public function setUserDomain($userDomain)
+    public function getFullName()
     {
-        $this->userDomain = $userDomain;
-
-        return $this;
+        return $this->fullName;
     }
 
     /**
-     * Get userDomain
-     *
-     * @return string 
+     * @param int $id
      */
-    public function getUserDomain()
+    public function setId($id)
     {
-        return $this->userDomain;
+        $this->id = $id;
     }
 
     /**
-     * Set userDisabled
-     *
-     * @param string $userDisabled
-     * @return SysSwUser
+     * @return int
      */
-    public function setUserDisabled($userDisabled)
+    public function getId()
     {
-        $this->userDisabled = $userDisabled;
-
-        return $this;
+        return $this->id;
     }
 
     /**
-     * Get userDisabled
-     *
-     * @return string 
+     * @param string $name
      */
-    public function getUserDisabled()
+    public function setName($name)
     {
-        return $this->userDisabled;
+        $this->name = $name;
     }
 
     /**
-     * Set userFullName
-     *
-     * @param string $userFullName
-     * @return SysSwUser
+     * @return string
      */
-    public function setUserFullName($userFullName)
+    public function getName()
     {
-        $this->userFullName = $userFullName;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * Get userFullName
-     *
-     * @return string 
+     * @param string $passwordChangeable
      */
-    public function getUserFullName()
+    public function setPasswordChangeable($passwordChangeable)
     {
-        return $this->userFullName;
+        $this->passwordChangeable = $passwordChangeable;
     }
 
     /**
-     * Set userPasswordChangeable
-     *
-     * @param string $userPasswordChangeable
-     * @return SysSwUser
+     * @return string
      */
-    public function setUserPasswordChangeable($userPasswordChangeable)
+    public function getPasswordChangeable()
     {
-        $this->userPasswordChangeable = $userPasswordChangeable;
-
-        return $this;
+        return $this->passwordChangeable;
     }
 
     /**
-     * Get userPasswordChangeable
-     *
-     * @return string 
+     * @param string $passwordExpires
      */
-    public function getUserPasswordChangeable()
+    public function setPasswordExpires($passwordExpires)
     {
-        return $this->userPasswordChangeable;
+        $this->passwordExpires = $passwordExpires;
     }
 
     /**
-     * Set userPasswordExpires
-     *
-     * @param string $userPasswordExpires
-     * @return SysSwUser
+     * @return string
      */
-    public function setUserPasswordExpires($userPasswordExpires)
+    public function getPasswordExpires()
     {
-        $this->userPasswordExpires = $userPasswordExpires;
-
-        return $this;
+        return $this->passwordExpires;
     }
 
     /**
-     * Get userPasswordExpires
-     *
-     * @return string 
+     * @param string $passwordRequired
      */
-    public function getUserPasswordExpires()
+    public function setPasswordRequired($passwordRequired)
     {
-        return $this->userPasswordExpires;
+        $this->passwordRequired = $passwordRequired;
     }
 
     /**
-     * Set userPasswordRequired
-     *
-     * @param string $userPasswordRequired
-     * @return SysSwUser
+     * @return string
      */
-    public function setUserPasswordRequired($userPasswordRequired)
+    public function getPasswordRequired()
     {
-        $this->userPasswordRequired = $userPasswordRequired;
-
-        return $this;
+        return $this->passwordRequired;
     }
 
     /**
-     * Get userPasswordRequired
-     *
-     * @return string 
+     * @param string $sid
      */
-    public function getUserPasswordRequired()
+    public function setSid($sid)
     {
-        return $this->userPasswordRequired;
+        $this->sid = $sid;
     }
 
     /**
-     * Set userStatus
-     *
-     * @param string $userStatus
-     * @return SysSwUser
+     * @return string
      */
-    public function setUserStatus($userStatus)
+    public function getSid()
     {
-        $this->userStatus = $userStatus;
-
-        return $this;
+        return $this->sid;
     }
 
     /**
-     * Get userStatus
-     *
-     * @return string 
+     * @param string $status
      */
-    public function getUserStatus()
+    public function setStatus($status)
     {
-        return $this->userStatus;
+        $this->status = $status;
     }
 
     /**
-     * Set userType
-     *
-     * @param string $userType
-     * @return SysSwUser
+     * @return string
      */
-    public function setUserType($userType)
+    public function getStatus()
     {
-        $this->userType = $userType;
-
-        return $this;
+        return $this->status;
     }
 
     /**
-     * Get userType
-     *
-     * @return string 
-     */
-    public function getUserType()
-    {
-        return $this->userType;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysSwUser
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysSwUser
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
-    }
-
-    /**
-     * Set system
-     *
      * @param \Ehann\Bundle\OpenAwesomeBundle\Entity\System $system
-     * @return SysSwUser
      */
-    public function setSystem(\Ehann\Bundle\OpenAwesomeBundle\Entity\System $system = null)
+    public function setSystem($system)
     {
         $this->system = $system;
-
-        return $this;
     }
 
     /**
-     * Get system
-     *
-     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System 
+     * @return \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      */
     public function getSystem()
     {
         return $this->system;
     }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
 }

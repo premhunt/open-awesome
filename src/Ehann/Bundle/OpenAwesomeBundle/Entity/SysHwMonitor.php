@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sys_hw_monitor", indexes={@ORM\Index(name="system_id", columns={"system_id"})})
  * @ORM\Entity
  */
-class SysHwMonitor
+class SysHwMonitor extends SystemComponent
 {
     /**
      * @var integer
@@ -19,7 +19,7 @@ class SysHwMonitor
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $monitorId;
+    private $id;
 
     /**
      * @var string
@@ -113,20 +113,6 @@ class SysHwMonitor
     private $manDatePurchased;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
-     */
-    private $timestamp;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
-     */
-    private $firstTimestamp;
-
-    /**
      * @var \Ehann\Bundle\OpenAwesomeBundle\Entity\System
      *
      * @ORM\ManyToOne(targetEntity="Ehann\Bundle\OpenAwesomeBundle\Entity\System")
@@ -143,9 +129,17 @@ class SysHwMonitor
      *
      * @return integer 
      */
-    public function getMonitorId()
+    public function getId()
     {
-        return $this->monitorId;
+        return $this->id;
+    }
+
+    /**
+     * @param $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
@@ -445,52 +439,6 @@ class SysHwMonitor
     public function getManDatePurchased()
     {
         return $this->manDatePurchased;
-    }
-
-    /**
-     * Set timestamp
-     *
-     * @param \DateTime $timestamp
-     * @return SysHwMonitor
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get timestamp
-     *
-     * @return \DateTime 
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * Set firstTimestamp
-     *
-     * @param \DateTime $firstTimestamp
-     * @return SysHwMonitor
-     */
-    public function setFirstTimestamp($firstTimestamp)
-    {
-        $this->firstTimestamp = $firstTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get firstTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getFirstTimestamp()
-    {
-        return $this->firstTimestamp;
     }
 
     /**
