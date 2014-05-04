@@ -20,14 +20,14 @@ class System
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $systemId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="system_key", type="string", length=200, nullable=false)
      */
-    private $systemKey;
+    private $key;
 
     /**
      * @var string
@@ -710,9 +710,9 @@ class System
      *
      * @return integer
      */
-    public function getSystemId()
+    public function getId()
     {
-        return $this->systemId;
+        return $this->id;
     }
 
     /**
@@ -720,9 +720,9 @@ class System
      *
      * @return $this
      */
-    public function setSystemId($systemId)
+    public function setId($systemId)
     {
-        $this->systemId = $systemId;
+        $this->id = $systemId;
 
         return $this;
     }
@@ -733,9 +733,9 @@ class System
      * @param string $systemKey
      * @return System
      */
-    public function setSystemKey($systemKey)
+    public function setKey($systemKey)
     {
-        $this->systemKey = $systemKey;
+        $this->key = $systemKey;
 
         return $this;
     }
@@ -745,9 +745,9 @@ class System
      *
      * @return string
      */
-    public function getSystemKey()
+    public function getKey()
     {
-        return $this->systemKey;
+        return $this->key;
     }
 
     /**
@@ -2965,36 +2965,36 @@ class System
      */
     public function generateSystemKey()
     {
-        if (!isset($this->systemKey) or $this->systemKey === '') {
+        if (!isset($this->key) or $this->key === '') {
             # we will try to build a key.
-            $this->systemKey = '';
+            $this->key = '';
 
             # this is a computer from an audit script
             if (isset($this->uuid) && $this->uuid != '' &&
                 isset($this->hostname) && $this->hostname != '' &&
-                $this->systemKey == ''
+                $this->key == ''
             ) {
-                $this->systemKey = $this->uuid . "-" . $this->hostname;
+                $this->key = $this->uuid . "-" . $this->hostname;
                 $this->systemKeyType = 'uuho';
             }
 
             # this is anything that has a FQDN
-            if (isset($this->fqdn) && $this->fqdn != '' && $this->systemKey == '') {
-                $this->systemKey = $this->fqdn;
+            if (isset($this->fqdn) && $this->fqdn != '' && $this->key == '') {
+                $this->key = $this->fqdn;
                 $this->systemKeyType = 'fqdn';
             }
 
             # this is anything that has a hostname and domain (which makes a FQDN)
             if ((isset($this->hostname) && $this->hostname != '') &&
                 (isset($this->domain) && $this->domain != '') &&
-                !isset($this->systemKey)) {
-                $this->systemKey = $this->hostname . "." . $this->domain;
+                !isset($this->key)) {
+                $this->key = $this->hostname . "." . $this->domain;
                 $this->systemKeyType = 'hodo';
             }
 
             # anything with an IP Address
-            if (isset($this->man_ip_address) && $this->man_ip_address != '' && $this->systemKey == '') {
-                $this->systemKey = $this->man_ip_address;
+            if (isset($this->man_ip_address) && $this->man_ip_address != '' && $this->key == '') {
+                $this->key = $this->man_ip_address;
                 $this->systemKeyType = 'ipad';
             }
 
@@ -3010,8 +3010,8 @@ class System
                 $this->serial != '' &&
                 isset($this->type) &&
                 $this->type != '' &&
-                $this->systemKey == '') {
-                $this->systemKey = $this->type . "_" . $this->serial;
+                $this->key == '') {
+                $this->key = $this->type . "_" . $this->serial;
                 $this->systemKeyType = 'tyse';
             }
         }
