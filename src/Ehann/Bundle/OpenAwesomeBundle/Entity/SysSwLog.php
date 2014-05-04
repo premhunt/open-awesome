@@ -24,14 +24,14 @@ class SysSwLog extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="log_name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="log_name", type="string", length=255, nullable=false)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="log_file_name", type="string", length=250, nullable=false)
+     * @ORM\Column(name="log_file_name", type="string", length=255, nullable=false)
      */
     private $fileName;
 
@@ -52,7 +52,7 @@ class SysSwLog extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="log_overwrite", type="string", length=30, nullable=false)
+     * @ORM\Column(name="log_overwrite", type="string", length=255, nullable=false)
      */
     private $overwrite;
 
