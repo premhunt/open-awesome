@@ -4,9 +4,12 @@
     <form ng-submit="search()">
         <input class="form-control" type="text" placeholder="Search" ng-model="searchQuery"/>
     </form>
-    <div class="row">
-        <div ng-repeat="hit in searchResults.hits.hits"
-             system-component="{component: hit._source, name: hit._type}" class="col-sm-4"></div>
+    <hr>
+    <div update-in-progress="searchResults">
+        <div ng-repeat="group in groupedHits" class="row" style="background-color: #FFFFFF; border-top: solid 1px #DDDDDD">
+            <div ng-repeat="hit in group"
+                 system-component="{component: hit._source, name: hit._type}" class="col-sm-6"></div>
+        </div>
     </div>
 
     <div class="row">
