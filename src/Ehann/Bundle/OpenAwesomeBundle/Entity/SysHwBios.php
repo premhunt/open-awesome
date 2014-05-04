@@ -3,6 +3,7 @@
 namespace Ehann\Bundle\OpenAwesomeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * SysHwBios
@@ -66,6 +67,7 @@ class SysHwBios
     /**
      * @var \DateTime
      *
+     * @Type("DateTime<'Y-m-d G:i:s'>")
      * @ORM\Column(name="timestamp", type="datetime", nullable=false)
      */
     private $timestamp;
@@ -73,6 +75,7 @@ class SysHwBios
     /**
      * @var \DateTime
      *
+     * @Type("DateTime<'Y-m-d G:i:s'>")
      * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
      */
     private $firstTimestamp;
@@ -97,6 +100,18 @@ class SysHwBios
     public function getBiosId()
     {
         return $this->biosId;
+    }
+
+    /**
+     * @param $id
+     *
+     * @return $this
+     */
+    public function setBiosId($id)
+    {
+        $this->biosId = $id;
+
+        return $this;
     }
 
     /**

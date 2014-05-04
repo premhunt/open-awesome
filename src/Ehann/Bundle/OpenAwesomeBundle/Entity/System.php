@@ -3,6 +3,7 @@
 namespace Ehann\Bundle\OpenAwesomeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * System
@@ -171,6 +172,7 @@ class System
     /**
      * @var \DateTime
      *
+     * @Type("DateTime<'Y-m-d'>")
      * @ORM\Column(name="pc_date_os_installation", type="date", nullable=false)
      */
     private $pcDateOsInstallation;
@@ -178,252 +180,252 @@ class System
     /**
      * @var string
      *
-     * @ORM\Column(name="printer_port_name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="printer_port_name", type="string", length=50, nullable=true)
      */
     private $printerPortName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="printer_shared", type="string", length=50, nullable=false)
+     * @ORM\Column(name="printer_shared", type="string", length=50, nullable=true)
      */
     private $printerShared;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="printer_shared_name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="printer_shared_name", type="string", length=50, nullable=true)
      */
     private $printerSharedName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="printer_color", type="string", length=5, nullable=false)
+     * @ORM\Column(name="printer_color", type="string", length=5, nullable=true)
      */
     private $printerColor;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="printer_duplex", type="string", length=5, nullable=false)
+     * @ORM\Column(name="printer_duplex", type="string", length=5, nullable=true)
      */
     private $printerDuplex;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_os_group", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_os_group", type="string", length=50, nullable=true)
      */
     private $manOsGroup;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_os_family", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_os_family", type="string", length=50, nullable=true)
      */
     private $manOsFamily;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_os_name", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_os_name", type="string", length=100, nullable=true)
      */
     private $manOsName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_domain", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_domain", type="string", length=100, nullable=true)
      */
     private $manDomain;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_status", type="string", nullable=false)
+     * @ORM\Column(name="man_status", type="string", nullable=true)
      */
     private $manStatus;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_environment", type="string", nullable=false)
+     * @ORM\Column(name="man_environment", type="string", nullable=true)
      */
     private $manEnvironment;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_criticality", type="string", nullable=false)
+     * @ORM\Column(name="man_criticality", type="string", nullable=true)
      */
     private $manCriticality;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_class", type="string", nullable=false)
+     * @ORM\Column(name="man_class", type="string", nullable=true)
      */
     private $manClass;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_description", type="string", length=250, nullable=false)
+     * @ORM\Column(name="man_description", type="string", length=250, nullable=true)
      */
     private $manDescription;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_function", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_function", type="string", length=100, nullable=true)
      */
     private $manFunction;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_type", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_type", type="string", length=100, nullable=true)
      */
     private $manType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_ip_address", type="string", length=30, nullable=false)
+     * @ORM\Column(name="man_ip_address", type="string", length=30, nullable=true)
      */
     private $manIpAddress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_owner", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_owner", type="string", length=100, nullable=true)
      */
     private $manOwner;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="man_org_id", type="integer", nullable=false)
+     * @ORM\Column(name="man_org_id", type="integer", nullable=true)
      */
     private $manOrgId;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="man_location_id", type="integer", nullable=false)
+     * @ORM\Column(name="man_location_id", type="integer", nullable=true)
      */
     private $manLocationId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_location_level", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_location_level", type="string", length=100, nullable=true)
      */
     private $manLocationLevel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_location_suite", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_location_suite", type="string", length=100, nullable=true)
      */
     private $manLocationSuite;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_location_room", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_location_room", type="string", length=100, nullable=true)
      */
     private $manLocationRoom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_location_rack", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_location_rack", type="string", length=100, nullable=true)
      */
     private $manLocationRack;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_location_rack_position", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_location_rack_position", type="string", length=100, nullable=true)
      */
     private $manLocationRackPosition;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="man_location_rack_size", type="integer", nullable=false)
+     * @ORM\Column(name="man_location_rack_size", type="integer", nullable=true)
      */
     private $manLocationRackSize;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_serial", type="string", length=200, nullable=false)
+     * @ORM\Column(name="man_serial", type="string", length=200, nullable=true)
      */
     private $manSerial;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_asset_number", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_asset_number", type="string", length=50, nullable=true)
      */
     private $manAssetNumber;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_model", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_model", type="string", length=50, nullable=true)
      */
     private $manModel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_manufacturer", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_manufacturer", type="string", length=50, nullable=true)
      */
     private $manManufacturer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_form_factor", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_form_factor", type="string", length=50, nullable=true)
      */
     private $manFormFactor;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_icon", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_icon", type="string", length=50, nullable=true)
      */
     private $manIcon;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_vm_server_name", type="string", length=150, nullable=false)
+     * @ORM\Column(name="man_vm_server_name", type="string", length=150, nullable=true)
      */
     private $manVmServerName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_vm_system_id", type="string", length=150, nullable=false)
+     * @ORM\Column(name="man_vm_system_id", type="string", length=150, nullable=true)
      */
     private $manVmSystemId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_vm_group", type="string", length=150, nullable=false)
+     * @ORM\Column(name="man_vm_group", type="string", length=150, nullable=true)
      */
     private $manVmGroup;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_cluster_name", type="string", length=150, nullable=false)
+     * @ORM\Column(name="man_cluster_name", type="string", length=150, nullable=true)
      */
     private $manClusterName;
 
@@ -437,189 +439,189 @@ class System
     /**
      * @var string
      *
-     * @ORM\Column(name="man_purchase_invoice", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_purchase_invoice", type="string", length=50, nullable=true)
      */
     private $manPurchaseInvoice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_purchase_order_number", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_purchase_order_number", type="string", length=50, nullable=true)
      */
     private $manPurchaseOrderNumber;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_purchase_cost_center", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_purchase_cost_center", type="string", length=50, nullable=true)
      */
     private $manPurchaseCostCenter;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_purchase_vendor", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_purchase_vendor", type="string", length=100, nullable=true)
      */
     private $manPurchaseVendor;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="man_purchase_date", type="date", nullable=false)
+     * @ORM\Column(name="man_purchase_date", type="date", nullable=true)
      */
     private $manPurchaseDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_purchase_amount", type="string", length=50, nullable=false)
+     * @ORM\Column(name="man_purchase_amount", type="string", length=50, nullable=true)
      */
     private $manPurchaseAmount;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="man_warranty_duration", type="integer", nullable=false)
+     * @ORM\Column(name="man_warranty_duration", type="integer", nullable=true)
      */
     private $manWarrantyDuration;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="man_warranty_expires", type="date", nullable=false)
+     * @ORM\Column(name="man_warranty_expires", type="date", nullable=true)
      */
     private $manWarrantyExpires;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_warranty_type", type="string", nullable=false)
+     * @ORM\Column(name="man_warranty_type", type="string", nullable=true)
      */
     private $manWarrantyType;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="man_terminal_number", type="integer", nullable=false)
+     * @ORM\Column(name="man_terminal_number", type="integer", nullable=true)
      */
     private $manTerminalNumber;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_switch_id", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_switch_id", type="string", length=100, nullable=true)
      */
     private $manSwitchId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_switch_port", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_switch_port", type="string", length=100, nullable=true)
      */
     private $manSwitchPort;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_patch_panel", type="string", length=45, nullable=false)
+     * @ORM\Column(name="man_patch_panel", type="string", length=45, nullable=true)
      */
     private $manPatchPanel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_patch_panel_port", type="string", length=45, nullable=false)
+     * @ORM\Column(name="man_patch_panel_port", type="string", length=45, nullable=true)
      */
     private $manPatchPanelPort;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_wall_port", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_wall_port", type="string", length=100, nullable=true)
      */
     private $manWallPort;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_picture", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_picture", type="string", length=100, nullable=true)
      */
     private $manPicture;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="contact_name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="contact_name", type="string", length=50, nullable=true)
      */
     private $contactName;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="contact_id", type="integer", nullable=false)
+     * @ORM\Column(name="contact_id", type="integer", nullable=true)
      */
     private $contactId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_service_number", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_service_number", type="string", length=100, nullable=true)
      */
     private $manServiceNumber;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_service_provider", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_service_provider", type="string", length=100, nullable=true)
      */
     private $manServiceProvider;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_service_type", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_service_type", type="string", length=100, nullable=true)
      */
     private $manServiceType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_service_plan", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_service_plan", type="string", length=100, nullable=true)
      */
     private $manServicePlan;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_service_network", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_service_network", type="string", length=100, nullable=true)
      */
     private $manServiceNetwork;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_unlock_pin", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_unlock_pin", type="string", length=100, nullable=true)
      */
     private $manUnlockPin;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_serial_imei", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_serial_imei", type="string", length=100, nullable=true)
      */
     private $manSerialImei;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="man_serial_sim", type="string", length=100, nullable=false)
+     * @ORM\Column(name="man_serial_sim", type="string", length=100, nullable=true)
      */
     private $manSerialSim;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nmap_type", type="string", length=50, nullable=false)
+     * @ORM\Column(name="nmap_type", type="string", length=50, nullable=true)
      */
     private $nmapType;
 
@@ -640,42 +642,42 @@ class System
     /**
      * @var string
      *
-     * @ORM\Column(name="last_user", type="string", length=150, nullable=false)
+     * @ORM\Column(name="last_user", type="string", length=150, nullable=true)
      */
     private $lastUser;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="access_details", type="text", nullable=false)
+     * @ORM\Column(name="access_details", type="text", nullable=true)
      */
     private $accessDetails;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="snmp_oid", type="text", nullable=false)
+     * @ORM\Column(name="snmp_oid", type="text", nullable=true)
      */
     private $snmpOid;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nmis_group", type="string", length=50, nullable=false)
+     * @ORM\Column(name="nmis_group", type="string", length=50, nullable=true)
      */
     private $nmisGroup;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nmis_name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="nmis_name", type="string", length=50, nullable=true)
      */
     private $nmisName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nmis_role", type="string", length=50, nullable=false)
+     * @ORM\Column(name="nmis_role", type="string", length=50, nullable=true)
      */
     private $nmisRole;
 
@@ -689,6 +691,7 @@ class System
     /**
      * @var \DateTime
      *
+     * @Type("DateTime<'Y-m-d G:i:s'>")
      * @ORM\Column(name="timestamp", type="datetime", nullable=false)
      */
     private $timestamp;
@@ -696,20 +699,32 @@ class System
     /**
      * @var \DateTime
      *
+     * @Type("DateTime<'Y-m-d G:i:s'>")
      * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
      */
     private $firstTimestamp;
 
 
-
     /**
      * Get systemId
      *
-     * @return integer 
+     * @return integer
      */
     public function getSystemId()
     {
         return $this->systemId;
+    }
+
+    /**
+     * @param $systemId
+     *
+     * @return $this
+     */
+    public function setSystemId($systemId)
+    {
+        $this->systemId = $systemId;
+
+        return $this;
     }
 
     /**
@@ -728,7 +743,7 @@ class System
     /**
      * Get systemKey
      *
-     * @return string 
+     * @return string
      */
     public function getSystemKey()
     {
@@ -751,7 +766,7 @@ class System
     /**
      * Get uuid
      *
-     * @return string 
+     * @return string
      */
     public function getUuid()
     {
@@ -774,7 +789,7 @@ class System
     /**
      * Get hostname
      *
-     * @return string 
+     * @return string
      */
     public function getHostname()
     {
@@ -797,7 +812,7 @@ class System
     /**
      * Get domain
      *
-     * @return string 
+     * @return string
      */
     public function getDomain()
     {
@@ -820,7 +835,7 @@ class System
     /**
      * Get fqdn
      *
-     * @return string 
+     * @return string
      */
     public function getFqdn()
     {
@@ -843,7 +858,7 @@ class System
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -866,7 +881,7 @@ class System
     /**
      * Get type
      *
-     * @return string 
+     * @return string
      */
     public function getType()
     {
@@ -889,7 +904,7 @@ class System
     /**
      * Get icon
      *
-     * @return string 
+     * @return string
      */
     public function getIcon()
     {
@@ -912,7 +927,7 @@ class System
     /**
      * Get osGroup
      *
-     * @return string 
+     * @return string
      */
     public function getOsGroup()
     {
@@ -935,7 +950,7 @@ class System
     /**
      * Get osFamily
      *
-     * @return string 
+     * @return string
      */
     public function getOsFamily()
     {
@@ -958,7 +973,7 @@ class System
     /**
      * Get osName
      *
-     * @return string 
+     * @return string
      */
     public function getOsName()
     {
@@ -981,7 +996,7 @@ class System
     /**
      * Get osVersion
      *
-     * @return string 
+     * @return string
      */
     public function getOsVersion()
     {
@@ -1004,7 +1019,7 @@ class System
     /**
      * Get linkedSys
      *
-     * @return integer 
+     * @return integer
      */
     public function getLinkedSys()
     {
@@ -1027,7 +1042,7 @@ class System
     /**
      * Get serial
      *
-     * @return string 
+     * @return string
      */
     public function getSerial()
     {
@@ -1050,7 +1065,7 @@ class System
     /**
      * Get model
      *
-     * @return string 
+     * @return string
      */
     public function getModel()
     {
@@ -1073,7 +1088,7 @@ class System
     /**
      * Get manufacturer
      *
-     * @return string 
+     * @return string
      */
     public function getManufacturer()
     {
@@ -1096,7 +1111,7 @@ class System
     /**
      * Get uptime
      *
-     * @return string 
+     * @return string
      */
     public function getUptime()
     {
@@ -1119,7 +1134,7 @@ class System
     /**
      * Get formFactor
      *
-     * @return string 
+     * @return string
      */
     public function getFormFactor()
     {
@@ -1142,7 +1157,7 @@ class System
     /**
      * Get pcOsBit
      *
-     * @return string 
+     * @return string
      */
     public function getPcOsBit()
     {
@@ -1165,7 +1180,7 @@ class System
     /**
      * Get pcMemory
      *
-     * @return integer 
+     * @return integer
      */
     public function getPcMemory()
     {
@@ -1188,7 +1203,7 @@ class System
     /**
      * Get pcNumProcessor
      *
-     * @return integer 
+     * @return integer
      */
     public function getPcNumProcessor()
     {
@@ -1211,7 +1226,7 @@ class System
     /**
      * Get pcDateOsInstallation
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getPcDateOsInstallation()
     {
@@ -1234,7 +1249,7 @@ class System
     /**
      * Get printerPortName
      *
-     * @return string 
+     * @return string
      */
     public function getPrinterPortName()
     {
@@ -1257,7 +1272,7 @@ class System
     /**
      * Get printerShared
      *
-     * @return string 
+     * @return string
      */
     public function getPrinterShared()
     {
@@ -1280,7 +1295,7 @@ class System
     /**
      * Get printerSharedName
      *
-     * @return string 
+     * @return string
      */
     public function getPrinterSharedName()
     {
@@ -1303,7 +1318,7 @@ class System
     /**
      * Get printerColor
      *
-     * @return string 
+     * @return string
      */
     public function getPrinterColor()
     {
@@ -1326,7 +1341,7 @@ class System
     /**
      * Get printerDuplex
      *
-     * @return string 
+     * @return string
      */
     public function getPrinterDuplex()
     {
@@ -1349,7 +1364,7 @@ class System
     /**
      * Get manOsGroup
      *
-     * @return string 
+     * @return string
      */
     public function getManOsGroup()
     {
@@ -1372,7 +1387,7 @@ class System
     /**
      * Get manOsFamily
      *
-     * @return string 
+     * @return string
      */
     public function getManOsFamily()
     {
@@ -1395,7 +1410,7 @@ class System
     /**
      * Get manOsName
      *
-     * @return string 
+     * @return string
      */
     public function getManOsName()
     {
@@ -1418,7 +1433,7 @@ class System
     /**
      * Get manDomain
      *
-     * @return string 
+     * @return string
      */
     public function getManDomain()
     {
@@ -1441,7 +1456,7 @@ class System
     /**
      * Get manStatus
      *
-     * @return string 
+     * @return string
      */
     public function getManStatus()
     {
@@ -1464,7 +1479,7 @@ class System
     /**
      * Get manEnvironment
      *
-     * @return string 
+     * @return string
      */
     public function getManEnvironment()
     {
@@ -1487,7 +1502,7 @@ class System
     /**
      * Get manCriticality
      *
-     * @return string 
+     * @return string
      */
     public function getManCriticality()
     {
@@ -1510,7 +1525,7 @@ class System
     /**
      * Get manClass
      *
-     * @return string 
+     * @return string
      */
     public function getManClass()
     {
@@ -1533,7 +1548,7 @@ class System
     /**
      * Get manDescription
      *
-     * @return string 
+     * @return string
      */
     public function getManDescription()
     {
@@ -1556,7 +1571,7 @@ class System
     /**
      * Get manFunction
      *
-     * @return string 
+     * @return string
      */
     public function getManFunction()
     {
@@ -1579,7 +1594,7 @@ class System
     /**
      * Get manType
      *
-     * @return string 
+     * @return string
      */
     public function getManType()
     {
@@ -1602,7 +1617,7 @@ class System
     /**
      * Get manIpAddress
      *
-     * @return string 
+     * @return string
      */
     public function getManIpAddress()
     {
@@ -1625,7 +1640,7 @@ class System
     /**
      * Get manOwner
      *
-     * @return string 
+     * @return string
      */
     public function getManOwner()
     {
@@ -1648,7 +1663,7 @@ class System
     /**
      * Get manOrgId
      *
-     * @return integer 
+     * @return integer
      */
     public function getManOrgId()
     {
@@ -1671,7 +1686,7 @@ class System
     /**
      * Get manLocationId
      *
-     * @return integer 
+     * @return integer
      */
     public function getManLocationId()
     {
@@ -1694,7 +1709,7 @@ class System
     /**
      * Get manLocationLevel
      *
-     * @return string 
+     * @return string
      */
     public function getManLocationLevel()
     {
@@ -1717,7 +1732,7 @@ class System
     /**
      * Get manLocationSuite
      *
-     * @return string 
+     * @return string
      */
     public function getManLocationSuite()
     {
@@ -1740,7 +1755,7 @@ class System
     /**
      * Get manLocationRoom
      *
-     * @return string 
+     * @return string
      */
     public function getManLocationRoom()
     {
@@ -1763,7 +1778,7 @@ class System
     /**
      * Get manLocationRack
      *
-     * @return string 
+     * @return string
      */
     public function getManLocationRack()
     {
@@ -1786,7 +1801,7 @@ class System
     /**
      * Get manLocationRackPosition
      *
-     * @return string 
+     * @return string
      */
     public function getManLocationRackPosition()
     {
@@ -1809,7 +1824,7 @@ class System
     /**
      * Get manLocationRackSize
      *
-     * @return integer 
+     * @return integer
      */
     public function getManLocationRackSize()
     {
@@ -1832,7 +1847,7 @@ class System
     /**
      * Get manSerial
      *
-     * @return string 
+     * @return string
      */
     public function getManSerial()
     {
@@ -1855,7 +1870,7 @@ class System
     /**
      * Get manAssetNumber
      *
-     * @return string 
+     * @return string
      */
     public function getManAssetNumber()
     {
@@ -1878,7 +1893,7 @@ class System
     /**
      * Get manModel
      *
-     * @return string 
+     * @return string
      */
     public function getManModel()
     {
@@ -1901,7 +1916,7 @@ class System
     /**
      * Get manManufacturer
      *
-     * @return string 
+     * @return string
      */
     public function getManManufacturer()
     {
@@ -1924,7 +1939,7 @@ class System
     /**
      * Get manFormFactor
      *
-     * @return string 
+     * @return string
      */
     public function getManFormFactor()
     {
@@ -1947,7 +1962,7 @@ class System
     /**
      * Get manIcon
      *
-     * @return string 
+     * @return string
      */
     public function getManIcon()
     {
@@ -1970,7 +1985,7 @@ class System
     /**
      * Get manVmServerName
      *
-     * @return string 
+     * @return string
      */
     public function getManVmServerName()
     {
@@ -1993,7 +2008,7 @@ class System
     /**
      * Get manVmSystemId
      *
-     * @return string 
+     * @return string
      */
     public function getManVmSystemId()
     {
@@ -2016,7 +2031,7 @@ class System
     /**
      * Get manVmGroup
      *
-     * @return string 
+     * @return string
      */
     public function getManVmGroup()
     {
@@ -2039,7 +2054,7 @@ class System
     /**
      * Get manClusterName
      *
-     * @return string 
+     * @return string
      */
     public function getManClusterName()
     {
@@ -2062,7 +2077,7 @@ class System
     /**
      * Get invoiceId
      *
-     * @return integer 
+     * @return integer
      */
     public function getInvoiceId()
     {
@@ -2085,7 +2100,7 @@ class System
     /**
      * Get manPurchaseInvoice
      *
-     * @return string 
+     * @return string
      */
     public function getManPurchaseInvoice()
     {
@@ -2108,7 +2123,7 @@ class System
     /**
      * Get manPurchaseOrderNumber
      *
-     * @return string 
+     * @return string
      */
     public function getManPurchaseOrderNumber()
     {
@@ -2131,7 +2146,7 @@ class System
     /**
      * Get manPurchaseCostCenter
      *
-     * @return string 
+     * @return string
      */
     public function getManPurchaseCostCenter()
     {
@@ -2154,7 +2169,7 @@ class System
     /**
      * Get manPurchaseVendor
      *
-     * @return string 
+     * @return string
      */
     public function getManPurchaseVendor()
     {
@@ -2177,7 +2192,7 @@ class System
     /**
      * Get manPurchaseDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getManPurchaseDate()
     {
@@ -2200,7 +2215,7 @@ class System
     /**
      * Get manPurchaseAmount
      *
-     * @return string 
+     * @return string
      */
     public function getManPurchaseAmount()
     {
@@ -2223,7 +2238,7 @@ class System
     /**
      * Get manWarrantyDuration
      *
-     * @return integer 
+     * @return integer
      */
     public function getManWarrantyDuration()
     {
@@ -2246,7 +2261,7 @@ class System
     /**
      * Get manWarrantyExpires
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getManWarrantyExpires()
     {
@@ -2269,7 +2284,7 @@ class System
     /**
      * Get manWarrantyType
      *
-     * @return string 
+     * @return string
      */
     public function getManWarrantyType()
     {
@@ -2292,7 +2307,7 @@ class System
     /**
      * Get manTerminalNumber
      *
-     * @return integer 
+     * @return integer
      */
     public function getManTerminalNumber()
     {
@@ -2315,7 +2330,7 @@ class System
     /**
      * Get manSwitchId
      *
-     * @return string 
+     * @return string
      */
     public function getManSwitchId()
     {
@@ -2338,7 +2353,7 @@ class System
     /**
      * Get manSwitchPort
      *
-     * @return string 
+     * @return string
      */
     public function getManSwitchPort()
     {
@@ -2361,7 +2376,7 @@ class System
     /**
      * Get manPatchPanel
      *
-     * @return string 
+     * @return string
      */
     public function getManPatchPanel()
     {
@@ -2384,7 +2399,7 @@ class System
     /**
      * Get manPatchPanelPort
      *
-     * @return string 
+     * @return string
      */
     public function getManPatchPanelPort()
     {
@@ -2407,7 +2422,7 @@ class System
     /**
      * Get manWallPort
      *
-     * @return string 
+     * @return string
      */
     public function getManWallPort()
     {
@@ -2430,7 +2445,7 @@ class System
     /**
      * Get manPicture
      *
-     * @return string 
+     * @return string
      */
     public function getManPicture()
     {
@@ -2453,7 +2468,7 @@ class System
     /**
      * Get contactName
      *
-     * @return string 
+     * @return string
      */
     public function getContactName()
     {
@@ -2476,7 +2491,7 @@ class System
     /**
      * Get contactId
      *
-     * @return integer 
+     * @return integer
      */
     public function getContactId()
     {
@@ -2499,7 +2514,7 @@ class System
     /**
      * Get manServiceNumber
      *
-     * @return string 
+     * @return string
      */
     public function getManServiceNumber()
     {
@@ -2522,7 +2537,7 @@ class System
     /**
      * Get manServiceProvider
      *
-     * @return string 
+     * @return string
      */
     public function getManServiceProvider()
     {
@@ -2545,7 +2560,7 @@ class System
     /**
      * Get manServiceType
      *
-     * @return string 
+     * @return string
      */
     public function getManServiceType()
     {
@@ -2568,7 +2583,7 @@ class System
     /**
      * Get manServicePlan
      *
-     * @return string 
+     * @return string
      */
     public function getManServicePlan()
     {
@@ -2591,7 +2606,7 @@ class System
     /**
      * Get manServiceNetwork
      *
-     * @return string 
+     * @return string
      */
     public function getManServiceNetwork()
     {
@@ -2614,7 +2629,7 @@ class System
     /**
      * Get manUnlockPin
      *
-     * @return string 
+     * @return string
      */
     public function getManUnlockPin()
     {
@@ -2637,7 +2652,7 @@ class System
     /**
      * Get manSerialImei
      *
-     * @return string 
+     * @return string
      */
     public function getManSerialImei()
     {
@@ -2660,7 +2675,7 @@ class System
     /**
      * Get manSerialSim
      *
-     * @return string 
+     * @return string
      */
     public function getManSerialSim()
     {
@@ -2683,7 +2698,7 @@ class System
     /**
      * Get nmapType
      *
-     * @return string 
+     * @return string
      */
     public function getNmapType()
     {
@@ -2706,7 +2721,7 @@ class System
     /**
      * Get lastSeen
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getLastSeen()
     {
@@ -2729,7 +2744,7 @@ class System
     /**
      * Get lastSeenBy
      *
-     * @return string 
+     * @return string
      */
     public function getLastSeenBy()
     {
@@ -2752,7 +2767,7 @@ class System
     /**
      * Get lastUser
      *
-     * @return string 
+     * @return string
      */
     public function getLastUser()
     {
@@ -2775,7 +2790,7 @@ class System
     /**
      * Get accessDetails
      *
-     * @return string 
+     * @return string
      */
     public function getAccessDetails()
     {
@@ -2798,7 +2813,7 @@ class System
     /**
      * Get snmpOid
      *
-     * @return string 
+     * @return string
      */
     public function getSnmpOid()
     {
@@ -2821,7 +2836,7 @@ class System
     /**
      * Get nmisGroup
      *
-     * @return string 
+     * @return string
      */
     public function getNmisGroup()
     {
@@ -2844,7 +2859,7 @@ class System
     /**
      * Get nmisName
      *
-     * @return string 
+     * @return string
      */
     public function getNmisName()
     {
@@ -2867,7 +2882,7 @@ class System
     /**
      * Get nmisRole
      *
-     * @return string 
+     * @return string
      */
     public function getNmisRole()
     {
@@ -2890,7 +2905,7 @@ class System
     /**
      * Get systemKeyType
      *
-     * @return string 
+     * @return string
      */
     public function getSystemKeyType()
     {
@@ -2913,7 +2928,7 @@ class System
     /**
      * Get timestamp
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getTimestamp()
     {
@@ -2936,10 +2951,70 @@ class System
     /**
      * Get firstTimestamp
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFirstTimestamp()
     {
         return $this->firstTimestamp;
+    }
+
+    /**
+     * Source: /open-audit/code_igniter/application/controllers/system.php
+     *
+     * @return $this
+     */
+    public function generateSystemKey()
+    {
+        if (!isset($this->systemKey) or $this->systemKey === '') {
+            # we will try to build a key.
+            $this->systemKey = '';
+
+            # this is a computer from an audit script
+            if (isset($this->uuid) && $this->uuid != '' &&
+                isset($this->hostname) && $this->hostname != '' &&
+                $this->systemKey == ''
+            ) {
+                $this->systemKey = $this->uuid . "-" . $this->hostname;
+                $this->systemKeyType = 'uuho';
+            }
+
+            # this is anything that has a FQDN
+            if (isset($this->fqdn) && $this->fqdn != '' && $this->systemKey == '') {
+                $this->systemKey = $this->fqdn;
+                $this->systemKeyType = 'fqdn';
+            }
+
+            # this is anything that has a hostname and domain (which makes a FQDN)
+            if ((isset($this->hostname) && $this->hostname != '') &&
+                (isset($this->domain) && $this->domain != '') &&
+                !isset($this->systemKey)) {
+                $this->systemKey = $this->hostname . "." . $this->domain;
+                $this->systemKeyType = 'hodo';
+            }
+
+            # anything with an IP Address
+            if (isset($this->man_ip_address) && $this->man_ip_address != '' && $this->systemKey == '') {
+                $this->systemKey = $this->man_ip_address;
+                $this->systemKeyType = 'ipad';
+            }
+
+            # lastly, we might have only a serial number
+            # if this is all we have, we also require a type.
+            # first check to make sure we have a type or man_type
+            if ((!isset($this->type) || $this->type == '') && isset($this->man_type) && $this->man_type != '') {
+                $this->type = $this->man_type;
+            }
+
+            # next check if we also have a serial and set the system_key if so
+            if (isset($this->serial) &&
+                $this->serial != '' &&
+                isset($this->type) &&
+                $this->type != '' &&
+                $this->systemKey == '') {
+                $this->systemKey = $this->type . "_" . $this->serial;
+                $this->systemKeyType = 'tyse';
+            }
+        }
+        return $this;
     }
 }

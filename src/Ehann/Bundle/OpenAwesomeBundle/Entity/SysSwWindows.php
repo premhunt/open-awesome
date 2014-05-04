@@ -3,6 +3,7 @@
 namespace Ehann\Bundle\OpenAwesomeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * SysSwWindows
@@ -164,6 +165,7 @@ class SysSwWindows
     /**
      * @var \DateTime
      *
+     * @Type("DateTime<'Y-m-d G:i:s'>")
      * @ORM\Column(name="timestamp", type="datetime", nullable=false)
      */
     private $timestamp;
@@ -171,6 +173,7 @@ class SysSwWindows
     /**
      * @var \DateTime
      *
+     * @Type("DateTime<'Y-m-d G:i:s'>")
      * @ORM\Column(name="first_timestamp", type="datetime", nullable=false)
      */
     private $firstTimestamp;
@@ -195,6 +198,18 @@ class SysSwWindows
     public function getWindowsId()
     {
         return $this->windowsId;
+    }
+
+    /**
+     * @param $id
+     *
+     * @return $this
+     */
+    public function setWindowsId($id)
+    {
+        $this->windowsId = $id;
+
+        return $this;
     }
 
     /**
