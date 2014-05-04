@@ -3,6 +3,7 @@
 namespace Ehann\Bundle\OpenAwesomeBundle\Controller;
 
 use Ehann\Bundle\WebServiceBundle\Response\WebServiceResponse;
+use JMS\Serializer\Annotation\XmlElement;
 use Proxies\__CG__\Ehann\Bundle\OpenAwesomeBundle\Entity\System;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -71,7 +72,7 @@ class AuditController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $existingSystem = $manager->getRepository('EhannOpenAwesomeBundle:System')->findOneBy(array('uuid' => $system->getUuid()));
         if ($existingSystem) {
-            $system->setSystemId($existingSystem->getSystemId());
+            $system->setId($existingSystem->getId());
             $system = $manager->merge($system);
         } else {
             $system->setFirstTimestamp(new \DateTime());
@@ -81,32 +82,39 @@ class AuditController extends Controller
         $manager->persist($system);
         $manager->flush();
         // Windows
-        $windows = $this->get('jms_serializer')->deserialize($xmlContent->windows->asXML(), 'Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwWindows', 'xml');
-        $windows->setSystem($system);
-        $windows->setTimestamp($system->getTimestamp());
-        $existingWindows = $manager->getRepository('EhannOpenAwesomeBundle:SysSwWindows')->findOneBy(array('system' => $system->getSystemId()));
-        if ($existingWindows) {
-            $windows->setWindowsId($existingWindows->getWindowsId());
-            $windows = $manager->merge($windows);
-        } else {
-            $windows->setFirstTimestamp(new \DateTime());
-        }
-        $manager->persist($windows);
+        $this->persistComponent($manager, $xmlContent->windows, 'SysSwWindows', 'windows_', $system);
         // BIOS
-        $bios = $this->get('jms_serializer')->deserialize($xmlContent->bios->asXML(), 'Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwBios', 'xml');
-        $bios->setSystem($system);
-        $bios->setTimestamp($system->getTimestamp());
-        $existingBios = $manager->getRepository('EhannOpenAwesomeBundle:SysHwBios')->findOneBy(array('system' => $system->getSystemId()));
-        if ($existingBios) {
-            $bios->setBiosId($existingWindows->getWindowsId());
-            $bios = $manager->merge($windows);
-        } else {
-            $bios->setFirstTimestamp(new \DateTime());
+        $this->persistComponent($manager, $xmlContent->bios, 'SysHwBios', 'bios_', $system);
+        // SCSI Controllers
+        foreach ($xmlContent->scsi_controllers->children() as $scsiControllerXml) {
+            $this->persistComponent($manager, $scsiControllerXml, 'SysHwScsiController', 'scsi_controller_', $system);
         }
-        $manager->persist($bios);
 
         $manager->flush();
 
         return new WebServiceResponse($system);
+    }
+
+    function persistComponent(&$manager, $componentXmlElement, $componentClass, $componentPrefix, $system = null)
+    {
+        $componentXml = simplexml_load_string('<component></component>');
+        foreach ($componentXmlElement->children() as $node) {
+            $newNodeName = str_replace($componentPrefix, '', $node->getName());
+            $componentXml->addChild($newNodeName)->{0} = (string)$node;
+        }
+        $deserializationClass = 'Ehann\Bundle\OpenAwesomeBundle\Entity\\' . $componentClass;
+        $component = $this->get('jms_serializer')->deserialize($componentXml->asXml(), $deserializationClass, 'xml');
+        if ($system) {
+            $component->setSystem($system);
+        }
+        $component->setTimestamp($system->getTimestamp());
+        $existingComponent = $manager->getRepository('EhannOpenAwesomeBundle:' . $componentClass)->findOneBy(array('system' => $system->getId()));
+        if ($existingComponent) {
+            $component->setId($existingComponent->getId());
+            $component = $manager->merge($component);
+        } else {
+            $component->setFirstTimestamp(new \DateTime());
+        }
+        $manager->persist($component);
     }
 }

@@ -20,49 +20,49 @@ class SysHwBios
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $biosId;
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="bios_description", type="string", length=200, nullable=false)
      */
-    private $biosDescription;
+    private $description;
 
     /**
      * @var string
      *
      * @ORM\Column(name="bios_manufacturer", type="string", length=200, nullable=false)
      */
-    private $biosManufacturer;
+    private $manufacturer;
 
     /**
      * @var string
      *
      * @ORM\Column(name="bios_serial", type="string", length=100, nullable=false)
      */
-    private $biosSerial;
+    private $serial;
 
     /**
      * @var string
      *
      * @ORM\Column(name="bios_smversion", type="string", length=100, nullable=false)
      */
-    private $biosSmversion;
+    private $smversion;
 
     /**
      * @var string
      *
      * @ORM\Column(name="bios_version", type="string", length=100, nullable=false)
      */
-    private $biosVersion;
+    private $version;
 
     /**
      * @var string
      *
      * @ORM\Column(name="bios_asset_tag", type="string", length=100, nullable=false)
      */
-    private $biosAssetTag;
+    private $assetTag;
 
     /**
      * @var \DateTime
@@ -93,13 +93,13 @@ class SysHwBios
 
 
     /**
-     * Get biosId
+     * Get id
      *
      * @return integer 
      */
-    public function getBiosId()
+    public function getId()
     {
-        return $this->biosId;
+        return $this->id;
     }
 
     /**
@@ -107,9 +107,9 @@ class SysHwBios
      *
      * @return $this
      */
-    public function setBiosId($id)
+    public function setId($id)
     {
-        $this->biosId = $id;
+        $this->id = $id;
 
         return $this;
     }
@@ -120,9 +120,9 @@ class SysHwBios
      * @param string $biosDescription
      * @return SysHwBios
      */
-    public function setBiosDescription($biosDescription)
+    public function setDescription($biosDescription)
     {
-        $this->biosDescription = $biosDescription;
+        $this->description = $biosDescription;
 
         return $this;
     }
@@ -132,9 +132,9 @@ class SysHwBios
      *
      * @return string 
      */
-    public function getBiosDescription()
+    public function getDescription()
     {
-        return $this->biosDescription;
+        return $this->description;
     }
 
     /**
@@ -143,9 +143,9 @@ class SysHwBios
      * @param string $biosManufacturer
      * @return SysHwBios
      */
-    public function setBiosManufacturer($biosManufacturer)
+    public function setManufacturer($biosManufacturer)
     {
-        $this->biosManufacturer = $biosManufacturer;
+        $this->manufacturer = $biosManufacturer;
 
         return $this;
     }
@@ -155,9 +155,9 @@ class SysHwBios
      *
      * @return string 
      */
-    public function getBiosManufacturer()
+    public function getManufacturer()
     {
-        return $this->biosManufacturer;
+        return $this->manufacturer;
     }
 
     /**
@@ -166,9 +166,9 @@ class SysHwBios
      * @param string $biosSerial
      * @return SysHwBios
      */
-    public function setBiosSerial($biosSerial)
+    public function setSerial($biosSerial)
     {
-        $this->biosSerial = $biosSerial;
+        $this->serial = $biosSerial;
 
         return $this;
     }
@@ -178,9 +178,9 @@ class SysHwBios
      *
      * @return string 
      */
-    public function getBiosSerial()
+    public function getSerial()
     {
-        return $this->biosSerial;
+        return $this->serial;
     }
 
     /**
@@ -189,9 +189,9 @@ class SysHwBios
      * @param string $biosSmversion
      * @return SysHwBios
      */
-    public function setBiosSmversion($biosSmversion)
+    public function setSmversion($biosSmversion)
     {
-        $this->biosSmversion = $biosSmversion;
+        $this->smversion = $biosSmversion;
 
         return $this;
     }
@@ -201,9 +201,9 @@ class SysHwBios
      *
      * @return string 
      */
-    public function getBiosSmversion()
+    public function getSmversion()
     {
-        return $this->biosSmversion;
+        return $this->smversion;
     }
 
     /**
@@ -212,9 +212,9 @@ class SysHwBios
      * @param string $biosVersion
      * @return SysHwBios
      */
-    public function setBiosVersion($biosVersion)
+    public function setVersion($biosVersion)
     {
-        $this->biosVersion = $biosVersion;
+        $this->version = $biosVersion;
 
         return $this;
     }
@@ -224,9 +224,9 @@ class SysHwBios
      *
      * @return string 
      */
-    public function getBiosVersion()
+    public function getVersion()
     {
-        return $this->biosVersion;
+        return $this->version;
     }
 
     /**
@@ -235,9 +235,9 @@ class SysHwBios
      * @param string $biosAssetTag
      * @return SysHwBios
      */
-    public function setBiosAssetTag($biosAssetTag)
+    public function setAssetTag($biosAssetTag)
     {
-        $this->biosAssetTag = $biosAssetTag;
+        $this->assetTag = $biosAssetTag;
 
         return $this;
     }
@@ -247,9 +247,9 @@ class SysHwBios
      *
      * @return string 
      */
-    public function getBiosAssetTag()
+    public function getAssetTag()
     {
-        return $this->biosAssetTag;
+        return $this->assetTag;
     }
 
     /**

@@ -27,7 +27,7 @@ class SysSwWindows
      *
      * @ORM\Column(name="windows_build_number", type="string", length=20, nullable=false)
      */
-    private $windowsBuildNumber;
+    private $buildNumber;
 
     /**
      * @var string
@@ -160,7 +160,7 @@ class SysSwWindows
      *
      * @ORM\Column(name="windows_active_directory_ou", type="string", length=200, nullable=false)
      */
-    private $windowsActiveDirectoryOu;
+    private $activeDirectoryOu;
 
     /**
      * @var \DateTime
@@ -191,7 +191,7 @@ class SysSwWindows
 
 
     /**
-     * Get windowsId
+     * Get id
      *
      * @return integer 
      */
@@ -213,26 +213,26 @@ class SysSwWindows
     }
 
     /**
-     * Set windowsBuildNumber
+     * Set buildNumber
      *
-     * @param string $windowsBuildNumber
+     * @param string $buildNumber
      * @return SysSwWindows
      */
-    public function setWindowsBuildNumber($windowsBuildNumber)
+    public function setBuildNumber($buildNumber)
     {
-        $this->windowsBuildNumber = $windowsBuildNumber;
+        $this->buildNumber = $buildNumber;
 
         return $this;
     }
 
     /**
-     * Get windowsBuildNumber
+     * Get buildNumber
      *
      * @return string 
      */
-    public function getWindowsBuildNumber()
+    public function getBuildNumber()
     {
-        return $this->windowsBuildNumber;
+        return $this->buildNumber;
     }
 
     /**
@@ -650,26 +650,26 @@ class SysSwWindows
     }
 
     /**
-     * Set windowsActiveDirectoryOu
+     * Set activeDirectoryOu
      *
-     * @param string $windowsActiveDirectoryOu
+     * @param string $activeDirectoryOu
      * @return SysSwWindows
      */
-    public function setWindowsActiveDirectoryOu($windowsActiveDirectoryOu)
+    public function setActiveDirectoryOu($activeDirectoryOu)
     {
-        $this->windowsActiveDirectoryOu = $windowsActiveDirectoryOu;
+        $this->activeDirectoryOu = $activeDirectoryOu;
 
         return $this;
     }
 
     /**
-     * Get windowsActiveDirectoryOu
+     * Get activeDirectoryOu
      *
      * @return string 
      */
-    public function getWindowsActiveDirectoryOu()
+    public function getActiveDirectoryOu()
     {
-        return $this->windowsActiveDirectoryOu;
+        return $this->activeDirectoryOu;
     }
 
     /**
