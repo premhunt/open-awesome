@@ -24,9 +24,9 @@ class SysSwPagefile extends SystemComponent
     /**
      * @var string
      *
-     * @ORM\Column(name="pagefile_name", type="string", length=100, nullable=true)
+     * @ORM\Column(name="pagefile_name", type="string", length=100, nullable=false)
      */
-    private $name;
+    private $fileName;
 
     /**
      * @var string
@@ -108,19 +108,19 @@ class SysSwPagefile extends SystemComponent
     }
 
     /**
-     * @param string $name
+     * @param string $fileName
      */
-    public function setName($name)
+    public function setFileName($fileName)
     {
-        $this->name = $name;
+        $this->fileName = $fileName;
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getFileName()
     {
-        return $this->name;
+        return $this->fileName;
     }
 
     /**
