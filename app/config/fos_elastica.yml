@@ -101,7 +101,6 @@ fos_elastica:
                         nmisGroup:
                         nmisName:
                         nmisRole:
-                        systemKeyType:
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\System
