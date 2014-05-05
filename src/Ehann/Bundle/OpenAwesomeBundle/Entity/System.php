@@ -675,13 +675,6 @@ class System extends SystemComponent
     private $nmisRole;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="system_key_type", type="string", length=4, nullable=false)
-     */
-    private $systemKeyType;
-
-    /**
      * Get systemId
      *
      * @return integer
