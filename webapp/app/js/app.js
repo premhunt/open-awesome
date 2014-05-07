@@ -3,6 +3,7 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('openAwesome', [
+        'ngAnimate',
         'ngResource',
         'ngRoute',
         'openAwesome.filters',

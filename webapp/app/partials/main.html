@@ -16,7 +16,7 @@
 </nav>
 <div class="container-fluid">
     <div update-in-progress="searchResults">
-        <div ng-repeat="group in groupedHits" class="row">
+        <div ng-repeat="group in groupedHits" class="row animate-repeat">
             <div ng-repeat="hit in group"
                  system-component="{component: hit._source, name: hit._type}" class="col-sm-6"
                  ng-class-even="'search-result-even'"
