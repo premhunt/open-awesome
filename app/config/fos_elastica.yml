@@ -118,35 +118,6 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwBios
                         provider: ~
-                software:
-                    mappings:
-                        id:
-                        name:
-                        version:
-                        description:
-                        location:
-                        version:
-                        uninstall:
-                        installDate:
-                        installedBy:
-                        installedOn:
-                        publisher:
-                        installSource:
-                        systemComponent:
-                        url:
-                        email:
-                        comment:
-                        manComment:
-                        count:
-                        codeBase:
-                        status:
-                        key:
-                        keyRelease:
-                        keyEdition:
-                    persistence:
-                        driver: orm
-                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftware
-                        provider: ~
                 scsi_controller:
                     mappings:
                         id:
@@ -351,16 +322,6 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDns
                         provider: ~
-                dns:
-                    mappings:
-                        id:
-                        name:
-                        fullName:
-                        ipAddress:
-                    persistence:
-                        driver: orm
-                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDns
-                        provider: ~
                 log:
                     mappings:
                         id:
@@ -395,23 +356,8 @@ fos_elastica:
                         fullName:
                         passwordChangeable:
                         passwordExpires:
-                    persistence:
-                        driver: orm
-                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwUser
-                        provider: ~
-                user:
-                    mappings:
-                        id:
-                        name:
-                        caption:
-                        sid:
-                        domain:
-                        disabled:
-                        fullName:
-                        passwordChangeable:
-                        passwordExpires:
                         passwordRequired:
-                        stauts:
+                        status:
                         type:
                     persistence:
                         driver: orm
@@ -424,6 +370,7 @@ fos_elastica:
                         version:
                         description:
                         location:
+                        version:
                         uninstall:
                         installDate:
                         installedBy:
@@ -468,7 +415,6 @@ fos_elastica:
                         version:
                         versionString:
                         edition:
-                        started:
                         port:
                     persistence:
                         driver: orm
@@ -485,7 +431,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftwareKey
                         provider: ~
-                software_key:
+                route:
                     mappings:
                         id:
                         destination:
