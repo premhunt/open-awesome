@@ -19,7 +19,7 @@ class SysSwDatabase extends SystemComponent
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $Id;
+    private $id;
 
     /**
      * @var string
@@ -67,11 +67,11 @@ class SysSwDatabase extends SystemComponent
     private $system;
 
     /**
-     * @param int $Id
+     * @param int $id
      */
-    public function setId($Id)
+    public function setId($id)
     {
-        $this->Id = $Id;
+        $this->id = $id;
     }
 
     /**
@@ -79,7 +79,7 @@ class SysSwDatabase extends SystemComponent
      */
     public function getId()
     {
-        return $this->Id;
+        return $this->id;
     }
 
     /**
