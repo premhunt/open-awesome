@@ -264,3 +264,184 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwHardDrive
                         provider: ~
+                partition:
+                    mappings:
+                        id:
+                        hardDriveIndex:
+                        mountType:
+                        mountPoint:
+                        name:
+                        size:
+                        freeSpace:
+                        usedSpace:
+                        format:
+                        caption:
+                        deviceId:
+                        diskIndex:
+                        bootable:
+                        type:
+                        quotasSupported:
+                        quotasEnabled:
+                        serial:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwPartition
+                        provider: ~
+                share:
+                    mappings:
+                        id:
+                        caption:
+                        name:
+                        size:
+                        path:
+                        size:
+                        users:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwShare
+                        provider: ~
+                network_card:
+                    mappings:
+                        id:
+                        macAddress:
+                        manufacturer:
+                        model:
+                        description:
+                        ipEnabled:
+                        index:
+                        dhcpEnabled:
+                        dhcpServer:
+                        dhcpLeaseObtained:
+                        dhcpLeaseExpires:
+                        dnsHostName:
+                        dnsServer:
+                        dnsDomain:
+                        dnsDomainSuffix:
+                        dnsDomainRegEnabled:
+                        winsPrimary:
+                        winsSecondary:
+                        winsLmhostsEnabled:
+                        adapterType:
+                        connectionId:
+                        connectionStatus:
+                        speed:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwNetworkCard
+                        provider: ~
+                address:
+                    mappings:
+                        id:
+                        netMacAddress:
+                        addressV4:
+                        addressV6:
+                        subnet:
+                        addressVersion:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwNetworkCardIp
+                        provider: ~
+                dns:
+                    mappings:
+                        id:
+                        name:
+                        fullName:
+                        ipAddress:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDns
+                        provider: ~
+                dns:
+                    mappings:
+                        id:
+                        name:
+                        fullName:
+                        ipAddress:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDns
+                        provider: ~
+                log:
+                    mappings:
+                        id:
+                        name:
+                        fileName:
+                        fileSize:
+                        maxFileSize:
+                        overwrite:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwLog
+                        provider: ~
+                pagefile:
+                    mappings:
+                        id:
+                        fileName:
+                        initialSize:
+                        maxSize:
+                        size:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwPagefile
+                        provider: ~
+                user:
+                    mappings:
+                        id:
+                        name:
+                        caption:
+                        sid:
+                        domain:
+                        disabled:
+                        fullName:
+                        passwordChangeable:
+                        passwordExpires:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwUser
+                        provider: ~
+                user:
+                    mappings:
+                        id:
+                        name:
+                        caption:
+                        sid:
+                        domain:
+                        disabled:
+                        fullName:
+                        passwordChangeable:
+                        passwordExpires:
+                        passwordRequired:
+                        stauts:
+                        type:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwUser
+                        provider: ~
+                software:
+                    mappings:
+                        id:
+                        name:
+                        version:
+                        description:
+                        location:
+                        uninstall:
+                        installDate:
+                        installedBy:
+                        installedOn:
+                        publisher:
+                        installSource:
+                        systemComponent:
+                        url:
+                        email:
+                        comment:
+                        manComment:
+                        count:
+                        codeBase:
+                        status:
+                        key:
+                        keyRelease:
+                        keyEdition
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftware
+                        provider: ~
