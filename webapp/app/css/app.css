@@ -20,40 +20,60 @@ body {
     border: 0;
 }
 
+/* System Component
+*/
+div[system-component] {
+    padding: 0;
+}
+
+div[system-component] :hover {
+    /*background-color: #2F2F2F;*/
+    /*cursor: pointer;*/
+}
+
+.system-component-title {
+    margin: 0;
+    padding: 21px;
+}
+
+.system-component-more-info-button {
+    color: #2F2F2F;
+}
+
+.system-component-more-info-button:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.system-component-more-info {
+    overflow-x: auto;
+    margin: 0;
+    padding: 0 21px 10px 21px;
+    -webkit-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+}
+
+.system-component-more-info.ng-hide-add,
+.system-component-more-info.ng-hide-remove {
+    opacity: 0;
+}
+
+.system-component-more-info.ng-hide-add {
+    opacity: 1;
+}
+
+/* Search
+*/
 .search-result-odd,
 .search-result-even {
     background-color: #34495e;
     color: #FFFFFF;
+    border-top: solid 1px #2c3e50;
 }
 
 .search-result-even {
-    border-top: solid 1px #2c3e50;
     border-left: solid 1px #2c3e50;
-}
-.search-result-odd {
-    border-top: solid 1px #2c3e50;
-
-}
-
-.animate-repeat {
-    line-height:40px;
-    list-style:none;
-    box-sizing:border-box;
-}
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter,
-.animate-repeat.ng-leave {
-    -webkit-transition:all linear 0.5s;
-    transition:all linear 0.5s;
-}
-.animate-repeat.ng-leave.ng-leave-active,
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter {
-    opacity:0;
-    max-height:0;
-}
-.animate-repeat.ng-leave,
-.animate-repeat.ng-move.ng-move-active,
-.animate-repeat.ng-enter.ng-enter-active {
-    opacity:1;
 }

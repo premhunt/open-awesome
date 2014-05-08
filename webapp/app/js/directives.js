@@ -48,7 +48,7 @@ angular.module('openAwesome.directives').directive('dynatable', function () {
 
 angular.module('openAwesome.directives').directive('systemComponent', function () {
     return {
-        templateUrl: 'partials/system-component.html',
+        templateUrl: 'partials/directives/system-component.html',
         scope: {
             systemComponent: '='
         },
@@ -68,8 +68,8 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
                 return angular.isString(text) ? text.replace(/(_)/g, ' ') : text;
             };
 
-            scope.toggleMoreInfo = function (item) {
-                item.isMoreInfoVisible = !item.isMoreInfoVisible;
+            scope.toggleMoreInfo = function () {
+                scope.isMoreInfoVisible = !scope.isMoreInfoVisible;
             };
 
             scope.displayName = angular.isDefined(scope.systemComponent.displayName) ?
@@ -81,11 +81,7 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
                 scope.isMultipleComponents = angular.isArray(scope.component);
                 scope.isStringArray = scope.isMultipleComponents && scope.component.length > 0 && angular.isString(scope.component[0]);
                 scope.itemHeaderTemplateUrl = '/system-' + scope.systemComponent.name + '-item-header.html';
-                if (scope.isMultipleComponents && !scope.isStringArray) {
-                    for (var i in scope.component) {
-                        scope.component[i].isMoreInfoVisible = false;
-                    }
-                }
+                scope.isMoreInfoVisible = false;
             }
         }
     };

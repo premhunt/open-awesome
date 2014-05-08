@@ -1,0 +1,128 @@
+<div class="system-component">
+    <h3 ng-if="displayName" class="system-component-title">
+        <span>{{ displayName|humanize }}</span>
+        <span ng-if="component.icon">
+            <span class="fa fa-fw" ng-class="iconClass(component.icon)"></span>
+        </span>
+        <small ng-include="itemHeaderTemplateUrl"></small>
+        <span class="fa fa-list pull-right system-component-more-info-button" ng-click="toggleMoreInfo()" ></span>
+    </h3>
+
+    <div ng-show="isMoreInfoVisible" class="system-component-more-info">
+        <table class="table table-condensed table-borderless">
+            <tr ng-repeat="(key, value) in component" ng-if="value.length > 0">
+                <th width="180px"> {{ key|humanize }}</th>
+                <td ng-if="isString(value)">{{ value }}</td>
+                <td ng-if="isArray(value)">{{ value.join }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script type="text/ng-template" id="/system-address-item-header.html">
+    <span ng-if="component.ip_address_version == '4'"> {{component.ip_address_v4}}</span>
+    <span ng-if="component.ip_address_version == '6'"> {{component.ip_address_v6}}</span>
+</script>
+
+<script type="text/ng-template" id="/system-bios-item-header.html">
+    {{ component.description }}
+</script>
+
+<script type="text/ng-template" id="/system-dns-item-header.html">
+    DNS Entry {{ $index + 1 }}
+</script>
+
+<script type="text/ng-template" id="/system-hard_disk-item-header.html">
+    {{ component.caption }}
+</script>
+
+<script type="text/ng-template" id="/system-log-item-header.html">
+    {{ component.name }}
+    <small> {{ component.file_size }}KB</small>
+
+</script>
+
+<script type="text/ng-template" id="/system-memory-item-header.html">
+    {{ component.capacity }}MB
+    <small>{{ component.bank }}</small>
+</script>
+
+<script type="text/ng-template" id="/system-monitor-item-header.html">
+    {{ component.model }}
+</script>
+
+<script type="text/ng-template" id="/system-network_card-item-header.html">
+    {{ component.onnection_id }}
+    <small>{{ component.mac_address }}</small>
+
+</script>
+
+<script type="text/ng-template" id="/system-optical_drive-item-header.html">
+    {{ component.caption }}
+    <small> {{ component.mount_point }}</small>
+
+</script>
+
+<script type="text/ng-template" id="/system-pagefile-item-header.html">
+    {{ component.file_name }}
+</script>
+
+<script type="text/ng-template" id="/system-partition-item-header.html">
+    {{ component.device_id }}
+</script>
+
+<script type="text/ng-template" id="/system-printer-item-header.html">
+    {{ component.name }}
+    <small> {{ component.hostname }}</small>
+
+</script>
+
+<script type="text/ng-template" id="/system-route-item-header.html">
+    Route {{ $index + 1 }}
+    <small> {{ component.destination }} - {{ component.protocol }}</small>
+</script>
+
+<script type="text/ng-template" id="/system-scsi_controller-item-header.html">
+    {{ component.name }}
+</script>
+
+<script type="text/ng-template" id="/system-service-item-header.html">
+    <span ng-class="{'text-success': component.service_state == 'Running' && component.service_start_mode == 'Auto',
+                     'text-warning': component.service_state == 'Running' && component.service_start_mode == 'Manual',
+                     'text-danger': component.service_state == 'Stopped' && component.service_start_mode == 'Auto',
+                     'text-info': component.service_state == 'Stopped' && component.service_start_mode == 'Manual',
+                     'text-muted': component.service_state == 'Disabled' && component.service_start_mode == 'Manual'}">
+        <span class="fa fa-circle"></span>
+    </span>
+    <span>{{ component.display_name }}</span>
+    <small> {{ component.state }}</small>
+
+</script>
+
+<script type="text/ng-template" id="/system-share-item-header.html">
+    {{ component.name }}
+    <small>{{ component.path }}</small>
+
+</script>
+
+<script type="text/ng-template" id="/system-software_key-item-header.html">
+    {{ component.name }}
+    <small> {{ component.text }}</small>
+
+</script>
+
+<script type="text/ng-template" id="/system-software-item-header.html">
+    {{ component.name }}
+</script>
+
+<script type="text/ng-template" id="/system-sound_card-item-header.html">
+    {{ component.name }}
+</script>
+
+<script type="text/ng-template" id="/system-user-item-header.html">
+    {{ component.name }}
+    <small> {{ component.type }}</small>
+</script>
+
+<script type="text/ng-template" id="/system-video_card-item-header.html">
+    {{ component.description }}
+</script>
