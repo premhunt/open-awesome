@@ -440,8 +440,61 @@ fos_elastica:
                         status:
                         key:
                         keyRelease:
-                        keyEdition
+                        keyEdition:
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftware
+                        provider: ~
+                service:
+                    mappings:
+                        id:
+                        userId:
+                        displayName:
+                        name:
+                        pathName:
+                        started:
+                        startName:
+                        startMode:
+                        state:
+                        count:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwService
+                        provider: ~
+                database:
+                    mappings:
+                        id:
+                        type:
+                        version:
+                        versionString:
+                        edition:
+                        started:
+                        port:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDatabase
+                        provider: ~
+                software_key:
+                    mappings:
+                        id:
+                        name:
+                        text:
+                        release:
+                        edition:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftwareKey
+                        provider: ~
+                software_key:
+                    mappings:
+                        id:
+                        destination:
+                        mask:
+                        metric:
+                        nextHop:
+                        protocol:
+                        type:
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwRoute
                         provider: ~
