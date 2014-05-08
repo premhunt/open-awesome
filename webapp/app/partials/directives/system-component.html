@@ -19,8 +19,8 @@
     </div>
 </div>
 <script type="text/ng-template" id="/system-address-item-header.html">
-    <span ng-if="component.ip_address_version == '4'"> {{component.ip_address_v4}}</span>
-    <span ng-if="component.ip_address_version == '6'"> {{component.ip_address_v6}}</span>
+    <span ng-if="component.addressVersion == '4'"> {{component.addressV4}}</span>
+    <span ng-if="component.addressVersion == '6'"> {{component.addressV6}}</span>
 </script>
 
 <script type="text/ng-template" id="/system-bios-item-header.html">
@@ -31,13 +31,13 @@
     DNS Entry {{ $index + 1 }}
 </script>
 
-<script type="text/ng-template" id="/system-hard_disk-item-header.html">
+<script type="text/ng-template" id="/system-hard_drive-item-header.html">
     {{ component.caption }}
 </script>
 
 <script type="text/ng-template" id="/system-log-item-header.html">
     {{ component.name }}
-    <small> {{ component.file_size }}KB</small>
+    <small> {{ component.fileSize }}KB</small>
 
 </script>
 
@@ -51,23 +51,23 @@
 </script>
 
 <script type="text/ng-template" id="/system-network_card-item-header.html">
-    {{ component.onnection_id }}
-    <small>{{ component.mac_address }}</small>
+    {{ component.onnectionId }}
+    <small>{{ component.macAddress }}</small>
 
 </script>
 
 <script type="text/ng-template" id="/system-optical_drive-item-header.html">
     {{ component.caption }}
-    <small> {{ component.mount_point }}</small>
+    <small> {{ component.mountPoint }}</small>
 
 </script>
 
 <script type="text/ng-template" id="/system-pagefile-item-header.html">
-    {{ component.file_name }}
+    {{ component.fileName }}
 </script>
 
 <script type="text/ng-template" id="/system-partition-item-header.html">
-    {{ component.device_id }}
+    {{ component.deviceId }}
 </script>
 
 <script type="text/ng-template" id="/system-printer-item-header.html">
@@ -77,7 +77,6 @@
 </script>
 
 <script type="text/ng-template" id="/system-route-item-header.html">
-    Route {{ $index + 1 }}
     <small> {{ component.destination }} - {{ component.protocol }}</small>
 </script>
 
@@ -86,14 +85,14 @@
 </script>
 
 <script type="text/ng-template" id="/system-service-item-header.html">
-    <span ng-class="{'text-success': component.service_state == 'Running' && component.service_start_mode == 'Auto',
-                     'text-warning': component.service_state == 'Running' && component.service_start_mode == 'Manual',
-                     'text-danger': component.service_state == 'Stopped' && component.service_start_mode == 'Auto',
-                     'text-info': component.service_state == 'Stopped' && component.service_start_mode == 'Manual',
-                     'text-muted': component.service_state == 'Disabled' && component.service_start_mode == 'Manual'}">
+    <span ng-class="{'text-success': component.state == 'Running' && component.startMode == 'Auto',
+                     'text-warning': component.state == 'Running' && component.startMode == 'Manual',
+                     'text-danger': component.state == 'Stopped' && component.startMode == 'Auto',
+                     'text-info': component.state == 'Stopped' && component.startMode == 'Manual',
+                     'text-muted': component.state == 'Disabled' && component.startMode == 'Manual'}">
         <span class="fa fa-circle"></span>
     </span>
-    <span>{{ component.display_name }}</span>
+    <span>{{ component.displayName }}</span>
     <small> {{ component.state }}</small>
 
 </script>
