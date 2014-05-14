@@ -8,11 +8,12 @@ fos_elastica:
             types:
                 system:
                     mappings:
+                        component_key:
                         id:
-                        uuid: { boost: 5 }
-                        hostname: { boost: 3 }
+                        uuid: { boost: 10 }
+                        hostname: { boost: 10 }
                         domain:
-                        fqdn:
+                        fqdn: { boost: 10 }
                         description:
                         type:
                         icon:
@@ -107,6 +108,7 @@ fos_elastica:
                         provider: ~
                 bios:
                     mappings:
+                        component_key:
                         id:
                         description:
                         manufacturer:
@@ -114,35 +116,53 @@ fos_elastica:
                         smversion:
                         version:
                         assetTag:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwBios
                         provider: ~
                 scsi_controller:
                     mappings:
+                        component_key:
                         id:
                         name:
                         manufacturer:
                         deviceId:
                         type:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwScsiController
                         provider: ~
                 processor:
                     mappings:
+                        component_key:
                         id:
                         cores:
                         description:
                         speed:
                         manufacturer:
                         powerManagementSupported:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwProcessor
                         provider: ~
                 motherboard:
                     mappings:
+                        component_key:
                         id:
                         manufacturer:
                         model:
@@ -150,23 +170,35 @@ fos_elastica:
                         memorySlots:
                         processorSlots:
                         processorType:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMotherboard
                         provider: ~
                 optical_drive:
                     mappings:
+                        component_key:
                         id:
                         caption:
                         model:
                         deviceId:
                         mountPoint:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwOpticalDrive
                         provider: ~
                 video_card:
                     mappings:
+                        component_key:
                         id:
                         description:
                         manufacturer:
@@ -181,12 +213,18 @@ fos_elastica:
                         driverVersion:
                         maxRefreshRate:
                         minRefreshRate:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwVideo
                         provider: ~
                 monitor:
                     mappings:
+                        component_key:
                         id:
                         manufacturer:
                         deviceId:
@@ -201,22 +239,34 @@ fos_elastica:
                         manValue:
                         manPurchaseOrderNumber:
                         manDatePurchased:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMonitor
                         provider: ~
                 sound_card:
                     mappings:
+                        component_key:
                         id:
                         manufacturer:
                         deviceId:
                         name:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwSound
                         provider: ~
                 hard_drive:
                     mappings:
+                        component_key:
                         id:
                         caption:
                         index:
@@ -231,12 +281,18 @@ fos_elastica:
                         size:
                         deviceId:
                         status:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwHardDrive
                         provider: ~
                 partition:
                     mappings:
+                        component_key:
                         id:
                         hardDriveIndex:
                         mountType:
@@ -254,12 +310,18 @@ fos_elastica:
                         quotasSupported:
                         quotasEnabled:
                         serial:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwPartition
                         provider: ~
                 share:
                     mappings:
+                        component_key:
                         id:
                         caption:
                         name:
@@ -267,12 +329,18 @@ fos_elastica:
                         path:
                         size:
                         users:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwShare
                         provider: ~
                 network_card:
                     mappings:
+                        component_key:
                         id:
                         macAddress:
                         manufacturer:
@@ -296,57 +364,87 @@ fos_elastica:
                         connectionId:
                         connectionStatus:
                         speed:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwNetworkCard
                         provider: ~
                 address:
                     mappings:
+                        component_key:
                         id:
                         netMacAddress:
                         addressV4:
                         addressV6:
                         subnet:
                         addressVersion:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwNetworkCardIp
                         provider: ~
                 dns:
                     mappings:
+                        component_key:
                         id:
                         name:
                         fullName:
                         ipAddress:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDns
                         provider: ~
                 log:
                     mappings:
+                        component_key:
                         id:
                         name:
                         fileName:
                         fileSize:
                         maxFileSize:
                         overwrite:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwLog
                         provider: ~
                 pagefile:
                     mappings:
+                        component_key:
                         id:
                         fileName:
                         initialSize:
                         maxSize:
                         size:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwPagefile
                         provider: ~
                 user:
                     mappings:
+                        component_key:
                         id:
                         name:
                         caption:
@@ -359,12 +457,18 @@ fos_elastica:
                         passwordRequired:
                         status:
                         type:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwUser
                         provider: ~
                 software:
                     mappings:
+                        component_key:
                         id:
                         name:
                         version:
@@ -388,12 +492,18 @@ fos_elastica:
                         key:
                         keyRelease:
                         keyEdition:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftware
                         provider: ~
                 service:
                     mappings:
+                        component_key:
                         id:
                         userId:
                         displayName:
@@ -404,35 +514,53 @@ fos_elastica:
                         startMode:
                         state:
                         count:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwService
                         provider: ~
                 database:
                     mappings:
+                        component_key:
                         id:
                         type:
                         version:
                         versionString:
                         edition:
                         port:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDatabase
                         provider: ~
                 software_key:
                     mappings:
+                        component_key:
                         id:
                         name:
                         text:
                         release:
                         edition:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftwareKey
                         provider: ~
                 route:
                     mappings:
+                        component_key:
                         id:
                         destination:
                         mask:
@@ -440,6 +568,11 @@ fos_elastica:
                         nextHop:
                         protocol:
                         type:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwRoute
