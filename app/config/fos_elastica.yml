@@ -125,6 +125,27 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwBios
                         provider: ~
+                memory:
+                    mappings:
+                        component_key:
+                        id:
+                        bank:
+                        type:
+                        formFactor:
+                        detail:
+                        capacity:
+                        speed:
+                        tag:
+                        serial:
+                        system:
+                            type: "nested"
+                            properties:
+                                uuid: { boost: 2 }
+                                hostname: { boost: 2 }
+                    persistence:
+                        driver: orm
+                        model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMemory
+                        provider: ~
                 scsi_controller:
                     mappings:
                         component_key:
