@@ -1,23 +1,26 @@
 <div class="system-component">
     <h3 ng-if="displayName" class="system-component-title">
+        <span ng-if="component.icon" class="fa fa-fw" ng-class="iconClass(component.icon)"></span>
         <span>{{ displayName|humanize }}</span>
-        <span ng-if="component.icon">
-            <span class="fa fa-fw" ng-class="iconClass(component.icon)"></span>
-        </span>
         <small ng-include="itemHeaderTemplateUrl"></small>
-        <span class="fa fa-list pull-right system-component-more-info-button" ng-click="toggleMoreInfo()" ></span>
+        <a ng-click="selectSystem()">{{ component.system.hostname }}</a>
+        <span class="fa fa-list pull-right system-component-more-info-button" ng-click="toggleMoreInfo()"></span>
     </h3>
-
     <div ng-show="isMoreInfoVisible" class="system-component-more-info">
         <table class="table table-condensed table-borderless">
             <tr ng-repeat="(key, value) in component" ng-if="value.length > 0">
                 <th width="180px"> {{ key|humanize }}</th>
-                <td ng-if="isString(value)">{{ value }}</td>
+                <td ng-if="!isArray(value)">{{ value }}</td>
                 <td ng-if="isArray(value)">{{ value.join }}</td>
             </tr>
         </table>
     </div>
 </div>
+
+<script type="text/ng-template" id="/system-system-item-header.html">
+    {{ component.hostname }}
+</script>
+
 <script type="text/ng-template" id="/system-address-item-header.html">
     <span ng-if="component.addressVersion == '4'"> {{component.addressV4}}</span>
     <span ng-if="component.addressVersion == '6'"> {{component.addressV6}}</span>

@@ -6,11 +6,6 @@ body {
     margin-top: 50px;
 }
 
-.table[dynatable] thead th {
-    background-color: #DDDDDD;
-    color: #000;
-}
-
 .table-borderless > thead > tr > th,
 .table-borderless > tbody > tr > th,
 .table-borderless > tfoot > tr > th,
@@ -20,15 +15,15 @@ body {
     border: 0;
 }
 
+[ng-click]:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
 /* System Component
 */
 div[system-component] {
     padding: 0;
-}
-
-div[system-component] :hover {
-    /*background-color: #2F2F2F;*/
-    /*cursor: pointer;*/
 }
 
 .system-component-title {
@@ -67,6 +62,12 @@ div[system-component] :hover {
 
 /* Search
 */
+.search-results-info {
+    margin: 0;
+    padding: 21px;
+    background-color: #2F2F2F;
+}
+
 .search-result-odd,
 .search-result-even {
     background-color: #34495e;
