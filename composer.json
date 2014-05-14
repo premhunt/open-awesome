@@ -19,9 +19,9 @@
         "sensio/framework-extra-bundle": "~3.0",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
-        "elasticsearch/elasticsearch": "~1.0",
         "jms/serializer-bundle": "*",
         "ehann/web-service-bundle": "0.0.x-dev",
+        "ruflin/elastica": "*",
         "friendsofsymfony/elastica-bundle": "~2.0"
     },
     "scripts": {

@@ -3,7 +3,6 @@
 namespace Ehann\Bundle\OpenAwesomeBundle\Controller;
 
 use Ehann\Bundle\WebServiceBundle\Response\WebServiceResponse;
-use Proxies\__CG__\Ehann\Bundle\OpenAwesomeBundle\Entity\System;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -11,23 +10,6 @@ use Symfony\Component\Stopwatch\Stopwatch;
 
 class AuditController extends Controller
 {
-    public $esParams;
-
-    public function __construct()
-    {
-        $this->esParams = array(
-            'index' => 'open-awesome'
-        );
-    }
-
-    /**
-     * @return \Elasticsearch\Client
-     */
-    function getElasticsearch()
-    {
-        return $this->get('ehann_open_awesome.elasticsearch_client');
-    }
-
     /**
      * @param Request $request
      * @return WebServiceResponse
@@ -38,9 +20,13 @@ class AuditController extends Controller
         if (!$request->query->has('q')) {
             throw new BadRequestHttpException('"q" parameter is required');
         }
-        $this->esParams['type'] = $request->query->has('component') ? $request->query->get('component') : '';
-        $this->esParams['body']['query']['queryString']['query'] = $request->query->get('q');
-        $queryResponse = $this->getElasticsearch()->search($this->esParams);
+        $query = $request->query->get('q');
+        $index = $this->container->get('fos_elastica.index.website');
+
+        $queryResponse = $request->query->has('component') ?
+            $index->getType($request->query->get('component'))->search($query):
+            $index->search($query);
+
         return new WebServiceResponse($queryResponse);
     }
 
@@ -51,9 +37,10 @@ class AuditController extends Controller
      */
     public function getAction($component, $id)
     {
-        $this->esParams['id'] = $id;
-        $this->esParams['type'] = $component;
-        $document = $this->getElasticsearch()->get($this->esParams);
+        $document = $this->container->get('fos_elastica.index.website')
+            ->getType($component)
+            ->getDocument($id);
+
         return new WebServiceResponse($document);
     }
 
