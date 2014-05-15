@@ -46,7 +46,7 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
                 $location.search({q: scope.component.system.uuid});
             };
 
-            scope.componentNames = ['processor', 'memory', 'network_card'];
+            scope.componentNames = ['processor', 'memory', 'network_card', 'address', 'software'];
             scope.selectComponent = function (componentName) {
                 $location.search({q: scope.component.uuid, component: componentName});
             };
