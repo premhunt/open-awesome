@@ -1,16 +1,14 @@
 <div class="system-component">
     <div ng-if="displayName" class="system-component-title">
-        <!--icon: {{ component|json }}-->
         <a ng-if="component.system.uuid" ng-click="selectSystem()">
             <span ng-if="component.system.icon" class="fa fa-fw" ng-class="iconClass(component.system.icon)"></span>
             {{ component.system.hostname }}
         </a>
         <span ng-include="itemHeaderTemplateUrl"></span>
         <a ng-if="component.uuid" ng-repeat="componentName in componentNames" ng-click="selectComponent(componentName)">
-            <span class="fa fa-star"></span>
+            <span class="fa fa-search"></span>
             {{ componentName }}
         </a>
-
         <span ng-click="toggleMoreInfo()" class="system-component-more-info-button">
             <span class="fa fa-info-circle"></span>
             {{ displayName|humanize }}

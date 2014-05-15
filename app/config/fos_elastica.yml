@@ -534,7 +534,7 @@ fos_elastica:
                         system:
                             type: "nested"
                             properties:
-                                uuid: { boost: 2 }
+                                uuid: { boost: 1 }
                                 hostname: { boost: 1 }
                                 icon: { boost: 1 }
                     persistence:
