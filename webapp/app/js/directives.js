@@ -14,8 +14,10 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
                     return 'fa-print';
                 } else if (input.match(/windows/gi)) {
                     return 'fa-windows';
+                } else if (input.match(/apple/gi)) {
+                    return 'fa-apple';
                 }
-                return 'fa-' + input;
+                return 'fa-desktop';
             };
 
             scope.isArray = angular.isArray;
@@ -42,6 +44,11 @@ angular.module('openAwesome.directives').directive('systemComponent', function (
 
             scope.selectSystem = function () {
                 $location.search({q: scope.component.system.uuid, component: 'system'});
+            };
+
+            scope.componentNames = ['processor', 'memory', 'network_card'];
+            scope.selectComponent = function (componentName) {
+                $location.search({q: scope.component.uuid, component: componentName});
             };
         }
     };

@@ -28,7 +28,12 @@ div[system-component] {
 
 .system-component-title {
     margin: 0;
-    padding: 21px;
+    padding: 10px 21px 10px 21px;
+    color: #FFFFFF;
+}
+
+.system-component-name {
+    color: #DDDDDD;
 }
 
 .system-component-more-info-button {
@@ -64,7 +69,7 @@ div[system-component] {
 */
 .search-results-info {
     margin: 0;
-    padding: 21px;
+    padding: 10px 21px 10px 21px;
     background-color: #2F2F2F;
 }
 

@@ -121,6 +121,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwBios
@@ -142,6 +143,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMemory
@@ -159,6 +161,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwScsiController
@@ -177,6 +180,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwProcessor
@@ -196,6 +200,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMotherboard
@@ -213,6 +218,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwOpticalDrive
@@ -239,6 +245,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwVideo
@@ -265,6 +272,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMonitor
@@ -281,6 +289,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwSound
@@ -307,6 +316,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwHardDrive
@@ -336,6 +346,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwPartition
@@ -355,6 +366,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwShare
@@ -390,6 +402,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwNetworkCard
@@ -408,6 +421,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwNetworkCardIp
@@ -424,6 +438,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDns
@@ -442,6 +457,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwLog
@@ -459,6 +475,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwPagefile
@@ -483,6 +500,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwUser
@@ -517,7 +535,8 @@ fos_elastica:
                             type: "nested"
                             properties:
                                 uuid: { boost: 2 }
-                                hostname: { boost: 2 }
+                                hostname: { boost: 1 }
+                                icon: { boost: 1 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftware
@@ -540,6 +559,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwService
@@ -558,6 +578,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDatabase
@@ -575,6 +596,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftwareKey
@@ -594,6 +616,7 @@ fos_elastica:
                             properties:
                                 uuid: { boost: 2 }
                                 hostname: { boost: 2 }
+                                icon: { boost: 2 }
                     persistence:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwRoute

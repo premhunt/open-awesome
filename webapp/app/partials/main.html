@@ -20,10 +20,12 @@
     <div class="search-results-info">
         total results: {{ searchResults._response._response.hits.total }}
     </div>
-    <div ng-repeat="group in searchResults._results" class="row animate-repeat">
-        <div ng-repeat="hit in group"
-             system-component="{component: hit._source, name: hit._type}"
-             ng-class-even="'search-result-even'"
-             ng-class-odd="'search-result-odd'"></div>
+    <div class="container-fluid">
+        <div ng-repeat="group in searchResults._results" class="row animate-repeat">
+            <div ng-repeat="hit in group"
+                 system-component="{component: hit._source, name: hit._type}"
+                 ng-class-even="'search-result-even'"
+                 ng-class-odd="'search-result-odd'"></div>
+        </div>
     </div>
 </div>

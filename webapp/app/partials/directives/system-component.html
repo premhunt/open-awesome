@@ -1,11 +1,18 @@
 <div class="system-component">
-    <h3 ng-if="displayName" class="system-component-title">
-        <span ng-if="component.icon" class="fa fa-fw" ng-class="iconClass(component.icon)"></span>
-        <span>{{ displayName|humanize }}</span>
-        <small ng-include="itemHeaderTemplateUrl"></small>
-        <a ng-click="selectSystem()">{{ component.system.hostname }}</a>
+    <div ng-if="displayName" class="system-component-title">
+        <!--icon: {{ component|json }}-->
+        <a ng-if="component.system.uuid" ng-click="selectSystem()">
+            <span ng-if="component.system.icon" class="fa fa-fw" ng-class="iconClass(component.system.icon)"></span>
+            {{ component.system.hostname }}
+        </a>
+        <span ng-include="itemHeaderTemplateUrl"></span>
+        <a ng-if="component.uuid" ng-repeat="componentName in componentNames" ng-click="selectComponent(componentName)">
+            <span class="fa fa-star"></span>
+            {{ componentName }}
+        </a>
+        <span class="system-component-name" ng-if="displayName != 'system'">{{ displayName|humanize }}</span>
         <span class="fa fa-list pull-right system-component-more-info-button" ng-click="toggleMoreInfo()"></span>
-    </h3>
+    </div>
     <div ng-show="isMoreInfoVisible" class="system-component-more-info">
         <table class="table table-condensed table-borderless">
             <tr ng-repeat="(key, value) in component" ng-if="value.length > 0">
@@ -18,6 +25,7 @@
 </div>
 
 <script type="text/ng-template" id="/system-system-item-header.html">
+    <span ng-if="component.icon" class="fa fa-fw" ng-class="iconClass(component.icon)"></span>
     {{ component.hostname }}
 </script>
 
@@ -27,6 +35,10 @@
 </script>
 
 <script type="text/ng-template" id="/system-bios-item-header.html">
+    {{ component.description }}
+</script>
+
+<script type="text/ng-template" id="/system-processor-item-header.html">
     {{ component.description }}
 </script>
 
