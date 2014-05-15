@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Ehann\Bundle\WebServiceBundle\EhannWebServiceBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\ElasticaBundle\FOSElasticaBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

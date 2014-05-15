@@ -26,14 +26,22 @@
 
 <div update-in-progress="searchResults">
     <div class="search-results-info">
-        total results: {{ searchResults._response._response.hits.total }}
+        total results: {{ searchResults.total_count }}
     </div>
-    <div class="container-fluid">
-        <div ng-repeat="group in searchResults._results" class="row animate-repeat">
-            <div ng-repeat="hit in group"
-                 system-component="{component: hit._source, name: hit._type}"
-                 ng-class-even="'search-result-even'"
-                 ng-class-odd="'search-result-odd'"></div>
-        </div>
-    </div>
+    <div ng-repeat="item in searchResults.items"
+         system-component="{component: item.result._hit._source, name: item.result._hit._type}"
+         ng-class-even="'search-result-even'"
+         ng-class-odd="'search-result-odd'"></div>
+    <ul class="pagination" ng-if="searchResults.num_items_per_page < searchResults.total_count">
+        <li ng-class="{'disabled': searchResults.current_page_number == 1}">
+            <a ng-href="" ng-click="setPage(1)"><span class="fa fa-chevron-left"></span></a>
+        </li>
+        <li ng-repeat="page in paginationIterator track by $index"
+            ng-class="{'active': searchResults.current_page_number == $index+1}">
+            <a ng-href="" ng-click="setPage($index+1)">{{$index + 1}}</a>
+        </li>
+        <li ng-class="{'disabled': searchResults.current_page_number == numberOfPages}">
+            <a ng-href="" ng-click="setPage(numberOfPages)"><span class="fa fa-chevron-right"></span></a>
+        </li>
+    </ul>
 </div>

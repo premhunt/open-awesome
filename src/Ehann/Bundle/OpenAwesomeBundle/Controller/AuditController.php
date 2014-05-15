@@ -21,13 +21,15 @@ class AuditController extends Controller
             throw new BadRequestHttpException('"q" parameter is required');
         }
         $query = $request->query->get('q');
-        $index = $this->container->get('fos_elastica.index.website');
+        $componentType = $request->query->has('component') ? '.'.$request->query->get('component') : '';
+        $finder = $this->get('fos_elastica.finder.website'.$componentType);
+        $paginator = $this->get('knp_paginator');
+        $paginatedFinder = $paginator->paginate(
+            $finder->findHybrid($query),
+            $this->get('request')->query->get('page', 1),
+            9);
 
-        $queryResponse = $request->query->has('component') ?
-            $index->getType($request->query->get('component'))->search($query):
-            $index->search($query);
-
-        return new WebServiceResponse($queryResponse);
+        return new WebServiceResponse($paginatedFinder);
     }
 
     /**

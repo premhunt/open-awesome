@@ -22,7 +22,8 @@
         "jms/serializer-bundle": "*",
         "ehann/web-service-bundle": "0.0.x-dev",
         "ruflin/elastica": "*",
-        "friendsofsymfony/elastica-bundle": "~2.0"
+        "friendsofsymfony/elastica-bundle": "~2.0",
+        "knplabs/knp-paginator-bundle": "~2.4"
     },
     "scripts": {
         "post-install-cmd": [
