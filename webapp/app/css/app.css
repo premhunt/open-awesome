@@ -83,3 +83,29 @@ div[system-component] {
 .search-result-even {
     border-left: solid 1px #2c3e50;
 }
+
+/* Pagination
+*/
+.pagination>li>a, .pagination>li>span {
+    background-color: #2F2F2F;
+    color: #FFFFFF;
+    border-color: #5F5F5F;
+}
+
+.pagination>.active>a, .pagination>.active>span,
+.pagination>.active>a:hover, .pagination>.active>span:hover {
+    background-color: #3F3F3F;
+    border-color: #5F5F5F;
+}
+
+.pagination>li>a:hover, .pagination>li>span:hover {
+    background-color: #3F3F3F;
+    color: #000000;
+    border-color: #5F5F5F;
+}
+
+.pagination>.disabled>a, .pagination>.disabled>span,
+.pagination>.disabled>a:hover, .pagination>.disabled>span:hover {
+    background-color: #7F7F7F;
+    border-color: #5F5F5F;
+}

@@ -32,16 +32,18 @@
          system-component="{component: item.result._hit._source, name: item.result._hit._type}"
          ng-class-even="'search-result-even'"
          ng-class-odd="'search-result-odd'"></div>
-    <ul class="pagination" ng-if="searchResults.num_items_per_page < searchResults.total_count">
-        <li ng-class="{'disabled': searchResults.current_page_number == 1}">
-            <a ng-href="" ng-click="setPage(1)"><span class="fa fa-chevron-left"></span></a>
-        </li>
-        <li ng-repeat="page in paginationIterator track by $index"
-            ng-class="{'active': searchResults.current_page_number == $index+1}">
-            <a ng-href="" ng-click="setPage($index+1)">{{$index + 1}}</a>
-        </li>
-        <li ng-class="{'disabled': searchResults.current_page_number == numberOfPages}">
-            <a ng-href="" ng-click="setPage(numberOfPages)"><span class="fa fa-chevron-right"></span></a>
-        </li>
-    </ul>
+    <div class="container-fluid">
+        <ul class="pagination pull-right" ng-if="searchResults.num_items_per_page < searchResults.total_count">
+            <li ng-class="{'disabled': searchResults.current_page_number == 1}">
+                <span ng-click="setPage(1)"><span class="fa fa-chevron-left"></span></span>
+            </li>
+            <li ng-repeat="page in paginationIterator track by $index"
+                ng-class="{'active': searchResults.current_page_number == $index+1}">
+                <span ng-click="setPage($index+1)">{{$index + 1}}</span>
+            </li>
+            <li ng-class="{'disabled': searchResults.current_page_number == numberOfPages}">
+                <span ng-click="setPage(numberOfPages)"><span class="fa fa-chevron-right"></span></span>
+            </li>
+        </ul>
+    </div>
 </div>
