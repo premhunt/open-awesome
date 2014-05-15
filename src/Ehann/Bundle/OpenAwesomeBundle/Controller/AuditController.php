@@ -23,8 +23,7 @@ class AuditController extends Controller
         $query = $request->query->get('q');
         $componentType = $request->query->has('component') ? '.'.$request->query->get('component') : '';
         $finder = $this->get('fos_elastica.finder.website'.$componentType);
-        $paginator = $this->get('knp_paginator');
-        $paginatedFinder = $paginator->paginate(
+        $paginatedFinder = $this->get('knp_paginator')->paginate(
             $finder->findHybrid($query),
             $this->get('request')->query->get('page', 1),
             9);

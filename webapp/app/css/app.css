@@ -36,15 +36,6 @@ div[system-component] {
     color: #FFFFFF;
 }
 
-.system-component-more-info-button {
-    color: #007fff;
-}
-
-.system-component-more-info-button:hover {
-    cursor: pointer;
-    color: #0059b3;
-}
-
 .system-component-more-info {
     overflow-x: auto;
     margin: 0;
