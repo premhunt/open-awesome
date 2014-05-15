@@ -106,6 +106,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\System
                         provider: ~
+                        listener: ~
                 bios:
                     mappings:
                         component_key:
@@ -126,6 +127,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwBios
                         provider: ~
+                        listener: ~
                 memory:
                     mappings:
                         component_key:
@@ -148,6 +150,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMemory
                         provider: ~
+                        listener: ~
                 scsi_controller:
                     mappings:
                         component_key:
@@ -166,6 +169,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwScsiController
                         provider: ~
+                        listener: ~
                 processor:
                     mappings:
                         component_key:
@@ -185,6 +189,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwProcessor
                         provider: ~
+                        listener: ~
                 motherboard:
                     mappings:
                         component_key:
@@ -205,6 +210,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMotherboard
                         provider: ~
+                        listener: ~
                 optical_drive:
                     mappings:
                         component_key:
@@ -223,6 +229,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwOpticalDrive
                         provider: ~
+                        listener: ~
                 video_card:
                     mappings:
                         component_key:
@@ -250,6 +257,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwVideo
                         provider: ~
+                        listener: ~
                 monitor:
                     mappings:
                         component_key:
@@ -277,6 +285,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwMonitor
                         provider: ~
+                        listener: ~
                 sound_card:
                     mappings:
                         component_key:
@@ -294,6 +303,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwSound
                         provider: ~
+                        listener: ~
                 hard_drive:
                     mappings:
                         component_key:
@@ -321,6 +331,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwHardDrive
                         provider: ~
+                        listener: ~
                 partition:
                     mappings:
                         component_key:
@@ -351,6 +362,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwPartition
                         provider: ~
+                        listener: ~
                 share:
                     mappings:
                         component_key:
@@ -371,6 +383,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwShare
                         provider: ~
+                        listener: ~
                 network_card:
                     mappings:
                         component_key:
@@ -407,6 +420,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwNetworkCard
                         provider: ~
+                        listener: ~
                 address:
                     mappings:
                         component_key:
@@ -426,6 +440,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysHwNetworkCardIp
                         provider: ~
+                        listener: ~
                 dns:
                     mappings:
                         component_key:
@@ -443,6 +458,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDns
                         provider: ~
+                        listener: ~
                 log:
                     mappings:
                         component_key:
@@ -462,6 +478,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwLog
                         provider: ~
+                        listener: ~
                 pagefile:
                     mappings:
                         component_key:
@@ -480,6 +497,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwPagefile
                         provider: ~
+                        listener: ~
                 user:
                     mappings:
                         component_key:
@@ -505,6 +523,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwUser
                         provider: ~
+                        listener: ~
                 software:
                     mappings:
                         component_key:
@@ -541,6 +560,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftware
                         provider: ~
+                        listener: ~
                 service:
                     mappings:
                         component_key:
@@ -564,6 +584,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwService
                         provider: ~
+                        listener: ~
                 database:
                     mappings:
                         component_key:
@@ -583,6 +604,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwDatabase
                         provider: ~
+                        listener: ~
                 software_key:
                     mappings:
                         component_key:
@@ -601,6 +623,7 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwSoftwareKey
                         provider: ~
+                        listener: ~
                 route:
                     mappings:
                         component_key:
@@ -621,3 +644,4 @@ fos_elastica:
                         driver: orm
                         model: Ehann\Bundle\OpenAwesomeBundle\Entity\SysSwRoute
                         provider: ~
+                        listener: ~
