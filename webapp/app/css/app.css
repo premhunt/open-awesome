@@ -32,17 +32,13 @@ div[system-component] {
     color: #FFFFFF;
 }
 
-.system-component-name {
-    color: #DDDDDD;
-}
-
 .system-component-more-info-button {
-    color: #2F2F2F;
+    color: #007fff;
 }
 
 .system-component-more-info-button:hover {
     cursor: pointer;
-    color: #FFFFFF;
+    color: #0059b3;
 }
 
 .system-component-more-info {
