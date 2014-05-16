@@ -51,7 +51,6 @@ class AuditController extends Controller
      */
     public function postAction(Request $request)
     {
-        set_time_limit(18000);
         $xmlContent = (object)simplexml_load_string($request->getContent());
         // System
         $system = $this->get('jms_serializer')->deserialize($xmlContent->sys->asXML(), 'Ehann\Bundle\OpenAwesomeBundle\Entity\System', 'xml');
@@ -202,8 +201,8 @@ class AuditController extends Controller
                 $this->persistComponent($manager, $componentXml, 'SysSwRoute', '', $system, $system->getUuid() . $componentXml->destination . $componentXml->protocol);
             }
         }
-
         $manager->flush();
+
         return new WebServiceResponse($system);
     }
 
@@ -244,10 +243,5 @@ class AuditController extends Controller
             $component->setFirstTimestamp(new \DateTime());
         }
         $manager->persist($component);
-        $manager->flush();
-
-        $event = $stopwatch->stop('persistComponent');
-        print $event->getDuration() . ' duration ';
-        print $event->getMemory() . ' memory ';
     }
 }
