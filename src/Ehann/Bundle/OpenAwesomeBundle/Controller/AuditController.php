@@ -62,11 +62,16 @@ class AuditController extends Controller
         if ($existingSystem) {
             $system->setId($existingSystem->getId());
             $system = $manager->merge($system);
+            $system->setFirstTimestamp($existingSystem->getFirstTimestamp());
         } else {
             $system->setFirstTimestamp(new \DateTime());
             $system->setFqdn($system->getHostname() . "." . $system->getDomain());
             $system->setLinkedSys(0);
         }
+        if (is_null($system->getFirstTimestamp())) {
+            $system->setFirstTimestamp(new \DateTime());
+        }
+
         $manager->persist($system);
         $manager->flush();
         // Windows
@@ -232,7 +237,10 @@ class AuditController extends Controller
         if ($existingComponent = $manager->getRepository($repoClass)->findOneBy(array('componentKey' => $component->getComponentKey()))) {
             $component->setId($existingComponent->getId());
             $component = $manager->merge($component);
-        } else {
+            $component->setFirstTimestamp($existingComponent->getFirstTimestamp());
+        }
+
+        if (is_null($component->getFirstTimestamp())) {
             $component->setFirstTimestamp(new \DateTime());
         }
         $manager->persist($component);

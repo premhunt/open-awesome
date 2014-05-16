@@ -165,7 +165,7 @@ class System extends SystemComponent
     /**
      * @var \DateTime
      *
-     * @Type("DateTime<'Y-m-d'>")
+     * @Type("DateTime<'Y-m-d G:i:s'>")
      * @ORM\Column(name="pc_date_os_installation", type="date", nullable=true)
      */
     private $pcDateOsInstallation;
